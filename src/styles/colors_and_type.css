@@ -1,0 +1,296 @@
+/* ================================================================
+   Sidney by Satorus — Colors & Typography
+   Typography: Outfit (display) + Instrument Sans (body) + IBM Plex Mono (data)
+   Palette: Deep slate base, signal cyan accent
+   ================================================================ */
+
+/* ------ Fonts ------ */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ───────── Background layers ─────────
+     Deepest → Surface → Elevated → Hover */
+  --sidney-bg-deepest: hsl(240, 14%, 4.5%);     /* sidebar, app shell */
+  --sidney-bg:         hsl(234, 8%, 6%);         /* page background */
+  --sidney-surface:    hsl(235, 14%, 9%);        /* cards / popovers */
+  --sidney-elevated:   hsl(232, 10%, 12%);       /* secondary, pills */
+  --sidney-hover:      hsl(232, 8%, 16%);        /* muted / active rows */
+
+  /* ───────── Foreground / text ─────────
+     Hierarchy via opacity — primary 95%, secondary 60%, tertiary 35%. */
+  --sidney-fg:         hsl(0, 0%, 95%);
+  --sidney-fg-muted:   hsl(220, 10%, 55%);       /* secondary text */
+  --sidney-fg-subtle:  hsla(0, 0%, 95%, 0.40);   /* tertiary / placeholder */
+  --sidney-fg-faint:   hsla(0, 0%, 95%, 0.25);   /* disabled / icon ghost */
+
+  /* ───────── Accent — signal cyan ─────────
+     One accent, committed. Used for state, focus, brand. */
+  --sidney-primary:       hsl(187, 72%, 48%);    /* #22B8CE-ish */
+  --sidney-primary-fg:    hsl(240, 12%, 5%);
+  --sidney-primary-10:    hsla(187, 72%, 48%, 0.10);
+  --sidney-primary-20:    hsla(187, 72%, 48%, 0.20);
+  --sidney-primary-30:    hsla(187, 72%, 48%, 0.30);
+  --sidney-primary-40:    hsla(187, 72%, 48%, 0.40);
+
+  /* ───────── Borders ─────────
+     ~8–12% white opacity equivalent. Never harsh. */
+  --sidney-border:         hsl(232, 10%, 14%);
+  --sidney-border-strong:  hsl(232, 10%, 18%);
+  --sidney-input:          hsl(232, 12%, 11%);
+  --sidney-ring:           hsl(187, 72%, 48%);
+
+  /* ───────── Status ─────────
+     Muted backgrounds @ 10% opacity, vivid icons/badges. */
+  --sidney-ok:       hsl(152, 60%, 48%);   /* operational / verified  */
+  --sidney-warn:     hsl(38, 92%, 55%);    /* caution / review        */
+  --sidney-alert:    hsl(0, 72%, 51%);     /* critical / blocked      */
+  --sidney-info:     hsl(187, 72%, 48%);   /* informational (= primary) */
+  --sidney-neutral:  hsl(0, 0%, 45%);
+
+  /* Confidence scale — 5 segments */
+  --sidney-conf-low:          hsl(0, 72%, 51%);
+  --sidney-conf-low-moderate: hsl(38, 92%, 55%);
+  --sidney-conf-moderate:     hsl(38, 80%, 50%);
+  --sidney-conf-high:         hsl(152, 60%, 48%);
+  --sidney-conf-confirmed:    hsl(187, 72%, 48%);
+
+  /* Annotations / highlighted evidence */
+  --sidney-highlight:     hsl(48, 80%, 55%);
+  --sidney-highlight-bg:  hsl(48, 30%, 10%);
+  --sidney-escalation-bg: hsl(0, 30%, 10%);
+
+  /* Warning / info soft backgrounds used in reports */
+  --sidney-warning-bg:     hsl(0, 30%, 8%);
+  --sidney-warning-border: hsl(0, 40%, 18%);
+  --sidney-warning-text:   hsl(0, 60%, 65%);
+  --sidney-info-bg:        hsl(187, 20%, 8%);
+  --sidney-info-border:    hsl(187, 30%, 18%);
+
+  /* ───────── Radius ─────────
+     6–8px cards/panels, 4–6px buttons/inputs, 2–3px badges. */
+  --sidney-radius-xs: 2px;   /* badges */
+  --sidney-radius-sm: 4px;   /* chips / small buttons */
+  --sidney-radius:    6px;   /* buttons, inputs */
+  --sidney-radius-md: 8px;   /* cards, panels */
+  --sidney-radius-lg: 10px;  /* dialogs */
+  --sidney-radius-full: 9999px;
+
+  /* ───────── Spacing — 4px base grid ───────── */
+  --sidney-space-1:  4px;
+  --sidney-space-2:  8px;
+  --sidney-space-3:  12px;
+  --sidney-space-4:  16px;
+  --sidney-space-5:  20px;
+  --sidney-space-6:  24px;
+  --sidney-space-8:  32px;
+  --sidney-space-10: 40px;
+  --sidney-space-12: 48px;
+  --sidney-space-16: 64px;
+
+  /* ───────── Motion ─────────
+     Functional, never decorative. 120–250ms. No bounce. */
+  --sidney-ease:              cubic-bezier(0.4, 0, 0.2, 1);
+  --sidney-ease-out:          cubic-bezier(0.16, 1, 0.3, 1);
+  --sidney-transition-fast:   120ms var(--sidney-ease);
+  --sidney-transition:        150ms var(--sidney-ease);
+  --sidney-transition-smooth: 200ms var(--sidney-ease);
+  --sidney-transition-panel:  250ms var(--sidney-ease);
+
+  /* ───────── Depth — extremely subtle ─────────
+     Layered, never a single harsh shadow. */
+  --sidney-shadow-card:       0 1px 2px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.15);
+  --sidney-shadow-card-hover: 0 2px 4px rgba(0,0,0,0.4), 0 8px 16px rgba(0,0,0,0.2);
+  --sidney-shadow-popover:    0 8px 24px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.35);
+  --sidney-glow:              0 0 16px hsla(187, 72%, 48%, 0.12);
+  --sidney-glow-strong:       0 0 24px hsla(187, 72%, 48%, 0.20);
+
+  /* ───────── Type — base ───────── */
+  --sidney-font-sans:    'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --sidney-font-display: 'Outfit', system-ui, sans-serif;
+  --sidney-font-serif:   'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --sidney-font-mono:    'IBM Plex Mono', 'Consolas', monospace;
+
+  /* Weights */
+  --sidney-fw-light:    300;
+  --sidney-fw-regular:  400;
+  --sidney-fw-medium:   500;
+  --sidney-fw-semibold: 600;
+  --sidney-fw-bold:     700;
+  --sidney-fw-black:    800;
+
+  /* ───────── Semantic type tokens ─────────
+     Decisive scale — 3x jumps, not timid 1.5x steps.
+     Letter-spacing tight on display (-0.02em), loose on labels (+0.06em). */
+
+  /* Hero / display moments (landing, splash, auth) */
+  --sidney-h-hero-size:     64px;
+  --sidney-h-hero-lh:       1.05;
+  --sidney-h-hero-weight:   700;
+  --sidney-h-hero-tracking: -0.03em;
+
+  /* Page-level title (app shell pages) */
+  --sidney-h1-size:     32px;
+  --sidney-h1-lh:       1.15;
+  --sidney-h1-weight:   600;
+  --sidney-h1-tracking: -0.02em;
+
+  --sidney-h2-size:     24px;
+  --sidney-h2-lh:       1.2;
+  --sidney-h2-weight:   600;
+  --sidney-h2-tracking: -0.02em;
+
+  --sidney-h3-size:     18px;
+  --sidney-h3-lh:       1.3;
+  --sidney-h3-weight:   600;
+  --sidney-h3-tracking: -0.01em;
+
+  --sidney-h4-size:     15px;
+  --sidney-h4-lh:       1.4;
+  --sidney-h4-weight:   600;
+  --sidney-h4-tracking: -0.005em;
+
+  /* Body / UI text */
+  --sidney-body-size:     14px;
+  --sidney-body-lh:       1.55;
+  --sidney-body-weight:   400;
+
+  --sidney-body-sm-size:  13px;   /* dense UI — lists, tables */
+  --sidney-body-sm-lh:    1.5;
+
+  --sidney-body-xs-size:  12px;   /* secondary meta, chips */
+  --sidney-body-xs-lh:    1.45;
+
+  /* Labels / eyebrows — uppercase, tracked-out */
+  --sidney-label-size:     11px;
+  --sidney-label-lh:       1.3;
+  --sidney-label-weight:   500;
+  --sidney-label-tracking: 0.08em;
+  --sidney-label-transform: uppercase;
+
+  /* Mono — IBM Plex Mono, for data, IDs, kbd, timestamps */
+  --sidney-mono-size: 12px;
+  --sidney-mono-lh:   1.5;
+  --sidney-mono-tnum: "tnum";
+
+  /* ───────── Layout constants ───────── */
+  --sidney-sidebar-w:           240px;
+  --sidney-sidebar-w-collapsed: 64px;
+  --sidney-topbar-h:            56px;
+  --sidney-row-h-compact:       36px;   /* data table rows */
+  --sidney-row-h:               40px;   /* default */
+  --sidney-btn-h-compact:       32px;
+  --sidney-btn-h:               36px;
+  --sidney-btn-h-tall:          40px;
+}
+
+/* ================================================================
+   Base styles
+   ================================================================ */
+html, body {
+  background: var(--sidney-bg);
+  color: var(--sidney-fg);
+  font-family: var(--sidney-font-sans);
+  font-size: var(--sidney-body-size);
+  line-height: var(--sidney-body-lh);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings — always display font, tight tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sidney-font-display);
+  color: var(--sidney-fg);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+h1 { font-size: var(--sidney-h1-size); line-height: var(--sidney-h1-lh); font-weight: var(--sidney-h1-weight); letter-spacing: var(--sidney-h1-tracking); }
+h2 { font-size: var(--sidney-h2-size); line-height: var(--sidney-h2-lh); font-weight: var(--sidney-h2-weight); letter-spacing: var(--sidney-h2-tracking); }
+h3 { font-size: var(--sidney-h3-size); line-height: var(--sidney-h3-lh); font-weight: var(--sidney-h3-weight); letter-spacing: var(--sidney-h3-tracking); }
+h4 { font-size: var(--sidney-h4-size); line-height: var(--sidney-h4-lh); font-weight: var(--sidney-h4-weight); letter-spacing: var(--sidney-h4-tracking); }
+
+/* Body paragraphs */
+p {
+  font-size: var(--sidney-body-size);
+  line-height: var(--sidney-body-lh);
+  color: var(--sidney-fg);
+  margin: 0;
+}
+
+/* Labels / eyebrow */
+.sidney-label,
+.sidney-eyebrow {
+  font-family: var(--sidney-font-sans);
+  font-size: var(--sidney-label-size);
+  line-height: var(--sidney-label-lh);
+  font-weight: var(--sidney-label-weight);
+  letter-spacing: var(--sidney-label-tracking);
+  text-transform: var(--sidney-label-transform);
+  color: var(--sidney-fg-subtle);
+}
+
+/* Monospace for data / timestamps / codes / kbd */
+code, kbd, samp, .sidney-mono {
+  font-family: var(--sidney-font-mono);
+  font-size: var(--sidney-mono-size);
+  line-height: var(--sidney-mono-lh);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Utility: tabular numbers (for timestamps, counts) */
+.sidney-tnum { font-variant-numeric: tabular-nums; }
+
+/* Hero display class — for landing, auth moments */
+.sidney-hero {
+  font-family: var(--sidney-font-display);
+  font-size: var(--sidney-h-hero-size);
+  line-height: var(--sidney-h-hero-lh);
+  font-weight: var(--sidney-h-hero-weight);
+  letter-spacing: var(--sidney-h-hero-tracking);
+}
+
+/* ================================================================
+   Scrollbar — near invisible, appears on hover
+   ================================================================ */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+/* ================================================================
+   Selection
+   ================================================================ */
+::selection {
+  background: var(--sidney-primary-30);
+  color: var(--sidney-fg);
+}
+
+/* ================================================================
+   Canonical keyframes
+   ================================================================ */
+@keyframes sidneyFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sidneyFindingReveal {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes sidneyPulseSubtle {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.6; }
+}
+@keyframes sidneySlideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes sidneySpinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.sidney-animate-fade-in-up     { animation: sidneyFadeInUp 0.4s var(--sidney-ease-out) forwards; opacity: 0; }
+.sidney-animate-finding-reveal { animation: sidneyFindingReveal 0.5s var(--sidney-ease-out) forwards; opacity: 0; }
+.sidney-animate-pulse-subtle   { animation: sidneyPulseSubtle 2s ease-in-out infinite; }
+.sidney-animate-spin-slow      { animation: sidneySpinSlow 4s linear infinite; }

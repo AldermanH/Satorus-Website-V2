@@ -1,0 +1,48 @@
+/* Shared helpers across both directions */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--sidney-bg); color: var(--sidney-fg); font-family: var(--sidney-font-sans); }
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+/* Eyebrow / label */
+.eyebrow { font: 500 11px/1.3 var(--sidney-font-sans); color: var(--sidney-fg-subtle); letter-spacing: 0.12em; text-transform: uppercase; }
+.mono { font-family: var(--sidney-font-mono); font-variant-numeric: tabular-nums; }
+
+/* Buttons
+   .btn-primary : monochrome white on dark — the only solid colour is the
+                  type, so cyan stays reserved for accents (shader, em,
+                  status dots).  Hover = slight darken + a 1px offset ring
+                  that "pulls" away from the button. */
+.btn { display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 6px; font: 500 13px var(--sidney-font-sans); cursor: pointer; transition: all 150ms var(--sidney-ease); height: 38px; padding: 0 16px; white-space: nowrap; }
+.btn-primary {
+  background: hsl(0, 0%, 98%);
+  color: var(--sidney-primary-fg);
+  outline: 1px solid transparent;
+  outline-offset: 0;
+}
+.btn-primary:hover {
+  background: hsl(0, 0%, 88%);
+  outline-color: hsla(0, 0%, 100%, 0.22);
+  outline-offset: 2px;
+}
+.btn-primary:focus-visible { outline-color: var(--sidney-primary); outline-offset: 2px; }
+.btn-ghost { background: transparent; color: var(--sidney-fg); border: 1px solid var(--sidney-border-strong); }
+.btn-ghost:hover { border-color: var(--sidney-primary-40); background: var(--sidney-elevated); }
+.btn-plain { background: transparent; color: var(--sidney-fg-muted); }
+.btn-plain:hover { color: var(--sidney-fg); }
+
+/* keyboard hint */
+.kbd { display: inline-flex; align-items: center; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--sidney-border-strong); background: var(--sidney-elevated); font: 500 11px var(--sidney-font-mono); color: var(--sidney-fg-faint); }
+
+/* links / nav */
+.nav-link { color: var(--sidney-fg-muted); font: 500 13px var(--sidney-font-sans); padding: 6px 10px; border-radius: 4px; transition: color 150ms; }
+.nav-link:hover { color: var(--sidney-fg); }
+.nav-link.active { color: var(--sidney-fg); }
+
+/* section / layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+/* fade in up */
+.fadein { animation: sidneyFadeInUp 600ms var(--sidney-ease-out) both; }
+.reveal { animation: sidneyFindingReveal 600ms var(--sidney-ease-out) both; }

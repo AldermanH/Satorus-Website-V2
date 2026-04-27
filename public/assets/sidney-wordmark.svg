@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="44" viewBox="0 0 280 44" fill="none">
+  <g transform="translate(0, 2)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.2075 22.3148C2.99877 20.7519 0 16.6988 0 11.9463C0 5.84947 4.94912 0.9 11.054 0.9C14.7312 0.9 17.9884 2.69459 19.9994 5.45574C12.6692 7.59046 7.29463 14.3219 7.2075 22.3148ZM7.2075 22.3148C7.20676 22.3807 7.2064 22.4467 7.2064 22.5128C7.2064 32.3241 15.1651 40.2815 24.9779 40.2815C34.7907 40.2815 42.7494 32.3241 42.7494 22.5128C42.7494 12.7015 34.7907 4.74412 24.9779 4.74412C23.2487 4.74412 21.5779 4.99101 19.9994 5.45574C21.3276 7.29054 22.1107 9.53729 22.1107 11.9463C22.1107 18.0432 17.1616 22.9921 11.054 22.9921C9.70198 22.9921 8.40591 22.7492 7.2075 22.3148Z" fill="hsl(187, 72%, 48%)"></path>
+  </g>
+  <text x="54" y="30" font-family="Outfit, system-ui, sans-serif" font-size="22" font-weight="600" letter-spacing="-0.02em" fill="#F2F2F2">SIDNEY</text>
+  <text x="148" y="30" font-family="Outfit, system-ui, sans-serif" font-size="13" font-weight="400" letter-spacing="0.06em" fill="rgba(242,242,242,0.4)">BY SATORUS</text>
+</svg>

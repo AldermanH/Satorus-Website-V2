@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Satorus Group — AI Agents for High Stakes Intelligence</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Satorus builds AI agents for intelligence investigations. Sidney is the workstation analysts live in — faster, more accurate, infinitely scalable."/>
+<link rel="icon" type="image/svg+xml" href="assets/satorus-icon-cyan.svg"/>
+<link rel="stylesheet" href="assets/colors_and_type.css"/>
+<link rel="stylesheet" href="site-shared.css"/>
+<link rel="stylesheet" href="site-a.css"/>
+<link rel="stylesheet" href="a11y.css"/>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+  html, body, #root { margin: 0; padding: 0; background: var(--sidney-bg); min-height: 100vh; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="root"></div>
+
+<script type="text/babel" src="Components.jsx"></script>
+<script type="text/babel" src="SiteA-Hero.jsx"></script>
+<script type="text/babel" src="SiteA-Demo.jsx"></script>
+<script type="text/babel" src="SiteA-Sections.jsx"></script>
+<script type="text/babel">
+
+function DirectionA() {
+  const [page, setPage] = React.useState("home");
+  return (
+    <div style={{ minHeight: "100%", background: "var(--sidney-bg)" }}>
+      <NavA page={page} setPage={setPage}/>
+      <main id="main">
+      <HeroA/>
+      <section className="a-section" id="live-demo">
+        <div className="container">
+          <div className="a-section-head">
+            <div>
+              <div className="a-section-label">The product · live</div>
+              <h2 className="a-section-h">Watch an investigation <em>assemble itself.</em></h2>
+            </div>
+            <p className="a-section-p">A real query, a real subject. Sidney types, thinks, fetches, and produces a finding with every claim tied to a source. No canned video.</p>
+          </div>
+          <DemoA/>
+        </div>
+      </section>
+      <ProductA/>
+      <UseCasesA/>
+      <CasesA/>
+      <TeamA/>
+      <CtaA/>
+      </main>
+      <FooterA/>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<DirectionA/>);
+</script>
+</body>
+</html>

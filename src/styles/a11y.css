@@ -1,0 +1,131 @@
+/* Accessibility + responsive refinements
+   Applied per UI/UX Pro Max audit — reduced-motion, focus states,
+   touch targets, breakpoints. Layered on top of site-a.css. */
+
+/* ───── Skip link ───── */
+.skip-link {
+  position: absolute; left: 16px; top: -40px; z-index: 100;
+  padding: 8px 14px; background: var(--sidney-primary); color: var(--sidney-primary-fg);
+  font: 500 13px var(--sidney-font-sans); border-radius: 6px;
+  transition: top 150ms var(--sidney-ease);
+}
+.skip-link:focus { top: 16px; outline: none; box-shadow: 0 0 0 3px var(--sidney-primary-40); }
+
+/* ───── Focus-visible rings ─────
+   Buttons, links and tabs must show a keyboard focus ring.
+   We keep the visual consistent with the cyan accent. */
+:focus { outline: none; }
+.btn:focus-visible,
+.a-hh-link:focus-visible,
+.a-uc-tab:focus-visible,
+.a-foot-l:focus-visible,
+.a-hero-pill:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--sidney-bg), 0 0 0 4px var(--sidney-primary);
+  border-radius: 6px;
+}
+.a-uc-tab:focus-visible { border-radius: 8px; }
+
+/* Ensure interactive elements have the cursor users expect */
+.a-hh-link, .a-uc-tab, .a-side-item, .a-side-recent-item, .a-demo-mode, .a-foot-l, .a-hero-pill {
+  cursor: pointer;
+}
+
+/* ───── Reduced-motion ─────
+   Kill infinite CSS animations (demo caret + stage pulse) for users who opt out. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .a-cmdbar .caret, .a-stage-row.curr .d,
+  .a-marquee-track { animation: none !important; }
+  /* Reveal the mask edges fully so the frozen logos don't sit under a fade */
+  .a-marquee-viewport { -webkit-mask-image: none; mask-image: none; }
+}
+
+/* ───── Responsive breakpoints ─────
+   Design is 1200–1440px native. These breakpoints stack/tighten
+   for laptops (1024), tablets (768) and phones (375). */
+
+/* ≤ 1024px — laptop: tighten section heads + demo grid */
+@media (max-width: 1024px) {
+  .a-foot-row, .a-cta, .container { padding-left: 24px; padding-right: 24px; }
+  .a-section-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .a-section-h { font-size: 38px; }
+  .a-uc { grid-template-columns: 1fr; }
+  .a-uc-rail { position: static; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; padding-bottom: 4px; }
+  .a-uc-rail .a-uc-tab { min-width: 280px; scroll-snap-align: start; }
+  .a-product-grid { grid-template-columns: repeat(2, 1fr); }
+  .a-cases { grid-template-columns: 1fr; }
+  .a-team { grid-template-columns: repeat(2, 1fr); }
+  .a-foot-row { grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+
+  /* Header: hide centred desktop menu, surface hamburger */
+  .a-hh-mobile-toggle { display: inline-flex; }
+  .a-hh-menu { display: none; }
+  .a-hh-actions { display: none; }
+  .a-hh[data-state="active"] .a-hh-row { flex-wrap: wrap; }
+  .a-hh[data-state="active"] .a-hh-actions {
+    display: flex; flex-direction: column; align-items: stretch;
+    gap: 14px; width: 100%; padding: 16px 0 4px;
+    border-top: 1px solid var(--sidney-border);
+    margin-left: 0;
+  }
+  .a-hh[data-state="active"] .a-hh-menu-mobile {
+    display: flex; flex-direction: column; gap: 14px;
+    margin: 0; padding: 0; list-style: none;
+    width: 100%;
+  }
+  .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
+  .a-hh[data-state="active"] .a-hh-buttons .btn { flex: 1; justify-content: center; }
+}
+
+/* ≤ 768px — tablet: collapse hero + grids */
+@media (max-width: 768px) {
+  .a-hero { padding-top: 96px; }
+  .a-hero-h1 { font-size: clamp(40px, 10vw, 64px); margin-top: 24px; }
+  .a-hero-sub { font-size: 17px; margin-top: 20px; }
+  .a-hero-ctas { margin-top: 32px; }
+  .a-hero-mockup-wrap { margin: 28px 0 0; }
+  .a-marquee-logo { margin-right: 56px; }
+  .a-marquee-track { animation-duration: 90s; }
+
+  .a-section { padding: 80px 0; }
+  .a-section-h { font-size: 30px; }
+  .a-product-grid { grid-template-columns: 1fr; }
+  .a-demo-body { grid-template-columns: 1fr; }
+  .a-demo-side { display: none; }
+  .a-demo-main { padding: 20px 18px; }
+  .a-uc-bullets { grid-template-columns: 1fr; }
+  .a-uc-panel-head, .a-uc-panel-body { padding-left: 22px; padding-right: 22px; }
+  .a-team { grid-template-columns: 1fr 1fr; }
+  .a-invest { gap: 24px 32px; }
+  .a-cta-inner { padding: 48px 28px; }
+  .a-cta-h { font-size: 36px; }
+  .a-foot-row { grid-template-columns: 1fr 1fr; }
+  .a-foot-bot { flex-direction: column; gap: 12px; align-items: flex-start; padding-left: 24px; padding-right: 24px; }
+}
+
+/* ≤ 420px — phone: single-column everything */
+@media (max-width: 420px) {
+  .a-hero-pill { font-size: 12px; padding: 4px 4px 4px 14px; gap: 10px; }
+  .a-marquee-logo { margin-right: 40px; }
+  .a-marquee-track { animation-duration: 72s; }
+  .a-team { grid-template-columns: 1fr; }
+  .a-foot-row { grid-template-columns: 1fr; }
+  .a-case { padding: 22px; }
+  .a-finding-head { flex-wrap: wrap; }
+}
+
+/* ───── Touch target minimum (44×44) on coarse pointers ───── */
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
+  .a-hh-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .a-foot-l { min-height: 32px; display: inline-flex; align-items: center; }
+  .a-demo-mode { min-height: 32px; display: inline-flex; align-items: center; }
+}
