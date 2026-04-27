@@ -4,8 +4,8 @@
    Palette: Deep slate base, signal cyan accent
    ================================================================ */
 
-/* ------ Fonts ------ */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+/* Fonts are loaded via <link> in index.html — moved out of CSS to unblock
+   the render path (CSS @import serializes the request behind the stylesheet). */
 
 :root {
   /* ───────── Background layers ─────────

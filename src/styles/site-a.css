@@ -472,7 +472,7 @@
 .a-actor-conf .dot { width: 6px; height: 6px; border-radius: 50%; background: hsl(0, 72%, 60%); box-shadow: 0 0 8px hsla(0, 72%, 51%, 0.6); }
 .a-actor-conf .dot.warn { background: var(--sidney-warn); box-shadow: 0 0 8px hsla(38, 92%, 55%, 0.6); }
 
-.a-actor-card:nth-child(odd-of-type) { border-left-color: var(--sidney-border-strong); }
+.a-actor-card { border-left-color: var(--sidney-border-strong); }
 .a-actor-card:has(.a-actor-tag.critical) { border-left-color: hsl(0, 72%, 51%); }
 .a-actor-card:has(.a-actor-tag.warn)     { border-left-color: var(--sidney-warn); }
 
