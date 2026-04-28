@@ -1,6 +1,8 @@
 /* Accessibility + responsive refinements
-   Applied per UI/UX Pro Max audit — reduced-motion, focus states,
-   touch targets, breakpoints. Layered on top of site-a.css. */
+   Layered on top of site-a.css. Reduced-motion, focus rings, touch targets,
+   plus all cross-cutting responsive overrides. Component-internal
+   breakpoints (.a-bento mobile, .a-team-grid mobile, .a-bento-cta mobile)
+   live alongside their base rules in site-a.css. */
 
 /* ───── Skip link ───── */
 .skip-link {
@@ -12,29 +14,28 @@
 .skip-link:focus { top: 16px; outline: none; box-shadow: 0 0 0 3px var(--sidney-primary-40); }
 
 /* ───── Focus-visible rings ─────
-   Buttons, links and tabs must show a keyboard focus ring.
-   We keep the visual consistent with the cyan accent. */
+   Keyboard focus shows a cyan accent ring; mouse-driven :focus is suppressed. */
 :focus { outline: none; }
 .btn:focus-visible,
 .a-hh-link:focus-visible,
-.a-uc-tab:focus-visible,
 .a-foot-l:focus-visible,
 .a-hero-pill:focus-visible,
+.a-team-li:focus-visible,
+.a-team-open-cta:focus-visible,
 a:focus-visible,
 button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--sidney-bg), 0 0 0 4px var(--sidney-primary);
   border-radius: 6px;
 }
-.a-uc-tab:focus-visible { border-radius: 8px; }
 
-/* Ensure interactive elements have the cursor users expect */
-.a-hh-link, .a-uc-tab, .a-side-item, .a-side-recent-item, .a-demo-mode, .a-foot-l, .a-hero-pill {
+/* Cursor on interactive elements that aren't <button>/<a> */
+.a-hh-link, .a-side-item, .a-side-recent-item, .a-demo-mode, .a-foot-l, .a-hero-pill, .a-team-open-cta {
   cursor: pointer;
 }
 
 /* ───── Reduced-motion ─────
-   Kill infinite CSS animations (demo caret + stage pulse) for users who opt out. */
+   Kill infinite CSS animations for users who opt out. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -42,27 +43,22 @@ button:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .a-cmdbar .caret, .a-stage-row.curr .d,
-  .a-marquee-track { animation: none !important; }
-  /* Reveal the mask edges fully so the frozen logos don't sit under a fade */
+  .a-cmdbar .caret, .a-stage-row.curr .d, .a-marquee-track { animation: none !important; }
   .a-marquee-viewport { -webkit-mask-image: none; mask-image: none; }
 }
 
-/* ───── Responsive breakpoints ─────
-   Design is 1200–1440px native. These breakpoints stack/tighten
-   for laptops (1024), tablets (768) and phones (375). */
+/* ─────────────────────────────────────────────────────────────────────
+   Responsive breakpoints
+   Native design: 1280–1440. Overrides cascade narrower → smaller.
+   ───────────────────────────────────────────────────────────────────── */
 
-/* ≤ 1024px — laptop: tighten section heads + demo grid */
+/* ≤ 1024px — tablet landscape / small laptop */
 @media (max-width: 1024px) {
-  .a-foot-row, .a-cta, .container { padding-left: 24px; padding-right: 24px; }
+  .container, .a-foot-row, .a-cta { padding-left: 24px; padding-right: 24px; }
+  .a-section { padding: 96px 0; }
   .a-section-head { flex-direction: column; align-items: flex-start; gap: 20px; }
   .a-section-h { font-size: 38px; }
-  .a-uc { grid-template-columns: 1fr; }
-  .a-uc-rail { position: static; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; padding-bottom: 4px; }
-  .a-uc-rail .a-uc-tab { min-width: 280px; scroll-snap-align: start; }
   .a-product-grid { grid-template-columns: repeat(2, 1fr); }
-  .a-cases { grid-template-columns: 1fr; }
-  .a-team { grid-template-columns: repeat(2, 1fr); }
   .a-foot-row { grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
 
   /* Header: hide centred desktop menu, surface hamburger */
@@ -73,53 +69,129 @@ button:focus-visible {
   .a-hh[data-state="active"] .a-hh-actions {
     display: flex; flex-direction: column; align-items: stretch;
     gap: 14px; width: 100%; padding: 16px 0 4px;
-    border-top: 1px solid var(--sidney-border);
-    margin-left: 0;
+    border-top: 1px solid var(--sidney-border); margin-left: 0;
   }
   .a-hh[data-state="active"] .a-hh-menu-mobile {
     display: flex; flex-direction: column; gap: 14px;
-    margin: 0; padding: 0; list-style: none;
-    width: 100%;
+    margin: 0; padding: 0; list-style: none; width: 100%;
   }
   .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
   .a-hh[data-state="active"] .a-hh-buttons .btn { flex: 1; justify-content: center; }
 }
 
-/* ≤ 768px — tablet: collapse hero + grids */
+/* ≤ 768px — tablet portrait / large phone */
 @media (max-width: 768px) {
-  .a-hero { padding-top: 96px; }
+  .a-hero { padding-top: 112px; padding-bottom: 64px; }
   .a-hero-h1 { font-size: clamp(40px, 10vw, 64px); margin-top: 24px; }
   .a-hero-sub { font-size: 17px; margin-top: 20px; }
   .a-hero-ctas { margin-top: 32px; }
-  .a-hero-mockup-wrap { margin: 28px 0 0; }
+  .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
+  .a-hero-mockup { padding: 8px; border-radius: 12px; }
+
   .a-marquee-logo { margin-right: 56px; }
   .a-marquee-track { animation-duration: 90s; }
 
-  .a-section { padding: 80px 0; }
-  .a-section-h { font-size: 30px; }
+  .a-section { padding: 72px 0; }
+  .a-section-h { font-size: 32px; }
   .a-product-grid { grid-template-columns: 1fr; }
-  .a-demo-body { grid-template-columns: 1fr; }
+
+  /* Live demo — drop the workspace sidebar, shrink the fixed body height */
+  .a-hero-mockup-live .a-demo-body { height: 560px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
   .a-demo-main { padding: 20px 18px; }
-  .a-uc-bullets { grid-template-columns: 1fr; }
-  .a-uc-panel-head, .a-uc-panel-body { padding-left: 22px; padding-right: 22px; }
-  .a-team { grid-template-columns: 1fr 1fr; }
-  .a-invest { gap: 24px 32px; }
+  .a-demo-h { font-size: 19px; margin-bottom: 16px; }
+  .a-cmdbar { padding: 12px 14px; }
+  .a-cmdbar-text { font-size: 13.5px; line-height: 1.4; }
+
+  /* Demo finding card — let the head wrap so the title doesn't squeeze */
+  .a-finding-head { flex-wrap: wrap; }
+  .a-finding-title { flex-basis: 100%; order: 3; margin-top: 4px; }
+  .a-finding-conf { margin-left: auto; }
+
+  /* Demo evidence rows — drop the kind pill and confidence column on narrow */
+  .a-ev-row { grid-template-columns: 22px 1fr auto; gap: 8px; font-size: 12px; }
+  .a-ev-row .kind, .a-ev-row .conf { display: none; }
+
+  /* Demo entity row — stack label above chips */
+  .a-finding-entity-row { grid-template-columns: 1fr; gap: 6px; }
+  .a-actor-meta { gap: 4px 12px; font-size: 9.5px; }
+
+  /* Bento internal visuals — narrow-screen adjustments */
+  .a-bento-1 .a-bento-h, .a-bento-4 .a-bento-h { font-size: 22px; }
+  .a-bento-feed-row { grid-template-columns: 36px 1fr auto; }
+  .a-bento-feed-row .src { display: none; }
+  .a-bento-handle { grid-template-columns: 1fr; gap: 8px; }
+  .a-bento-handle-arrow { display: none; }
+
+  /* Team — tighter card padding */
+  .a-team-founder, .a-team-practitioner { padding: 20px 18px 18px; }
+  .a-team-advisor { padding: 16px 18px; }
+
+  /* Big CTA */
+  .a-cta { margin: 80px auto 56px; padding: 0 24px; }
   .a-cta-inner { padding: 48px 28px; }
   .a-cta-h { font-size: 36px; }
+  .a-cta-ctas { flex-direction: column; gap: 8px; width: 100%; }
+  .a-cta-ctas .btn { width: 100%; }
+
+  /* Footer */
   .a-foot-row { grid-template-columns: 1fr 1fr; }
   .a-foot-bot { flex-direction: column; gap: 12px; align-items: flex-start; padding-left: 24px; padding-right: 24px; }
 }
 
-/* ≤ 420px — phone: single-column everything */
-@media (max-width: 420px) {
+/* ≤ 480px — phone (covers iPhone 14/15/16 widths and most Android) */
+@media (max-width: 480px) {
+  .a-hero { padding-top: 96px; padding-bottom: 48px; }
   .a-hero-pill { font-size: 12px; padding: 4px 4px 4px 14px; gap: 10px; }
+  .a-hero-sub { font-size: 16px; }
+  .a-hero-mockup-wrap { padding: 0 4px; }
+  .a-hero-mockup { padding: 6px; }
+
   .a-marquee-logo { margin-right: 40px; }
   .a-marquee-track { animation-duration: 72s; }
-  .a-team { grid-template-columns: 1fr; }
+
+  .a-section { padding: 56px 0; }
+  .a-section-h { font-size: 26px; }
   .a-foot-row { grid-template-columns: 1fr; }
-  .a-case { padding: 22px; }
-  .a-finding-head { flex-wrap: wrap; }
+
+  /* Demo — shorter still on tiny screens, smaller cmdbar + cards */
+  .a-hero-mockup-live .a-demo-body { height: 480px; }
+  .a-demo-main { padding: 16px 14px; }
+  .a-demo-greeting { font-size: 12px; }
+  .a-demo-h { font-size: 15px; margin-bottom: 14px; }
+  .a-cmdbar-text { font-size: 12.5px; }
+  .a-finding-title { font-size: 14px; }
+  .a-finding-body { font-size: 12.5px; padding: 14px 16px; }
+  .a-finding-keys, .a-finding-entities, .a-finding-ev { padding-left: 16px; padding-right: 16px; }
+  .a-finding-meta { padding: 8px 16px; font-size: 9px; gap: 4px 10px; }
+  .a-actor-card .a-actor-head { padding: 12px 16px 8px; gap: 8px; flex-wrap: wrap; }
+  .a-actor-h { font-size: 15px; flex-basis: 100%; order: 3; }
+  .a-actor-meta { padding: 6px 16px 10px; }
+  .a-actor-section { padding: 12px 16px; }
+  .a-actor-quote { padding: 8px 12px; font-size: 12px; }
+  .a-actor-analysis { font-size: 12.5px; }
+  .a-synth-head { padding: 12px 16px 8px; }
+  .a-synth-body, .a-synth-recs { padding-left: 16px; padding-right: 16px; }
+  .a-synth-recs li { padding: 6px 8px; font-size: 11.5px; }
+  .a-demo-runs { font-size: 9.5px; padding-top: 14px; gap: 8px; flex-wrap: wrap; }
+
+  /* Bento — tighter cards on smallest phones */
+  .a-bento-card { padding: 18px 18px 16px; }
+  .a-bento-h { font-size: 17px; }
+  .a-bento-1 .a-bento-h, .a-bento-4 .a-bento-h { font-size: 19px; }
+  .a-bento-grade-row { padding: 6px 8px; }
+  .a-bento-grade-letter { font-size: 14px; }
+
+  /* Team founder cards — tighten quote + spacing */
+  .a-team-founder { padding: 18px 16px; gap: 12px; }
+  .a-team-founder .a-team-quote { padding-left: 12px; font-size: 14px; }
+  .a-team-founder .a-team-name { font-size: 16px; }
+
+  /* Big CTA */
+  .a-cta { margin: 64px auto 48px; padding: 0 16px; }
+  .a-cta-inner { padding: 40px 22px; border-radius: 12px; }
+  .a-cta-h { font-size: 28px; }
+  .a-cta-p { font-size: 15px; margin: 16px auto 24px; }
 }
 
 /* ───── Touch target minimum (44×44) on coarse pointers ───── */
@@ -128,4 +200,5 @@ button:focus-visible {
   .a-hh-link { min-height: 44px; display: inline-flex; align-items: center; }
   .a-foot-l { min-height: 32px; display: inline-flex; align-items: center; }
   .a-demo-mode { min-height: 32px; display: inline-flex; align-items: center; }
+  .a-team-li { width: 32px; height: 32px; }
 }
