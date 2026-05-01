@@ -75,12 +75,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Force a single, stable compositing layer for the whole hero so the
-     shader (mix-blend-mode + mask) and the ::after wash (mask) don't get
-     spun up / down by the compositor during scroll-out, which was
-     briefly flashing their bounding rectangles. */
-  contain: paint;
-  transform: translateZ(0);
 }
 @media (min-width: 768px) { .a-hero { padding: 96px 0 96px; } }
 
@@ -285,10 +279,6 @@
     0 1px 0 0 var(--sidney-bg),
     0 24px 60px rgba(0,0,0,0.5),
     0 0 80px hsla(187, 72%, 48%, 0.06);
-  /* Promote to its own GPU layer so the 60px-blur drop shadow doesn't
-     trigger a paint of its bounding box on every scroll frame. */
-  transform: translateZ(0);
-  isolation: isolate;
 }
 .a-hero-mockup img {
   display: block;
