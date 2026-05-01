@@ -239,7 +239,7 @@ export const DemoA = () => {
               </div>
 
               <div className="a-finding-body">
-                Multi-source dark-web sweep decomposed across three sub-regions surfaced an <mark>interstate military conflict</mark>, an <mark>intensifying separatist insurgency</mark>, and a <mark>nationwide militant offensive</mark> running simultaneously<Cite id="07"/>. Pakistan and the Afghan Taliban entered open warfare along the Durand Line in late February 2026 following Pakistani air strikes on Kabul<Cite id="04"/>. In Balochistan, BLA and BLF conducted sustained operations including an unprecedented maritime attack, armed with US, Belarusian, Turkish, and Chinese weapons indicating sophisticated supply chains<Cite id="02"/>. TTP issued a nationwide attack order and is recruiting transnationally<Cite id="03"/>. All three vectors are escalating and mutually reinforcing.
+                Multi-source dark-web sweep decomposed across three sub-regions surfaced an <mark>interstate military conflict</mark>, an <mark>intensifying separatist insurgency</mark>, and a <mark>nationwide militant offensive</mark> running simultaneously<Cite id="07"/>. Pakistan and the Afghan Taliban entered open warfare along the Durand Line in late February 2026 following Pakistani air strikes on Kabul<Cite id="04"/><Cite id="05"/>. In Balochistan, BLA and BLF conducted sustained operations including an unprecedented maritime attack<Cite id="01"/>, armed with US, Belarusian, Turkish, and Chinese weapons indicating sophisticated supply chains<Cite id="02"/>. TTP issued a nationwide attack order and is recruiting transnationally<Cite id="03"/>. All three vectors are escalating and mutually reinforcing<Cite id="07"/>.
               </div>
 
               <div className="a-finding-keys">
@@ -324,13 +324,13 @@ export const DemoA = () => {
               <div className="a-actor-section">
                 <div className="a-actor-section-h">Sidney's analysis</div>
                 <p className="a-actor-analysis">
-                  The Durand Line corridor has escalated from counter-terrorism strikes into an <mark>interstate war between two nuclear-threshold states</mark><Cite id="04"/>. The trigger was the Islamabad Shia mosque bombing (attributed to ISIS-Khorasan operating from Afghan territory), but the underlying territorial dispute over the Durand Line is the structural driver. Pakistan's decision to strike Kabul directly represents a threshold crossing: the Afghan Taliban's response has been both conventional (BM-21 Grad deployments, position seizures) and unconventional (Khorasani's suicide bomber threat).
+                  The Durand Line corridor has escalated from counter-terrorism strikes into an <mark>interstate war between two nuclear-threshold states</mark><Cite id="04"/>. The trigger was the Islamabad Shia mosque bombing (attributed to ISIS-Khorasan operating from Afghan territory), but the underlying territorial dispute over the Durand Line is the structural driver<Cite id="04"/>. Pakistan's decision to strike Kabul directly represents a threshold crossing: the Afghan Taliban's response has been both conventional (BM-21 Grad deployments, position seizures) and unconventional (Khorasani's suicide bomber threat)<Cite id="05"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  The conflict is simultaneously fracturing Afghan domestic politics. <mark>NRF and Hazara opposition recognising the Durand Line as Pakistan's border</mark> breaks a long-standing Afghan consensus<Cite id="05"/>, potentially creating openings for negotiation but also deepening Taliban intransigence. Chinese mediation in Urumqi signals Beijing's concern over CPEC corridor security but has not yet produced a ceasefire.
+                  The conflict is simultaneously fracturing Afghan domestic politics. <mark>NRF and Hazara opposition recognising the Durand Line as Pakistan's border</mark> breaks a long-standing Afghan consensus<Cite id="05"/>, potentially creating openings for negotiation but also deepening Taliban intransigence. Chinese mediation in Urumqi signals Beijing's concern over CPEC corridor security but has not yet produced a ceasefire<Cite id="04"/><Cite id="05"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  Real-time Telegram coverage from 8+ simultaneous channels in 6 languages demonstrates the conflict's international information footprint. <em>The escalation trajectory remains steep; no de-escalation mechanism is currently visible.</em>
+                  Real-time Telegram coverage from 8+ simultaneous channels in 6 languages demonstrates the conflict's international information footprint<Cite id="07"/>. <em>The escalation trajectory remains steep; no de-escalation mechanism is currently visible.</em>
                 </p>
               </div>
             </div>
@@ -380,13 +380,13 @@ export const DemoA = () => {
               <div className="a-actor-section">
                 <div className="a-actor-section-h">Sidney's analysis</div>
                 <p className="a-actor-analysis">
-                  The Balochistan insurgency has entered a new phase. <mark>BLA's Operation Herof II demonstrated coordinated urban warfare capability across 14 cities simultaneously</mark><Cite id="01"/>, a significant leap from previous hit-and-run tactics. The April maritime attack off Gwadar opens an entirely new domain of operations and directly threatens CPEC port infrastructure.
+                  The Balochistan insurgency has entered a new phase. <mark>BLA's Operation Herof II demonstrated coordinated urban warfare capability across 14 cities simultaneously</mark><Cite id="01"/>, a significant leap from previous hit-and-run tactics. The April maritime attack off Gwadar opens an entirely new domain of operations and directly threatens CPEC port infrastructure<Cite id="01"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  Weapons provenance data across five BLF/BLA attacks tells a supply chain story. The presence of US thermal optics, standalone grenade launchers, and the rare Belarus VSK-100 precision rifle (appearing twice in separate engagements) indicates a <mark>well-resourced insurgency with access to multiple international supply lines</mark><Cite id="02"/>. <em>This is not improvised weaponry; it is a diversified, sophisticated procurement network.</em>
+                  Weapons provenance data across five BLF/BLA attacks tells a supply chain story<Cite id="02"/>. The presence of US thermal optics, standalone grenade launchers, and the rare Belarus VSK-100 precision rifle (appearing twice in separate engagements) indicates a <mark>well-resourced insurgency with access to multiple international supply lines</mark><Cite id="02"/>. <em>This is not improvised weaponry; it is a diversified, sophisticated procurement network.</em>
                 </p>
                 <p className="a-actor-analysis">
-                  The human rights dimension is inseparable from the military one. BYC leader Dr. Mahrang Baloch faces sedition charges linked to CPEC displacement protests. BYC member Sabghatullah Abdul Haq was subjected to enforced disappearance by the Pakistan Army in Gwadar<Cite id="06"/>. These cases, surfaced via onion-hosted Front Line Defenders, illustrate the civilian cost of the security response and the grievance cycle fuelling recruitment.
+                  The human rights dimension is inseparable from the military one. BYC leader Dr. Mahrang Baloch faces sedition charges linked to CPEC displacement protests<Cite id="06"/>. BYC member Sabghatullah Abdul Haq was subjected to enforced disappearance by the Pakistan Army in Gwadar<Cite id="06"/>. These cases, surfaced via onion-hosted Front Line Defenders, illustrate the civilian cost of the security response and the grievance cycle fuelling recruitment.
                 </p>
               </div>
             </div>
@@ -418,13 +418,13 @@ export const DemoA = () => {
               <div className="a-actor-section">
                 <div className="a-actor-section-h">Sidney's analysis</div>
                 <p className="a-actor-analysis">
-                  TTP remains the <mark>single deadliest non-state actor operating in Pakistan</mark><Cite id="03"/>, with 1,200+ deaths attributed in 2025 and 1,758 self-reported attacks in 2024 across sniper, guerrilla, ambush, grenade, and suicide categories. The nationwide attack order issued on 27 February 2026 directly coincided with the Durand Line escalation, suggesting TTP is leveraging the interstate conflict as operational cover.
+                  TTP remains the <mark>single deadliest non-state actor operating in Pakistan</mark><Cite id="03"/>, with 1,200+ deaths attributed in 2025 and 1,758 self-reported attacks in 2024 across sniper, guerrilla, ambush, grenade, and suicide categories<Cite id="03"/>. The nationwide attack order issued on 27 February 2026 directly coincided with the Durand Line escalation, suggesting TTP is leveraging the interstate conflict as operational cover<Cite id="04"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  Territorial control indicators are alarming: <mark>TTP militants patrolling in uniform and operating checkpoints in Bannu (KPK) during Eid</mark> demonstrates governance-level presence, not merely insurgent activity. Transnational recruitment in Bangladesh (25-30 confirmed recruits, named individuals arrested) expands TTP's operational base beyond the traditional Pashtun recruitment pool via online radicalisation, clerical mentorship, and labour-migration cover.
+                  Territorial control indicators are alarming: <mark>TTP militants patrolling in uniform and operating checkpoints in Bannu (KPK) during Eid</mark> demonstrates governance-level presence, not merely insurgent activity<Cite id="03"/>. Transnational recruitment in Bangladesh (25-30 confirmed recruits, named individuals arrested) expands TTP's operational base beyond the traditional Pashtun recruitment pool via online radicalisation, clerical mentorship, and labour-migration cover<Cite id="03"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  Sub-factions Jamaat-ul-Ahrar and Hizbul Ahrar have been fully absorbed into the TTP umbrella and no longer generate independent signal. <em>The research agent should tag these as covered-by-parent to avoid redundant queries.</em>
+                  Sub-factions Jamaat-ul-Ahrar and Hizbul Ahrar have been fully absorbed into the TTP umbrella and no longer generate independent signal<Cite id="07"/>. <em>The research agent should tag these as covered-by-parent to avoid redundant queries.</em>
                 </p>
               </div>
             </div>
@@ -439,10 +439,10 @@ export const DemoA = () => {
               </div>
 
               <p className="a-synth-body">
-                The Pakistan-Afghanistan border is experiencing <mark>three simultaneous, mutually reinforcing instability vectors</mark><Cite id="07"/>: an interstate war along the Durand Line, an escalating separatist insurgency in Balochistan with expanding domain (maritime) and diversified international weapons supply, and a nationwide TTP mobilisation order with transnational recruitment. These vectors compound one another: the Durand Line conflict provides TTP with operational cover, Balochistan separatists exploit the Army's two-front distraction, and all three erode state control over territory and borders.
+                The Pakistan-Afghanistan border is experiencing <mark>three simultaneous, mutually reinforcing instability vectors</mark><Cite id="07"/>: an interstate war along the Durand Line<Cite id="04"/>, an escalating separatist insurgency in Balochistan with expanding domain (maritime) and diversified international weapons supply<Cite id="01"/><Cite id="02"/>, and a nationwide TTP mobilisation order with transnational recruitment<Cite id="03"/>. These vectors compound one another: the Durand Line conflict provides TTP with operational cover, Balochistan separatists exploit the Army's two-front distraction, and all three erode state control over territory and borders<Cite id="07"/>.
               </p>
               <p className="a-synth-body">
-                External actor dynamics add further complexity. <mark>China is mediating but primarily motivated by CPEC corridor protection.</mark> Saudi Arabia has signed a mutual defence pact with Pakistan. Iran has recognised the Taliban government and offered mediation. Pakistan has explicitly accused Indian intelligence (RAW) of orchestrating terrorism through proxy networks. The information ecosystem spans 12+ Telegram channels, Discord servers, onion sites, and Pastebin in at least 7 languages, indicating global audience reach.
+                External actor dynamics add further complexity. <mark>China is mediating but primarily motivated by CPEC corridor protection</mark><Cite id="04"/><Cite id="05"/>. Saudi Arabia has signed a mutual defence pact with Pakistan. Iran has recognised the Taliban government and offered mediation. Pakistan has explicitly accused Indian intelligence (RAW) of orchestrating terrorism through proxy networks<Cite id="03"/>. The information ecosystem spans 12+ Telegram channels, Discord servers, onion sites, and Pastebin in at least 7 languages, indicating global audience reach<Cite id="07"/>.
               </p>
               <p className="a-synth-body">
                 <em>No de-escalation mechanism is currently visible on any of the three vectors.</em>
