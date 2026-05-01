@@ -267,6 +267,10 @@
   overflow: hidden;
 }
 @media (min-width: 768px) { .a-hero-mockup-wrap { margin: 56px 0 0; } }
+.a-hero-mockup-fade {
+  position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 0%, transparent 78%, hsla(234, 8%, 6%, 0.85) 100%);
+}
 .a-hero-mockup {
   position: relative;
   max-width: 1140px;
