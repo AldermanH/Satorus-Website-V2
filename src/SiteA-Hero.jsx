@@ -163,7 +163,6 @@ export const HeroA = () => (
           <p className="a-section-p">A real query, a real subject. Sidney types, thinks, fetches, and produces a finding with every claim tied to a source. No canned video.</p>
         </div>
         <div className="a-hero-mockup-wrap">
-          <div className="a-hero-mockup-fade" aria-hidden="true"/>
           <div className="a-hero-mockup a-hero-mockup-live">
             <DemoA/>
           </div>
