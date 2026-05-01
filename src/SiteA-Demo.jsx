@@ -123,18 +123,23 @@ export const DemoA = () => {
     at(typingTime, () => { setPhase("loading"); setStageIdx(0); });
     STAGES.forEach((_, i) => at(typingTime + 400 + i * 900, () => setStageIdx(i)));
 
-    // result reveal — sit on the BLUF for a moment so the analyst can read it
+    // result reveal — sit on the BLUF (title + meta + body + key findings +
+    // entities + evidence chain) long enough for the analyst to actually read it
     const resultTime = typingTime + 400 + STAGES.length * 900;
     at(resultTime, () => setPhase("result"));
 
     // begin scrolling into the analytical section
-    const scrollTime = resultTime + 2400;
+    const scrollTime = resultTime + 4000;
     at(scrollTime, () => setPhase("scroll"));
 
-    // highlight each sub-region card in turn, then synthesis; scroll-syncing as we go
+    // Highlight each sub-region card in turn, then synthesis. The scroll snap
+    // is quick (smooth-scroll, ~400ms) but the dwell on each card is generous
+    // (5s) so visitors can scan the timeline / ops table / analysis before
+    // the next snap.
     const highlightStart = scrollTime + 700;
+    const dwellMs = 5000;
     HIGHLIGHT_TARGETS.forEach((target, i) => {
-      at(highlightStart + i * 2400, () => {
+      at(highlightStart + i * dwellMs, () => {
         setPhase("highlight");
         setHighlightIdx(i);
         scrollToCard(target);
@@ -142,7 +147,7 @@ export const DemoA = () => {
     });
 
     // loop
-    const loopAt = highlightStart + HIGHLIGHT_TARGETS.length * 2400 + 2000;
+    const loopAt = highlightStart + HIGHLIGHT_TARGETS.length * dwellMs + 2500;
     at(loopAt, run);
   };
 
@@ -161,17 +166,17 @@ export const DemoA = () => {
           <span className="a-demo-light"/><span className="a-demo-light"/><span className="a-demo-light"/>
         </div>
         <div className="a-demo-path">
-          sidney.satorus.ai <span className="sep">/</span> geopolitical
+          sidney.satorus.ai <span className="sep">/</span> home
         </div>
         <span className="a-demo-pill">Live</span>
       </div>
       <div className="a-demo-body">
         <aside className="a-demo-side">
           <div className="a-demo-side-label">Workspace</div>
-          <div className="a-side-item"><Icon name="sparkle" size={14}/>Home</div>
+          <div className="a-side-item active"><Icon name="sparkle" size={14}/>Home</div>
           <div className="a-side-item"><Icon name="search" size={14}/>Investigations <span style={{marginLeft:"auto",font:"500 10px var(--sidney-font-mono)",color:"var(--sidney-warn)"}}>3</span></div>
           <div className="a-side-item"><Icon name="file" size={14}/>Reports</div>
-          <div className="a-side-item active"><Icon name="globe" size={14}/>Geopolitical</div>
+          <div className="a-side-item"><Icon name="globe" size={14}/>Dark web</div>
           <div className="a-demo-side-label" style={{marginTop:16}}>Recent</div>
           <div className="a-side-recent-item"><div className="a-side-recent-t">Pak-Afghan Border</div><div className="a-side-recent-s">Now · Live</div></div>
           <div className="a-side-recent-item"><div className="a-side-recent-t">BLA Weapons Tracing</div><div className="a-side-recent-s">6h ago · Review</div></div>
@@ -192,8 +197,8 @@ export const DemoA = () => {
             </div>
           </div>
           <div className="a-demo-modes">
-            <span className="a-demo-mode on">Geopolitical sweep</span>
-            <span className="a-demo-mode">Multi-source</span>
+            <span className="a-demo-mode on">Dark-web sweep</span>
+            <span className="a-demo-mode">Read-only</span>
             <span className="a-demo-mode">90-day window</span>
           </div>
 
@@ -459,8 +464,6 @@ export const DemoA = () => {
             <span>Latency 8.2s</span>
             <span style={{color:"var(--sidney-border-strong)"}}>·</span>
             <span>47 dark-web hits cited</span>
-            <span style={{color:"var(--sidney-border-strong)"}}>·</span>
-            <span>0 hallucinations detected</span>
             <button onClick={run} className="btn btn-ghost" style={{ marginLeft:"auto", height: 28, padding:"0 12px", fontSize:11, letterSpacing:"0.04em", textTransform:"uppercase"}}>Replay</button>
           </div>
         </div>
