@@ -193,7 +193,7 @@ export const DemoA = () => {
           <span className="a-demo-light"/><span className="a-demo-light"/><span className="a-demo-light"/>
         </div>
         <div className="a-demo-path">
-          sidney.satorus.ai <span className="sep">/</span> home
+          sidney.satorusgroup.com <span className="sep">/</span> home
         </div>
         <span className="a-demo-pill">Live</span>
       </div>
