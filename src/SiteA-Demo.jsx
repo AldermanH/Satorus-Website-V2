@@ -86,6 +86,7 @@ export const DemoA = () => {
   const [highlightIdx, setHighlightIdx] = React.useState(-1);
   const query = "Map current zones of instability along the Pakistan-Afghanistan border. Break down by sub-region.";
   const timers = React.useRef([]);
+  const rootRef = React.useRef(null);
   const mainRef = React.useRef(null);
   const cardRefs = {
     durand: React.useRef(null),
@@ -151,16 +152,39 @@ export const DemoA = () => {
     at(loopAt, run);
   };
 
+  // Defer the start until the demo scrolls into view. Without this the loop
+  // runs from page load and the user lands mid-investigation when they reach
+  // the section. IntersectionObserver fires once at 25% visibility, then
+  // disconnects — the loop self-perpetuates from there.
   React.useEffect(() => {
-    const t = setTimeout(run, 800);
-    return () => { clearTimeout(t); clearTimers(); };
+    const el = rootRef.current;
+    if (!el) return;
+    let startTimer;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            startTimer = setTimeout(run, 400);
+            obs.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.25 }
+    );
+    obs.observe(el);
+    return () => {
+      obs.disconnect();
+      clearTimeout(startTimer);
+      clearTimers();
+    };
   }, []);
 
   const showResult = phase === "result" || phase === "scroll" || phase === "highlight";
   const litTarget = highlightIdx >= 0 ? HIGHLIGHT_TARGETS[highlightIdx] : null;
 
   return (
-    <div className="a-demo reveal">
+    <div className="a-demo reveal" ref={rootRef}>
       <div className="a-demo-chrome">
         <div className="a-demo-lights">
           <span className="a-demo-light"/><span className="a-demo-light"/><span className="a-demo-light"/>
