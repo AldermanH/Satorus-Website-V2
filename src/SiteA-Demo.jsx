@@ -451,7 +451,7 @@ export const DemoA = () => {
                   Territorial control indicators are alarming: <mark>TTP militants patrolling in uniform and operating checkpoints in Bannu (KPK) during Eid</mark> demonstrates governance-level presence, not merely insurgent activity<Cite id="03"/>. Transnational recruitment in Bangladesh (25-30 confirmed recruits, named individuals arrested) expands TTP's operational base beyond the traditional Pashtun recruitment pool via online radicalisation, clerical mentorship, and labour-migration cover<Cite id="03"/>.
                 </p>
                 <p className="a-actor-analysis">
-                  Sub-factions Jamaat-ul-Ahrar and Hizbul Ahrar have been fully absorbed into the TTP umbrella and no longer generate independent signal<Cite id="07"/>. <em>The research agent should tag these as covered-by-parent to avoid redundant queries.</em>
+                  Sub-factions Jamaat-ul-Ahrar and Hizbul Ahrar have been fully absorbed into the TTP umbrella and no longer generate independent signal<Cite id="07"/>.
                 </p>
               </div>
             </div>
