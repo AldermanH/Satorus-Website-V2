@@ -116,6 +116,12 @@ button:focus-visible {
   .a-finding-entity-row { grid-template-columns: 1fr; gap: 6px; }
   .a-actor-meta { gap: 4px 12px; font-size: 9.5px; }
 
+  /* Sub-region tables — collapse multi-col grids to a stacked block per row */
+  .a-actor-timeline-row { grid-template-columns: 1fr; gap: 2px; padding-bottom: 10px; }
+  .a-actor-ops-row { grid-template-columns: 1fr; gap: 2px; padding-bottom: 10px; }
+  .a-actor-ops-row .date { color: var(--sidney-fg); }
+  .a-actor-arms li { grid-template-columns: 1fr; gap: 2px; }
+
   /* Bento internal visuals — narrow-screen adjustments */
   .a-bento-1 .a-bento-h, .a-bento-4 .a-bento-h { font-size: 22px; }
   .a-bento-feed-row { grid-template-columns: 36px 1fr auto; }

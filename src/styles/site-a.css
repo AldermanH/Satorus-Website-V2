@@ -492,14 +492,38 @@
 .a-actor-analysis mark { background: hsla(48, 80%, 55%, 0.18); color: hsl(48, 80%, 80%); padding: 1px 4px; border-radius: 2px; }
 .a-actor-analysis em { color: var(--sidney-fg); font-style: italic; }
 
+/* Escalation timeline — 2-col date · event with dashed dividers */
+.a-actor-timeline { display: flex; flex-direction: column; gap: 8px; }
+.a-actor-timeline-row { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed var(--sidney-border); }
+.a-actor-timeline-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.a-actor-timeline-row .date { font: 500 11px var(--sidney-font-mono); color: var(--sidney-fg); letter-spacing: 0.02em; }
+.a-actor-timeline-row .event { font: 400 12.5px/1.5 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
+
+/* Key-operations table — 4-col date · actor · location · significance */
+.a-actor-ops { display: flex; flex-direction: column; gap: 8px; }
+.a-actor-ops-row { display: grid; grid-template-columns: 96px 70px 110px 1fr; gap: 12px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dashed var(--sidney-border); }
+.a-actor-ops-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.a-actor-ops-row .date { font: 500 11px var(--sidney-font-mono); color: var(--sidney-fg); letter-spacing: 0.02em; }
+.a-actor-ops-row .actor { font: 500 10px var(--sidney-font-mono); color: var(--sidney-primary); letter-spacing: 0.06em; text-transform: uppercase; }
+.a-actor-ops-row .loc { font: 500 11px var(--sidney-font-mono); color: var(--sidney-fg-muted); }
+.a-actor-ops-row .sig { font: 400 12.5px/1.5 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
+
+/* Weapons provenance — origin chip · arms list */
+.a-actor-arms { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.a-actor-arms li { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: baseline; padding: 4px 0; }
+.a-actor-arms li .origin { font: 500 10px var(--sidney-font-mono); color: var(--sidney-primary); letter-spacing: 0.08em; text-transform: uppercase; }
+.a-actor-arms li .items { font: 400 12.5px/1.5 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
+
 /* ───── Synthesis & recommendations card ───── */
 .a-synth-card { margin-top: 26px; border: 1px solid var(--sidney-primary-40); border-radius: 8px; overflow: hidden; background: linear-gradient(180deg, hsla(187, 30%, 8%, 0.6), var(--sidney-bg)); transition: box-shadow 280ms var(--sidney-ease); }
 .a-synth-card.highlighted { box-shadow: inset 0 0 0 1px var(--sidney-primary), 0 0 28px hsla(187, 72%, 48%, 0.22); }
 .a-synth-head { display: flex; align-items: center; gap: 10px; padding: 14px 18px 10px; border-bottom: 1px solid var(--sidney-border); }
 .a-synth-tag { font: 500 10px var(--sidney-font-mono); color: var(--sidney-primary); background: var(--sidney-primary-10); padding: 3px 8px; border-radius: 3px; letter-spacing: 0.06em; text-transform: uppercase; }
 .a-synth-h { font: 600 15px var(--sidney-font-display); letter-spacing: -0.01em; color: var(--sidney-fg); }
-.a-synth-body { padding: 14px 18px; font: 400 13.5px/1.65 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
+.a-synth-body { padding: 14px 18px; margin: 0; font: 400 13.5px/1.65 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
+.a-synth-body + .a-synth-body { padding-top: 0; }
 .a-synth-body mark { background: hsla(48, 80%, 55%, 0.18); color: hsl(48, 80%, 80%); padding: 1px 4px; border-radius: 2px; }
+.a-synth-body em { color: var(--sidney-fg); font-style: italic; }
 
 .a-synth-recs { padding: 0 18px 16px; }
 .a-synth-recs-h { font: 500 10px var(--sidney-font-sans); color: var(--sidney-fg-subtle); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
