@@ -152,25 +152,28 @@ export const DemoA = () => {
     at(loopAt, run);
   };
 
-  // Defer the start until the demo scrolls into view. Without this the loop
-  // runs from page load and the user lands mid-investigation when they reach
-  // the section. IntersectionObserver fires once at 25% visibility, then
-  // disconnects — the loop self-perpetuates from there.
+  // Run the loop only while the demo is in view. Without this the typing /
+  // staging / highlight cycle keeps queueing setTimeouts and triggering React
+  // re-renders while the visitor is reading the rest of the page, which makes
+  // scrolling feel laggy. Entering view kicks off (or restarts) the loop;
+  // leaving view freezes the timer chain. State stays put so the demo never
+  // goes blank — it just stops animating.
   React.useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
     let startTimer;
     const obs = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            startTimer = setTimeout(run, 400);
-            obs.disconnect();
-            break;
-          }
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          clearTimeout(startTimer);
+          startTimer = setTimeout(run, 400);
+        } else {
+          clearTimeout(startTimer);
+          clearTimers();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
     obs.observe(el);
     return () => {

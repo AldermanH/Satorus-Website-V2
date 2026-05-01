@@ -99,21 +99,42 @@ export default function WebGLShader({
     resize();
     renderer.render(scene, camera);
 
+    // rAF loop — pause/resume via IntersectionObserver so we're not burning
+    // GPU rendering chromatic-aberration waves behind a hero the visitor has
+    // already scrolled past.
     let rafId = null;
-    if (!reduced) {
-      const tick = () => {
-        uniforms.time.value += 0.01;
-        renderer.render(scene, camera);
-        rafId = requestAnimationFrame(tick);
-      };
+    const tick = () => {
+      uniforms.time.value += 0.01;
+      renderer.render(scene, camera);
       rafId = requestAnimationFrame(tick);
-    }
+    };
+    const startLoop = () => {
+      if (rafId == null && !reduced) rafId = requestAnimationFrame(tick);
+    };
+    const stopLoop = () => {
+      if (rafId != null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) startLoop();
+          else stopLoop();
+        }
+      },
+      { threshold: 0 },
+    );
+    io.observe(canvas);
 
     const ro = new ResizeObserver(resize);
     ro.observe(parent);
 
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
+      stopLoop();
+      io.disconnect();
       ro.disconnect();
       scene.remove(mesh);
       geometry.dispose();
