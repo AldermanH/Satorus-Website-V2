@@ -8,9 +8,9 @@ import { DemoA } from "./SiteA-Demo.jsx";
 import WebGLShader from "./WebGLShader.jsx";
 
 const MENU = [
-  { label: "Sidney",     href: "#product"     },
-  { label: "Use cases",  href: "#use-cases"   },
-  { label: "Company",    href: "#company"     },
+  { label: "Sidney",     href: "/#product"   },
+  { label: "Use cases",  href: "/#use-cases" },
+  { label: "Company",    href: "/#company"   },
 ];
 
 const CUSTOMERS = [
@@ -52,7 +52,7 @@ export const NavA = () => {
         <div className="a-hh-inner">
           <div className="a-hh-row">
             <div className="a-hh-brand">
-              <a href="#main" aria-label="Home"><BrandLockup size={28}/></a>
+              <a href="/" aria-label="Home"><BrandLockup size={28}/></a>
             </div>
 
             <button
@@ -145,7 +145,7 @@ export const HeroA = () => (
           <a href="/demo" className="btn btn-primary a-hero-cta-primary">
             Request a demo <Icon name="arrow" size={14}/>
           </a>
-          <a className="btn btn-plain a-hero-cta-secondary" href="#live-demo">
+          <a className="btn btn-plain a-hero-cta-secondary" href="/#live-demo">
             Watch Sidney run
           </a>
         </div>
