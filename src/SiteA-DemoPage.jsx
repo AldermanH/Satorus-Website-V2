@@ -16,14 +16,17 @@ const TEAM_SIZES = [
 ];
 
 const INDUSTRIES = [
-  { v: "",                       l: "Select your context" },
-  { v: "Risk advisory",          l: "Risk advisory · Big Four / consulting" },
-  { v: "Investigative journalism", l: "Investigative journalism" },
-  { v: "Geopolitical risk",      l: "Geopolitical / corporate intelligence" },
-  { v: "Protective intelligence",l: "Protective intelligence / executive protection" },
-  { v: "Compliance / EDD",       l: "Compliance / enhanced due diligence" },
-  { v: "Government",             l: "Government / public sector" },
-  { v: "Other",                  l: "Other" },
+  { v: "",                              l: "Select industry" },
+  { v: "Financial Services",            l: "Financial Services" },
+  { v: "Insurance",                     l: "Insurance" },
+  { v: "Legal",                         l: "Legal" },
+  { v: "Consulting",                    l: "Consulting / Professional Services" },
+  { v: "Government & Defense",          l: "Government & Defense" },
+  { v: "Media & Journalism",            l: "Media & Journalism" },
+  { v: "Energy",                        l: "Energy" },
+  { v: "Maritime & Shipping",           l: "Maritime & Shipping" },
+  { v: "NGO / Non-profit",              l: "NGO / Non-profit" },
+  { v: "Other",                         l: "Other" },
 ];
 
 const WHAT_TO_EXPECT = [
@@ -35,8 +38,7 @@ const WHAT_TO_EXPECT = [
 
 const TRUST = [
   "Backed by University of Cambridge",
-  "SOC 2 Type II",
-  "UK-based · EU residency",
+  "UK Founded · EU residency",
 ];
 
 export const DemoPage = () => {
@@ -161,7 +163,7 @@ export const DemoPage = () => {
               </select>
             </div>
             <div className="dr-field">
-              <label className="dr-label" htmlFor="dr-industry">Your context</label>
+              <label className="dr-label" htmlFor="dr-industry">Industry</label>
               <select className="dr-select" id="dr-industry" name="industry" defaultValue="">
                 {INDUSTRIES.map(o => <option key={o.v} value={o.v} disabled={o.v === ""}>{o.l}</option>)}
               </select>
@@ -170,8 +172,8 @@ export const DemoPage = () => {
 
           <div className="dr-row">
             <div className="dr-field">
-              <label className="dr-label" htmlFor="dr-message">What would you like Sidney to investigate on the call?</label>
-              <textarea className="dr-textarea" id="dr-message" name="message" rows="4" placeholder="Optional. The more specific, the more useful the live walkthrough."/>
+              <label className="dr-label" htmlFor="dr-message">How would you like Sidney to help you?</label>
+              <textarea className="dr-textarea" id="dr-message" name="message" rows="4" placeholder="Optional. Even a sentence helps us prepare."/>
               <span className="dr-hint">Confidentiality goes without saying — anything you share stays between us.</span>
             </div>
           </div>
