@@ -827,6 +827,9 @@
 .dr-submit { align-self: flex-start; margin-top: 12px; }
 .dr-submit:disabled { opacity: 0.6; cursor: wait; }
 
+.dr-error { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1px solid hsla(0, 72%, 51%, 0.4); border-radius: 6px; background: hsla(0, 72%, 51%, 0.08); color: hsl(0, 72%, 75%); font: 400 13px/1.5 var(--sidney-font-sans); margin-top: 4px; }
+.dr-error svg { flex-shrink: 0; margin-top: 2px; color: hsl(0, 72%, 65%); }
+
 .dr-fineprint { margin: 4px 0 0; font: 400 11.5px/1.5 var(--sidney-font-sans); color: var(--sidney-fg-faint); }
 .dr-fineprint a { color: var(--sidney-fg-muted); text-decoration: underline; text-decoration-color: var(--sidney-border-strong); text-underline-offset: 2px; }
 .dr-fineprint a:hover { color: var(--sidney-fg); text-decoration-color: var(--sidney-primary-40); }
