@@ -1,8 +1,9 @@
 /* Demo request page (/demo)
    Two-column layout: pitch + what-to-expect on the left, form on the right.
-   Field names match HubSpot's standard internal names (firstname, lastname,
-   email, company, jobtitle, numemployees, industry, message) so submission
-   to the HubSpot Forms API is straightforward — see HUBSPOT_ENDPOINT below. */
+   Field names map to HubSpot's standard internal names (firstname, lastname,
+   email, company, jobtitle, numemployees, industry) plus one custom property
+   (demo_request_details). Submission goes to the Forms API — see
+   HUBSPOT_ENDPOINT below. */
 import React from "react";
 import { Icon } from "./Components.jsx";
 
@@ -212,8 +213,8 @@ export const DemoPage = () => {
 
           <div className="dr-row">
             <div className="dr-field">
-              <label className="dr-label" htmlFor="dr-message">How would you like Sidney to help you?</label>
-              <textarea className="dr-textarea" id="dr-message" name="message" rows="4" placeholder="Optional. Even a sentence helps us prepare."/>
+              <label className="dr-label required" htmlFor="dr-message">How would you like Sidney to help you?</label>
+              <textarea className="dr-textarea" id="dr-message" name="demo_request_details" rows="4" placeholder="Even a sentence helps us prepare." required/>
               <span className="dr-hint">Confidentiality goes without saying — anything you share stays between us.</span>
             </div>
           </div>
