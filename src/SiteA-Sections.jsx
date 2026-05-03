@@ -242,7 +242,7 @@ export const UseCasesA = () => (
 
       <div className="a-bento-cta">
         <p className="a-bento-cta-line">See Sidney work on a question that matters to your team.</p>
-        <button className="btn btn-primary">Request a demo <Icon name="arrow" size={14}/></button>
+        <a href="/demo" className="btn btn-primary">Request a demo <Icon name="arrow" size={14}/></a>
       </div>
     </div>
   </section>
@@ -384,7 +384,7 @@ export const CtaA = () => (
       <h2 className="a-cta-h">The work is <em>serious.</em><br/>The tool should be too.</h2>
       <p className="a-cta-p">See Sidney run against a brief of your choosing. 30 minutes with a Satorus analyst, no slides.</p>
       <div className="a-cta-ctas">
-        <button className="btn btn-primary" style={{ height: 42, padding: "0 20px"}}>Request a demo <Icon name="arrow" size={14}/></button>
+        <a href="/demo" className="btn btn-primary" style={{ height: 42, padding: "0 20px"}}>Request a demo <Icon name="arrow" size={14}/></a>
         <button className="btn btn-ghost" style={{ height: 42, padding: "0 18px"}}>Read a sample report</button>
       </div>
     </div>

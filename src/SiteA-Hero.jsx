@@ -82,9 +82,9 @@ export const NavA = () => {
                 ))}
               </ul>
               <div className="a-hh-buttons">
-                <button className="btn btn-primary" style={{ height: 34 }}>
+                <a href="/demo" className="btn btn-primary" style={{ height: 34 }}>
                   Request a demo <Icon name="arrow" size={14}/>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -142,9 +142,9 @@ export const HeroA = () => (
         </p>
 
         <div className="a-hero-ctas">
-          <button className="btn btn-primary a-hero-cta-primary">
+          <a href="/demo" className="btn btn-primary a-hero-cta-primary">
             Request a demo <Icon name="arrow" size={14}/>
-          </button>
+          </a>
           <a className="btn btn-plain a-hero-cta-secondary" href="#live-demo">
             Watch Sidney run
           </a>
