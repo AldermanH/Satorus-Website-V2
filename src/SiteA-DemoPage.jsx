@@ -93,9 +93,9 @@ export const DemoPage = () => {
             See Sidney run against a brief that <em>matters to your team.</em>
           </h1>
           <p className="dr-pitch-sub">
-            30 minutes with a Satorus analyst. No slides, no BDR. We'll run your
-            real intelligence question through the platform live — so you can
-            judge Sidney on what you're actually trying to do.
+            30 minutes with a Satorus Founder. We'll run your real intelligence
+            question through the platform live, so you can judge Sidney on real
+            investigations you care about.
           </p>
 
           <div className="dr-expect">
