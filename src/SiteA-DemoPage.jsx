@@ -14,6 +14,11 @@ const HUBSPOT_PORTAL_ID = "147032466";
 const HUBSPOT_FORM_ID   = "f5f8a158-35fa-484e-9f59-7e24582fb73f";
 const HUBSPOT_ENDPOINT  = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
 
+// HubSpot Meetings booking page. Embedded inline on the success state with
+// the visitor's name + email pre-filled via URL params, so they pick a slot
+// without re-entering anything.
+const MEETINGS_BASE = "https://meetings-eu1.hubspot.com/harry-alderman";
+
 const TEAM_SIZES = [
   { v: "",        l: "Select team size" },
   { v: "1-10",    l: "1–10" },
@@ -52,6 +57,7 @@ const TRUST = [
 export const DemoPage = () => {
   const [status, setStatus] = React.useState("idle"); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = React.useState("");
+  const [bookingParams, setBookingParams] = React.useState(null); // { firstName, lastName, email } captured from the form so the calendar can prefill
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,6 +103,11 @@ export const DemoPage = () => {
         return;
       }
 
+      setBookingParams({
+        firstName: data.firstname || "",
+        lastName:  data.lastname  || "",
+        email:     data.email     || "",
+      });
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -107,19 +118,35 @@ export const DemoPage = () => {
   };
 
   if (status === "success") {
+    const params = new URLSearchParams({ embed: "true" });
+    if (bookingParams?.firstName) params.set("firstName", bookingParams.firstName);
+    if (bookingParams?.lastName)  params.set("lastName",  bookingParams.lastName);
+    if (bookingParams?.email)     params.set("email",     bookingParams.email);
+    const meetingsUrl = `${MEETINGS_BASE}?${params.toString()}`;
+
     return (
       <section className="dr-page">
-        <div className="dr-success-wrap">
-          <div className="dr-success">
-            <div className="dr-success-icon"><Icon name="check" size={28}/></div>
-            <h2 className="dr-success-h">Request received.</h2>
+        <div className="dr-success-wrap dr-success-wrap-wide">
+          <div className="dr-success-head">
+            <div className="dr-success-icon"><Icon name="check" size={24}/></div>
+            <h2 className="dr-success-h">Request received. Pick a time.</h2>
             <p className="dr-success-p">
-              A Satorus analyst will be in touch within one working day to set up
-              your live brief. Check your inbox — including the spam folder — for
-              a confirmation from <strong>harry@satorusgroup.com</strong>.
+              We've got your details. Choose a slot below and we'll send a
+              calendar invite to {bookingParams?.email ? <strong>{bookingParams.email}</strong> : "your email"}.
             </p>
-            <a href="/" className="btn btn-ghost dr-success-back">← Back to the homepage</a>
           </div>
+          <div className="dr-meetings">
+            <iframe
+              src={meetingsUrl}
+              title="Schedule a Sidney demo"
+              className="dr-meetings-frame"
+              loading="lazy"
+              allow="clipboard-write"
+            />
+          </div>
+          <p className="dr-meetings-fallback">
+            Trouble loading the calendar? <a href={meetingsUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab →</a>
+          </p>
         </div>
       </section>
     );
