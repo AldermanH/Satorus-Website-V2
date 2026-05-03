@@ -781,7 +781,7 @@
 .dr-expect-item .check { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-top: 1px; color: var(--sidney-primary); flex-shrink: 0; }
 
 .dr-trust { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
-.dr-trust-item { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--sidney-border); border-radius: 4px; background: var(--sidney-bg); font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.dr-trust-item { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--sidney-border); border-radius: 4px; background: var(--sidney-bg); font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-muted); letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
 .dr-trust-item .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sidney-primary); box-shadow: 0 0 6px var(--sidney-primary); }
 
 /* ── Form column ── */
