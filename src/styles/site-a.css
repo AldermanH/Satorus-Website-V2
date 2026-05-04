@@ -534,15 +534,18 @@
 
 .a-demo-runs { display: flex; gap: 12px; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sidney-border); color: var(--sidney-fg-faint); font: 500 11px var(--sidney-font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
 
-/* ───── Use-cases slot — open invitation, not enumerated list ─────
-   Listing specific use cases lets visitors disqualify themselves. A simple
-   prompt + CTA invites them to imagine their own. */
-.a-imagine { max-width: 720px; margin: 0 auto; text-align: center; padding: 16px 0; }
-.a-imagine-h { font: 400 44px/1.1 var(--sidney-font-display); letter-spacing: -0.03em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 32px; }
+/* ───── In-section CTA (lives inside ProductA, after the features grid) ─────
+   Quieter than a section-h since it's a sub-element. The h3 is smaller, and
+   the top margin gives the features grid breathing room above. */
+.a-imagine { max-width: 720px; margin: 80px auto 0; text-align: center; padding: 28px 0 8px; border-top: 1px solid var(--sidney-border); }
+.a-imagine-h { font: 400 30px/1.15 var(--sidney-font-display); letter-spacing: -0.02em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 24px; }
 .a-imagine-h em { font-style: normal; font-weight: 600; color: var(--sidney-primary); }
 .a-imagine-cta { height: 44px; padding: 0 22px; font-size: 14px; }
-@media (max-width: 768px) { .a-imagine-h { font-size: 30px; } }
-@media (max-width: 480px) { .a-imagine-h { font-size: 26px; } }
+@media (max-width: 768px) {
+  .a-imagine { margin-top: 56px; padding-top: 24px; }
+  .a-imagine-h { font-size: 24px; }
+}
+@media (max-width: 480px) { .a-imagine-h { font-size: 22px; } }
 
 /* ───── Product features strip ───── */
 .a-product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sidney-border); border: 1px solid var(--sidney-border); border-radius: 12px; overflow: hidden; }
@@ -554,30 +557,60 @@
 .a-feat-meta { margin-top: auto; display: flex; gap: 8px; flex-wrap: wrap; }
 .a-tag { font: 500 10px var(--sidney-font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--sidney-fg-subtle); background: var(--sidney-elevated); padding: 3px 7px; border-radius: 3px; }
 
-/* ───── Team — credential teaser, no individual cards ─────
-   Aggregated highlight reel: bio paragraph (the credentials), then a
-   tagline H2 (the takeaway), then a CTA. */
-.a-team-hero { max-width: 760px; margin: 0 auto; text-align: center; padding: 16px 0; }
-.a-team-hero .a-section-label { display: inline-block; }
-.a-team-hero-bio { font: 400 17px/1.7 var(--sidney-font-sans); color: var(--sidney-fg-muted); margin: 22px 0 32px; text-wrap: pretty; }
-.a-team-hero-h { font: 400 36px/1.15 var(--sidney-font-display); letter-spacing: -0.02em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 32px; }
-.a-team-hero-cta { height: 44px; padding: 0 22px; font-size: 14px; }
-@media (max-width: 768px) {
-  .a-team-hero-h { font-size: 28px; }
-  .a-team-hero-bio { font-size: 16px; }
+/* ───── Team — page finale ─────
+   Replaces both the previous .a-team-hero teaser and the old "Big CTA"
+   bordered card. Editorial / intel-document treatment — numbered manifest
+   of credentials → tagline → action. No bordered card chrome; the
+   typography and a single hairline cyan top accent do the heavy lifting,
+   so it reads as a closing moment rather than a generic SaaS card. */
+.a-finale { padding: 96px 0 120px; position: relative; }
+.a-finale::before {
+  content: ""; position: absolute; left: 50%; top: 0;
+  width: 240px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sidney-primary-40), transparent);
+  transform: translateX(-50%);
 }
-@media (max-width: 480px) {
-  .a-team-hero-h { font-size: 24px; }
+.a-finale-inner { max-width: 880px; margin: 0 auto; }
+.a-finale-inner .a-section-label { display: inline-block; }
+
+/* Numbered credentials list — manifest typography, hairline dividers. */
+.a-finale-list { list-style: none; padding: 0; margin: 28px 0 48px; counter-reset: cred; }
+.a-finale-list li {
+  display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--sidney-border);
+  font: 400 22px/1.4 var(--sidney-font-display); letter-spacing: -0.01em;
+  color: var(--sidney-fg); text-wrap: pretty;
+  transition: color 200ms var(--sidney-ease);
+}
+.a-finale-list li:first-child { padding-top: 12px; }
+.a-finale-list li:last-child  { border-bottom: none; }
+.a-finale-list li::before {
+  counter-increment: cred;
+  content: counter(cred, decimal-leading-zero);
+  font: 500 12px var(--sidney-font-mono);
+  color: var(--sidney-primary);
+  letter-spacing: 0.08em;
+  align-self: baseline;
 }
 
-/* ───── Big CTA ───── */
-.a-cta { position: relative; margin: 120px auto 80px; max-width: 1200px; padding: 0 32px; }
-.a-cta-inner { position: relative; border: 1px solid var(--sidney-border-strong); border-radius: 16px; padding: 72px 56px; text-align: center; overflow: hidden;
-  background: radial-gradient(ellipse at 50% 0%, hsla(187, 72%, 48%, 0.14), transparent 60%), var(--sidney-surface); }
-.a-cta-h { font: 300 52px var(--sidney-font-display); letter-spacing: -0.03em; color: var(--sidney-fg); text-wrap: balance; line-height: 1.05; }
-.a-cta-h em { font-style: normal; font-weight: 600; }
-.a-cta-p { margin: 20px auto 32px; max-width: 540px; color: var(--sidney-fg-muted); font-size: 16px; line-height: 1.55; }
-.a-cta-ctas { display: inline-flex; gap: 12px; }
+/* Tagline — the conclusion. Larger than the list items so it lands as the
+   page's final word. */
+.a-finale-h { font: 300 48px/1.1 var(--sidney-font-display); letter-spacing: -0.03em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 36px; max-width: 720px; }
+
+.a-finale-cta { height: 48px; padding: 0 24px; font-size: 15px; }
+
+@media (max-width: 768px) {
+  .a-finale { padding: 64px 0 96px; }
+  .a-finale-list { margin: 24px 0 36px; }
+  .a-finale-list li { grid-template-columns: 44px 1fr; gap: 14px; padding: 14px 0; font-size: 18px; line-height: 1.45; }
+  .a-finale-h { font-size: 32px; margin-bottom: 28px; }
+}
+@media (max-width: 480px) {
+  .a-finale { padding: 48px 0 72px; }
+  .a-finale-list li { grid-template-columns: 36px 1fr; gap: 12px; font-size: 16px; }
+  .a-finale-list li::before { font-size: 11px; }
+  .a-finale-h { font-size: 26px; }
+}
 
 /* ───── Footer ───── */
 .a-foot { border-top: 1px solid var(--sidney-border); padding: 64px 0 48px; }

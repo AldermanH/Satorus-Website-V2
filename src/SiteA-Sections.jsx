@@ -1,4 +1,4 @@
-/* Direction A — Product features, Use-cases CTA, Team teaser, Big CTA, Footer */
+/* Direction A — Product features (with embedded demo CTA), Team finale, Footer */
 import React from "react";
 import { Icon, BrandLockup } from "./Components.jsx";
 
@@ -50,20 +50,12 @@ export const ProductA = () => (
           </div>
         ))}
       </div>
-    </div>
-  </section>
-);
 
-/* ───── Use-cases slot — open invitation, no enumerated list ─────
-   Listing specific use cases lets visitors disqualify themselves ("we're not
-   one of those"). Inviting them to imagine their own works harder. */
-export const UseCasesA = () => (
-  <section className="a-section" id="use-cases">
-    <div className="container">
-      <div className="a-imagine">
-        <h2 className="a-imagine-h">
+      {/* In-section CTA — also the use-cases anchor target so the header nav still resolves. */}
+      <div className="a-imagine" id="use-cases">
+        <h3 className="a-imagine-h">
           See Sidney work on a question that <em>matters to your team.</em>
-        </h2>
+        </h3>
         <a href="/demo" className="btn btn-primary a-imagine-cta">
           Request a demo <Icon name="arrow" size={14}/>
         </a>
@@ -72,38 +64,31 @@ export const UseCasesA = () => (
   </section>
 );
 
-/* ───── Team — credential teaser, no individual cards ─────
-   Aggregated highlight reel rather than per-person bios. The collective
-   credentials speak louder than four parallel cards. */
+/* ───── Team — page finale ─────
+   Aggregated credentials as a numbered manifest (editorial / intel-document
+   feel, not a bordered SaaS CTA card), then the tagline, then the action.
+   This replaces the previous "The work is serious." Big CTA. */
+
+const CREDENTIALS = [
+  "Led on-the-ground intelligence operations in Iraq.",
+  "Advised on foreign policy at the heart of government.",
+  "Spent decades in the CIA.",
+  "Led teams building agentic AI platforms at BlackRock.",
+  "Advised governments and multinationals on geopolitical risk across five continents.",
+];
+
 export const TeamA = () => (
-  <section className="a-section" id="company">
+  <section className="a-section a-finale" id="company">
     <div className="container">
-      <div className="a-team-hero">
+      <div className="a-finale-inner">
         <div className="a-section-label">Team</div>
-        <p className="a-team-hero-bio">
-          Led on-the-ground intelligence operations in Iraq. Advised on foreign
-          policy at the heart of government. Spent decades in the CIA. Led teams
-          building agentic AI platforms at BlackRock. Advised governments and
-          multinationals on geopolitical risk across five continents.
-        </p>
-        <h2 className="a-team-hero-h">We built the platform we wished existed.</h2>
-        <a href="/demo" className="btn btn-primary a-team-hero-cta">
+        <ol className="a-finale-list">
+          {CREDENTIALS.map((c, i) => <li key={i}>{c}</li>)}
+        </ol>
+        <h2 className="a-finale-h">We built the platform we wished existed.</h2>
+        <a href="/demo" className="btn btn-primary a-finale-cta">
           See the platform in action <Icon name="arrow" size={14}/>
         </a>
-      </div>
-    </div>
-  </section>
-);
-
-/* ───── Big closing CTA ───── */
-export const CtaA = () => (
-  <section className="a-cta">
-    <div className="a-cta-inner">
-      <h2 className="a-cta-h">The work is <em>serious.</em><br/>The tool should be too.</h2>
-      <p className="a-cta-p">See Sidney run against a brief of your choosing. 30 minutes with a Satorus analyst, no slides.</p>
-      <div className="a-cta-ctas">
-        <a href="/demo" className="btn btn-primary" style={{ height: 42, padding: "0 20px"}}>Request a demo <Icon name="arrow" size={14}/></a>
-        <button className="btn btn-ghost" style={{ height: 42, padding: "0 18px"}}>Read a sample report</button>
       </div>
     </div>
   </section>
