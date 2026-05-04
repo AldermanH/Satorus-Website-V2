@@ -1,7 +1,10 @@
 /* Direction A — Hero (port of 21st.dev "hero-section-1")
    No entrance animations on hero copy (per saved feedback).
    Interaction motion kept: header morph on scroll, pill arrow slide on hover,
-   customer-wall blur with "Meet our customers" reveal on hover. */
+   customer-wall blur with "Meet our customers" reveal on hover.
+   Hero overlays removed (mask-image fade, ::after afterglow, spotlight
+   beams) — the shader beams stay, but the gradient/mask overlays that
+   were producing a visible split in the middle are gone. */
 import React, { useEffect, useState } from "react";
 import { BrandLockup, Icon } from "./Components.jsx";
 import { DemoA } from "./SiteA-Demo.jsx";
@@ -98,16 +101,8 @@ export const NavA = () => {
 export const HeroA = () => (
   <>
     <section className="a-hero">
-      {/* Angled spotlight beams (decorative; lg+ only) */}
-      <div className="a-hero-spotlight" aria-hidden="true">
-        <div className="a-hero-spot a-hero-spot-1"/>
-        <div className="a-hero-spot a-hero-spot-2"/>
-        <div className="a-hero-spot a-hero-spot-3"/>
-      </div>
-
       {/* Backdrop: two animated WebGL shaders — one with beams below the hero
-          glowing up, the other a vertical mirror with beams above glowing down.
-          Bottom-edge fade is handled by the .a-hero::after afterglow. */}
+          glowing up, the other a vertical mirror with beams above glowing down. */}
       <div className="a-hero-bg" aria-hidden="true">
         <WebGLShader className="a-hero-shader a-hero-shader-top" xScale={1.2} yScale={0.6} distortion={0.55}/>
         <WebGLShader className="a-hero-shader a-hero-shader-bottom" xScale={1.2} yScale={0.6} distortion={0.55}/>

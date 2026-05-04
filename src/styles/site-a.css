@@ -85,33 +85,9 @@
 .a-hero + .a-section { border-top: 0; padding-top: 72px; }
 @media (min-width: 768px) { .a-hero + .a-section { padding-top: 112px; } }
 
-/* Three angled radial-beam decorations, lg+ only */
-.a-hero-spotlight {
-  position: absolute; inset: 0; z-index: 2;
-  pointer-events: none; opacity: 0.5;
-  display: none;
-}
-@media (min-width: 1024px) { .a-hero-spotlight { display: block; } }
-.a-hero-spot { position: absolute; left: 0; top: 0; border-radius: 9999px; }
-.a-hero-spot-1 {
-  width: 35rem; height: 80rem;
-  transform: translateY(-350px) rotate(-45deg);
-  background: radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(0,0%,85%,0.08) 0%, hsla(0,0%,55%,0.02) 50%, hsla(0,0%,45%,0) 80%);
-}
-.a-hero-spot-2 {
-  width: 14rem; height: 80rem;
-  transform: translate(5%, -50%) rotate(-45deg);
-  background: radial-gradient(50% 50% at 50% 50%, hsla(0,0%,85%,0.06) 0%, hsla(0,0%,45%,0.02) 80%, transparent 100%);
-}
-.a-hero-spot-3 {
-  width: 14rem; height: 80rem;
-  transform: translateY(-350px) rotate(-45deg);
-  background: radial-gradient(50% 50% at 50% 50%, hsla(0,0%,85%,0.04) 0%, hsla(0,0%,45%,0.02) 80%, transparent 100%);
-}
-
-/* Background — deepest slate fallback, with an animated WebGL shader
-   layered inside via the .a-hero-shader child. The shader uses screen
-   blending and a low opacity so it adds light without flattening the bg. */
+/* Background — deepest slate, with an animated WebGL shader layered inside
+   via the .a-hero-shader child. The shader uses screen blending so dark
+   canvas pixels are invisible and only the bright bands lighten the bg. */
 .a-hero-bg {
   position: absolute; inset: 0; z-index: -2;
   background: var(--sidney-bg-deepest);
@@ -126,10 +102,6 @@
   pointer-events: none;
   opacity: 0.85;
   mix-blend-mode: screen;
-  /* Soften the canvas's top edge so the glow eases in over a short range
-     instead of starting at a hard horizontal line. */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
 }
 /* Bottom shader — beams below the hero, halo bleeds up. */
 .a-hero-shader-bottom { transform: translateY(40%); }
@@ -137,41 +109,6 @@
    bleeds down. scaleY(-1) flips the canvas; in flipped coords, a larger
    translateY value pushes the canvas UP visually. */
 .a-hero-shader-top { transform: scaleY(-1) translateY(44%); }
-
-/* Atmospheric afterglow — a soft cyan wash in the lower third of the hero so
-   the space between the mockup and the marquee reads as hero atmosphere
-   continuing, not a flat page bg. Layered: cyan peak, wider wash, and a
-   final linear-gradient that fades everything to the page bg in the bottom
-   30% so the hero's bottom edge is indistinguishable from the next section.
-   The mask fades the *top* edge of the pseudo to transparent over its first
-   35%, so the radial gradients ease in instead of ending at a hard line. */
-.a-hero::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 560px;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    /* sit-flat-on-page at the very bottom so no seam */
-    linear-gradient(to bottom,
-      transparent 0%,
-      transparent 60%,
-      var(--sidney-bg) 100%),
-    /* Tight cyan peak — centred focal glow */
-    radial-gradient(ellipse 55% 55% at 50% 45%,
-      hsla(187, 72%, 48%, 0.09) 0%,
-      hsla(187, 72%, 48%, 0.035) 35%,
-      transparent 65%),
-    /* Wide wash — reaches the full width/height of the element so the
-       atmosphere extends all the way to the hero edges */
-    radial-gradient(farthest-corner at 50% 70%,
-      hsla(187, 60%, 35%, 0.07) 0%,
-      hsla(187, 60%, 35%, 0.025) 45%,
-      transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 35%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 35%);
-}
 
 .a-hero-inner {
   position: relative; z-index: 3;
