@@ -77,6 +77,39 @@ button:focus-visible {
   }
   .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
   .a-hh[data-state="active"] .a-hh-buttons .btn { flex: 1; justify-content: center; }
+
+  /* Full-viewport blurred scrim when the mobile menu is open. position:
+     fixed inset:0 escapes the parent and covers the viewport. z-index -1
+     inside .a-hh's stacking context puts it above the page (since .a-hh
+     is z-index 40) but below the menu chrome. */
+  .a-hh[data-state="active"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: hsla(234, 8%, 6%, 0.7);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+            backdrop-filter: blur(24px) saturate(140%);
+    pointer-events: none;
+  }
+
+  /* Menu chrome — fully opaque solid surface, since the scrim handles the
+     blur behind. Keeps the menu items crisp instead of frosted-on-frosted. */
+  .a-hh[data-state="active"] .a-hh-inner {
+    background: hsl(234, 8%, 6%);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+    border-color: var(--sidney-border);
+  }
+
+  /* Bigger, brighter menu text when the mobile drawer is open — much easier
+     to scan than the desktop default. */
+  .a-hh[data-state="active"] .a-hh-link {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--sidney-fg);
+    padding: 6px 0;
+  }
 }
 
 /* ≤ 768px — tablet portrait / large phone */
