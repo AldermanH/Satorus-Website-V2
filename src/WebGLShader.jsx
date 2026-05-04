@@ -30,11 +30,7 @@ const FRAGMENT_SHADER = /* glsl */ `
     float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
     float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-    /* Alpha = max channel — bright band lines are opaque, dark areas
-       transparent. Lets us drop CSS mix-blend-mode: screen, which some
-       Android Chrome builds render as opaque-black, hiding the shader. */
-    float a = max(r, max(g, b));
-    gl_FragColor = vec4(r, g, b, a);
+    gl_FragColor = vec4(r, g, b, 1.0);
   }
 `;
 
@@ -121,12 +117,6 @@ export default function WebGLShader({
         rafId = null;
       }
     };
-
-    // Kick the loop off immediately so the shader animates from first paint.
-    // Mobile Safari can be late firing the IntersectionObserver's first
-    // callback, which left the canvas rendered but static. The observer
-    // below still pauses/resumes on scroll, this is just a defensive start.
-    startLoop();
 
     const io = new IntersectionObserver(
       (entries) => {

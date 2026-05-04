@@ -77,32 +77,6 @@ button:focus-visible {
   }
   .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
   .a-hh[data-state="active"] .a-hh-buttons .btn { flex: 1; justify-content: center; }
-
-  /* Full-viewport blurred scrim when the mobile menu is open. Sits at
-     z-index -1 inside .a-hh's stacking context — that puts it above the
-     page (since .a-hh is z-index 40) but below the menu chrome itself.
-     Pointer-events: none so clicks pass through (no accidental scroll
-     traps); position: fixed inset: 0 escapes the parent container. */
-  .a-hh[data-state="active"]::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: hsla(234, 8%, 6%, 0.7);
-    -webkit-backdrop-filter: blur(24px) saturate(140%);
-            backdrop-filter: blur(24px) saturate(140%);
-    pointer-events: none;
-  }
-
-  /* Menu chrome — fully opaque now that the backdrop handles the blur,
-     so the items read crisply against a solid surface instead of a
-     translucent one. */
-  .a-hh[data-state="active"] .a-hh-inner {
-    background: hsl(234, 8%, 6%);
-    -webkit-backdrop-filter: none;
-            backdrop-filter: none;
-    border-color: var(--sidney-border);
-  }
 }
 
 /* ≤ 768px — tablet portrait / large phone */
@@ -121,10 +95,8 @@ button:focus-visible {
   .a-section-h { font-size: 32px; }
   .a-product-grid { grid-template-columns: 1fr; }
 
-  /* Live demo — drop the workspace sidebar, give the body more room so
-     the cards have somewhere to land instead of fighting an internal
-     scrollbar at every state change. */
-  .a-hero-mockup-live .a-demo-body { height: 660px; grid-template-columns: 1fr; }
+  /* Live demo — drop the workspace sidebar, shrink the fixed body height */
+  .a-hero-mockup-live .a-demo-body { height: 560px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
   .a-demo-main { padding: 20px 18px; }
   .a-demo-h { font-size: 19px; margin-bottom: 16px; }
@@ -176,14 +148,7 @@ button:focus-visible {
 /* ≤ 480px — phone (covers iPhone 14/15/16 widths and most Android) */
 @media (max-width: 480px) {
   .a-hero { padding-top: 96px; padding-bottom: 48px; }
-
-  /* Backed-by-Cambridge pill — target both .a-hero-pill and
-     .a-hero-pill-static (the latter overrode the mobile rule via source
-     order). Tighter padding + smaller crest for the narrower viewport. */
-  .a-hero-pill,
-  .a-hero-pill-static { font-size: 12px; padding: 4px 12px 4px 8px; gap: 8px; }
-  .a-hero-pill-logo   { width: 14px; height: 16px; }
-
+  .a-hero-pill { font-size: 12px; padding: 4px 4px 4px 14px; gap: 10px; }
   .a-hero-sub { font-size: 16px; }
   .a-hero-mockup-wrap { padding: 0 4px; }
   .a-hero-mockup { padding: 6px; }
@@ -195,10 +160,8 @@ button:focus-visible {
   .a-section-h { font-size: 26px; }
   .a-foot-row { grid-template-columns: 1fr; }
 
-  /* Demo — taller than the section padding so the BLUF + first card have
-     visible room. 600px on a ~720px-tall phone viewport leaves the
-     section header readable above and the next section visible below. */
-  .a-hero-mockup-live .a-demo-body { height: 600px; }
+  /* Demo — shorter still on tiny screens, smaller cmdbar + cards */
+  .a-hero-mockup-live .a-demo-body { height: 480px; }
   .a-demo-main { padding: 16px 14px; }
   .a-demo-greeting { font-size: 12px; }
   .a-demo-h { font-size: 15px; margin-bottom: 14px; }
