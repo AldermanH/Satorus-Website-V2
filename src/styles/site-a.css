@@ -534,146 +534,15 @@
 
 .a-demo-runs { display: flex; gap: 12px; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sidney-border); color: var(--sidney-fg-faint); font: 500 11px var(--sidney-font-mono); letter-spacing: 0.04em; text-transform: uppercase; }
 
-/* ───── Use cases — Stripe-style bento on a 12-col asymmetric grid ─────
-   Row 1: hero query+brief (8) · source grading (4)
-   Row 2: dark-web feed (4)    · geopolitical network (8)
-   Row 3: handle resolve (5)   · protective brief (7)
-   Selective outer-corner rounding makes the six cards read as one unified
-   intel-cockpit panel rather than six floating tiles.
-*/
-.a-bento { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(340px, auto); gap: 12px; }
-.a-bento-1 { grid-column: span 8; }
-.a-bento-2 { grid-column: span 4; }
-.a-bento-3 { grid-column: span 4; }
-.a-bento-4 { grid-column: span 8; }
-.a-bento-5 { grid-column: span 5; }
-.a-bento-6 { grid-column: span 7; }
-
-.a-bento-card { display: flex; flex-direction: column; gap: 12px; padding: 22px 22px 20px; background: var(--sidney-surface); border: 1px solid var(--sidney-border); border-radius: 0; transition: border-color 200ms var(--sidney-ease); position: relative; overflow: hidden; }
-.a-bento-card:hover { border-color: var(--sidney-border-strong); }
-
-/* Selective outer-corner rounding — only the panel's outer perimeter rounds */
-.a-bento-1 { border-top-left-radius: 14px; }
-.a-bento-2 { border-top-right-radius: 14px; }
-.a-bento-5 { border-bottom-left-radius: 14px; }
-.a-bento-6 { border-bottom-right-radius: 14px; }
-/* .a-bento-3 and .a-bento-4 sit interior — no outer corners */
-
-@media (max-width: 980px) {
-  .a-bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
-  .a-bento-1, .a-bento-2, .a-bento-3, .a-bento-4, .a-bento-5, .a-bento-6 { grid-column: span 1; border-radius: 0; }
-  .a-bento-1 { border-top-left-radius: 14px; border-top-right-radius: 14px; }
-  .a-bento-6 { border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
-}
-
-.a-bento-meta { display: flex; align-items: center; gap: 10px; }
-.a-bento-num { font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-faint); letter-spacing: 0.1em; }
-.a-bento-tag { font: 500 10px var(--sidney-font-mono); color: var(--sidney-primary); background: var(--sidney-primary-10); padding: 2px 8px; border-radius: 3px; letter-spacing: 0.06em; text-transform: uppercase; }
-
-.a-bento-h { font: 600 20px var(--sidney-font-display); letter-spacing: -0.01em; color: var(--sidney-fg); text-wrap: balance; margin: 0; }
-.a-bento-1 .a-bento-h, .a-bento-4 .a-bento-h { font-size: 24px; }
-.a-bento-p { font: 400 13px/1.55 var(--sidney-font-sans); color: var(--sidney-fg-muted); margin: 0; }
-
-.a-bento-visual { flex: 1; min-height: 0; display: flex; }
-
-/* ─── Card 01 visual: query input above structured brief output ─── */
-.a-bento-query { flex: 1; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
-.a-bento-query-input { display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: var(--sidney-bg); border: 1px solid var(--sidney-border); border-radius: 6px; color: var(--sidney-primary); }
-.a-bento-query-text { flex: 1; font: 400 13px var(--sidney-font-sans); color: var(--sidney-fg); line-height: 1.4; }
-.a-bento-query-kbd { display: flex; gap: 3px; flex-shrink: 0; }
-.a-bento-query-kbd .kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 4px; font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-subtle); background: var(--sidney-elevated); border: 1px solid var(--sidney-border); border-radius: 3px; }
-
-.a-bento-brief-out { flex: 1; padding: 14px 16px; background: var(--sidney-bg-deepest); border: 1px solid var(--sidney-border); border-radius: 6px; display: flex; flex-direction: column; gap: 12px; min-height: 0; overflow: hidden; }
-.a-bento-brief-section { display: flex; flex-direction: column; gap: 5px; }
-.a-bento-brief-h { font: 500 9px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.12em; text-transform: uppercase; }
-.a-bento-brief-section p { margin: 0; font: 400 12px/1.5 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
-.a-bento-brief-section ol { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 3px; }
-.a-bento-brief-section ol li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; align-items: baseline; font: 400 12px var(--sidney-font-sans); color: var(--sidney-fg-muted); }
-.a-bento-brief-section ol li .n { font: 500 10px var(--sidney-font-mono); color: var(--sidney-primary); }
-.a-bento-brief-srcs { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 3px; }
-.a-bento-brief-srcs li { display: grid; grid-template-columns: 32px 1fr auto; gap: 8px; align-items: center; font: 500 11px var(--sidney-font-mono); color: var(--sidney-fg-muted); }
-.a-bento-brief-srcs li .g { font: 600 10px var(--sidney-font-mono); padding: 1px 4px; border-radius: 2px; text-align: center; letter-spacing: 0.04em; }
-.a-bento-brief-srcs li .t { color: var(--sidney-fg-faint); font-size: 10px; letter-spacing: 0.04em; }
-
-/* ─── Card 02 visual: source grading rows ─── */
-.a-bento-grades { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 14px; background: var(--sidney-bg-deepest); border: 1px solid var(--sidney-border); border-radius: 6px; }
-.a-bento-grade-row { display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: center; padding: 8px 10px; background: var(--sidney-surface); border: 1px solid var(--sidney-border); border-radius: 4px; }
-.a-bento-grade-letter { font: 600 16px var(--sidney-font-mono); text-align: center; padding: 4px 0; border-radius: 3px; letter-spacing: 0.02em; }
-.a-bento-grade-name { font: 500 12px var(--sidney-font-sans); color: var(--sidney-fg); }
-.a-bento-grade-factors { font: 400 10px var(--sidney-font-mono); color: var(--sidney-fg-faint); margin-top: 2px; letter-spacing: 0.02em; }
-
-/* Grade colour scale: A+/A green, B+/B cyan, C amber, D red */
-.g-ap { color: hsl(152, 60%, 65%); background: hsla(152, 60%, 48%, 0.12); }
-.g-a  { color: hsl(152, 60%, 65%); background: hsla(152, 60%, 48%, 0.10); }
-.g-bp { color: var(--sidney-primary); background: var(--sidney-primary-10); }
-.g-b  { color: var(--sidney-primary); background: var(--sidney-primary-10); }
-.g-c  { color: var(--sidney-warn); background: hsla(38, 92%, 55%, 0.12); }
-.g-cp { color: var(--sidney-warn); background: hsla(38, 92%, 55%, 0.12); }
-.g-d  { color: hsl(0, 72%, 65%); background: hsla(0, 72%, 51%, 0.12); }
-
-/* ─── Card 04 visual: geopolitical network with region labels over a grid backdrop ─── */
-.a-bento-geo { position: relative; flex: 1; min-height: 240px; background-color: var(--sidney-bg-deepest); background-image:
-    linear-gradient(to right, hsla(187, 80%, 60%, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, hsla(187, 80%, 60%, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px; border: 1px solid var(--sidney-border); border-radius: 6px; overflow: hidden; }
-.a-bento-geo-net { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.a-bento-geo-net line { stroke: hsla(187, 72%, 48%, 0.28); stroke-width: 0.35; }
-.a-bento-geo-net line.flag { stroke: hsla(0, 72%, 51%, 0.5); stroke-width: 0.45; stroke-dasharray: 1.6 1.1; }
-.a-bento-geo-net circle.region { fill: hsl(187, 72%, 60%); }
-.a-bento-geo-net circle.flag   { fill: hsl(0, 72%, 60%); filter: drop-shadow(0 0 2px hsla(0, 72%, 51%, 0.7)); animation: sidneyPulseSubtle 1.6s ease-in-out infinite; }
-.a-bento-geo-label { position: absolute; transform: translate(8px, -50%); font: 500 9px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.06em; text-transform: uppercase; pointer-events: none; white-space: nowrap; }
-.a-bento-geo-label.flag { color: hsl(0, 72%, 70%); }
-
-/* ─── Section CTA below the grid ─── */
-.a-bento-cta { margin-top: 32px; display: flex; align-items: center; justify-content: center; gap: 24px; }
-.a-bento-cta-line { font: 400 15px var(--sidney-font-sans); color: var(--sidney-fg-muted); margin: 0; }
-@media (max-width: 720px) {
-  .a-bento-cta { flex-direction: column; gap: 16px; text-align: center; }
-}
-
-/* ─── Card 03 visual: live standing-watch feed ─── */
-.a-bento-feed { background: var(--sidney-bg-deepest); border: 1px solid var(--sidney-border); border-radius: 6px; padding: 12px 14px; flex: 1; display: flex; flex-direction: column; gap: 5px; min-height: 0; }
-.a-bento-feed-head { display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--sidney-border); margin-bottom: 4px; font: 500 9px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.08em; text-transform: uppercase; }
-.a-bento-feed-head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sidney-primary); box-shadow: 0 0 6px var(--sidney-primary); animation: sidneyPulseSubtle 1.4s ease-in-out infinite; }
-.a-bento-feed-head .hits { margin-left: auto; color: var(--sidney-fg-faint); }
-.a-bento-feed-row { display: grid; grid-template-columns: 38px 92px 1fr auto; gap: 8px; align-items: center; font: 500 10.5px var(--sidney-font-mono); color: var(--sidney-fg-muted); padding: 3px 0; }
-.a-bento-feed-row .t { color: var(--sidney-fg-subtle); }
-.a-bento-feed-row .src { color: var(--sidney-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a-bento-feed-row .msg { color: var(--sidney-fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a-bento-feed-row .sev { font-size: 9px; padding: 1px 5px; border-radius: 2px; letter-spacing: 0.06em; text-align: center; min-width: 30px; }
-.a-bento-feed-row .sev.ok  { color: var(--sidney-fg-faint); }
-.a-bento-feed-row .sev.low { color: var(--sidney-primary); background: var(--sidney-primary-10); }
-.a-bento-feed-row .sev.mid { color: var(--sidney-warn); background: hsla(38, 92%, 55%, 0.12); }
-.a-bento-feed-row .sev.high { color: hsl(0, 72%, 70%); background: hsla(0, 72%, 51%, 0.12); }
-
-/* ─── Card 05 visual: handle resolution ─── */
-.a-bento-handle { display: grid; grid-template-columns: 1fr 24px 1fr; gap: 10px; align-items: center; flex: 1; padding: 14px; background: var(--sidney-bg-deepest); border: 1px solid var(--sidney-border); border-radius: 6px; }
-.a-bento-handle-input,
-.a-bento-handle-match { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.a-bento-handle-input .lbl,
-.a-bento-handle-match .lbl { font: 500 9px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.08em; text-transform: uppercase; }
-.a-bento-handle-input .val { font: 500 14px var(--sidney-font-mono); color: var(--sidney-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a-bento-handle-input .meta { font: 400 10.5px var(--sidney-font-mono); color: var(--sidney-fg-faint); letter-spacing: 0.02em; }
-.a-bento-handle-arrow { display: flex; align-items: center; justify-content: center; color: var(--sidney-primary); }
-.a-bento-handle-match .lbl { color: var(--sidney-primary); }
-.a-bento-handle-match .val { font: 600 14px var(--sidney-font-display); color: var(--sidney-fg); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.a-bento-handle-match .bar { height: 3px; background: var(--sidney-elevated); border-radius: 2px; overflow: hidden; margin: 4px 0 2px; }
-.a-bento-handle-match .bar span { display: block; height: 100%; background: var(--sidney-primary); box-shadow: 0 0 6px hsla(187, 72%, 48%, 0.6); }
-.a-bento-handle-match .meta { font: 400 10.5px var(--sidney-font-mono); color: var(--sidney-fg-faint); letter-spacing: 0.02em; }
-
-/* ─── Card 06 visual: protective brief preview ─── */
-.a-bento-brief { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 14px; background: var(--sidney-bg-deepest); border: 1px solid var(--sidney-border); border-radius: 6px; }
-.a-bento-brief .head { display: flex; align-items: center; gap: 8px; font: 500 9px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 6px; border-bottom: 1px solid var(--sidney-border); }
-.a-bento-brief .head .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sidney-warn); }
-.a-bento-brief .head .time { margin-left: auto; color: var(--sidney-fg-faint); }
-.a-bento-brief .risk { display: flex; align-items: center; gap: 4px; font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-muted); letter-spacing: 0.04em; text-transform: uppercase; }
-.a-bento-brief .risk-l { color: var(--sidney-fg-subtle); margin-right: 6px; }
-.a-bento-brief .risk-r { color: var(--sidney-warn); margin-left: 6px; }
-.a-bento-brief .pip { width: 14px; height: 4px; border-radius: 2px; background: var(--sidney-border-strong); }
-.a-bento-brief .pip.on { background: var(--sidney-warn); }
-.a-bento-brief .bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; font: 400 11.5px/1.4 var(--sidney-font-sans); color: var(--sidney-fg-muted); }
-.a-bento-brief .bullets li::before { content: "·"; color: var(--sidney-primary); margin-right: 6px; }
-.a-bento-brief .rec { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--sidney-border); font: 500 11px var(--sidney-font-mono); color: var(--sidney-primary); letter-spacing: 0.02em; }
+/* ───── Use-cases slot — open invitation, not enumerated list ─────
+   Listing specific use cases lets visitors disqualify themselves. A simple
+   prompt + CTA invites them to imagine their own. */
+.a-imagine { max-width: 720px; margin: 0 auto; text-align: center; padding: 16px 0; }
+.a-imagine-h { font: 400 44px/1.1 var(--sidney-font-display); letter-spacing: -0.03em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 32px; }
+.a-imagine-h em { font-style: normal; font-weight: 600; color: var(--sidney-primary); }
+.a-imagine-cta { height: 44px; padding: 0 22px; font-size: 14px; }
+@media (max-width: 768px) { .a-imagine-h { font-size: 30px; } }
+@media (max-width: 480px) { .a-imagine-h { font-size: 26px; } }
 
 /* ───── Product features strip ───── */
 .a-product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sidney-border); border: 1px solid var(--sidney-border); border-radius: 12px; overflow: hidden; }
@@ -685,63 +554,21 @@
 .a-feat-meta { margin-top: auto; display: flex; gap: 8px; flex-wrap: wrap; }
 .a-tag { font: 500 10px var(--sidney-font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--sidney-fg-subtle); background: var(--sidney-elevated); padding: 3px 7px; border-radius: 3px; }
 
-/* ───── Team — four founders + two advisors on a 12-col grid ─────
-   Row 1: 4 founder cards span 3 cols each (full width).
-   Row 2: 2 advisor cards span 6 cols each (full width, shorter, no photo).
-   Selective outer-corner rounding makes the six tiles read as one panel. */
-.a-team-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-.a-team-1, .a-team-2, .a-team-3, .a-team-4 { grid-column: span 3; }
-.a-team-5, .a-team-6 { grid-column: span 6; }
-
-.a-team-card { display: flex; flex-direction: column; gap: 14px; padding: 22px 22px 20px; background: var(--sidney-surface); border: 1px solid var(--sidney-border); border-radius: 0; transition: border-color 200ms var(--sidney-ease); position: relative; overflow: hidden; }
-.a-team-card:hover { border-color: var(--sidney-border-strong); }
-
-/* Outer-corner rounding: top corners on cards 1 + 4, bottom corners on 5 + 6 */
-.a-team-1 { border-top-left-radius: 14px; }
-.a-team-4 { border-top-right-radius: 14px; }
-.a-team-5 { border-bottom-left-radius: 14px; }
-.a-team-6 { border-bottom-right-radius: 14px; }
-
-@media (max-width: 980px) {
-  .a-team-grid { grid-template-columns: repeat(2, 1fr); }
-  .a-team-1, .a-team-2, .a-team-3, .a-team-4, .a-team-5, .a-team-6 { grid-column: span 1; border-radius: 0; }
-  .a-team-1 { border-top-left-radius: 14px; }
-  .a-team-2 { border-top-right-radius: 14px; }
-  .a-team-5 { border-bottom-left-radius: 14px; }
-  .a-team-6 { border-bottom-right-radius: 14px; }
+/* ───── Team — credential teaser, no individual cards ─────
+   Aggregated highlight reel: bio paragraph (the credentials), then a
+   tagline H2 (the takeaway), then a CTA. */
+.a-team-hero { max-width: 760px; margin: 0 auto; text-align: center; padding: 16px 0; }
+.a-team-hero .a-section-label { display: inline-block; }
+.a-team-hero-bio { font: 400 17px/1.7 var(--sidney-font-sans); color: var(--sidney-fg-muted); margin: 22px 0 32px; text-wrap: pretty; }
+.a-team-hero-h { font: 400 36px/1.15 var(--sidney-font-display); letter-spacing: -0.02em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 32px; }
+.a-team-hero-cta { height: 44px; padding: 0 22px; font-size: 14px; }
+@media (max-width: 768px) {
+  .a-team-hero-h { font-size: 28px; }
+  .a-team-hero-bio { font-size: 16px; }
 }
-@media (max-width: 600px) {
-  .a-team-grid { grid-template-columns: 1fr; }
-  .a-team-1, .a-team-2, .a-team-3, .a-team-4, .a-team-5, .a-team-6 { border-radius: 0; }
-  .a-team-1 { border-top-left-radius: 14px; border-top-right-radius: 14px; }
-  .a-team-6 { border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+@media (max-width: 480px) {
+  .a-team-hero-h { font-size: 24px; }
 }
-
-/* Head row: avatar + identity + LinkedIn corner link */
-.a-team-head { display: flex; align-items: center; gap: 14px; }
-.a-team-pic { width: 44px; height: 44px; border-radius: 50%; background: var(--sidney-elevated); display: flex; align-items: center; justify-content: center; font: 600 15px var(--sidney-font-display); color: var(--sidney-fg-muted); flex-shrink: 0; position: relative; overflow: hidden; }
-.a-team-pic::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(135deg, hsla(187, 72%, 48%, 0.16), transparent 60%); }
-.a-team-pic.large { width: 52px; height: 52px; font-size: 18px; }
-
-.a-team-id { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
-.a-team-name { font: 600 16px var(--sidney-font-display); letter-spacing: -0.01em; color: var(--sidney-fg); }
-.a-team-role { font: 500 10px var(--sidney-font-mono); color: var(--sidney-fg-subtle); letter-spacing: 0.08em; text-transform: uppercase; }
-
-.a-team-li { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 4px; color: var(--sidney-fg-faint); transition: color 160ms var(--sidney-ease), background 160ms var(--sidney-ease); cursor: pointer; flex-shrink: 0; }
-.a-team-li:hover { color: var(--sidney-primary); background: var(--sidney-primary-10); }
-
-/* Bio — two stacked lines for founders, one line for advisors */
-.a-team-bio { display: flex; flex-direction: column; gap: 8px; }
-.a-team-bio-line { font: 400 12.5px/1.55 var(--sidney-font-sans); color: var(--sidney-fg-muted); text-wrap: pretty; }
-.a-team-bio-line + .a-team-bio-line { padding-top: 8px; border-top: 1px solid var(--sidney-border); color: var(--sidney-fg-subtle); }
-
-/* Founder card — full layout */
-.a-team-founder { padding: 24px 22px 22px; }
-
-/* Advisor card — visually lighter: shorter, no photo, single line, faded */
-.a-team-advisor { padding: 18px 22px 18px; gap: 10px; background: transparent; }
-.a-team-advisor .a-team-name { font-size: 15px; }
-.a-team-advisor .a-team-bio-line { color: var(--sidney-fg-subtle); font-size: 12px; }
 
 /* ───── Big CTA ───── */
 .a-cta { position: relative; margin: 120px auto 80px; max-width: 1200px; padding: 0 32px; }

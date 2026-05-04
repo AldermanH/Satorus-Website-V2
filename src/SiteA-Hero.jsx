@@ -132,13 +132,13 @@ export const HeroA = () => (
         </div>
 
         <h1 className="a-hero-h1">
-          AI Agents for<br/>
-          High Stakes <em>Intelligence.</em>
+          No Serious Decision<br/>
+          Made <em>in the Dark.</em>
         </h1>
 
         <p className="a-hero-sub">
-          Sidney runs the investigation. You read the finding. Every claim
-          tied to a source — and nothing asserted beyond what the evidence supports.
+          Sidney runs the investigation. You make the call. Every claim sourced.
+          Nothing asserted beyond the evidence.
         </p>
 
         <div className="a-hero-ctas">
@@ -160,7 +160,7 @@ export const HeroA = () => (
             <div className="a-section-label">The product · live</div>
             <h2 className="a-section-h">Watch an investigation <em>assemble itself.</em></h2>
           </div>
-          <p className="a-section-p">A real query, a real subject. Sidney types, thinks, fetches, and produces a finding with every claim tied to a source. No canned video.</p>
+          <p className="a-section-p">Real query. Real subject. Watch Sidney turn raw information into finished intelligence.</p>
         </div>
         <div className="a-hero-mockup-wrap">
           <div className="a-hero-mockup-fade" aria-hidden="true"/>
