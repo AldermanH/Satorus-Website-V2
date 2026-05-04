@@ -2,13 +2,13 @@
    No entrance animations on hero copy (per saved feedback).
    Interaction motion kept: header morph on scroll, pill arrow slide on hover,
    customer-wall blur with "Meet our customers" reveal on hover.
-   Decorative overlays (spotlight beams + ::after atmospheric afterglow)
-   removed — they were creating a visible split where layers met. WebGL
-   shader stays. */
+   Hero background: @paper-design/shaders-react MeshGradient — replaces the
+   previous custom Three.js chromatic-ribbon shader. Single layer, no
+   overlay/mask compositing, plays cleanly across browsers. */
 import React, { useEffect, useState } from "react";
+import { MeshGradient } from "@paper-design/shaders-react";
 import { BrandLockup, Icon } from "./Components.jsx";
 import { DemoA } from "./SiteA-Demo.jsx";
-import WebGLShader from "./WebGLShader.jsx";
 
 const MENU = [
   { label: "Sidney",     href: "/#product"   },
@@ -101,12 +101,15 @@ export const NavA = () => {
 export const HeroA = () => (
   <>
     <section className="a-hero">
-      {/* Backdrop: two animated WebGL shaders — one with beams below the hero
-          glowing up, the other a vertical mirror with beams above glowing down. */}
-      <div className="a-hero-bg" aria-hidden="true">
-        <WebGLShader className="a-hero-shader a-hero-shader-top" xScale={1.2} yScale={0.6} distortion={0.55}/>
-        <WebGLShader className="a-hero-shader a-hero-shader-bottom" xScale={1.2} yScale={0.6} distortion={0.55}/>
-      </div>
+      {/* Animated mesh-gradient backdrop — dark base with a brand-cyan accent
+          drifting through it. Single layer, no compositing tricks, lives behind
+          the hero content via z-index. */}
+      <MeshGradient
+        className="a-hero-mesh"
+        colors={["#0a0a0e", "#1a1d24", "#22b8ce", "#0a0a0e"]}
+        speed={0.4}
+        backgroundColor="#0a0a0e"
+      />
 
       <div className="a-hero-inner">
         <div

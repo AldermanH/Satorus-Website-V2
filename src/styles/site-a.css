@@ -85,34 +85,18 @@
 .a-hero + .a-section { border-top: 0; padding-top: 72px; }
 @media (min-width: 768px) { .a-hero + .a-section { padding-top: 112px; } }
 
-/* Background — deepest slate fallback, with an animated WebGL shader
-   layered inside via the .a-hero-shader child. The shader uses screen
-   blending and a low opacity so it adds light without flattening the bg. */
-.a-hero-bg {
-  position: absolute; inset: 0; z-index: -2;
-  background: var(--sidney-bg-deepest);
-  overflow: hidden;
-}
-.a-hero-shader {
-  position: absolute;
+/* Animated mesh-gradient background (paper-design/shaders-react). Sits
+   behind the hero content via negative z-index. The component renders a
+   <canvas> sized 100%/100% of its parent, which works because .a-hero is
+   position: relative + min-height: 100vh. */
+.a-hero-mesh {
+  position: absolute !important;
   inset: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  z-index: -2;
   pointer-events: none;
-  opacity: 0.85;
-  mix-blend-mode: screen;
-  /* Soften the canvas's top edge so the glow eases in over a short range
-     instead of starting at a hard horizontal line. */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
 }
-/* Bottom shader — beams below the hero, halo bleeds up. */
-.a-hero-shader-bottom { transform: translateY(40%); }
-/* Top shader — vertical mirror of the bottom: beams above the hero, halo
-   bleeds down. scaleY(-1) flips the canvas; in flipped coords, a larger
-   translateY value pushes the canvas UP visually. */
-.a-hero-shader-top { transform: scaleY(-1) translateY(44%); }
 
 .a-hero-inner {
   position: relative; z-index: 3;
