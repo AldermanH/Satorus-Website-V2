@@ -540,14 +540,15 @@
 }
 
 /* ───── In-section CTA (lives inside ProductA, after the features grid) ─────
-   Quieter than a section-h since it's a sub-element. The h3 is smaller, and
-   the top margin gives the features grid breathing room above. */
-.a-imagine { max-width: 720px; margin: 80px auto 0; text-align: center; padding: 28px 0 8px; border-top: 1px solid var(--sidney-border); }
+   Sits below the features grid as a sub-element of the same section — no
+   divider line, just generous top margin so the grid above has room to
+   breathe before the CTA. */
+.a-imagine { max-width: 720px; margin: 72px auto 0; text-align: center; }
 .a-imagine-h { font: 400 30px/1.15 var(--sidney-font-display); letter-spacing: -0.02em; color: var(--sidney-fg); text-wrap: balance; margin: 0 0 24px; }
 .a-imagine-h em { font-style: normal; font-weight: 600; color: var(--sidney-primary); }
 .a-imagine-cta { height: 44px; padding: 0 22px; font-size: 14px; }
 @media (max-width: 768px) {
-  .a-imagine { margin-top: 56px; padding-top: 24px; }
+  .a-imagine { margin-top: 48px; }
   .a-imagine-h { font-size: 24px; }
 }
 @media (max-width: 480px) { .a-imagine-h { font-size: 22px; } }
