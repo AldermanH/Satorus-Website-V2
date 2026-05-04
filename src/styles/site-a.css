@@ -125,8 +125,11 @@
   height: 100%;
   display: block;
   pointer-events: none;
+  /* Alpha is now controlled inside the shader (bands opaque, dark areas
+     transparent), so we no longer need mix-blend-mode: screen — which
+     was failing on some Android Chrome builds and hiding the shader
+     entirely. opacity: 0.85 still tones the whole layer down softly. */
   opacity: 0.85;
-  mix-blend-mode: screen;
   /* Soften the canvas's top edge so the glow eases in over a short range
      instead of starting at a hard horizontal line. */
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);

@@ -30,7 +30,11 @@ const FRAGMENT_SHADER = /* glsl */ `
     float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);
     float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);
 
-    gl_FragColor = vec4(r, g, b, 1.0);
+    /* Alpha = max channel — bright band lines are opaque, dark areas
+       transparent. Lets us drop CSS mix-blend-mode: screen, which some
+       Android Chrome builds render as opaque-black, hiding the shader. */
+    float a = max(r, max(g, b));
+    gl_FragColor = vec4(r, g, b, a);
   }
 `;
 
