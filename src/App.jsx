@@ -1,6 +1,6 @@
 import React from "react";
 import { NavA, HeroA } from "./SiteA-Hero.jsx";
-import { ProductA, TeamA, FooterA } from "./SiteA-Sections.jsx";
+import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
 
 /* Tiny path-based router. Two pages today (/ and /demo); if we add more we
@@ -88,6 +88,7 @@ export default function App() {
           <>
             <HeroA/>
             <ProductA/>
+            <UseCasesA/>
             <TeamA/>
           </>
         )}

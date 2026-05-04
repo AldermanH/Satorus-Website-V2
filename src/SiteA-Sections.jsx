@@ -51,14 +51,84 @@ export const ProductA = () => (
         ))}
       </div>
 
-      {/* In-section CTA — also the use-cases anchor target so the header nav still resolves. */}
-      <div className="a-imagine" id="use-cases">
+      {/* In-section CTA after the features grid. */}
+      <div className="a-imagine">
         <h3 className="a-imagine-h">
           See Sidney work on a question that <em>matters to your team.</em>
         </h3>
         <a href="/demo" className="btn btn-primary a-imagine-cta">
           Request a demo <Icon name="arrow" size={14}/>
         </a>
+      </div>
+    </div>
+  </section>
+);
+
+/* ───── Use cases — NOW / DEVELOPING / ON THE HORIZON ─────
+   Three-stage maturity grid. Each stage shows a status pill, a description,
+   and two example queries (formatted like Sidney command-bar inputs) so the
+   visitor sees the kind of question each stage answers, not just the
+   capability category. Status colour signals where the stage sits — primary
+   cyan for live, warn amber for in-build, muted for planned. */
+
+const USE_CASES = [
+  {
+    status: "Now",
+    cls: "now",
+    desc: "Sidney runs intelligence investigations end to end. You ask a question. Sidney plans the research, pulls from surface, deep, and dark web sources, grades everything it touches, and delivers finished intelligence in your house style. Crisis monitoring, country risk, and threat assessment.",
+    queries: [
+      "Map current zones of instability along the Pakistan-Afghanistan border. Break down by sub-region.",
+      "Assess the security environment for a corporate delegation visiting Lagos in Q3.",
+    ],
+  },
+  {
+    status: "Developing",
+    cls: "developing",
+    desc: "Same architecture, extending into due diligence, sanctions screening, financial crime, and reputational risk. The research patterns shift. The source grading adjusts dynamically. The pipeline is the same.",
+    queries: [
+      "Run due diligence on Anadine Capital Group. Flag sanctions exposure and beneficial ownership opacity.",
+      "Investigate Stefan Horvat. Cross-reference corporate filings, adverse media, and politically exposed persons databases across Central and Eastern Europe.",
+    ],
+  },
+  {
+    status: "On the horizon",
+    cls: "horizon",
+    desc: "Supply chain risk and cyber threat intelligence. Same platform, same rigour, new territory.",
+    queries: [
+      "Map our tier-two rare earth suppliers. Flag concentration risk in jurisdictions under active export controls.",
+      "Identify APT infrastructure targeting European energy operators. Cross-reference dark web and Mandarin-language threat channels.",
+    ],
+  },
+];
+
+export const UseCasesA = () => (
+  <section className="a-section" id="use-cases">
+    <div className="container">
+      <div className="a-section-head">
+        <div>
+          <div className="a-section-label">Use cases</div>
+          <h2 className="a-section-h">One platform. <em>Every investigation.</em></h2>
+        </div>
+      </div>
+      <div className="a-uc-grid">
+        {USE_CASES.map(uc => (
+          <article key={uc.status} className={`a-uc-card ${uc.cls}`}>
+            <div className="a-uc-status">
+              <span className="dot"/>
+              <span>{uc.status}</span>
+            </div>
+            <p className="a-uc-desc">{uc.desc}</p>
+            <div className="a-uc-queries">
+              <div className="a-uc-queries-h">Example queries</div>
+              {uc.queries.map((q, i) => (
+                <div key={i} className="a-uc-query">
+                  <Icon name="sparkle" size={12}/>
+                  <span>"{q}"</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   </section>
