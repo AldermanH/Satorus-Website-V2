@@ -647,7 +647,7 @@
 .a-foot-h { font: 500 11px var(--sidney-font-sans); color: var(--sidney-fg-faint); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
 .a-foot-l { font: 400 13px var(--sidney-font-sans); color: var(--sidney-fg-muted); transition: color 150ms; }
 .a-foot-l:hover { color: var(--sidney-fg); }
-.a-foot-about { font: 400 13px/1.55 var(--sidney-font-sans); color: var(--sidney-fg-muted); margin-top: 14px; max-width: 280px; }
+.a-foot-about { font: 400 13px/1.55 var(--sidney-font-sans); color: var(--sidney-fg-muted); margin-top: 6px; max-width: 360px; }
 .a-foot-bot { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 40px auto 0; padding: 20px 32px 0; border-top: 1px solid var(--sidney-border); color: var(--sidney-fg-faint); font: 400 12px var(--sidney-font-mono); letter-spacing: 0.04em; }
 
 /* ───── Demo request page (/demo) ─────

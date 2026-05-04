@@ -191,9 +191,10 @@ export const FooterA = () => (
       </div>
       <div className="a-foot-col">
         <div className="a-foot-h">Site</div>
+        <a className="a-foot-l" href="/">Home</a>
         <a className="a-foot-l" href="/#product">Sidney</a>
         <a className="a-foot-l" href="/#use-cases">Use cases</a>
-        <a className="a-foot-l" href="/#company">Team</a>
+        <a className="a-foot-l" href="/#company">Company</a>
         <a className="a-foot-l" href="/demo">Request a demo</a>
       </div>
       <div className="a-foot-col">
