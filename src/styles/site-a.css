@@ -68,7 +68,8 @@
    asymmetric top padding. */
 .a-hero {
   position: relative; isolation: isolate;
-  min-height: 100vh;
+  min-height: 100vh;          /* fallback */
+  min-height: 100dvh;          /* fixes iOS Safari toolbar including itself in 100vh */
   padding: 80px 0 80px;
   overflow: hidden;
   display: flex;
