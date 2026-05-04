@@ -55,12 +55,7 @@ export default function WebGLShader({
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1);
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-    // Cap pixel ratio at 1.5 — for a decorative background the visual
-    // difference vs. native 2-3x DPR is imperceptible, but GPU work
-    // scales with the square of the ratio (so 3x → 1.5x saves ~75% of
-    // pixel-shader cost). Helps perceived responsiveness on retina /
-    // high-DPR mobile.
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(new THREE.Color(0x000000), 0);
 
     const uniforms = {
@@ -106,19 +101,11 @@ export default function WebGLShader({
 
     // rAF loop — pause/resume via IntersectionObserver so we're not burning
     // GPU rendering chromatic-aberration waves behind a hero the visitor has
-    // already scrolled past. Throttled to ~30fps internally: rAF still fires
-    // every frame (cheap), but renderer.render only runs every other frame
-    // and time advances by 2× the per-frame amount to keep the same visual
-    // speed. Halves the GPU work without changing how the bands look.
+    // already scrolled past.
     let rafId = null;
-    let lastRender = 0;
-    const FRAME_INTERVAL_MS = 33; // ~30fps
-    const tick = (now) => {
-      if (now - lastRender >= FRAME_INTERVAL_MS) {
-        lastRender = now;
-        uniforms.time.value += 0.02;
-        renderer.render(scene, camera);
-      }
+    const tick = () => {
+      uniforms.time.value += 0.01;
+      renderer.render(scene, camera);
       rafId = requestAnimationFrame(tick);
     };
     const startLoop = () => {
