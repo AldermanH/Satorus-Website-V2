@@ -14,7 +14,7 @@ import { Icon } from "./Components.jsx";
 const STAGES = [
   "Decomposing query by sub-region",
   "Sweeping indexed dark-web archives",
-  "Translating Arabic, Farsi, and Urdu keyword hits",
+  "Translating Arabic, Dari, and Urdu keyword hits",
   "Cross-referencing weapons provenance data",
   "Mapping escalation timeline",
   "Profiling non-state actors",
