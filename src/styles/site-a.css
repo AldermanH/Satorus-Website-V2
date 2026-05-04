@@ -643,7 +643,7 @@
 /* ───── Footer ───── */
 .a-foot { border-top: 1px solid var(--sidney-border); padding: 64px 0 48px; }
 .a-foot-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-.a-foot-col { display: flex; flex-direction: column; gap: 10px; }
+.a-foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .a-foot-h { font: 500 11px var(--sidney-font-sans); color: var(--sidney-fg-faint); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
 .a-foot-l { font: 400 13px var(--sidney-font-sans); color: var(--sidney-fg-muted); transition: color 150ms; }
 .a-foot-l:hover { color: var(--sidney-fg); }
