@@ -615,10 +615,16 @@
 }
 
 @media (max-width: 980px) {
-  /* Stack the spread into a single column, list below tagline. */
+  /* Stack the spread into a single column, list below tagline. Centre
+     the assertion side (label + tagline + CTA) for visual balance on
+     narrower viewports; credentials list stays left-aligned because the
+     leading-zero numbers form their own visual column. */
   .a-finale-content { grid-template-columns: 1fr; gap: 40px; }
+  .a-finale-inner { text-align: center; }
+  .a-finale-left { align-items: center; }
   .a-finale-h { font-size: 44px; margin-bottom: 28px; }
   .a-finale-label { margin-bottom: 24px; }
+  .a-finale-list { text-align: left; }
 }
 @media (max-width: 768px) {
   .a-finale { padding: 64px 0 96px; }

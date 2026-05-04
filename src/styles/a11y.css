@@ -56,7 +56,7 @@ button:focus-visible {
 @media (max-width: 1024px) {
   .container, .a-foot-row, .a-cta { padding-left: 24px; padding-right: 24px; }
   .a-section { padding: 96px 0; }
-  .a-section-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .a-section-head { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
   .a-section-h { font-size: 38px; }
   .a-product-grid { grid-template-columns: repeat(2, 1fr); }
   .a-foot-row { grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
