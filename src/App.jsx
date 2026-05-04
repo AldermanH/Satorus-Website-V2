@@ -35,7 +35,14 @@ function useRoute() {
   }, []);
   const navigate = React.useCallback((to) => {
     const currentFull = window.location.pathname + window.location.hash;
-    if (to === currentFull) return;
+    if (to === currentFull) {
+      // Same exact URL. If it's a no-hash link (e.g. Home), still scroll
+      // to top — that matches what the user expects when clicking Home
+      // from a page they're already scrolled down on. Hash-targeted
+      // re-clicks stay no-op.
+      if (!to.includes("#")) window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     window.history.pushState({}, "", to);
     const newPath = window.location.pathname;
     if (newPath !== path) {

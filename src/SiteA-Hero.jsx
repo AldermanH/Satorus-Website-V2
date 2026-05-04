@@ -11,6 +11,7 @@ import { BrandLockup, Icon } from "./Components.jsx";
 import { DemoA } from "./SiteA-Demo.jsx";
 
 const MENU = [
+  { label: "Home",       href: "/"           },
   { label: "Sidney",     href: "/#product"   },
   { label: "Use cases",  href: "/#use-cases" },
   { label: "Company",    href: "/#company"   },
