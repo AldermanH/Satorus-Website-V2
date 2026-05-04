@@ -190,36 +190,26 @@ export const FooterA = () => (
         <p className="a-foot-about">Satorus Group builds AI agents for intelligence investigations. Named after <em>satori</em>, the Japanese term for a sudden moment of enlightenment.</p>
       </div>
       <div className="a-foot-col">
-        <div className="a-foot-h">Product</div>
-        <a className="a-foot-l">Sidney</a>
-        <a className="a-foot-l">Dark-web module</a>
-        <a className="a-foot-l">Changelog</a>
-        <a className="a-foot-l">Roadmap</a>
+        <div className="a-foot-h">Site</div>
+        <a className="a-foot-l" href="/#product">Sidney</a>
+        <a className="a-foot-l" href="/#use-cases">Use cases</a>
+        <a className="a-foot-l" href="/#company">Team</a>
+        <a className="a-foot-l" href="/demo">Request a demo</a>
       </div>
       <div className="a-foot-col">
-        <div className="a-foot-h">Use cases</div>
-        <a className="a-foot-l">Geopolitical</a>
-        <a className="a-foot-l">Journalism</a>
-        <a className="a-foot-l">Dark-web monitoring</a>
-        <a className="a-foot-l">Threat assessment</a>
-      </div>
-      <div className="a-foot-col">
-        <div className="a-foot-h">Company</div>
-        <a className="a-foot-l">About</a>
-        <a className="a-foot-l">Careers</a>
-        <a className="a-foot-l">Press</a>
-        <a className="a-foot-l">Contact</a>
-      </div>
-      <div className="a-foot-col">
-        <div className="a-foot-h">Trust</div>
-        <a className="a-foot-l">Security</a>
-        <a className="a-foot-l">Privacy</a>
-        <a className="a-foot-l">Terms</a>
-        <a className="a-foot-l">SOC 2 report</a>
+        <div className="a-foot-h">Connect</div>
+        <a
+          className="a-foot-l"
+          href="https://www.linkedin.com/company/satorus-group"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
       </div>
     </div>
     <div className="a-foot-bot">
-      <div>© 2026 Satorus Group Ltd · Company no. 14528991 · London</div>
+      <div>© 2026 Satorus Group Ltd · London</div>
       <div style={{display:"flex", alignItems:"center", gap:10}}>
         <span style={{color:"var(--sidney-primary)"}}>●</span> All systems operational
       </div>
