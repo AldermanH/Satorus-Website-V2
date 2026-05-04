@@ -110,6 +110,19 @@ export const UseCasesA = () => (
           <h2 className="a-section-h">One platform. <em>Every investigation.</em></h2>
         </div>
       </div>
+
+      {/* Maturity rail — visualises the progression between stages with a
+          gradient line and status dots. Hidden on mobile; the in-card
+          status pills take over there. */}
+      <div className="a-uc-rail" aria-hidden="true">
+        {USE_CASES.map(uc => (
+          <div key={uc.status} className={`a-uc-rail-step ${uc.cls}`}>
+            <span className="dot"/>
+            <span className="label">{uc.status}</span>
+          </div>
+        ))}
+      </div>
+
       <div className="a-uc-grid">
         {USE_CASES.map(uc => (
           <article key={uc.status} className={`a-uc-card ${uc.cls}`}>
