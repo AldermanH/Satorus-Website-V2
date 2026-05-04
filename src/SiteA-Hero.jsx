@@ -33,6 +33,40 @@ const CUSTOMERS = [
    repeat 6 times total (3 per half ≈ 2700px) to safely cover any desktop. */
 const MARQUEE_LOGOS = Array.from({ length: 6 }, () => CUSTOMERS).flat();
 
+/* MeshGradient is a continuous WebGL animation. At retina pixel ratio + full-
+   viewport size it can chew through GPU/CPU and lag the page. Two mitigations:
+   - maxPixelCount caps total rendered pixels (downsamples on high-DPR displays
+     where the gradient blur masks the lower resolution anyway)
+   - IntersectionObserver unmounts the canvas when the hero scrolls fully out
+     of view, so we're not burning frames behind the rest of the page. */
+const HeroBackdrop = () => {
+  const wrapRef = React.useRef(null);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={wrapRef} className="a-hero-mesh-wrap" aria-hidden="true">
+      {visible && (
+        <MeshGradient
+          className="a-hero-mesh"
+          colors={["#0a0a0e", "#1a1d24", "#22b8ce", "#0a0a0e"]}
+          speed={0.4}
+          backgroundColor="#0a0a0e"
+          maxPixelCount={1_000_000}
+        />
+      )}
+    </div>
+  );
+};
+
 // ───────── Sticky header — morphs into a pill on scroll ─────────
 export const NavA = () => {
   const [open, setOpen] = useState(false);
@@ -101,15 +135,7 @@ export const NavA = () => {
 export const HeroA = () => (
   <>
     <section className="a-hero">
-      {/* Animated mesh-gradient backdrop — dark base with a brand-cyan accent
-          drifting through it. Single layer, no compositing tricks, lives behind
-          the hero content via z-index. */}
-      <MeshGradient
-        className="a-hero-mesh"
-        colors={["#0a0a0e", "#1a1d24", "#22b8ce", "#0a0a0e"]}
-        speed={0.4}
-        backgroundColor="#0a0a0e"
-      />
+      <HeroBackdrop/>
 
       <div className="a-hero-inner">
         <div
