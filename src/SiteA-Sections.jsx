@@ -164,14 +164,16 @@ export const TeamA = () => (
   <section className="a-section a-finale" id="company">
     <div className="container">
       <div className="a-finale-inner">
-        <div className="a-section-label">Team</div>
+        <div className="a-finale-left">
+          <div className="a-section-label">Team</div>
+          <h2 className="a-finale-h">We built the platform we wished existed.</h2>
+          <a href="/demo" className="btn btn-primary a-finale-cta">
+            See the platform in action <Icon name="arrow" size={14}/>
+          </a>
+        </div>
         <ol className="a-finale-list">
           {CREDENTIALS.map((c, i) => <li key={i}>{c}</li>)}
         </ol>
-        <h2 className="a-finale-h">We built the platform we wished existed.</h2>
-        <a href="/demo" className="btn btn-primary a-finale-cta">
-          See the platform in action <Icon name="arrow" size={14}/>
-        </a>
       </div>
     </div>
   </section>
