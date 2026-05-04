@@ -509,26 +509,10 @@
   .a-uc-status { display: inline-flex; align-items: center; gap: 8px; font: 500 11px var(--sidney-font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
 }
 
-.a-uc-card { background: var(--sidney-surface); border: 1px solid var(--sidney-border); border-top: 2px solid var(--sidney-border-strong); border-radius: 10px; padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; transition: border-color 220ms var(--sidney-ease), border-top-color 220ms var(--sidney-ease); }
+.a-uc-card { background: var(--sidney-surface); border: 1px solid var(--sidney-border); border-top: 2px solid var(--sidney-border-strong); border-radius: 10px; padding: 24px 22px; display: flex; flex-direction: column; gap: 16px; }
 .a-uc-card.now       { border-top-color: var(--sidney-primary); }
 .a-uc-card.developing { border-top-color: var(--sidney-warn); }
 .a-uc-card.horizon   { border-top-color: hsl(265, 60%, 60%); }
-.a-uc-card:hover { border-color: var(--sidney-border-strong); }
-
-/* Hover focus — only the *colour cues* react. The hovered card keeps its
-   coloured top border + matching rail step at full intensity; the
-   non-hovered cards' top borders drop to muted grey and the non-matching
-   rail dots/labels fade. Card bodies (description + queries) stay at full
-   strength so reading isn't disrupted. */
-.a-uc-grid:has(.a-uc-card:hover) .a-uc-card:not(:hover) { border-top-color: var(--sidney-border-strong); }
-.container:has(.a-uc-card:hover) .a-uc-rail-step .dot,
-.container:has(.a-uc-card:hover) .a-uc-rail-step .label { opacity: 0.35; transition: opacity 220ms var(--sidney-ease); }
-.container:has(.a-uc-card.now:hover) .a-uc-rail-step.now .dot,
-.container:has(.a-uc-card.now:hover) .a-uc-rail-step.now .label,
-.container:has(.a-uc-card.developing:hover) .a-uc-rail-step.developing .dot,
-.container:has(.a-uc-card.developing:hover) .a-uc-rail-step.developing .label,
-.container:has(.a-uc-card.horizon:hover) .a-uc-rail-step.horizon .dot,
-.container:has(.a-uc-card.horizon:hover) .a-uc-rail-step.horizon .label { opacity: 1; }
 
 /* In-card status pill — display is handled by the mobile/desktop toggle
    above (hidden on desktop where the rail labels, shown on mobile). */
