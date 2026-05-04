@@ -2,9 +2,9 @@
    No entrance animations on hero copy (per saved feedback).
    Interaction motion kept: header morph on scroll, pill arrow slide on hover,
    customer-wall blur with "Meet our customers" reveal on hover.
-   Hero overlays removed (mask-image fade, ::after afterglow, spotlight
-   beams) — the shader beams stay, but the gradient/mask overlays that
-   were producing a visible split in the middle are gone. */
+   Decorative overlays (spotlight beams + ::after atmospheric afterglow)
+   removed — they were creating a visible split where layers met. WebGL
+   shader stays. */
 import React, { useEffect, useState } from "react";
 import { BrandLockup, Icon } from "./Components.jsx";
 import { DemoA } from "./SiteA-Demo.jsx";

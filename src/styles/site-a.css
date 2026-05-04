@@ -85,9 +85,9 @@
 .a-hero + .a-section { border-top: 0; padding-top: 72px; }
 @media (min-width: 768px) { .a-hero + .a-section { padding-top: 112px; } }
 
-/* Background — deepest slate, with an animated WebGL shader layered inside
-   via the .a-hero-shader child. The shader uses screen blending so dark
-   canvas pixels are invisible and only the bright bands lighten the bg. */
+/* Background — deepest slate fallback, with an animated WebGL shader
+   layered inside via the .a-hero-shader child. The shader uses screen
+   blending and a low opacity so it adds light without flattening the bg. */
 .a-hero-bg {
   position: absolute; inset: 0; z-index: -2;
   background: var(--sidney-bg-deepest);
@@ -102,6 +102,10 @@
   pointer-events: none;
   opacity: 0.85;
   mix-blend-mode: screen;
+  /* Soften the canvas's top edge so the glow eases in over a short range
+     instead of starting at a hard horizontal line. */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 22%);
 }
 /* Bottom shader — beams below the hero, halo bleeds up. */
 .a-hero-shader-bottom { transform: translateY(40%); }
