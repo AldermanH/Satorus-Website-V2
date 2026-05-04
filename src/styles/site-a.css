@@ -615,20 +615,22 @@
 }
 
 @media (max-width: 980px) {
-  /* Stack the spread into a single column, list below tagline. Centre
-     the assertion side (label + tagline + CTA) for visual balance on
-     narrower viewports; credentials list stays left-aligned because the
-     leading-zero numbers form their own visual column. */
-  .a-finale-content { grid-template-columns: 1fr; gap: 40px; }
+  /* Stack the spread into a single column. Order: tagline → credentials
+     list → CTA. To get the CTA below the list (rather than between
+     tagline and list, where the desktop layout puts it inside
+     .a-finale-left), use display: contents on .a-finale-left to unwrap
+     its children into the grid, then reorder them via grid `order`. */
+  .a-finale-content { grid-template-columns: 1fr; gap: 32px; }
   .a-finale-inner { text-align: center; }
-  .a-finale-left { align-items: center; }
-  .a-finale-h { font-size: 44px; margin-bottom: 28px; }
+  .a-finale-left { display: contents; }
+  .a-finale-h { font-size: 44px; margin-bottom: 0; order: 1; }
+  .a-finale-list { order: 2; text-align: left; }
+  .a-finale-cta { order: 3; justify-self: center; }
   .a-finale-label { margin-bottom: 24px; }
-  .a-finale-list { text-align: left; }
 }
 @media (max-width: 768px) {
   .a-finale { padding: 64px 0 96px; }
-  .a-finale-h { font-size: 36px; margin-bottom: 24px; }
+  .a-finale-h { font-size: 36px; }
   .a-finale-list li { grid-template-columns: 40px 1fr; gap: 14px; font-size: 16px; padding: 12px 0; }
 }
 @media (max-width: 480px) {
