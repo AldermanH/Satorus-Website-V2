@@ -118,6 +118,12 @@ export default function WebGLShader({
       }
     };
 
+    // Kick the loop off immediately so the shader animates from first paint.
+    // Mobile Safari can be late firing the IntersectionObserver's first
+    // callback, which left the canvas rendered but static. The observer
+    // below still pauses/resumes on scroll, this is just a defensive start.
+    startLoop();
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

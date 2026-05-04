@@ -78,13 +78,29 @@ button:focus-visible {
   .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
   .a-hh[data-state="active"] .a-hh-buttons .btn { flex: 1; justify-content: center; }
 
-  /* When the mobile menu is open, give the chrome a solid backdrop so
-     the menu items don't visually clash with whatever's underneath the
-     transparent header (especially the hero, which is multi-coloured). */
+  /* Full-viewport blurred scrim when the mobile menu is open. Sits at
+     z-index -1 inside .a-hh's stacking context — that puts it above the
+     page (since .a-hh is z-index 40) but below the menu chrome itself.
+     Pointer-events: none so clicks pass through (no accidental scroll
+     traps); position: fixed inset: 0 escapes the parent container. */
+  .a-hh[data-state="active"]::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: hsla(234, 8%, 6%, 0.7);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+            backdrop-filter: blur(24px) saturate(140%);
+    pointer-events: none;
+  }
+
+  /* Menu chrome — fully opaque now that the backdrop handles the blur,
+     so the items read crisply against a solid surface instead of a
+     translucent one. */
   .a-hh[data-state="active"] .a-hh-inner {
-    background: hsla(234, 8%, 6%, 0.96);
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
+    background: hsl(234, 8%, 6%);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
     border-color: var(--sidney-border);
   }
 }
@@ -97,16 +113,6 @@ button:focus-visible {
   .a-hero-ctas { margin-top: 32px; }
   .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
   .a-hero-mockup { padding: 8px; border-radius: 12px; }
-
-  /* WebGL shader — bring the canvases closer to the visible centre so
-     the chromatic ribbons actually show on the smaller mobile viewport.
-     Desktop translates were calibrated for ~900px hero height; here we
-     reduce them so more of the canvas content sits inside the viewport.
-     Opacity nudged to 1 so the screen-blend effect carries through at
-     the mobile retina pixel ratio. */
-  .a-hero-shader        { opacity: 1; }
-  .a-hero-shader-bottom { transform: translateY(20%); }
-  .a-hero-shader-top    { transform: scaleY(-1) translateY(20%); }
 
   .a-marquee-logo { margin-right: 56px; }
   .a-marquee-track { animation-duration: 90s; }
@@ -181,11 +187,6 @@ button:focus-visible {
   .a-hero-sub { font-size: 16px; }
   .a-hero-mockup-wrap { padding: 0 4px; }
   .a-hero-mockup { padding: 6px; }
-
-  /* Shader — even less aggressive translates on phones so the chromatic
-     ribbon actually clears the centre region. */
-  .a-hero-shader-bottom { transform: translateY(10%); }
-  .a-hero-shader-top    { transform: scaleY(-1) translateY(12%); }
 
   .a-marquee-logo { margin-right: 40px; }
   .a-marquee-track { animation-duration: 72s; }
