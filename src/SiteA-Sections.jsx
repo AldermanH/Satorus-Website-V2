@@ -6,15 +6,15 @@ import { Icon, BrandLockup } from "./Components.jsx";
 
 const FEATURES = [
   {
-    i: "sparkle", h: "Your analyst",
+    i: "sparkle", h: "Your Analyst",
     p: "Sidney receives a query, plans the investigation, researches, collects, analyses, and synthesises. One query in, intelligence out. Repeatedly queryable.",
   },
   {
-    i: "branch", h: "Auditable evidence",
+    i: "branch", h: "Auditable Evidence",
     p: "Every claim in every report is sourced and traceable directly within the platform. Nothing opaque. Nothing asserted without evidence.",
   },
   {
-    i: "chart", h: "Source grading",
+    i: "chart", h: "Source Grading",
     p: "An algorithm that assesses source reliability across multiple layers, adjusting its emphasis based on the investigation type. Sidney doesn't just cite sources. It evaluates them.",
   },
   {
@@ -22,11 +22,11 @@ const FEATURES = [
     p: "From surface to dark web, Sidney pulls from the sources that matter, not just the ones that are easy to reach.",
   },
   {
-    i: "lock", h: "Your context",
+    i: "lock", h: "Your Context",
     p: "Upload internal data and have Sidney weave it into the analysis. The platform is secure, allowing it to handle what you'd never put into a third-party tool.",
   },
   {
-    i: "file", h: "Your house style",
+    i: "file", h: "Your House Style",
     p: "Upload your own report templates and Sidney writes to them. No reformatting, no copy-pasting into your deliverable.",
   },
 ];
