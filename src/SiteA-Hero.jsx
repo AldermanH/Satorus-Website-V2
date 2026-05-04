@@ -33,20 +33,24 @@ const CUSTOMERS = [
    repeat 6 times total (3 per half ≈ 2700px) to safely cover any desktop. */
 const MARQUEE_LOGOS = Array.from({ length: 6 }, () => CUSTOMERS).flat();
 
-/* MeshGradient is a continuous WebGL animation. At retina pixel ratio + full-
-   viewport size it can chew through GPU/CPU and lag the page. Two mitigations:
-   - maxPixelCount caps total rendered pixels (downsamples on high-DPR displays
-     where the gradient blur masks the lower resolution anyway)
-   - IntersectionObserver unmounts the canvas when the hero scrolls fully out
-     of view, so we're not burning frames behind the rest of the page. */
+/* MeshGradient is a continuous WebGL animation. Three perf knobs in play:
+   - maxPixelCount caps total rendered pixels (defaults to ~8.3M = 4K@2× DPR;
+     we set 500k so retina displays render an upscaled lower-res gradient.
+     Visually fine because the gradient blur masks the resolution drop)
+   - minPixelRatio: 1 lets the library downsample below devicePixelRatio
+     (defaults to 2; mostly redundant with maxPixelCount but belt+braces)
+   - speed: 0 — per the package docs, speed of zero stops the rAF entirely.
+     Cheaper than unmount/remount because the WebGL context stays alive.
+     IntersectionObserver toggles between active speed and 0 as the hero
+     scrolls in/out of view. */
 const HeroBackdrop = () => {
   const wrapRef = React.useRef(null);
-  const [visible, setVisible] = useState(true);
+  const [active, setActive] = useState(true);
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
+      ([entry]) => setActive(entry.isIntersecting),
       { threshold: 0 },
     );
     obs.observe(el);
@@ -54,15 +58,14 @@ const HeroBackdrop = () => {
   }, []);
   return (
     <div ref={wrapRef} className="a-hero-mesh-wrap" aria-hidden="true">
-      {visible && (
-        <MeshGradient
-          className="a-hero-mesh"
-          colors={["#0a0a0e", "#1a1d24", "#22b8ce", "#0a0a0e"]}
-          speed={0.4}
-          backgroundColor="#0a0a0e"
-          maxPixelCount={1_000_000}
-        />
-      )}
+      <MeshGradient
+        className="a-hero-mesh"
+        colors={["#0a0a0e", "#1a1d24", "#22b8ce", "#0a0a0e"]}
+        speed={active ? 0.4 : 0}
+        backgroundColor="#0a0a0e"
+        minPixelRatio={1}
+        maxPixelCount={500_000}
+      />
     </div>
   );
 };
