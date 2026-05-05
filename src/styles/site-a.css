@@ -248,13 +248,18 @@
   .a-hero-ctas { margin-top: 36px; }
 }
 @media (max-width: 540px) {
-  .a-hero-h1 { font-size: clamp(25px, 8vw, 44px); margin-top: 1.2em; }
+  .a-hero-h1 { font-size: clamp(25px, 8vw, 44px); margin-top: 24px; }
   /* At this font size the longest rotor phrase exceeds the line at
      phone widths. Allow line 1 to wrap so the full phrase stays
      visible (clipped text would be worse UX than a wrap). */
   .a-hero-h1-line1 { white-space: normal; overflow-x: visible; }
-  .a-hero-sub { font-size: 16px; margin-top: 1.4em; max-width: 100%; }
-  .a-hero-ctas { margin-top: 1.8em; width: 100%; }
+  /* Spacing rhythm on phone: 24 → 24 → 32. Credit + H1 are tight (a
+     close pair), H1 + sub stay tight (feel like the headline unit),
+     and the CTA group gets clear breathing room as the call to
+     action. The previous em-based values gave a weird 37 → 22 → 29
+     pattern because em referenced different element font-sizes. */
+  .a-hero-sub { font-size: 16px; margin-top: 24px; max-width: 100%; }
+  .a-hero-ctas { margin-top: 32px; width: 100%; }
   .a-hero-credit { font-size: 13px; gap: 9px; }
   .a-hero-credit-logo { height: 16px; }
   /* Primary: full-width filled button, the obvious tap target. */
