@@ -257,8 +257,9 @@ export const HeroA = () => {
                 <span className="a-hero-rotor-caret" aria-hidden="true"/>
               </span>
             </span>
-            <br/>
-            Decisions Made <em>in the Dark.</em>
+            <span className="a-hero-h1-line2">
+              Decisions Made <em>in the Dark.</em>
+            </span>
           </h1>
 
           <p className="a-hero-sub">
