@@ -108,13 +108,18 @@ button:focus-visible {
     pointer-events: none;
   }
 
-  /* Menu chrome — fully opaque solid surface, since the scrim handles the
-     blur behind. Keeps the menu items crisp instead of frosted-on-frosted. */
+  /* No menu chrome — the full-viewport blur scrim already separates the
+     menu from the page behind it, so the bordered/rounded "box" was
+     visual clutter that pinched the spacing of the items inside it.
+     Stripping the inner's background, border, and backdrop-filter
+     means the brand + menu items sit directly on the blurred backdrop;
+     the .a-hh-actions border-top stays as the only divider, splitting
+     the brand strip from the menu items. */
   .a-hh[data-state="active"] .a-hh-inner {
-    background: hsl(234, 8%, 6%);
+    background: transparent;
+    border-color: transparent;
     -webkit-backdrop-filter: none;
             backdrop-filter: none;
-    border-color: var(--sidney-border);
   }
 
   /* Bigger, brighter menu text when the mobile drawer is open — much easier
