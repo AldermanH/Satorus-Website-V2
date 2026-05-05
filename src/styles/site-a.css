@@ -257,19 +257,32 @@
   .a-hero-ctas { margin-top: 1.8em; width: 100%; }
   .a-hero-credit { font-size: 13px; gap: 9px; }
   .a-hero-credit-logo { height: 16px; }
-  /* Stack as a deliberate pair of full-width buttons. Secondary
-     becomes a ghost / outlined treatment so it reads as a real CTA
-     rather than a stranded text link. */
-  .a-hero-cta-primary,
-  .a-hero-cta-secondary {
+  /* Primary: full-width filled button, the obvious tap target. */
+  .a-hero-cta-primary {
     width: 100%;
     justify-content: center;
     height: 48px;
   }
+  /* Secondary: underlined text link, no box. Sitting it directly
+     below the primary as a quiet "or watch this run" — the previous
+     outlined-ghost treatment competed visually with the primary
+     instead of complementing it. Same full-width centred slot so
+     the two still read as a paired set, but the type-only treatment
+     keeps the hierarchy clear. */
   .a-hero-cta-secondary {
-    border: 1px solid var(--sidney-border-strong);
+    width: 100%;
+    justify-content: center;
+    height: auto;
+    padding: 14px 0;
+    border: none;
     background: transparent;
-    text-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+  }
+  .a-hero-cta-secondary:hover {
+    text-decoration-color: rgba(255, 255, 255, 0.85);
   }
 }
 .a-hero-h1 em {
