@@ -159,6 +159,24 @@
   color: var(--sidney-fg);
 }
 
+/* Rotating-word slot inside the hero H1.
+   Each tick of the JS interval bumps the React `key`, which remounts the
+   <em> and re-fires this animation. inline-block lets us translate; the
+   slight blur on entry softens the swap so the eye doesn't snap to the
+   replacement edge. Reduced-motion users have animation neutralised by
+   the global *::before/::after rule in a11y.css, plus the JS interval
+   itself is gated on prefers-reduced-motion so the word stays static. */
+.a-hero-rotor {
+  display: inline-block;
+  animation: heroRotorIn 700ms var(--sidney-ease) both;
+  will-change: transform, opacity, filter;
+}
+@keyframes heroRotorIn {
+  0%   { opacity: 0; transform: translateY(0.4em); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
 .a-hero-sub {
   margin: 28px auto 0;
   max-width: 36rem;

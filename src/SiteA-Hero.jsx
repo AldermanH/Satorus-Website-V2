@@ -17,6 +17,21 @@ const MENU = [
   { label: "Company",    href: "/#company"   },
 ];
 
+/* Hero H1 rotor — the italic phrase that cycles between "No" and
+   "Decisions Made in the Dark." Order matters; the user reads them
+   top-to-bottom. */
+const HERO_ROTOR_WORDS = [
+  "Threat Assessment",
+  "Due Diligence",
+  "Supply Chain Risk",
+  "Sanctions Compliance",
+  "Financial Crime",
+  "Cyber Threat",
+  "Reputational Risk",
+  "Geopolitical Crisis",
+];
+const HERO_ROTOR_INTERVAL_MS = 2800;
+
 const CUSTOMERS = [
   { name: "BBC",                   src: "/assets/customer-bbc.svg",         h: 22 },
   { name: "Dow Jones",             src: "/assets/customer-dow-jones.svg",   h: 18 },
@@ -136,7 +151,24 @@ export const NavA = () => {
 };
 
 // ───────── Hero — full-screen text + shader; the demo lives in its own section below ─────────
-export const HeroA = () => (
+export const HeroA = () => {
+  // Cycle through HERO_ROTOR_WORDS on a fixed interval. `key={wordIndex}`
+  // on the <em> below remounts the element each tick, so the CSS
+  // animation re-fires on every word change. Reduced-motion users get a
+  // single static word — neither the interval nor the keyframes run.
+  const [wordIndex, setWordIndex] = useState(0);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return;
+    const id = window.setInterval(
+      () => setWordIndex(i => (i + 1) % HERO_ROTOR_WORDS.length),
+      HERO_ROTOR_INTERVAL_MS,
+    );
+    return () => window.clearInterval(id);
+  }, []);
+
+  return (
   <>
     <section className="a-hero">
       <HeroBackdrop/>
@@ -160,8 +192,16 @@ export const HeroA = () => (
         </div>
 
         <h1 className="a-hero-h1">
-          Automated Intelligence.<br/>
-          Nothing Left <em>in the Dark.</em>
+          No{" "}
+          <em
+            key={wordIndex}
+            className="a-hero-rotor"
+            aria-live="polite"
+          >
+            {HERO_ROTOR_WORDS[wordIndex]}
+          </em>
+          <br/>
+          Decisions Made in the Dark.
         </h1>
 
         <p className="a-hero-sub">
@@ -226,4 +266,5 @@ export const HeroA = () => (
     </div>
     */}
   </>
-);
+  );
+};
