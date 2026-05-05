@@ -17,9 +17,10 @@ const MENU = [
   { label: "Company",    href: "/#company"   },
 ];
 
-/* Hero H1 rotor — the italic phrase that cycles between "No" and
-   "Decisions Made in the Dark." Order matters; the user reads them
-   top-to-bottom. */
+/* Hero H1 rotor — the typing phrase that cycles between "No" and
+   "Decisions Made in the Dark." A small state machine in HeroA types
+   each phrase in character-by-character, holds, deletes, and advances.
+   Order matters; users read them top-to-bottom over several cycles. */
 const HERO_ROTOR_WORDS = [
   "Threat Assessment",
   "Due Diligence",
@@ -30,7 +31,10 @@ const HERO_ROTOR_WORDS = [
   "Reputational Risk",
   "Geopolitical Crisis",
 ];
-const HERO_ROTOR_INTERVAL_MS = 2800;
+const HERO_ROTOR_TYPE_MS = 70;    // per-char typing cadence
+const HERO_ROTOR_DELETE_MS = 35;  // per-char deletion (faster than typing — feels natural)
+const HERO_ROTOR_HOLD_MS = 1600;  // pause when the word is fully typed
+const HERO_ROTOR_GAP_MS = 250;    // pause after fully deleted, before next word
 
 const CUSTOMERS = [
   { name: "BBC",                   src: "/assets/customer-bbc.svg",         h: 22 },
@@ -152,21 +156,51 @@ export const NavA = () => {
 
 // ───────── Hero — full-screen text + shader; the demo lives in its own section below ─────────
 export const HeroA = () => {
-  // Cycle through HERO_ROTOR_WORDS on a fixed interval. `key={wordIndex}`
-  // on the <em> below remounts the element each tick, so the CSS
-  // animation re-fires on every word change. Reduced-motion users get a
-  // single static word — neither the interval nor the keyframes run.
+  // Typing-effect state machine. Each render re-evaluates phase + displayed
+  // and schedules the next mutation; the cleanup clears the pending timeout
+  // so unmount/dep-change can't double-fire. Reduced-motion users get a
+  // single static word: we set `displayed` once and bail before scheduling
+  // anything. Phases: "typing" (add chars one at a time) → "holding" (pause
+  // at full word) → "deleting" (remove chars) → "gap" (brief blank pause) →
+  // back to "typing" with the next word.
   const [wordIndex, setWordIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [phase, setPhase] = useState("typing");
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) return;
-    const id = window.setInterval(
-      () => setWordIndex(i => (i + 1) % HERO_ROTOR_WORDS.length),
-      HERO_ROTOR_INTERVAL_MS,
-    );
-    return () => window.clearInterval(id);
-  }, []);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      const target = HERO_ROTOR_WORDS[wordIndex];
+      if (displayed !== target) setDisplayed(target);
+      return;
+    }
+    const target = HERO_ROTOR_WORDS[wordIndex];
+    let timer;
+    if (phase === "typing") {
+      if (displayed.length < target.length) {
+        timer = window.setTimeout(
+          () => setDisplayed(target.slice(0, displayed.length + 1)),
+          HERO_ROTOR_TYPE_MS,
+        );
+      } else {
+        timer = window.setTimeout(() => setPhase("deleting"), HERO_ROTOR_HOLD_MS);
+      }
+    } else if (phase === "deleting") {
+      if (displayed.length > 0) {
+        timer = window.setTimeout(
+          () => setDisplayed(target.slice(0, displayed.length - 1)),
+          HERO_ROTOR_DELETE_MS,
+        );
+      } else {
+        timer = window.setTimeout(() => {
+          setWordIndex(i => (i + 1) % HERO_ROTOR_WORDS.length);
+          setPhase("typing");
+        }, HERO_ROTOR_GAP_MS);
+      }
+    }
+    return () => window.clearTimeout(timer);
+  }, [displayed, phase, wordIndex]);
 
   return (
   <>
@@ -193,15 +227,12 @@ export const HeroA = () => {
 
         <h1 className="a-hero-h1">
           No{" "}
-          <em
-            key={wordIndex}
-            className="a-hero-rotor"
-            aria-live="polite"
-          >
-            {HERO_ROTOR_WORDS[wordIndex]}
-          </em>
+          <span className="a-hero-rotor-slot" aria-live="polite">
+            <span className="a-hero-rotor">{displayed}</span>
+            <span className="a-hero-rotor-caret" aria-hidden="true"/>
+          </span>
           <br/>
-          Decisions Made in the Dark.
+          Decisions Made <em>in the Dark.</em>
         </h1>
 
         <p className="a-hero-sub">

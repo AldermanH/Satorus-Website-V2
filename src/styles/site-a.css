@@ -142,11 +142,15 @@
 /* ───── Headline / sub / CTAs ───── */
 .a-hero-h1 {
   margin: 32px auto 0;
-  max-width: 72rem;
+  max-width: 84rem;
   font-family: var(--sidney-font-display);
   font-weight: 300;
-  font-size: clamp(54px, 8vw, 96px);
-  line-height: 1.02;
+  /* Cap reduced from 96 → 84 because the second line "Decisions Made in
+     the Dark." is wider than previous copy and would wrap at 96px on a
+     standard 1280–1440 desktop. 84 holds the bold hero feel without the
+     overflow. */
+  font-size: clamp(52px, 7.4vw, 84px);
+  line-height: 1.04;
   letter-spacing: -0.03em;
   color: var(--sidney-fg);
   text-wrap: balance;
@@ -159,22 +163,37 @@
   color: var(--sidney-fg);
 }
 
-/* Rotating-word slot inside the hero H1.
-   Each tick of the JS interval bumps the React `key`, which remounts the
-   <em> and re-fires this animation. inline-block lets us translate; the
-   slight blur on entry softens the swap so the eye doesn't snap to the
-   replacement edge. Reduced-motion users have animation neutralised by
-   the global *::before/::after rule in a11y.css, plus the JS interval
-   itself is gated on prefers-reduced-motion so the word stays static. */
-.a-hero-rotor {
+/* Typing-effect rotor inside the hero H1.
+   The slot reserves a chunk of space so line 1 doesn't side-shift while
+   the word grows/shrinks; min-width is a compromise between "tight on
+   short phrases" and "doesn't reflow on long ones." Phrases that exceed
+   it (e.g. "Sanctions Compliance") will still extend the line, but most
+   of the cycle stays anchored. The caret blinks via steps(1,end) so it
+   snaps on/off rather than fading — closer to a real text cursor.
+   Reduced-motion users get a static word and a static caret (a11y.css
+   neutralises the keyframes globally). */
+.a-hero-rotor-slot {
   display: inline-block;
-  animation: heroRotorIn 700ms var(--sidney-ease) both;
-  will-change: transform, opacity, filter;
+  min-width: 12ch;
+  text-align: left;
+  vertical-align: baseline;
+  white-space: nowrap;
 }
-@keyframes heroRotorIn {
-  0%   { opacity: 0; transform: translateY(0.4em); filter: blur(6px); }
-  60%  { opacity: 1; filter: blur(0); }
-  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+.a-hero-rotor {
+  display: inline;
+}
+.a-hero-rotor-caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.78em;
+  background: var(--sidney-primary);
+  vertical-align: -0.04em;
+  margin-left: 0.06em;
+  animation: heroCaretBlink 1s steps(1, end) infinite;
+}
+@keyframes heroCaretBlink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .a-hero-sub {
