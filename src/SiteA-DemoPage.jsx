@@ -46,7 +46,6 @@ const WHAT_TO_EXPECT = [
   "A 5-minute brief on your current intelligence workflow",
   "A live walkthrough of Sidney running on a question you bring",
   "15 minutes of Q&A with a Satorus founder",
-  "A short follow-up with a sample report — even if you don't move forward",
 ];
 
 const TRUST = [
