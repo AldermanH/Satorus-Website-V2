@@ -115,9 +115,15 @@ button:focus-visible {
 /* ≤ 768px — tablet portrait / large phone */
 @media (max-width: 768px) {
   .a-hero { padding-top: 112px; padding-bottom: 64px; }
-  .a-hero-h1 { font-size: clamp(40px, 10vw, 64px); margin-top: 24px; }
-  .a-hero-sub { font-size: 17px; margin-top: 20px; }
-  .a-hero-ctas { margin-top: 32px; }
+  /* Hero H1 / sub / CTA sizing for narrow viewports lives in site-a.css
+     (the responsive font clamp + em-based vertical rhythm cascade). The
+     old fixed-size overrides that lived here got out-competed by the
+     site-a.css rules in source order, but identical specificity meant
+     the *latest* declaration won — which is whichever file was loaded
+     last (a11y.css). Removing them so site-a.css's clamps actually
+     reach the user. */
+  .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
+  .a-hero-mockup { padding: 8px; border-radius: 12px; }
   .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
   .a-hero-mockup { padding: 8px; border-radius: 12px; }
 
