@@ -48,12 +48,13 @@
 }
 .a-hh-menu li { margin: 0; }
 .a-hh-link {
-  font: 500 13px var(--sidney-font-sans);
-  color: var(--sidney-fg-muted);
+  font: 500 14px var(--sidney-font-sans);
+  color: var(--sidney-fg);
   letter-spacing: 0.01em;
-  transition: color 150ms;
+  transition: opacity 150ms;
+  opacity: 0.85;
 }
-.a-hh-link:hover { color: var(--sidney-fg); }
+.a-hh-link:hover { opacity: 1; }
 
 .a-hh-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
 .a-hh-menu-mobile { display: none; }
@@ -330,7 +331,18 @@
 @media (min-width: 768px) { .a-hero-ctas { flex-direction: row; gap: 8px; } }
 
 .a-hero-cta-primary { height: 42px !important; padding: 0 22px !important; font-size: 14px !important; border-radius: 8px !important; }
-.a-hero-cta-secondary { height: 42px; padding: 0 18px; font-size: 14px; }
+/* Overrides .btn-plain's muted-fg colour — under the moving mesh
+   gradient that's nearly invisible. Full-fg + a small text-shadow halo
+   matches the readability treatment on .a-hero-sub. */
+.a-hero-cta-secondary {
+  height: 42px; padding: 0 18px;
+  font-size: 14px; font-weight: 500;
+  color: var(--sidney-fg);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.7),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.a-hero-cta-secondary:hover { color: var(--sidney-fg); opacity: 0.85; }
 
 
 /* ───── Product mockup frame ─────
