@@ -137,7 +137,10 @@ button:focus-visible {
 
 /* ≤ 768px — tablet portrait / large phone */
 @media (max-width: 768px) {
-  .a-hero { padding-top: 112px; padding-bottom: 64px; }
+  /* Symmetric vertical padding so flex-centered content lands at the
+     true viewport centre — the previous 112/64 split pulled content
+     about 24px below centre, which read as "low" on phones. */
+  .a-hero { padding-top: 88px; padding-bottom: 88px; }
   /* Hero H1 / sub / CTA sizing for narrow viewports lives in site-a.css
      (the responsive font clamp + em-based vertical rhythm cascade). The
      old fixed-size overrides that lived here got out-competed by the
