@@ -160,8 +160,8 @@ export const HeroA = () => (
         </div>
 
         <h1 className="a-hero-h1">
-          No Serious Decision<br/>
-          Made <em>in the Dark.</em>
+          No intelligence investigation<br/>
+          conducted <em>in the dark</em>
         </h1>
 
         <p className="a-hero-sub">
