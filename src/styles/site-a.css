@@ -156,7 +156,9 @@
   line-height: 1.10;
   letter-spacing: -0.03em;
   color: var(--sidney-fg);
-  text-wrap: balance;
+  /* No text-wrap: balance — line breaks are explicit (<br/>) and balance
+     was forcing the inline-block rotor slot onto its own line, leaving
+     "No" stranded above it. */
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
 .a-hero-h1 em {
@@ -167,27 +169,26 @@
 }
 
 /* Typing-effect rotor inside the hero H1.
-   The slot reserves enough width for the longest phrase ("Sanctions
-   Compliance" = 20ch) so line 1's total width is constant. With the H1
-   centered, that means "No" sits at a fixed position and the typed word
-   never causes the line to re-centre as it grows/shrinks — fixes the
-   side-to-side jitter the variable rotor would otherwise cause.
-   On narrower viewports the 20ch reservation would push line 1 past
-   the screen edge; below the desktop breakpoint we drop to 14ch and
-   accept a small reflow on phrases longer than that.
+   The slot reserves space so line 1 stays roughly anchored as the rotor
+   types/deletes. The reservation can't quite cover the longest phrase
+   ("Sanctions Compliance" = 20ch) — at the H1's 84px font cap, 20ch
+   makes "No " + slot wider than the inner container and the slot wraps
+   onto its own line. 16ch on desktop / 12ch on mobile is the largest
+   safe reservation; phrases longer than that produce a small last-few-
+   chars reflow during typing, which is acceptable.
    The caret blinks via steps(1,end) so it snaps on/off rather than
    fading — closer to a real text cursor. Reduced-motion users get a
    static word and a static caret (a11y.css neutralises the keyframes
    globally). */
 .a-hero-rotor-slot {
   display: inline-block;
-  min-width: 14ch;
+  min-width: 12ch;
   text-align: left;
   vertical-align: baseline;
   white-space: nowrap;
 }
 @media (min-width: 1024px) {
-  .a-hero-rotor-slot { min-width: 20ch; }
+  .a-hero-rotor-slot { min-width: 16ch; }
 }
 .a-hero-rotor {
   display: inline;
