@@ -160,7 +160,7 @@ export const HeroA = () => (
         </div>
 
         <h1 className="a-hero-h1">
-          No Threat Intelligence Left<br/>
+          No Intelligence Left<br/>
           <em>in the Dark</em>
         </h1>
 
