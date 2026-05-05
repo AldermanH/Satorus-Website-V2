@@ -161,7 +161,7 @@ export const HeroA = () => (
 
         <h1 className="a-hero-h1">
           Any Threat Intelligence<br/>
-          <em>Pulled from the Dark</em>
+          Pulled <em>from the Dark</em>
         </h1>
 
         <p className="a-hero-sub">
