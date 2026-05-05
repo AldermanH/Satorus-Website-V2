@@ -129,8 +129,12 @@ export const DemoA = () => {
     const resultTime = typingTime + 400 + STAGES.length * 900;
     at(resultTime, () => setPhase("result"));
 
-    // begin scrolling into the analytical section
-    const scrollTime = resultTime + 4000;
+    // begin scrolling into the analytical section. Was 4000ms but that
+    // left a long static dwell on the BLUF after the loading stages
+    // completed — visitors saw "loading done" and then nothing for too
+    // long. 2000ms gives just enough beat for the BLUF to register
+    // before the auto-scroll picks up.
+    const scrollTime = resultTime + 2000;
     at(scrollTime, () => setPhase("scroll"));
 
     // Highlight each sub-region card in turn, then synthesis. The scroll snap

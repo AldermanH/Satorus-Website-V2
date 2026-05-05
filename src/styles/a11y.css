@@ -161,9 +161,12 @@ button:focus-visible {
   .a-section-head { margin-bottom: 36px; }
   .a-product-grid { grid-template-columns: 1fr; }
 
-  /* Live demo — drop the workspace sidebar, give the body more height
-     so the auto-scroll has actual room to reveal the analytical
-     sections rather than just nudging a card a few px. */
+  /* Live demo — drop the browser-style chrome (traffic-light dots,
+     URL path, "Live" pill) on phone widths so the demo reads as an
+     embedded interface rather than a miniature desktop window. Also
+     drop the workspace sidebar and give the body more height so the
+     auto-scroll has actual room to reveal the analytical sections. */
+  .a-demo-chrome { display: none; }
   .a-hero-mockup-live .a-demo-body { height: 640px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
   .a-demo-main { padding: 24px 20px; }
