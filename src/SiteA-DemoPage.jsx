@@ -49,7 +49,6 @@ const WHAT_TO_EXPECT = [
 ];
 
 const TRUST = [
-  "Backed by University of Cambridge",
   "UK Founded",
 ];
 
