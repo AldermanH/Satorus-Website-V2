@@ -200,16 +200,22 @@
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
 /* Narrow viewports — the desktop clamp's 48px minimum is too wide for
-   "No Sanctions Compliance" to fit on one line at phone widths. Drop
-   the floor in two stages, and at the smallest breakpoint also pull
-   the inner container's horizontal padding in so the line has every
-   available pixel. */
+   "No Sanctions Compliance" (23 chars including "No ") to fit on one
+   line at phone widths. Drop the floor in two stages, and at the
+   smallest breakpoint pull the inner container's horizontal padding
+   in so the line has every available pixel. Floor of 18 was tuned to
+   keep the longest phrase comfortably inside a 320px viewport at
+   Outfit's typical char width (~0.55em). */
 @media (max-width: 768px) {
-  .a-hero-h1 { font-size: clamp(36px, 5.4vw, 54px); }
+  .a-hero-h1 { font-size: clamp(34px, 5.4vw, 52px); }
 }
 @media (max-width: 480px) {
-  .a-hero-h1 { font-size: clamp(22px, 6.4vw, 36px); }
-  .a-hero-inner { padding: 0 16px; }
+  .a-hero-h1 { font-size: clamp(18px, 5.4vw, 30px); }
+  .a-hero-inner { padding: 0 14px; }
+  /* Credit also shrinks so "Backed by the University of Cambridge"
+     stays on one inline-flex row at 320px. */
+  .a-hero-credit { font-size: 13px; gap: 8px; }
+  .a-hero-credit-logo { height: 16px; }
 }
 .a-hero-h1 em {
   font-family: var(--sidney-font-serif);

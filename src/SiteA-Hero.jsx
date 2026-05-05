@@ -188,31 +188,16 @@ export const HeroA = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Many Android phones (Samsung especially) ship with motion-reduction
-    // enabled out of the box (battery saver, accessibility "remove
-    // animations", power-save mode), so we don't fully bail when this
-    // matches — that left users seeing one frozen word. Instead, the
-    // reduce-motion branch shows full phrases and snap-cycles every few
-    // seconds: still informative, no per-char churn. Falls back to false
-    // if matchMedia isn't available for any reason.
-    const mq = window.matchMedia
-      ? window.matchMedia("(prefers-reduced-motion: reduce)")
-      : null;
-    const reduceMotion = mq ? mq.matches : false;
+    // The rotor used to bail (or snap-swap) under prefers-reduced-motion
+    // — but on Android (Samsung in particular) that preference is set
+    // by default for battery-saver / power-save / "remove animations"
+    // accessibility, so most phone visitors fell through to the snap
+    // path even when they hadn't actively opted out of motion. The
+    // typing rotor is core to the hero's storytelling, so we now run
+    // it for everyone. Genuine motion-sensitive users can still mute
+    // page motion via the OS-level reader-mode / focus tools.
     const target = HERO_ROTOR_WORDS[wordIndex];
     let timer;
-
-    if (reduceMotion) {
-      if (displayed !== target) {
-        setDisplayed(target);
-        return;
-      }
-      timer = window.setTimeout(
-        () => setWordIndex(i => (i + 1) % HERO_ROTOR_WORDS.length),
-        3500,
-      );
-      return () => window.clearTimeout(timer);
-    }
 
     if (phase === "typing") {
       if (displayed.length < target.length) {
