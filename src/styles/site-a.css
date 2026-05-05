@@ -205,37 +205,43 @@
      "No" stranded above it. */
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
-/* Narrow viewports — single smooth font clamp from 768px down to 320px.
-   The previous two-tier setup (@max-768 with a 34px floor + @max-600
-   with a 18px floor) was creating a discontinuity around the 480–600
-   range where neither tier matched what the actual phone needed. A
-   single clamp(14px, 4.5vw, 48px) covers the whole range:
-     • 768px tablet → ~34px  (still bold)
-     • 600px small tablet → 27px
-     • 412px Pixel → 18.5px
-     • 384px Galaxy A55 → 17.3px
-     • 320px iPhone SE → 14.4px
-   That gives "No Sanctions Compliance" (the longest phrase) plus
-   "Decisions Made in the Dark." both ~25–35% horizontal margin at
-   every viewport, even with Outfit's wider char rendering on Android.
-   Inner padding stays at the default 24px so text breathes from the
-   screen edge.
-   Phone-specific rules (credit shrink, em-based vertical rhythm) kick
-   in at @max-540 to handle compactness on actual phones rather than
-   small tablets. */
+/* Narrow viewports — two tiers sharing a 5vw scale so they blend
+   continuously at the 540 boundary (no discontinuity in font size as
+   the viewport crosses the breakpoint).
+     @max-768 (tablet/large phone): clamp(26, 5vw, 44)
+       • 768  → 38.4px  (bold tablet hero)
+       • 600  → 30px
+       • 541  → ~27px
+     @max-540 (phone):              clamp(16, 5vw, 28)
+       • 540  → ~27px   (matches the @max-768 value at the boundary)
+       • 412  → ~21px   (Pixel 7)
+       • 384  → ~19px   (Galaxy A55)
+       • 320  → 16px    (iPhone SE)
+   The clamp leaves "Decisions Made in the Dark." with healthy
+   horizontal margin at every viewport even allowing for Outfit's
+   wider char rendering on Android. Inner padding stays at the default
+   24px so the text breathes from the screen edge.
+   Sub + CTA spacing tightens stepwise (px on tablet, em-based on
+   phone) so the rhythm scales with the H1's clamp output instead of
+   looking bunched under a smaller headline. */
 @media (max-width: 768px) {
-  .a-hero-h1 { font-size: clamp(14px, 4.5vw, 48px); }
-  /* Defensive: H1 itself caps to its parent width so an unexpected
-     long line can't push past the column even if the line-1 wrapper's
-     own overflow-clip ever fails to engage on a particular browser. */
-  .a-hero-h1 { max-width: 100%; overflow-x: clip; }
+  .a-hero-h1 {
+    font-size: clamp(26px, 5vw, 44px);
+    /* Defensive: H1 itself caps to parent width so an unexpected long
+       line can't push past the column even if the line-1 wrapper's
+       own overflow-clip ever fails to engage on a particular browser. */
+    max-width: 100%;
+    overflow-x: clip;
+  }
+  .a-hero-sub { font-size: 17px; margin-top: 28px; }
+  .a-hero-ctas { margin-top: 36px; }
 }
 @media (max-width: 540px) {
+  .a-hero-h1 { font-size: clamp(16px, 5vw, 28px); margin-top: 1.2em; }
+  .a-hero-sub { font-size: 16px; margin-top: 1.4em; max-width: 100%; }
+  .a-hero-ctas { margin-top: 1.8em; }
   .a-hero-credit { font-size: 13px; gap: 9px; }
   .a-hero-credit-logo { height: 16px; }
-  .a-hero-h1 { margin-top: 1.2em; }
-  .a-hero-sub { margin-top: 1.4em; max-width: 100%; }
-  .a-hero-ctas { margin-top: 1.8em; }
 }
 .a-hero-h1 em {
   font-family: var(--sidney-font-serif);
