@@ -233,13 +233,9 @@ export const HeroA = () => {
             hero feels visually centred on the page while individual
             lines flow from the left. */}
         <div className="a-hero-copy">
-          <div
-            className="a-hero-pill a-hero-pill-static"
-            role="group"
-            aria-label="Backed by the University of Cambridge"
-          >
+          <div className="a-hero-credit">
             <img
-              className="a-hero-pill-logo"
+              className="a-hero-credit-logo"
               src="/assets/cambridge-arms.svg"
               alt=""
               aria-hidden="true"
