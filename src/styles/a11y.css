@@ -212,7 +212,9 @@ button:focus-visible {
 
 /* ≤ 480px — phone (covers iPhone 14/15/16 widths and most Android) */
 @media (max-width: 480px) {
-  .a-hero { padding-top: 96px; padding-bottom: 48px; }
+  /* Symmetric vertical padding so flex-centred content lands at true
+     viewport centre (was 96/48 — pulled content ~24px below centre). */
+  .a-hero { padding-top: 72px; padding-bottom: 72px; }
   .a-hero-pill { font-size: 12px; padding: 4px 4px 4px 14px; gap: 10px; }
   .a-hero-sub { font-size: 16px; }
   .a-hero-mockup-wrap { padding: 0 4px; }
