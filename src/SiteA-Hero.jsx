@@ -40,7 +40,7 @@ const HERO_ROTOR_TYPE_JITTER_MS = 28;      // ± per char
 const HERO_ROTOR_TYPE_SPACE_PAUSE_MS = 70; // extra dwell when the next char is a space
 const HERO_ROTOR_DELETE_MS = 32;           // per-char deletion (faster than typing)
 const HERO_ROTOR_DELETE_JITTER_MS = 10;
-const HERO_ROTOR_HOLD_MS = 1250;           // dwell when the word is fully typed
+const HERO_ROTOR_HOLD_MS = 1000;           // dwell when the word is fully typed
 const HERO_ROTOR_GAP_MS = 360;             // dwell after fully deleted, before next word
 
 const pickTypeDelay = (nextChar) => {
