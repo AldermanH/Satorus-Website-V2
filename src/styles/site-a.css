@@ -201,6 +201,14 @@
   line-height: 1.10;
   letter-spacing: -0.03em;
   color: var(--sidney-fg);
+  /* Same multi-layer halo as .a-hero-sub so the H1 stays crisp over
+     whichever colour the moving mesh-gradient is producing behind it.
+     Without this the headline read less crisp than the sub paragraph
+     on darker frames of the gradient. */
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.7),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 18px rgba(0, 0, 0, 0.4);
   /* No text-wrap: balance — line breaks are explicit (<br/>) and balance
      was forcing the inline-block rotor slot onto its own line, leaving
      "No" stranded above it. */
@@ -240,11 +248,25 @@
   .a-hero-ctas { margin-top: 36px; }
 }
 @media (max-width: 540px) {
-  .a-hero-h1 { font-size: clamp(16px, 5.6vw, 30px); margin-top: 1.2em; }
+  .a-hero-h1 { font-size: clamp(18px, 5.9vw, 32px); margin-top: 1.2em; }
   .a-hero-sub { font-size: 16px; margin-top: 1.4em; max-width: 100%; }
-  .a-hero-ctas { margin-top: 1.8em; }
+  .a-hero-ctas { margin-top: 1.8em; width: 100%; }
   .a-hero-credit { font-size: 13px; gap: 9px; }
   .a-hero-credit-logo { height: 16px; }
+  /* Stack as a deliberate pair of full-width buttons. Secondary
+     becomes a ghost / outlined treatment so it reads as a real CTA
+     rather than a stranded text link. */
+  .a-hero-cta-primary,
+  .a-hero-cta-secondary {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+  }
+  .a-hero-cta-secondary {
+    border: 1px solid var(--sidney-border-strong);
+    background: transparent;
+    text-shadow: none;
+  }
 }
 .a-hero-h1 em {
   font-family: var(--sidney-font-serif);
