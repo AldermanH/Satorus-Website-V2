@@ -17,21 +17,20 @@ const MENU = [
   { label: "Company",    href: "/#company"   },
 ];
 
-/* Hero H1 rotor — the typing phrase that forms line 1 above
-   "Decisions Made in the Dark." The full string ("No <topic>") types
-   in, holds, types out, then advances. Including "No" in the dynamic
-   content means each phrase auto-centres on the line — no anchoring
-   problem from a fixed prefix. Order matters; users read them
-   top-to-bottom over several cycles. */
+/* Hero H1 rotor — the typing phrase that follows the static "No"
+   prefix on line 1 above "Decisions Made in the Dark." With the hero
+   left-aligned, "No" stays anchored to the left edge and the rotor
+   types/deletes rightward; no centring problem to solve. Order
+   matters; users read them top-to-bottom over several cycles. */
 const HERO_ROTOR_WORDS = [
-  "No Threat Assessment",
-  "No Due Diligence",
-  "No Supply Chain Risk",
-  "No Sanctions Compliance",
-  "No Financial Crime",
-  "No Cyber Threat",
-  "No Reputational Risk",
-  "No Geopolitical Crisis",
+  "Threat Assessment",
+  "Due Diligence",
+  "Supply Chain Risk",
+  "Sanctions Compliance",
+  "Financial Crime",
+  "Cyber Threat",
+  "Reputational Risk",
+  "Geopolitical Crisis",
 ];
 const HERO_ROTOR_TYPE_MS = 70;    // per-char typing cadence
 const HERO_ROTOR_DELETE_MS = 35;  // per-char deletion (faster than typing — feels natural)
@@ -228,6 +227,7 @@ export const HeroA = () => {
         </div>
 
         <h1 className="a-hero-h1">
+          No{" "}
           <span className="a-hero-rotor-slot" aria-live="polite">
             <span className="a-hero-rotor">{displayed}</span>
             <span className="a-hero-rotor-caret" aria-hidden="true"/>

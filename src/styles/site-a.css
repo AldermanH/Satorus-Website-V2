@@ -102,13 +102,13 @@
 .a-hero-inner {
   position: relative; z-index: 3;
   max-width: 1280px; margin: 0 auto; padding: 0 24px;
-  text-align: center;
+  text-align: left;
 }
 
 /* ───── Announcement pill ───── */
 .a-hero-pill {
   display: inline-flex; align-items: center; gap: 14px;
-  margin: 0 auto;
+  margin: 0;
   padding: 4px 4px 4px 18px;
   border: 1px solid var(--sidney-border);
   border-radius: 9999px;
@@ -141,15 +141,15 @@
 
 /* ───── Headline / sub / CTAs ───── */
 .a-hero-h1 {
-  margin: 32px auto 0;
+  margin: 32px 0 0;
   max-width: 84rem;
   font-family: var(--sidney-font-display);
   font-weight: 300;
-  /* Cap reduced from 96 → 84 because the second line "Decisions Made in
-     the Dark." is wider than previous copy and would wrap at 96px on a
-     standard 1280–1440 desktop. 84 holds the bold hero feel without the
-     overflow. */
-  font-size: clamp(52px, 7.4vw, 84px);
+  /* Cap kept at 80 (was 96 originally) because the second line
+     "Decisions Made in the Dark." is wider than previous copy and would
+     wrap at 96px on a 1280–1440 desktop. 80 holds the bold hero feel
+     without overflow on narrower viewports. */
+  font-size: clamp(50px, 7vw, 80px);
   /* Loosened from 1.04 → 1.10 so line 1 (with the rotor) and line 2 read
      as separate beats, not a single mashed block. The two lines need a
      bit of vertical air given how visually loaded the rotor is. */
@@ -169,13 +169,14 @@
 }
 
 /* Typing-effect rotor inside the hero H1.
-   No min-width reservation: the full phrase (including "No") types in
-   and out, so each iteration centres itself on the line via the H1's
-   text-align: center. inline-block keeps the caret on the same baseline
-   as the text. The caret blinks via steps(1,end) so it snaps on/off
-   rather than fading — closer to a real text cursor. Reduced-motion
-   users get a static word and a static caret (a11y.css neutralises the
-   keyframes globally). */
+   No min-width reservation: the hero is left-aligned, so "No" stays
+   anchored to the left edge of the inner container and the rotor types
+   /deletes rightward from there — no centring problem to solve.
+   inline-block keeps the caret on the same baseline as the text. The
+   caret blinks via steps(1,end) so it snaps on/off rather than fading
+   — closer to a real text cursor. Reduced-motion users get a static
+   word and a static caret (a11y.css neutralises the keyframes
+   globally). */
 .a-hero-rotor-slot {
   display: inline-block;
   vertical-align: baseline;
@@ -199,7 +200,7 @@
 }
 
 .a-hero-sub {
-  margin: 36px auto 0;
+  margin: 36px 0 0;
   max-width: 36rem;
   font: 400 18px/1.55 var(--sidney-font-sans);
   /* Brighter than the original muted colour, plus a stacked text-shadow
@@ -216,9 +217,9 @@
 }
 
 .a-hero-ctas {
-  margin: 44px auto 0;
+  margin: 44px 0 0;
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
+  align-items: flex-start; justify-content: flex-start;
   gap: 8px;
 }
 @media (min-width: 768px) { .a-hero-ctas { flex-direction: row; gap: 8px; } }
