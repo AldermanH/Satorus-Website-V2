@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { NavA, HeroA } from "./SiteA-Hero.jsx";
 import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
@@ -101,6 +102,7 @@ export default function App() {
         )}
       </main>
       <FooterA/>
+      <Analytics/>
     </div>
   );
 }
