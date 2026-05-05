@@ -32,10 +32,28 @@ const HERO_ROTOR_WORDS = [
   "Reputational Risk",
   "Geopolitical Crisis",
 ];
-const HERO_ROTOR_TYPE_MS = 70;    // per-char typing cadence
-const HERO_ROTOR_DELETE_MS = 35;  // per-char deletion (faster than typing — feels natural)
-const HERO_ROTOR_HOLD_MS = 1600;  // pause when the word is fully typed
-const HERO_ROTOR_GAP_MS = 250;    // pause after fully deleted, before next word
+/* Typing cadence — base values are perturbed by jitter and a space-
+   pause to feel organic rather than metronomic. Real typists slow
+   marginally between words and have variable per-keystroke timing. */
+const HERO_ROTOR_TYPE_MS = 95;             // per-char typing base
+const HERO_ROTOR_TYPE_JITTER_MS = 28;      // ± per char
+const HERO_ROTOR_TYPE_SPACE_PAUSE_MS = 70; // extra dwell when the next char is a space
+const HERO_ROTOR_DELETE_MS = 32;           // per-char deletion (faster than typing)
+const HERO_ROTOR_DELETE_JITTER_MS = 10;
+const HERO_ROTOR_HOLD_MS = 1750;           // dwell when the word is fully typed
+const HERO_ROTOR_GAP_MS = 360;             // dwell after fully deleted, before next word
+
+const pickTypeDelay = (nextChar) => {
+  const base = HERO_ROTOR_TYPE_MS;
+  const jitter = (Math.random() - 0.5) * 2 * HERO_ROTOR_TYPE_JITTER_MS;
+  const spacePause = nextChar === " " ? HERO_ROTOR_TYPE_SPACE_PAUSE_MS : 0;
+  return Math.max(28, base + jitter + spacePause);
+};
+const pickDeleteDelay = () => {
+  const base = HERO_ROTOR_DELETE_MS;
+  const jitter = (Math.random() - 0.5) * 2 * HERO_ROTOR_DELETE_JITTER_MS;
+  return Math.max(16, base + jitter);
+};
 
 const CUSTOMERS = [
   { name: "BBC",                   src: "/assets/customer-bbc.svg",         h: 22 },
@@ -180,9 +198,10 @@ export const HeroA = () => {
     let timer;
     if (phase === "typing") {
       if (displayed.length < target.length) {
+        const nextChar = target[displayed.length];
         timer = window.setTimeout(
           () => setDisplayed(target.slice(0, displayed.length + 1)),
-          HERO_ROTOR_TYPE_MS,
+          pickTypeDelay(nextChar),
         );
       } else {
         timer = window.setTimeout(() => setPhase("deleting"), HERO_ROTOR_HOLD_MS);
@@ -191,7 +210,7 @@ export const HeroA = () => {
       if (displayed.length > 0) {
         timer = window.setTimeout(
           () => setDisplayed(target.slice(0, displayed.length - 1)),
-          HERO_ROTOR_DELETE_MS,
+          pickDeleteDelay(),
         );
       } else {
         timer = window.setTimeout(() => {
@@ -232,10 +251,12 @@ export const HeroA = () => {
           </div>
 
           <h1 className="a-hero-h1">
-            No{" "}
-            <span className="a-hero-rotor-slot" aria-live="polite">
-              <span className="a-hero-rotor">{displayed}</span>
-              <span className="a-hero-rotor-caret" aria-hidden="true"/>
+            <span className="a-hero-h1-line1">
+              No{" "}
+              <span className="a-hero-rotor-slot" aria-live="polite">
+                <span className="a-hero-rotor">{displayed}</span>
+                <span className="a-hero-rotor-caret" aria-hidden="true"/>
+              </span>
             </span>
             <br/>
             Decisions Made <em>in the Dark.</em>

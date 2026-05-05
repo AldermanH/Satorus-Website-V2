@@ -170,6 +170,18 @@
      "No" stranded above it. */
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
+/* Narrow viewports — the desktop clamp's 48px minimum is too wide for
+   "No Sanctions Compliance" to fit on one line at phone widths. Drop
+   the floor in two stages, and at the smallest breakpoint also pull
+   the inner container's horizontal padding in so the line has every
+   available pixel. */
+@media (max-width: 768px) {
+  .a-hero-h1 { font-size: clamp(36px, 5.4vw, 54px); }
+}
+@media (max-width: 480px) {
+  .a-hero-h1 { font-size: clamp(22px, 6.4vw, 36px); }
+  .a-hero-inner { padding: 0 16px; }
+}
 .a-hero-h1 em {
   font-family: var(--sidney-font-serif);
   font-style: italic;
@@ -177,15 +189,25 @@
   color: var(--sidney-fg);
 }
 
+/* Line-1 wrapper — keeps "No" and the rotor slot inseparable.
+   white-space: nowrap forbids any line break between them at any
+   viewport, so even the longest phrase ("No Sanctions Compliance")
+   stays as a single visual unit. If the combined line is wider than
+   the container at narrow viewports, the H1 font-size clamp drops
+   small enough that it still fits; below the smallest breakpoint we
+   also tighten the inner padding to claw back a few px. */
+.a-hero-h1-line1 {
+  white-space: nowrap;
+}
+
 /* Typing-effect rotor inside the hero H1.
    No min-width reservation: the hero is left-aligned, so "No" stays
-   anchored to the left edge of the inner container and the rotor types
-   /deletes rightward from there — no centring problem to solve.
-   inline-block keeps the caret on the same baseline as the text. The
-   caret blinks via steps(1,end) so it snaps on/off rather than fading
-   — closer to a real text cursor. Reduced-motion users get a static
-   word and a static caret (a11y.css neutralises the keyframes
-   globally). */
+   anchored to the left edge of the line-1 wrapper and the rotor types
+   /deletes rightward from there. inline-block keeps the caret on the
+   same baseline as the text. The caret blinks via steps(1,end) so it
+   snaps on/off rather than fading — closer to a real text cursor.
+   Reduced-motion users get a static word and a static caret (a11y.css
+   neutralises the keyframes globally). */
 .a-hero-rotor-slot {
   display: inline-block;
   vertical-align: baseline;
