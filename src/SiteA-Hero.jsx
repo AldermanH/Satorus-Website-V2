@@ -142,11 +142,6 @@ export const HeroA = () => (
       <HeroBackdrop/>
 
       <div className="a-hero-inner">
-        {/* Cambridge backing pill — temporarily hidden. To restore, un-comment
-            the block below. JSX, the .a-hero-pill / .a-hero-pill-static /
-            .a-hero-pill-logo CSS in site-a.css, and the cambridge-arms.svg
-            asset in public/assets/ are all still in place. */}
-        {/*
         <div
           className="a-hero-pill a-hero-pill-static"
           role="group"
@@ -163,7 +158,6 @@ export const HeroA = () => (
           />
           <span>Backed by the University of Cambridge</span>
         </div>
-        */}
 
         <h1 className="a-hero-h1">
           No Serious Decision<br/>
