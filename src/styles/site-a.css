@@ -205,30 +205,35 @@
      "No" stranded above it. */
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
-/* Narrow viewports — the desktop clamp's 48px minimum is too wide for
-   "No Sanctions Compliance" (23 chars including "No ") to fit on one
-   line at phone widths. Drop the floor in two stages, and at the
-   smallest breakpoint pull the inner container's horizontal padding
-   in so the line has every available pixel. Floor of 16 is sized so
-   the longest phrase fits at 320px viewport even when Outfit renders
-   on the wider end of its char-width range — gives ~30% margin which
-   is what stops the rotor from clipping during peak-width frames. */
+/* Narrow viewports — three tiers.
+   The phone tier uses 600px (not 480px) because most modern Android
+   phones report a CSS viewport in the 412–540 range; capping the
+   phone-tier rules at 480 left big-screen phones inheriting the
+   tablet-tier 34px floor, which was way too wide for "No Sanctions
+   Compliance" + "Decisions Made in the Dark." to coexist on phone
+   widths.
+   Inner padding stays at the default 24px on phones so the text isn't
+   cramped against the screen edge. The font clamp is tuned so the
+   longest phrase at the worst-case Outfit char width still fits with
+   ~25% horizontal margin at every viewport. */
 @media (max-width: 768px) {
   .a-hero-h1 { font-size: clamp(34px, 5.4vw, 52px); }
 }
-@media (max-width: 480px) {
-  .a-hero-h1 { font-size: clamp(16px, 5.2vw, 26px); }
-  .a-hero-inner { padding: 0 14px; }
+@media (max-width: 600px) {
+  .a-hero-h1 { font-size: clamp(18px, 5vw, 26px); }
   /* Credit also shrinks so "Backed by the University of Cambridge"
-     stays on one inline-flex row at 320px. */
-  .a-hero-credit { font-size: 12.5px; gap: 8px; }
-  .a-hero-credit-logo { height: 15px; }
+     stays on one inline-flex row. */
+  .a-hero-credit { font-size: 13px; gap: 9px; }
+  .a-hero-credit-logo { height: 16px; }
   /* Vertical rhythm becomes em-based at the smallest sizes so the
      spacing scales with the H1's clamp output instead of being a
-     fixed pixel gap that looks too tight under a 16px headline. */
-  .a-hero-h1 { margin-top: 1.4em; }
-  .a-hero-sub { margin-top: 1.6em; max-width: 100%; }
-  .a-hero-ctas { margin-top: 2em; }
+     fixed pixel gap that looks too tight under a 18px headline. */
+  .a-hero-h1 { margin-top: 1.2em; }
+  .a-hero-sub { margin-top: 1.4em; max-width: 100%; }
+  .a-hero-ctas { margin-top: 1.8em; }
+}
+@media (max-width: 380px) {
+  .a-hero-h1 { font-size: clamp(14px, 5vw, 20px); }
 }
 .a-hero-h1 em {
   font-family: var(--sidney-font-serif);
