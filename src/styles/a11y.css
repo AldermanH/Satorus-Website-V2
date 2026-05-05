@@ -80,6 +80,9 @@ button:focus-visible {
     height: auto;
     min-height: 56px;
     align-content: flex-start;
+    /* Nudge brand + X down off the very top edge so they sit with a
+       comfortable inset rather than flush against the viewport edge. */
+    padding-top: 12px;
   }
   .a-hh[data-state="active"] .a-hh-actions {
     display: flex; flex-direction: column; align-items: stretch;
