@@ -171,6 +171,25 @@ button:focus-visible {
   .a-cmdbar { padding: 12px 14px; }
   .a-cmdbar-text { font-size: 13.5px; line-height: 1.4; }
 
+  /* Strip the table-heavy and decorative sub-blocks that don't read
+     well at phone widths. The narrative spine — title, body, key
+     findings, quotes, analysis paragraphs, synthesis — stays. The
+     dense rows (multi-column timelines, ops tables, weapons-provenance
+     lists, entity chip groups, evidence-chain table, BLUF metadata
+     row) are hidden so the demo reads as a focused investigation
+     rather than a wall of dashboards. */
+  .a-finding-meta,
+  .a-finding-entities,
+  .a-finding-ev { display: none; }
+  .a-actor-timeline,
+  .a-actor-ops,
+  .a-actor-arms { display: none; }
+  /* :has() removes the now-empty section that wrapped each dropped
+     table, so we don't end up with orphaned section headings. */
+  .a-actor-section:has(.a-actor-timeline),
+  .a-actor-section:has(.a-actor-ops),
+  .a-actor-section:has(.a-actor-arms) { display: none; }
+
   /* Demo finding card — let the head wrap so the title doesn't squeeze */
   .a-finding-head { flex-wrap: wrap; }
   .a-finding-title { flex-basis: 100%; order: 3; margin-top: 4px; }
