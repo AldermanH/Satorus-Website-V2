@@ -188,14 +188,32 @@ export const HeroA = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      const target = HERO_ROTOR_WORDS[wordIndex];
-      if (displayed !== target) setDisplayed(target);
-      return;
-    }
+    // Many Android phones (Samsung especially) ship with motion-reduction
+    // enabled out of the box (battery saver, accessibility "remove
+    // animations", power-save mode), so we don't fully bail when this
+    // matches — that left users seeing one frozen word. Instead, the
+    // reduce-motion branch shows full phrases and snap-cycles every few
+    // seconds: still informative, no per-char churn. Falls back to false
+    // if matchMedia isn't available for any reason.
+    const mq = window.matchMedia
+      ? window.matchMedia("(prefers-reduced-motion: reduce)")
+      : null;
+    const reduceMotion = mq ? mq.matches : false;
     const target = HERO_ROTOR_WORDS[wordIndex];
     let timer;
+
+    if (reduceMotion) {
+      if (displayed !== target) {
+        setDisplayed(target);
+        return;
+      }
+      timer = window.setTimeout(
+        () => setWordIndex(i => (i + 1) % HERO_ROTOR_WORDS.length),
+        3500,
+      );
+      return () => window.clearTimeout(timer);
+    }
+
     if (phase === "typing") {
       if (displayed.length < target.length) {
         const nextChar = target[displayed.length];
