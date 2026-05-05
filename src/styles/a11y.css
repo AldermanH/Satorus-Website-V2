@@ -148,22 +148,25 @@ button:focus-visible {
      the *latest* declaration won — which is whichever file was loaded
      last (a11y.css). Removing them so site-a.css's clamps actually
      reach the user. */
-  .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
-  .a-hero-mockup { padding: 8px; border-radius: 12px; }
-  .a-hero-mockup-wrap { margin: 28px 0 0; padding: 0 8px; }
-  .a-hero-mockup { padding: 8px; border-radius: 12px; }
+  /* Mockup frame — slightly more padding than before so the demo
+     doesn't sit cramped against the frame. */
+  .a-hero-mockup-wrap { margin: 32px 0 0; padding: 0 16px; }
+  .a-hero-mockup { padding: 10px; border-radius: 14px; }
 
   .a-marquee-logo { margin-right: 56px; }
   .a-marquee-track { animation-duration: 90s; }
 
   .a-section { padding: 72px 0; }
   .a-section-h { font-size: 32px; }
+  .a-section-head { margin-bottom: 36px; }
   .a-product-grid { grid-template-columns: 1fr; }
 
-  /* Live demo — drop the workspace sidebar, shrink the fixed body height */
-  .a-hero-mockup-live .a-demo-body { height: 560px; grid-template-columns: 1fr; }
+  /* Live demo — drop the workspace sidebar, give the body more height
+     so the auto-scroll has actual room to reveal the analytical
+     sections rather than just nudging a card a few px. */
+  .a-hero-mockup-live .a-demo-body { height: 640px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
-  .a-demo-main { padding: 20px 18px; }
+  .a-demo-main { padding: 24px 20px; }
   .a-demo-h { font-size: 19px; margin-bottom: 16px; }
   .a-cmdbar { padding: 12px 14px; }
   .a-cmdbar-text { font-size: 13.5px; line-height: 1.4; }
@@ -217,19 +220,21 @@ button:focus-visible {
   .a-hero { padding-top: 72px; padding-bottom: 72px; }
   .a-hero-pill { font-size: 12px; padding: 4px 4px 4px 14px; gap: 10px; }
   .a-hero-sub { font-size: 16px; }
-  .a-hero-mockup-wrap { padding: 0 4px; }
-  .a-hero-mockup { padding: 6px; }
+  .a-hero-mockup-wrap { padding: 0 12px; }
+  .a-hero-mockup { padding: 8px; }
 
   .a-marquee-logo { margin-right: 40px; }
   .a-marquee-track { animation-duration: 72s; }
 
   .a-section { padding: 56px 0; }
   .a-section-h { font-size: 26px; }
+  .a-section-head { margin-bottom: 28px; gap: 16px; }
   .a-foot-row { grid-template-columns: 1fr; }
 
-  /* Demo — shorter still on tiny screens, smaller cmdbar + cards */
-  .a-hero-mockup-live .a-demo-body { height: 480px; }
-  .a-demo-main { padding: 16px 14px; }
+  /* Demo — taller body so auto-scroll has room to reveal cards;
+     internal padding eased a touch for breathing room. */
+  .a-hero-mockup-live .a-demo-body { height: 580px; }
+  .a-demo-main { padding: 18px 16px; }
   .a-demo-greeting { font-size: 12px; }
   .a-demo-h { font-size: 15px; margin-bottom: 14px; }
   .a-cmdbar-text { font-size: 12.5px; }
