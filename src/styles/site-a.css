@@ -169,26 +169,17 @@
 }
 
 /* Typing-effect rotor inside the hero H1.
-   The slot reserves space so line 1 stays roughly anchored as the rotor
-   types/deletes. The reservation can't quite cover the longest phrase
-   ("Sanctions Compliance" = 20ch) — at the H1's 84px font cap, 20ch
-   makes "No " + slot wider than the inner container and the slot wraps
-   onto its own line. 16ch on desktop / 12ch on mobile is the largest
-   safe reservation; phrases longer than that produce a small last-few-
-   chars reflow during typing, which is acceptable.
-   The caret blinks via steps(1,end) so it snaps on/off rather than
-   fading — closer to a real text cursor. Reduced-motion users get a
-   static word and a static caret (a11y.css neutralises the keyframes
-   globally). */
+   No min-width reservation: the full phrase (including "No") types in
+   and out, so each iteration centres itself on the line via the H1's
+   text-align: center. inline-block keeps the caret on the same baseline
+   as the text. The caret blinks via steps(1,end) so it snaps on/off
+   rather than fading — closer to a real text cursor. Reduced-motion
+   users get a static word and a static caret (a11y.css neutralises the
+   keyframes globally). */
 .a-hero-rotor-slot {
   display: inline-block;
-  min-width: 12ch;
-  text-align: left;
   vertical-align: baseline;
   white-space: nowrap;
-}
-@media (min-width: 1024px) {
-  .a-hero-rotor-slot { min-width: 16ch; }
 }
 .a-hero-rotor {
   display: inline;
