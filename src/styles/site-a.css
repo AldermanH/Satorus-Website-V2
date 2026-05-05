@@ -205,28 +205,30 @@
      "No" stranded above it. */
 }
 @media (min-width: 1024px) { .a-hero-h1 { margin-top: 64px; } }
-/* Narrow viewports — two tiers sharing a 5vw scale so they blend
-   continuously at the 540 boundary (no discontinuity in font size as
-   the viewport crosses the breakpoint).
-     @max-768 (tablet/large phone): clamp(26, 5vw, 44)
-       • 768  → 38.4px  (bold tablet hero)
-       • 600  → 30px
-       • 541  → ~27px
-     @max-540 (phone):              clamp(16, 5vw, 28)
-       • 540  → ~27px   (matches the @max-768 value at the boundary)
-       • 412  → ~21px   (Pixel 7)
-       • 384  → ~19px   (Galaxy A55)
-       • 320  → 16px    (iPhone SE)
+/* Narrow viewports — two tiers sharing the SAME 5.6vw scale so font
+   size is continuous as the viewport crosses 540. The two tiers only
+   differ in floor/cap.
+     @max-768 (tablet/large phone): clamp(26, 5.6vw, 46)
+       • 768  → ~43px   (bold tablet hero)
+       • 600  → ~34px
+       • 541  → ~30px
+     @max-540 (phone):              clamp(16, 5.6vw, 30)
+       • 540  → 30px    (matches @max-768 at boundary, no jump)
+       • 480  → ~27px
+       • 412  → ~23px   (Pixel 7)
+       • 390  → ~22px   (iPhone 12/13/14)
+       • 384  → ~21.5px (Galaxy A55)
+       • 360  → ~20px   (Galaxy S23)
+       • 320  → ~18px   (iPhone SE)
    The clamp leaves "Decisions Made in the Dark." with healthy
-   horizontal margin at every viewport even allowing for Outfit's
-   wider char rendering on Android. Inner padding stays at the default
-   24px so the text breathes from the screen edge.
+   horizontal margin at every viewport. Inner padding stays at the
+   default 24px so text breathes from the screen edge.
    Sub + CTA spacing tightens stepwise (px on tablet, em-based on
    phone) so the rhythm scales with the H1's clamp output instead of
    looking bunched under a smaller headline. */
 @media (max-width: 768px) {
   .a-hero-h1 {
-    font-size: clamp(26px, 5vw, 44px);
+    font-size: clamp(26px, 5.6vw, 46px);
     /* Defensive: H1 itself caps to parent width so an unexpected long
        line can't push past the column even if the line-1 wrapper's
        own overflow-clip ever fails to engage on a particular browser. */
@@ -237,7 +239,7 @@
   .a-hero-ctas { margin-top: 36px; }
 }
 @media (max-width: 540px) {
-  .a-hero-h1 { font-size: clamp(16px, 5vw, 28px); margin-top: 1.2em; }
+  .a-hero-h1 { font-size: clamp(16px, 5.6vw, 30px); margin-top: 1.2em; }
   .a-hero-sub { font-size: 16px; margin-top: 1.4em; max-width: 100%; }
   .a-hero-ctas { margin-top: 1.8em; }
   .a-hero-credit { font-size: 13px; gap: 9px; }
