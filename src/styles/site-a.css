@@ -151,27 +151,31 @@
 
 /* ───── Inline credit (left-aligned hero) ─────
    Strips the pill's chrome (border, fill, shadow) so the credential
-   reads as a quiet byline under a manifesto headline rather than as a
-   clickable announcement. The crest sits inline with the text at the
-   same vertical height; both are dimmed against the dark backdrop so
-   the H1 owns the visual weight. */
+   reads as a byline rather than a clickable announcement. Type is
+   sized and treated to match the hero sub: full-fg colour with the
+   same stacked text-shadow halo, so it stays legible over whichever
+   colour the moving mesh-gradient is producing behind it. */
 .a-hero-credit {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin: 0;
   padding: 0;
-  color: var(--sidney-fg-muted);
-  font: 400 13px var(--sidney-font-sans);
+  color: var(--sidney-fg);
+  font: 500 15px var(--sidney-font-sans);
   letter-spacing: 0.01em;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.7),
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 16px rgba(0, 0, 0, 0.4);
 }
 .a-hero-credit-logo {
   display: block;
-  height: 18px;
+  height: 20px;
   width: auto;
   flex-shrink: 0;
-  filter: saturate(0.55) brightness(0.95);
-  opacity: 0.85;
+  filter: saturate(0.6) brightness(1.05);
+  opacity: 1;
 }
 
 /* ───── Headline / sub / CTAs ───── */
