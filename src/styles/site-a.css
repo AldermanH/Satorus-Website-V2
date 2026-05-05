@@ -142,7 +142,7 @@
 /* ───── Headline / sub / CTAs ───── */
 .a-hero-h1 {
   margin: 32px auto 0;
-  max-width: 56rem;
+  max-width: 72rem;
   font-family: var(--sidney-font-display);
   font-weight: 300;
   font-size: clamp(54px, 8vw, 96px);
