@@ -37,7 +37,7 @@ export const ProductA = () => (
       <div className="a-section-head">
         <div>
           <div className="a-section-label">The platform · Sidney</div>
-          <h2 className="a-section-h">Your intelligence analyst. <em>Not another dashboard.</em></h2>
+          <h2 className="a-section-h"><em>Your intelligence analyst.</em> Not another dashboard.</h2>
         </div>
         <p className="a-section-p">Sidney closes the gap between data collection and decision-ready intelligence. Planning, researching, analysing, and reporting in minutes.</p>
       </div>
