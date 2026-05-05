@@ -105,6 +105,16 @@
   text-align: left;
 }
 
+/* Copy column — narrower than .a-hero-inner so the hero block sits at
+   the page's optical centre instead of flush against the inner column's
+   left edge. Children stay left-aligned within the copy block; the
+   block itself is centred via margin: 0 auto. Width tuned to fit the H1
+   at its 72px cap. */
+.a-hero-copy {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
 /* ───── Announcement pill ───── */
 .a-hero-pill {
   display: inline-flex; align-items: center; gap: 14px;
@@ -142,14 +152,13 @@
 /* ───── Headline / sub / CTAs ───── */
 .a-hero-h1 {
   margin: 32px 0 0;
-  max-width: 84rem;
+  max-width: 100%;
   font-family: var(--sidney-font-display);
   font-weight: 300;
-  /* Cap kept at 80 (was 96 originally) because the second line
-     "Decisions Made in the Dark." is wider than previous copy and would
-     wrap at 96px on a 1280–1440 desktop. 80 holds the bold hero feel
-     without overflow on narrower viewports. */
-  font-size: clamp(50px, 7vw, 80px);
+  /* Cap is 72 to fit "Decisions Made in the Dark." inside the 64rem
+     copy column on a single line. Bumping above ~74px starts to wrap on
+     standard desktops; lower, the hero loses impact. */
+  font-size: clamp(48px, 6.4vw, 72px);
   /* Loosened from 1.04 → 1.10 so line 1 (with the rotor) and line 2 read
      as separate beats, not a single mashed block. The two lines need a
      bit of vertical air given how visually loaded the rotor is. */

@@ -209,45 +209,51 @@ export const HeroA = () => {
       <HeroBackdrop/>
 
       <div className="a-hero-inner">
-        <div
-          className="a-hero-pill a-hero-pill-static"
-          role="group"
-          aria-label="Backed by the University of Cambridge"
-        >
-          <img
-            className="a-hero-pill-logo"
-            src="/assets/cambridge-arms.svg"
-            alt=""
-            aria-hidden="true"
-            width="18"
-            height="21"
-            loading="lazy"
-          />
-          <span>Backed by the University of Cambridge</span>
-        </div>
+        {/* Copy block — left-aligned typography sitting in a max-width
+            column that's centred within the inner container, so the
+            hero feels visually centred on the page while individual
+            lines flow from the left. */}
+        <div className="a-hero-copy">
+          <div
+            className="a-hero-pill a-hero-pill-static"
+            role="group"
+            aria-label="Backed by the University of Cambridge"
+          >
+            <img
+              className="a-hero-pill-logo"
+              src="/assets/cambridge-arms.svg"
+              alt=""
+              aria-hidden="true"
+              width="18"
+              height="21"
+              loading="lazy"
+            />
+            <span>Backed by the University of Cambridge</span>
+          </div>
 
-        <h1 className="a-hero-h1">
-          No{" "}
-          <span className="a-hero-rotor-slot" aria-live="polite">
-            <span className="a-hero-rotor">{displayed}</span>
-            <span className="a-hero-rotor-caret" aria-hidden="true"/>
-          </span>
-          <br/>
-          Decisions Made <em>in the Dark.</em>
-        </h1>
+          <h1 className="a-hero-h1">
+            No{" "}
+            <span className="a-hero-rotor-slot" aria-live="polite">
+              <span className="a-hero-rotor">{displayed}</span>
+              <span className="a-hero-rotor-caret" aria-hidden="true"/>
+            </span>
+            <br/>
+            Decisions Made <em>in the Dark.</em>
+          </h1>
 
-        <p className="a-hero-sub">
-          Sidney runs the investigation. You make the call. Every claim sourced.
-          Nothing asserted beyond the evidence.
-        </p>
+          <p className="a-hero-sub">
+            Sidney runs the investigation. You make the call. Every claim sourced.
+            Nothing asserted beyond the evidence.
+          </p>
 
-        <div className="a-hero-ctas">
-          <a href="/demo" className="btn btn-primary a-hero-cta-primary">
-            Request a demo <Icon name="arrow" size={14}/>
-          </a>
-          <a className="btn btn-plain a-hero-cta-secondary" href="/#live-demo">
-            Watch Sidney run
-          </a>
+          <div className="a-hero-ctas">
+            <a href="/demo" className="btn btn-primary a-hero-cta-primary">
+              Request a demo <Icon name="arrow" size={14}/>
+            </a>
+            <a className="btn btn-plain a-hero-cta-secondary" href="/#live-demo">
+              Watch Sidney run
+            </a>
+          </div>
         </div>
       </div>
     </section>
