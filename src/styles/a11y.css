@@ -169,22 +169,15 @@ button:focus-visible {
   .a-demo-chrome { display: none; }
   .a-hero-mockup-live .a-demo-body { height: 640px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
-  /* Block user-initiated scroll inside the demo so the auto-scroll
-     choreography isn't fought by stray finger swipes. touch-action:
-     none turns off panning/zooming gestures on the element, but
-     click/tap still fires (Replay button stays usable) and the
-     programmatic .scrollTo() the JS calls still works. */
-  .a-demo-main { padding: 24px 20px; touch-action: none; }
-  /* Scroll-snap so the page treats the live demo as a deliberate
-     dwell point. proximity (not mandatory) means the snap pulls a
-     casual swipe back to the demo, but a determined swipe with
-     intent gets through. snap-stop: always interrupts momentum so
-     the visitor can't flick past the demo in a single gesture. */
-  html { scroll-snap-type: y proximity; }
-  .a-hero-demo {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+  /* Block user-initiated scroll inside the demo without trapping the
+     visitor's finger: overflow-y: hidden means the demo isn't a
+     scroll target for touch (so the auto-scroll choreography isn't
+     fought by stray swipes), but the element still has scroll
+     mechanics so the JS-driven .scrollTo() between cards keeps
+     working. Vertical touch pans over the demo propagate up to the
+     page, so visitors can scroll the page freely with their finger
+     over the demo. */
+  .a-demo-main { padding: 24px 20px; overflow-y: hidden; }
   .a-demo-h { font-size: 19px; margin-bottom: 16px; }
   .a-cmdbar { padding: 12px 14px; }
   .a-cmdbar-text { font-size: 13.5px; line-height: 1.4; }
