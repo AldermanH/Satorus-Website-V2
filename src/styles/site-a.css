@@ -512,7 +512,13 @@
 .a-side-recent-t { font: 400 11.5px var(--sidney-font-sans); color: var(--sidney-fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .a-side-recent-s { font: 400 10px var(--sidney-font-mono); color: var(--sidney-fg-faint); }
 
-.a-demo-main { padding: 28px 32px; overflow-y: auto; overflow-x: hidden; position: relative; scrollbar-width: none; }
+/* overflow-y: hidden (was auto) so the visitor can't scroll the demo's
+   internal content with mouse wheel or touch — the auto-scroll
+   choreography between cards owns vertical movement. The element is
+   still a scroll container (retains scroll metrics), so the JS-driven
+   .scrollTo() in DemoA keeps working. Wheel / pan gestures over the
+   demo propagate up to the page. */
+.a-demo-main { padding: 28px 32px; overflow-y: hidden; overflow-x: hidden; position: relative; scrollbar-width: none; }
 .a-demo-main::-webkit-scrollbar { display: none; }
 .a-demo-greeting { color: var(--sidney-fg-muted); font: 400 13px var(--sidney-font-sans); margin-bottom: 6px; }
 .a-demo-h { font: 500 22px var(--sidney-font-display); letter-spacing: -0.02em; color: var(--sidney-fg); margin-bottom: 20px; }
