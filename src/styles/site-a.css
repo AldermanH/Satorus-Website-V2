@@ -150,7 +150,10 @@
      standard 1280–1440 desktop. 84 holds the bold hero feel without the
      overflow. */
   font-size: clamp(52px, 7.4vw, 84px);
-  line-height: 1.04;
+  /* Loosened from 1.04 → 1.10 so line 1 (with the rotor) and line 2 read
+     as separate beats, not a single mashed block. The two lines need a
+     bit of vertical air given how visually loaded the rotor is. */
+  line-height: 1.10;
   letter-spacing: -0.03em;
   color: var(--sidney-fg);
   text-wrap: balance;
@@ -164,20 +167,27 @@
 }
 
 /* Typing-effect rotor inside the hero H1.
-   The slot reserves a chunk of space so line 1 doesn't side-shift while
-   the word grows/shrinks; min-width is a compromise between "tight on
-   short phrases" and "doesn't reflow on long ones." Phrases that exceed
-   it (e.g. "Sanctions Compliance") will still extend the line, but most
-   of the cycle stays anchored. The caret blinks via steps(1,end) so it
-   snaps on/off rather than fading — closer to a real text cursor.
-   Reduced-motion users get a static word and a static caret (a11y.css
-   neutralises the keyframes globally). */
+   The slot reserves enough width for the longest phrase ("Sanctions
+   Compliance" = 20ch) so line 1's total width is constant. With the H1
+   centered, that means "No" sits at a fixed position and the typed word
+   never causes the line to re-centre as it grows/shrinks — fixes the
+   side-to-side jitter the variable rotor would otherwise cause.
+   On narrower viewports the 20ch reservation would push line 1 past
+   the screen edge; below the desktop breakpoint we drop to 14ch and
+   accept a small reflow on phrases longer than that.
+   The caret blinks via steps(1,end) so it snaps on/off rather than
+   fading — closer to a real text cursor. Reduced-motion users get a
+   static word and a static caret (a11y.css neutralises the keyframes
+   globally). */
 .a-hero-rotor-slot {
   display: inline-block;
-  min-width: 12ch;
+  min-width: 14ch;
   text-align: left;
   vertical-align: baseline;
   white-space: nowrap;
+}
+@media (min-width: 1024px) {
+  .a-hero-rotor-slot { min-width: 20ch; }
 }
 .a-hero-rotor {
   display: inline;
@@ -197,7 +207,7 @@
 }
 
 .a-hero-sub {
-  margin: 28px auto 0;
+  margin: 36px auto 0;
   max-width: 36rem;
   font: 400 18px/1.55 var(--sidney-font-sans);
   /* Brighter than the original muted colour, plus a stacked text-shadow
