@@ -66,23 +66,28 @@ button:focus-visible {
   .a-hh-menu { display: none; }
   .a-hh-actions { display: none; }
   /* When the menu opens, .a-hh-actions wraps to a new row. The closed-
-     state .a-hh-row has a fixed 56px height which clips the wrapped
-     content and pulls the brand off-center; height: auto lets the row
-     grow so the brand stays cleanly aligned in the top strip while the
-     menu items sit beneath it. */
+     state .a-hh-row has a fixed 56px height which would clip the wrapped
+     content; height: auto lets the row grow while min-height keeps the
+     top strip (brand + toggle) at the same height as the closed state.
+     No row-gap on the row itself — the actions block has its own
+     padding-top + border, which is what visually separates the strip
+     from the menu items. Doubling up created extra dead space.
+     align-content controls how the two wrap lines distribute vertically:
+     start keeps the top strip at the top of the row instead of letting
+     it drift down when the menu is tall. */
   .a-hh[data-state="active"] .a-hh-row {
     flex-wrap: wrap;
     height: auto;
     min-height: 56px;
-    row-gap: 8px;
+    align-content: flex-start;
   }
   .a-hh[data-state="active"] .a-hh-actions {
     display: flex; flex-direction: column; align-items: stretch;
-    gap: 14px; width: 100%; padding: 16px 0 4px;
+    gap: 6px; width: 100%; padding: 14px 0 6px;
     border-top: 1px solid var(--sidney-border); margin-left: 0;
   }
   .a-hh[data-state="active"] .a-hh-menu-mobile {
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column; gap: 6px;
     margin: 0; padding: 0; list-style: none; width: 100%;
   }
   .a-hh[data-state="active"] .a-hh-buttons { width: 100%; }
