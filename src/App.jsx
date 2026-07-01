@@ -2,6 +2,7 @@ import React from "react";
 import { NavA, HeroA } from "./SiteA-Hero.jsx";
 import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
+import { ShowcaseA } from "./SiteA-Showcase.jsx";
 
 /* Tiny path-based router. Two pages today (/ and /demo); if we add more we
    can swap this for React Router without touching the consumers — they all
@@ -68,6 +69,23 @@ export default function App() {
     scrollToHashOrTop();
   }, [path]);
 
+  // The /showcase route is a hidden launch-event display (a TV attract loop).
+  // Keep it out of search: set <meta name="robots" content="noindex"> while it's
+  // the active route, and remove it again when navigating away.
+  React.useEffect(() => {
+    const isShowcase = path === "/showcase";
+    let meta = document.querySelector('meta[name="robots"][data-showcase]');
+    if (isShowcase && !meta) {
+      meta = document.createElement("meta");
+      meta.name = "robots";
+      meta.content = "noindex, nofollow";
+      meta.dataset.showcase = "1";
+      document.head.appendChild(meta);
+    } else if (!isShowcase && meta) {
+      meta.remove();
+    }
+  }, [path]);
+
   // Catch clicks on internal anchors and route via pushState instead of
   // letting the browser do a full page reload.
   React.useEffect(() => {
@@ -84,6 +102,11 @@ export default function App() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, [navigate]);
+
+  // Hidden launch-event display — full viewport, no site nav or footer.
+  if (path === "/showcase") {
+    return <ShowcaseA/>;
+  }
 
   return (
     <div style={{ minHeight: "100%", background: "var(--sidney-bg)" }}>
