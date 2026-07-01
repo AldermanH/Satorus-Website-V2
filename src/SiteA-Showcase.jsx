@@ -1,296 +1,179 @@
 /* Launch-event showcase — hidden route /showcase
    ─────────────────────────────────────────────────────────────────────────
-   A fullscreen, self-looping "attract loop" for a TV at the launch event.
-   It is a richer, more detailed sibling of the homepage DemoA: real Sidney
-   investigations shown inside the full product shell — workspace sidebar, top
-   bar, a live dark-web sweep console, and a live-stats rail — cycled one after
-   another, scaled up for legibility across a room.
+   A fullscreen "presentation mode" attract loop for a TV at the launch event.
+   Rather than the marketing-site look, this mirrors the REAL Sidney product UI
+   (deep-navy enterprise theme, electric-cyan accent, Inter, 8px radius, the
+   report-glow reading surface, inline circular citations, confidence pills,
+   A-D source-grade badges) — reference: the sidney-staging repo (git-ignored,
+   never shipped).
 
-   Not linked anywhere. Reached only by typing /showcase. App.jsx renders this
-   full-viewport with no site nav or footer.
+   Presentation framing: the same animated blue MeshGradient used on the site
+   hero fills the viewport; a windowed, floating app frame sits on top of it
+   (not edge-to-edge) so it reads like a product demo playing on a wall.
 
-   The stage is authored at a fixed 1600×900 (16:9) canvas and CSS-scaled to
-   fill whatever TV/monitor it lands on, so composition is identical at 1080p
-   or 4K. Internal card scrolling uses the panel's own coordinate space, so the
+   The window is authored on a fixed 1600×900 canvas, CSS-scaled to fit any
+   screen; internal scrolling uses the panel's own coordinate space so the
    scale transform never throws off scrollTo().
 
-   Content lives in INVESTIGATIONS below — each is one real Sidney case. #1 is
-   the Pakistan-Afghanistan corpus (shared with DemoA). Add #2 / #3 as further
-   objects of the same shape; the player picks up any length automatically.
-
-   Per-investigation choreography (generous dwell so a passer-by can read):
-     typing → sweep → result → highlight×N → export → advance → loop           */
+   Content is DUMMY data for now (one sample investigation) shaped like a real
+   Sidney report — swap in real reports later, and add more objects to REPORTS
+   to cycle several. Choreography:
+     home → typing → running (agent stages) → report (auto-scroll sections) → loop */
 import React from "react";
+import { MeshGradient } from "@paper-design/shaders-react";
 import { Icon, SatorusMark } from "./Components.jsx";
 
-// Inline citation pill — ties analytical claims back to a numbered evidence row.
-const Cite = ({ id }) => <sup className="a-cite">{id}</sup>;
+/* Inline numbered citation — the product's signature circular cyan badge. */
+const Cite = ({ n }) => <sup className="pv-cite">{n}</sup>;
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   INVESTIGATIONS
-   Each object is one real Sidney case. Shape:
-     { id, subject, path, query, modes[], sweep[], stats{}, langs[],
-       finding{}, cards[], synth{} }
-   Card sections are typed (timeline | ops | arms | quotes | analysis) so
-   different real investigations can carry different evidence structures.
-   ═══════════════════════════════════════════════════════════════════════════ */
-const INVESTIGATIONS = [
-  {
-    id: "pak-afghan",
-    subject: "Pakistan-Afghanistan Border",
-    path: "pak-afghan-border",
-    query: "Map every active zone of instability along the Pakistan–Afghanistan border. Break it down by sub-region, with sourcing.",
-    modes: ["Dark-web sweep", "Read-only", "90-day window", "Multi-language"],
-    // sweep hits sum to 47 — the figure the finding cites.
-    sweep: [
-      { src: "Hakalmedia Bot",       net: "Telegram", region: "Balochistan",   lang: "Urdu",    hits: 9 },
-      { src: "War Noir",             net: "Telegram", region: "Weapons ID",     lang: "English", hits: 6 },
-      { src: "ResistanceTrench",     net: "Telegram", region: "Pakistan-wide",  lang: "Pashto",  hits: 7 },
-      { src: "Punisher346",          net: "Telegram", region: "Durand Line",    lang: "Dari",    hits: 5 },
-      { src: "Conflict Observers",   net: "Discord",  region: "Regional",       lang: "Multi",   hits: 8 },
-      { src: "MICRO-FILES",          net: "Onion",    region: "Archive",        lang: "Arabic",  hits: 4 },
-      { src: "Front Line Defenders", net: "Onion",    region: "Gwadar",         lang: "English", hits: 3 },
-      { src: "Mirror set 04",        net: "Pastebin", region: "Indexed",        lang: "Multi",   hits: 5 },
-    ],
-    stats: { hits: 47, channels: 12, sources: 8, langs: 7 },
-    langs: [
-      { l: "Urdu", w: 28 }, { l: "Pashto", w: 22 }, { l: "Dari", w: 18 },
-      { l: "English", w: 16 }, { l: "Arabic", w: 10 }, { l: "Balochi", w: 6 },
-    ],
-    finding: {
-      pill: "BLUF · Finding 01 of 03",
-      title: "Three concurrent instability vectors across the Pakistan-Afghanistan border",
-      confPips: 5,
-      confLabel: "Critical",
-      meta: [
-        { dot: "ok", label: "Active" },
-        { k: "Class.", v: "Confidential" },
-        { k: "Subject", v: "Pakistan-Afghanistan Border" },
-        { k: "Window", v: "Last 90 days" },
-        { k: "Mode", v: "Multi-source" },
-        { k: "Assigned", v: "HM" },
-      ],
-      body: (
-        <>
-          Multi-source dark-web sweep decomposed across three sub-regions surfaced an <mark>interstate military conflict</mark>, an <mark>intensifying separatist insurgency</mark>, and a <mark>nationwide militant offensive</mark> running simultaneously<Cite id="07"/>. Pakistan and the Afghan Taliban entered open warfare along the Durand Line in late February 2026 following Pakistani air strikes on Kabul<Cite id="04"/><Cite id="05"/>. In Balochistan, BLA and BLF conducted sustained operations including an unprecedented maritime attack<Cite id="01"/>, armed with US, Belarusian, Turkish, and Chinese weapons indicating sophisticated supply chains<Cite id="02"/>. TTP issued a nationwide attack order and is recruiting transnationally<Cite id="03"/>. All three vectors are escalating and mutually reinforcing<Cite id="07"/>.
-        </>
-      ),
-      keyFindings: [
-        "Durand Line interstate conflict — Pakistan launched air strikes on Kabul, Kandahar, and Paktia (Operation Ghazab-ullah-Haq, 27 Feb 2026). Afghan Taliban seized 10+ Pakistani positions. Pakistan Defence Minister declared 'open war.' Chinese-brokered peace talks in Urumqi (2 Apr) have not halted hostilities.",
-        "Balochistan insurgency escalation — BLA launched Operation Herof II across 14 cities simultaneously (Jan-Feb 2026) and conducted its first-ever maritime attack off Gwadar (14 Apr 2026). Weapons provenance analysis across 5 BLF/BLA attacks confirms US, Belarusian, Turkish, Chinese, and Soviet-origin arms.",
-        "TTP nationwide mobilisation — TTP leader Noor Wali Mehsud issued a nationwide attack order (27 Feb 2026). TTP claimed 1,758 attacks in 2024 and is responsible for 1,200+ deaths in Pakistan in 2025. Transnational recruitment confirmed in Bangladesh.",
-      ],
-      entities: [
-        { type: "Non-state actors", items: ["BLA", "BLF", "TTP", "ISIS-Khorasan"] },
-        { type: "State actors",     items: ["Pakistan (PAF, ISI)", "Afghan Taliban (IEA)", "China (mediator)", "Iran", "Saudi Arabia", "India (accused proxy ops)"] },
-        { type: "Individuals",      items: ["Noor Wali Mehsud", "Abdul Hamid Khorasani", "Mullah Yaqoob", "Khawaja Asif", "Dr. Mahrang Baloch", "Jeeyand Baloch"] },
-        { type: "Platforms",        items: ["Telegram (12+ ch)", "Discord (Conflict Observers)", "Onion (MICRO-FILES, FLD)", "Pastebin"] },
-      ],
-      evidenceLabel: "Evidence chain · 47 dark-web hits · 7 queries · 0 unverified",
-      evidence: [
-        { num: "01", kind: "POST", source: "Hakalmedia Bot — Telegram · BLA communique",     conf: "Tier 1",    loc: "Balochistan",   date: "02/2026",     target: "baloch" },
-        { num: "02", kind: "POST", source: "War Noir — Telegram · weapons ID",                conf: "Confirmed", loc: "Balochistan",   date: "02-04/2026",  target: "baloch" },
-        { num: "03", kind: "POST", source: "ResistanceTrench — Telegram · conflict brief",    conf: "Moderate",  loc: "Pakistan-wide", date: "02/2026",     target: "kpk"    },
-        { num: "04", kind: "POST", source: "Punisher346 — Telegram · operational analysis",   conf: "Moderate",  loc: "Durand Line",   date: "02/2026",     target: "durand" },
-        { num: "05", kind: "POST", source: "Conflict Observers — Discord · aggregated OSINT", conf: "Moderate",  loc: "Regional",      date: "02-04/2026",  target: "durand" },
-        { num: "06", kind: "POST", source: "Front Line Defenders — Onion · human rights case", conf: "Confirmed", loc: "Gwadar",       date: "07/2024",     target: "baloch" },
-        { num: "07", kind: "SYN",  source: "Cross-source synthesis · 47 hits, 3 sub-regions, 12+ channels", conf: "Confirmed", loc: "Indexed sweep", date: "Q1-Q2 2026", target: "synth" },
-      ],
-    },
-    cards: [
-      {
-        id: "durand",
-        tag: { label: "Sub-region 01 · Critical", kind: "critical" },
-        title: "Durand Line / Interstate Conflict",
-        conf: { label: "Active interstate war", dot: "critical" },
-        meta: [
-          { k: "Region", v: "Durand Line corridor" },
-          { k: "Provinces", v: "Nangarhar, Paktia, Khost, Kunar, Kandahar" },
-          { k: "Status", v: "Open warfare" },
-          { k: "Trajectory", v: "Steep escalation" },
-        ],
-        sections: [
-          { type: "timeline", h: "Escalation timeline", rows: [
-            { date: "21 Feb",  event: "PAF strikes 7 terrorist bases in Nangarhar, Paktika, Khost. Retaliation for Islamabad mosque bombing (36 killed)." },
-            { date: "26 Feb",  event: "Afghan Taliban launch large-scale offensive. BM-21 Grad MLRS deployed. 10 Pakistani positions seized." },
-            { date: "27 Feb",  event: "Pakistan strikes Kabul for the first time. Operation Ghazab-ullah-Haq. Defence Minister declares 'open war.'" },
-            { date: "27 Feb",  event: "TTP leader issues nationwide attack order against Pakistan military." },
-            { date: "3 Mar",   event: "Pakistani soldiers beheaded by Taliban along Kandahar sector." },
-            { date: "~15 Mar", event: "Heavy artillery and MLRS in active use. Unconfirmed reports Taliban supreme leader Akhundzada killed." },
-            { date: "2 Apr",   event: "Chinese-brokered peace talks in Urumqi. Pakistan says it has 'exhausted all diplomatic options.'" },
-            { date: "22 Apr",  event: "6 Pakistani soldiers killed in cross-border firing, Bajaur sector." },
-            { date: "27 Apr",  event: "Afghan opposition fractures: NRF and Hazara warlord Mohaqiq recognise Durand Line, breaking with Taliban." },
-          ]},
-          { type: "quotes", h: "Quotes of interest", rows: [
-            { quote: "“If Kabul is attacked the response will be in Islamabad.”", cite: "Mullah Yaqoob (Afghan Defence Minister) · Conflict Observers Discord · 02/2026" },
-            { quote: "“If Pakistan is proud of its ballistic missiles and nuclear bombs, we have battalions of suicide bombers.”", cite: "Abdul Hamid Khorasani (Taliban commander) · Analise Militar · 02/2026" },
-          ]},
-          { type: "analysis", h: "Sidney's analysis", paras: [
-            <>The Durand Line corridor has escalated from counter-terrorism strikes into an <mark>interstate war between two nuclear-threshold states</mark><Cite id="04"/>. The trigger was the Islamabad Shia mosque bombing (attributed to ISIS-Khorasan operating from Afghan territory), but the underlying territorial dispute over the Durand Line is the structural driver<Cite id="04"/>. Pakistan's decision to strike Kabul directly represents a threshold crossing: the Afghan Taliban's response has been both conventional (BM-21 Grad deployments, position seizures) and unconventional (Khorasani's suicide bomber threat)<Cite id="05"/>.</>,
-            <>The conflict is simultaneously fracturing Afghan domestic politics. <mark>NRF and Hazara opposition recognising the Durand Line as Pakistan's border</mark> breaks a long-standing Afghan consensus<Cite id="05"/>, potentially creating openings for negotiation but also deepening Taliban intransigence. Chinese mediation in Urumqi signals Beijing's concern over CPEC corridor security but has not yet produced a ceasefire<Cite id="04"/><Cite id="05"/>.</>,
-            <>Real-time Telegram coverage from 8+ simultaneous channels in 6 languages demonstrates the conflict's international information footprint<Cite id="07"/>. <em>The escalation trajectory remains steep; no de-escalation mechanism is currently visible.</em></>,
-          ]},
-        ],
-      },
-      {
-        id: "baloch",
-        tag: { label: "Sub-region 02 · Critical", kind: "critical" },
-        title: "Balochistan / Quetta-Chaman, Gwadar, Turbat",
-        conf: { label: "Escalating separatist insurgency", dot: "critical" },
-        meta: [
-          { k: "Region", v: "Balochistan Province" },
-          { k: "Corridors", v: "Quetta-Chaman, Gwadar, Mashkay-Turbat" },
-          { k: "Actors", v: "BLA · BLF · BYC" },
-          { k: "Trajectory", v: "Expanding (maritime added)" },
-        ],
-        sections: [
-          { type: "ops", h: "Key operations · 90-day window", rows: [
-            { date: "31 Jan – 6 Feb", actor: "BLA",      loc: "14 cities",      sig: "Operation Herof II. Largest urban campaign. 93 BLA fighters killed. BLA seized Nushki army base." },
-            { date: "24 Feb",         actor: "BLF",      loc: "Barkhan",        sig: "Attack on police. Turkish, Belarusian, Chinese weapons confirmed." },
-            { date: "1 Mar",          actor: "BLF",      loc: "Kharan, Washuk", sig: "Raided government buildings. US M16A4 with M203 grenade launcher." },
-            { date: "19 Mar",         actor: "BLF",      loc: "Mashkay",        sig: "US M4/M16A4 with thermal scope, RPGs." },
-            { date: "28 Mar",         actor: "BLF",      loc: "Tump",           sig: "US M16A4, RPG-7 with anti-tank rockets." },
-            { date: "31 Mar",         actor: "Multiple", loc: "9 areas",        sig: "30+ attacks in 24 hours. Army bases, intel centres, pipelines, bridges targeted." },
-            { date: "9 Apr",          actor: "BLF",      loc: "Quetta",         sig: "Rare Belarus VSK-100 precision rifle confirmed (second appearance)." },
-            { date: "14 Apr",         actor: "BLA",      loc: "Gwadar coast",   sig: "First-ever maritime attack. US M16A1, M4A1 rifles confirmed." },
-          ]},
-          { type: "arms", h: "Weapons provenance · 5+ engagements", rows: [
-            { origin: "US",         items: "M16A1, M16A4, M4A1, Penn Arms GL65-40R grenade launcher, thermal optics" },
-            { origin: "Belarusian", items: "VSK-100 precision rifle (rare, appeared twice)" },
-            { origin: "Turkish",    items: "Sarsilmaz SAR 15T" },
-            { origin: "Chinese",    items: "Type 56, Type 56-1" },
-            { origin: "Soviet",     items: "RPG-7, AKM, PKM, GP-25/GP-30 grenade launchers" },
-          ]},
-          { type: "analysis", h: "Sidney's analysis", paras: [
-            <>The Balochistan insurgency has entered a new phase. <mark>BLA's Operation Herof II demonstrated coordinated urban warfare capability across 14 cities simultaneously</mark><Cite id="01"/>, a significant leap from previous hit-and-run tactics. The April maritime attack off Gwadar opens an entirely new domain of operations and directly threatens CPEC port infrastructure<Cite id="01"/>.</>,
-            <>Weapons provenance data across five BLF/BLA attacks tells a supply chain story<Cite id="02"/>. The presence of US thermal optics, standalone grenade launchers, and the rare Belarus VSK-100 precision rifle (appearing twice in separate engagements) indicates a <mark>well-resourced insurgency with access to multiple international supply lines</mark><Cite id="02"/>. <em>This is not improvised weaponry; it is a diversified, sophisticated procurement network.</em></>,
-            <>The human rights dimension is inseparable from the military one. BYC leader Dr. Mahrang Baloch faces sedition charges linked to CPEC displacement protests<Cite id="06"/>. BYC member Sabghatullah Abdul Haq was subjected to enforced disappearance by the Pakistan Army in Gwadar<Cite id="06"/>. These cases, surfaced via onion-hosted Front Line Defenders, illustrate the civilian cost of the security response and the grievance cycle fuelling recruitment.</>,
-          ]},
-        ],
-      },
-      {
-        id: "kpk",
-        tag: { label: "Sub-region 03 · High", kind: "warn" },
-        title: "Khyber Pakhtunkhwa / Former FATA",
-        conf: { label: "Nationwide militant mobilisation", dot: "warn" },
-        meta: [
-          { k: "Region", v: "KPK, former FATA, nationwide" },
-          { k: "Actor", v: "TTP" },
-          { k: "Status", v: "Active nationwide attack order" },
-          { k: "Recruitment", v: "Transnational (Bangladesh confirmed)" },
-        ],
-        sections: [
-          { type: "quotes", h: "Quote of interest", rows: [
-            { quote: "TTP leader Noor Wali Mehsud issued orders for widespread attacks across Pakistan.", cite: "ResistanceTrench · voice message · 27/02/2026" },
-          ]},
-          { type: "analysis", h: "Sidney's analysis", paras: [
-            <>TTP remains the <mark>single deadliest non-state actor operating in Pakistan</mark><Cite id="03"/>, with 1,200+ deaths attributed in 2025 and 1,758 self-reported attacks in 2024 across sniper, guerrilla, ambush, grenade, and suicide categories<Cite id="03"/>. The nationwide attack order issued on 27 February 2026 directly coincided with the Durand Line escalation, suggesting TTP is leveraging the interstate conflict as operational cover<Cite id="04"/>.</>,
-            <>Territorial control indicators are alarming: <mark>TTP militants patrolling in uniform and operating checkpoints in Bannu (KPK) during Eid</mark> demonstrates governance-level presence, not merely insurgent activity<Cite id="03"/>. Transnational recruitment in Bangladesh (25-30 confirmed recruits, named individuals arrested) expands TTP's operational base beyond the traditional Pashtun recruitment pool via online radicalisation, clerical mentorship, and labour-migration cover<Cite id="03"/>.</>,
-            <>Sub-factions Jamaat-ul-Ahrar and Hizbul Ahrar have been fully absorbed into the TTP umbrella and no longer generate independent signal<Cite id="07"/>.</>,
-          ]},
-        ],
-      },
-    ],
-    synth: {
-      tag: "Synthesis · Recommendations",
-      title: "Operational picture & forward assessment",
-      paras: [
-        <>The Pakistan-Afghanistan border is experiencing <mark>three simultaneous, mutually reinforcing instability vectors</mark><Cite id="07"/>: an interstate war along the Durand Line<Cite id="04"/>, an escalating separatist insurgency in Balochistan with expanding domain (maritime) and diversified international weapons supply<Cite id="01"/><Cite id="02"/>, and a nationwide TTP mobilisation order with transnational recruitment<Cite id="03"/>. These vectors compound one another: the Durand Line conflict provides TTP with operational cover, Balochistan separatists exploit the Army's two-front distraction, and all three erode state control over territory and borders<Cite id="07"/>.</>,
-        <>External actor dynamics add further complexity. <mark>China is mediating but primarily motivated by CPEC corridor protection</mark><Cite id="04"/><Cite id="05"/>. Saudi Arabia has signed a mutual defence pact with Pakistan. Iran has recognised the Taliban government and offered mediation. Pakistan has explicitly accused Indian intelligence (RAW) of orchestrating terrorism through proxy networks<Cite id="03"/>. The information ecosystem spans 12+ Telegram channels, Discord servers, onion sites, and Pastebin in at least 7 languages, indicating global audience reach<Cite id="07"/>.</>,
-        <><em>No de-escalation mechanism is currently visible on any of the three vectors.</em></>,
-      ],
-      recs: [
-        <><strong>Maintain</strong> standing dark-web sweeps on BLA, TTP, and Durand Line with 72-hour refresh cycles. Tag cross-node spillover content to all relevant branches.</>,
-        <><strong>Track</strong> weapons provenance indicators. The Belarus VSK-100 and US thermal optics warrant dedicated supply chain analysis via complementary OSINT sources.</>,
-        <><strong>Monitor</strong> Afghan opposition fractures (NRF, Mohaqiq) as potential negotiation leverage points on the Durand Line dispute.</>,
-        <><strong>Flag</strong> TTP transnational recruitment signals in Bangladesh and beyond for escalation to partner agencies.</>,
-      ],
-    },
-  },
-];
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   Section renderers — one per typed card section
-   ═══════════════════════════════════════════════════════════════════════════ */
-const CardSection = ({ section }) => {
-  const { type, h } = section;
+/* 4-dot confidence meter pill (mirrors ConfidencePill). */
+const CONF = {
+  "High":        { filled: 4, half: false, cls: "high",   label: "High Confidence" },
+  "Medium-High": { filled: 3, half: true,  cls: "medhigh", label: "Medium-High Confidence" },
+  "Medium":      { filled: 3, half: false, cls: "med",    label: "Medium Confidence" },
+  "Medium-Low":  { filled: 2, half: false, cls: "medlow", label: "Medium-Low Confidence" },
+  "Low":         { filled: 1, half: false, cls: "low",    label: "Low Confidence" },
+};
+const Confidence = ({ level }) => {
+  const s = CONF[level] || CONF.Medium;
   return (
-    <div className="a-actor-section">
-      <div className="a-actor-section-h">{h}</div>
-      {type === "timeline" && (
-        <div className="a-actor-timeline">
-          {section.rows.map((row, i) => (
-            <div key={i} className="a-actor-timeline-row">
-              <span className="date">{row.date}</span>
-              <span className="event">{row.event}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {type === "ops" && (
-        <div className="a-actor-ops">
-          {section.rows.map((op, i) => (
-            <div key={i} className="a-actor-ops-row">
-              <span className="date">{op.date}</span>
-              <span className="actor">{op.actor}</span>
-              <span className="loc">{op.loc}</span>
-              <span className="sig">{op.sig}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {type === "arms" && (
-        <ul className="a-actor-arms">
-          {section.rows.map((w) => (
-            <li key={w.origin}>
-              <span className="origin">{w.origin}</span>
-              <span className="items">{w.items}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-      {type === "quotes" && section.rows.map((q, i) => (
-        <blockquote key={i} className="a-actor-quote">
-          {q.quote}
-          <cite>{q.cite}</cite>
-        </blockquote>
-      ))}
-      {type === "analysis" && section.paras.map((p, i) => (
-        <p key={i} className="a-actor-analysis">{p}</p>
-      ))}
-    </div>
+    <span className={`pv-conf ${s.cls}`}>
+      <span className="pv-conf-dots">
+        {[0, 1, 2, 3].map((i) => {
+          if (s.half && i === s.filled) return <span key={i} className="pv-conf-dot half"/>;
+          return <span key={i} className={`pv-conf-dot ${i < s.filled ? "on" : ""}`}/>;
+        })}
+      </span>
+      {s.label}
+    </span>
   );
 };
 
-/* Live-stats rail counters — order and labels are fixed; values ramp with progress. */
-const STAT_ROWS = [
-  { key: "hits",     label: "Dark-web hits" },
-  { key: "channels", label: "Channels" },
-  { key: "sources",  label: "Sources swept" },
-  { key: "langs",    label: "Languages" },
+/* A-D source-grade badge (mirrors SourceGradeBadge colour tiers). */
+const gradeTier = (g) => (/^A/.test(g) ? "a" : /^B/.test(g) ? "b" : "cd");
+const Grade = ({ g }) => <span className={`pv-grade ${gradeTier(g)}`}>{g}</span>;
+
+/* Agent stage labels — verbatim from the product's InvestigationProgress. */
+const STAGES = [
+  "Classifying investigation type",
+  "Researching sources",
+  "Querying news intelligence",
+  "Grading source quality",
+  "Analysing findings",
+  "Writing report",
+];
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REPORTS — dummy data shaped like a real Sidney report
+   (metadata + summary + key judgments + analysis sections + entities +
+    geolocations + graded sources). Add more objects to cycle several.
+   ═══════════════════════════════════════════════════════════════════════════ */
+const REPORTS = [
+  {
+    id: "bab-el-mandeb",
+    type: "GEOPOLITICAL ANALYSIS",
+    title: "Bab-el-Mandeb Disruption: Operational Impact Assessment for a Rotterdam-Based Commodities Importer",
+    query: "We import metals and energy feedstock through the Red Sea. Assess the operational impact of the current Bab-el-Mandeb disruption and give us a two-quarter outlook.",
+    written: "Assessed 25 May 2026 · 14:12 CET",
+    timeSaved: "≈ 14 hrs saved",
+    stats: { references: 96, geolocations: 14, entities: 6, risks: 12 },
+    summary: (
+      <>A Rotterdam-based importer dependent on cargoes transiting the Bab-el-Mandeb strait faces a <mark>sustained, multi-quarter re-routing regime</mark> rather than a near-term return to Red Sea transit<Cite n={1}/>. Since the JWC's expansion of Listed Areas, carriers have defaulted to the Cape of Good Hope, adding 9–14 days and materially higher war-risk premia to every affected sailing<Cite n={2}/><Cite n={3}/>. The binding constraint on the client is not freight cost but <mark>schedule reliability</mark>: buffer stock and contract cover, not spot procurement, are the levers that matter over the next two quarters<Cite n={4}/>.</>
+    ),
+    judgments: [
+      { text: <>Plan for disruption to persist through at least Q3 2026. No credible de-escalation mechanism is currently visible across the monitored sources<Cite n={1}/><Cite n={5}/>.</>, level: "High" },
+      { text: <>Cape re-routing is now the market default, not the exception — spot capacity on the direct corridor has effectively withdrawn<Cite n={2}/>.</>, level: "High" },
+      { text: <>War-risk insurance premia have repriced an order of magnitude higher and remain volatile week-to-week<Cite n={3}/><Cite n={6}/>.</>, level: "Medium-High" },
+      { text: <>A limited, escorted convoy corridor may reopen selectively, but coverage would be partial and conditional<Cite n={7}/>.</>, level: "Medium" },
+    ],
+    sections: [
+      {
+        id: "situation",
+        h: "Situation Overview",
+        blocks: [
+          { t: "p", c: <>The Bab-el-Mandeb strait — the 20-mile chokepoint between the Red Sea and the Gulf of Aden — has been under active threat-to-shipping conditions since early 2026<Cite n={1}/>. Following the JWC's circular expanding Listed Areas across the southern Red Sea, the major container and dry-bulk lines suspended direct transit and re-routed around the Cape of Good Hope<Cite n={2}/>.</> },
+          { t: "conf", level: "High" },
+          { t: "p", c: <>For a Rotterdam importer, the first-order effect is transit time: a Gulf-origin cargo that previously arrived via Suez in ~24 days now arrives in <mark>34–38 days</mark> via the Cape<Cite n={4}/>. The second-order effect is variance — sailing schedules have widened, and berth congestion at trans-shipment hubs has compounded delays<Cite n={8}/>.</> },
+          { t: "quote", c: "Owners are treating the southern Red Sea as a no-go area for the foreseeable; the Cape routing is being priced into contracts now, not hedged as a temporary detour.", cite: "Lloyd's List market commentary · 21 May 2026" },
+        ],
+      },
+      {
+        id: "impact",
+        h: "Impact on Client Operations",
+        blocks: [
+          { t: "p", c: <>Modelling the client's declared lanes against current routing, the material exposures are:</> },
+          { t: "ul", c: [
+            <>Landed lead-time on Gulf-origin feedstock extends by <mark>9–14 days</mark> per sailing, pushing safety-stock cover below the client's 30-day policy on two SKUs<Cite n={4}/>.</>,
+            <>War-risk and additional-premium surcharges add a per-container cost that, while significant, is second-order to the schedule impact<Cite n={3}/>.</>,
+            <>Contractual delivery windows on downstream sales are at risk where they were written against Suez transit assumptions<Cite n={9}/>.</>,
+          ] },
+          { t: "conf", level: "Medium-High" },
+        ],
+      },
+      {
+        id: "outlook",
+        h: "Outlook & Recommendations",
+        blocks: [
+          { t: "p", c: <>Over the next two quarters the base case is <mark>continuity of the current regime</mark>: Cape routing as default, elevated premia, and episodic single-vessel incidents that periodically re-spike rates<Cite n={5}/><Cite n={6}/>. Recommended posture:</> },
+          { t: "ol", c: [
+            <><strong>Rebuild buffer.</strong> Lift safety stock on the two exposed SKUs to absorb the extended lead-time; treat 45 days as the working assumption, not 30<Cite n={4}/>.</>,
+            <><strong>Fix cover contractually.</strong> Convert exposed spot lanes to contracted capacity with re-routing terms explicit, so schedule risk sits with the carrier<Cite n={2}/>.</>,
+            <><strong>Re-paper downstream windows.</strong> Renegotiate delivery windows written on Suez assumptions before they are breached<Cite n={9}/>.</>,
+            <><strong>Watch for a convoy corridor.</strong> Monitor for a selectively escorted route; if it opens, coverage will be partial — do not unwind buffer on the first announcement<Cite n={7}/>.</>,
+          ] },
+        ],
+      },
+    ],
+    entities: {
+      primary: [
+        { name: "Bab-el-Mandeb Strait", role: "Primary maritime chokepoint; direct transit suspended by major lines" },
+        { name: "Ansar Allah (Houthi)", role: "Non-state actor conducting threat-to-shipping activity in the corridor" },
+        { name: "Lloyd's Joint War Committee", role: "Issued the circular expanding Listed Areas across the southern Red Sea" },
+        { name: "Combined Maritime Forces", role: "Multinational naval presence; partial, conditional escort capacity" },
+      ],
+      secondary: ["Suez Canal Authority", "Cape of Good Hope route", "Gulf of Aden", "Djibouti trans-shipment", "P&I war-risk underwriters", "EU NAVFOR"],
+    },
+    geo: [
+      { label: "Bab-el-Mandeb", x: 62, y: 58, kind: "incident" },
+      { label: "Gulf of Aden", x: 70, y: 62, kind: "incident" },
+      { label: "Suez Canal", x: 57, y: 40, kind: "route" },
+      { label: "Cape of Good Hope", x: 50, y: 90, kind: "route" },
+      { label: "Rotterdam", x: 46, y: 20, kind: "hq" },
+      { label: "Djibouti", x: 64, y: 60, kind: "node" },
+    ],
+    grades: { "A": 7, "B+": 25, "B": 47, "C": 17 },
+    sources: [
+      { i: 1,  name: "Lloyd's List",         title: "Southern Red Sea remains a no-go as owners default to the Cape", date: "21 May 2026", grade: "A",  insight: "Frames the Cape routing as a priced-in structural shift, not a temporary detour." },
+      { i: 2,  name: "TradeWinds",           title: "Box lines extend Cape diversions through Q3, cite schedule integrity", date: "19 May 2026", grade: "B+", insight: "Carrier-side confirmation that direct-corridor spot capacity has withdrawn." },
+      { i: 3,  name: "Insurance Marine News", title: "War-risk additional premium repricing across Red Sea Listed Areas", date: "18 May 2026", grade: "B+", insight: "Quantifies the order-of-magnitude premium move and its week-to-week volatility." },
+      { i: 4,  name: "Drewry",               title: "Transit-time and reliability impact of Cape re-routing", date: "16 May 2026", grade: "A",  insight: "Source for the 9–14 day lead-time extension used in the client model." },
+      { i: 5,  name: "Chatham House",        title: "No near-term de-escalation pathway in the Red Sea corridor", date: "12 May 2026", grade: "B",  insight: "Supports the high-confidence judgment on multi-quarter persistence." },
+      { i: 6,  name: "Reuters",              title: "Marine insurers hold elevated Red Sea rates amid fresh incidents", date: "20 May 2026", grade: "B+", insight: "Corroborates continued premium elevation and episodic re-spikes." },
+      { i: 7,  name: "Jane's",               title: "Escort and convoy options in the Gulf of Aden: coverage limits", date: "09 May 2026", grade: "B",  insight: "Basis for the medium-confidence view on a partial convoy corridor." },
+      { i: 8,  name: "Alphaliner",           title: "Trans-shipment congestion compounding Cape diversion delays", date: "17 May 2026", grade: "C",  insight: "Secondary effect: berth congestion widening schedule variance." },
+    ],
+  },
 ];
 
 export const ShowcaseA = () => {
-  const [invIdx, setInvIdx] = React.useState(0);
-  const [phase, setPhase] = React.useState("idle"); // idle | typing | sweep | result | highlight | export
+  const [rptIdx] = React.useState(0);
+  const [phase, setPhase] = React.useState("idle"); // idle | typing | running | report
   const [typed, setTyped] = React.useState("");
-  const [sweepStep, setSweepStep] = React.useState(0);
-  const [highlightIdx, setHighlightIdx] = React.useState(-1);
+  const [stageIdx, setStageIdx] = React.useState(0);
+  const [progress, setProgress] = React.useState(0);      // 0..100 during running
+  const [activeSection, setActiveSection] = React.useState(null);
   const [scale, setScale] = React.useState(1);
-  const [clock, setClock] = React.useState("");
+  const [meshOn, setMeshOn] = React.useState(true);
 
   const timers = React.useRef([]);
   const mainRef = React.useRef(null);
-  const cardRefs = React.useRef({});   // id → node, keyed per active investigation
-  const synthRef = React.useRef(null);
+  const secRefs = React.useRef({});
 
-  const inv = INVESTIGATIONS[invIdx];
-  const targets = [...inv.cards.map((c) => c.id), "synth"];
-
+  const rpt = REPORTS[rptIdx];
   const clearTimers = () => { timers.current.forEach(clearTimeout); timers.current = []; };
-  const at = (delay, fn) => { timers.current.push(setTimeout(fn, delay)); };
+  const at = (d, fn) => { timers.current.push(setTimeout(fn, d)); };
 
-  // Scale the 1600×900 stage to fit the viewport (contain), re-measured on resize.
+  // Fit the 1600×900 window to the viewport, inset so the mesh shows around it.
   React.useEffect(() => {
     const fit = () => setScale(Math.min(window.innerWidth / 1600, window.innerHeight / 900));
     fit();
@@ -298,352 +181,286 @@ export const ShowcaseA = () => {
     return () => window.removeEventListener("resize", fit);
   }, []);
 
-  // Live wall clock in the top bar.
+  // Pause the WebGL mesh if the tab is hidden (saves the GPU on an all-day loop).
   React.useEffect(() => {
-    const tick = () => setClock(
-      new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + " UTC"
-    );
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
+    const onVis = () => setMeshOn(!document.hidden);
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
   }, []);
 
-  const scrollTo = (target) => {
+  const scrollToSection = (id) => {
     const main = mainRef.current;
-    const node = target === "synth" ? synthRef.current : cardRefs.current[target];
-    if (!main || !node) return;
-    main.scrollTo({ top: node.offsetTop - 96, behavior: "smooth" });
+    const node = secRefs.current[id];
+    if (main && node) main.scrollTo({ top: node.offsetTop - 24, behavior: "smooth" });
   };
 
-  // Choreograph one investigation, then advance to the next and re-run.
-  const run = (idx) => {
+  const run = () => {
     clearTimers();
-    const cur = INVESTIGATIONS[idx];
-    const cardIds = [...cur.cards.map((c) => c.id), "synth"];
-    setPhase("typing");
+    setPhase("idle");
     setTyped("");
-    setSweepStep(0);
-    setHighlightIdx(-1);
+    setStageIdx(0);
+    setProgress(0);
+    setActiveSection(null);
     if (mainRef.current) mainRef.current.scrollTo({ top: 0, behavior: "auto" });
 
-    // 1 — type the query
-    const q = cur.query;
-    for (let i = 0; i <= q.length; i++) at(28 * i, () => setTyped(q.slice(0, i)));
-    const typingDone = 28 * q.length + 700;
+    // 1 — type the query into the command bar
+    at(900, () => setPhase("typing"));
+    const q = rpt.query;
+    for (let i = 0; i <= q.length; i++) at(900 + 26 * i, () => setTyped(q.slice(0, i)));
+    const typingDone = 900 + 26 * q.length + 700;
 
-    // 2 — dark-web sweep: reveal source rows + ramp the stat counters
-    at(typingDone, () => setPhase("sweep"));
-    const stepMs = 850;
-    cur.sweep.forEach((_, i) => at(typingDone + 300 + i * stepMs, () => setSweepStep(i + 1)));
-    const sweepDone = typingDone + 300 + cur.sweep.length * stepMs + 600;
+    // 2 — investigation running: step the agent stages + climb the progress bar
+    at(typingDone, () => { setPhase("running"); setStageIdx(0); setProgress(4); });
+    const stageMs = 1150;
+    STAGES.forEach((_, i) => {
+      at(typingDone + i * stageMs, () => setStageIdx(i));
+      at(typingDone + i * stageMs, () => setProgress(Math.round(((i + 0.5) / STAGES.length) * 100)));
+    });
+    const runningDone = typingDone + STAGES.length * stageMs + 500;
+    at(runningDone - 400, () => setProgress(100));
 
-    // 3 — finding assembles; hold on the BLUF so it can be read
-    at(sweepDone, () => setPhase("result"));
-
-    // 4 — walk each deep-dive card, then the synthesis
-    const walkStart = sweepDone + 5200;
-    const dwell = 6200;
-    cardIds.forEach((target, i) => {
-      at(walkStart + i * dwell, () => {
-        setPhase("highlight");
-        setHighlightIdx(i);
-        scrollTo(target);
+    // 3 — report renders; auto-scroll each section in turn
+    at(runningDone, () => setPhase("report"));
+    const anchors = ["top", "summary", "judgments", ...rpt.sections.map((s) => s.id), "entities", "geo", "sources"];
+    const dwell = 4600;
+    const readStart = runningDone + 900;
+    anchors.forEach((id, i) => {
+      at(readStart + i * dwell, () => {
+        setActiveSection(id);
+        if (id !== "top") scrollToSection(id);
+        else if (mainRef.current) mainRef.current.scrollTo({ top: 0, behavior: "smooth" });
       });
     });
 
-    // 5 — export flourish, then advance + loop
-    const exportAt = walkStart + cardIds.length * dwell + 800;
-    at(exportAt, () => setPhase("export"));
-    at(exportAt + 3200, () => {
-      const next = (idx + 1) % INVESTIGATIONS.length;
-      setInvIdx(next);
-      run(next);
-    });
+    // 4 — loop
+    const loopAt = readStart + anchors.length * dwell + 1600;
+    at(loopAt, run);
   };
 
-  // Autonomous loop — starts on mount, cleaned up on unmount. No IntersectionObserver
-  // gate: on a dedicated TV route it's the only thing on screen, so it just runs.
   React.useEffect(() => {
-    const start = setTimeout(() => run(0), 600);
+    const start = setTimeout(run, 500);
     return () => { clearTimeout(start); clearTimers(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const showResult = phase === "result" || phase === "highlight" || phase === "export";
-  const litTarget = highlightIdx >= 0 ? targets[highlightIdx] : null;
-  const swept = showResult ? inv.sweep.length : sweepStep;
-  const progress = swept / inv.sweep.length; // 0..1 across the sweep, 1 once resolved
-  const statVal = (key) => Math.round(inv.stats[key] * progress);
-  const stageLabel =
-    phase === "idle" || phase === "typing" ? "Composing query"
-    : phase === "sweep" ? "Sweeping indexed dark-web archives"
-    : phase === "export" ? "Report exported" : "Finding assembled";
-  const f = inv.finding;
+  const showReport = phase === "report";
+  const statusFinal = showReport;
 
   return (
-    <div className="tv-viewport">
-      <div className="tv-stage" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
+    <div className="pv-viewport">
+      {/* Blue-glow backdrop — same MeshGradient as the site hero */}
+      <div className="pv-mesh-wrap" aria-hidden="true">
+        <MeshGradient
+          className="pv-mesh"
+          colors={["#05070d", "#0a1420", "#1ebee6", "#05070d"]}
+          speed={meshOn ? 0.32 : 0}
+          backgroundColor="#05070d"
+          minPixelRatio={1}
+          maxPixelCount={500_000}
+        />
+      </div>
+      <div className="pv-vignette" aria-hidden="true"/>
 
-        {/* ── Top bar ── */}
-        <header className="tv-topbar">
-          <div className="tv-brand">
-            <SatorusMark size={20} color="var(--sidney-primary)"/>
-            <span className="tv-brand-name">Satorus</span>
-            <span className="tv-brand-div">/</span>
-            <span className="tv-brand-product">Sidney</span>
+      {/* Centred, scaled window */}
+      <div className="pv-scaler" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
+        <div className="pv-window">
+
+          {/* Window chrome */}
+          <div className="pv-chrome">
+            <div className="pv-lights"><span/><span/><span/></div>
+            <div className="pv-urlbar"><Icon name="lock" size={11}/> app.sidney.satorusgroup.com<span className="pv-url-path">/investigations</span></div>
+            <div className="pv-chrome-right"><span className="pv-live"><span className="pv-live-dot"/>LIVE</span></div>
           </div>
-          <div className="tv-topbar-center">
-            <span className="tv-live"><span className="tv-live-dot"/>Live intelligence</span>
-            <span className="tv-topbar-sub">Dark-web sweep · read-only · 90-day window</span>
-          </div>
-          <div className="tv-topbar-right">
-            <span className="tv-clock">{clock}</span>
-            <span className="tv-classif">CONFIDENTIAL</span>
-          </div>
-        </header>
 
-        {/* ── App body: sidebar · main · live rail ── */}
-        <div className="tv-app">
-          <aside className="tv-side">
-            <div className="tv-side-group">Workspace</div>
-            <div className="tv-side-item active"><Icon name="sparkle" size={16}/>Home</div>
-            <div className="tv-side-item"><Icon name="search" size={16}/>Investigations<span className="tv-side-count warn">3</span></div>
-            <div className="tv-side-item"><Icon name="file" size={16}/>Reports<span className="tv-side-count">18</span></div>
-            <div className="tv-side-item"><Icon name="globe" size={16}/>Dark web<span className="tv-side-count ok">live</span></div>
-            <div className="tv-side-item"><Icon name="network" size={16}/>Entities</div>
-            <div className="tv-side-item"><Icon name="eye" size={16}/>Watchlists</div>
-            <div className="tv-side-item"><Icon name="shield" size={16}/>Sources</div>
-
-            <div className="tv-side-group" style={{ marginTop: 22 }}>Recent</div>
-            <div className="tv-side-recent">
-              <div className="tv-recent active"><span className="t">Pak-Afghan Border</span><span className="s">Now · Live</span></div>
-              <div className="tv-recent"><span className="t">BLA Weapons Tracing</span><span className="s">6h · Review</span></div>
-              <div className="tv-recent"><span className="t">TTP Nationwide Threat</span><span className="s">1d · Standing</span></div>
-              <div className="tv-recent"><span className="t">Durand Line Crisis</span><span className="s">2d · Complete</span></div>
-              <div className="tv-recent"><span className="t">Gwadar Maritime Watch</span><span className="s">3d · Standing</span></div>
-            </div>
-
-            <div className="tv-side-foot">
-              <span className="tv-avatar">HM</span>
-              <div className="tv-side-user"><span className="n">Harry M.</span><span className="o">Satorus · Analyst</span></div>
-            </div>
-          </aside>
-
-          <main className="tv-main" ref={mainRef}>
-            <div className="tv-main-inner">
-              <div className="tv-greeting">Good morning, Harry.</div>
-              <div className="tv-headline">Pick up where you left off, or start something new.</div>
-
-              <div className={`a-cmdbar tv-cmdbar ${phase !== "idle" ? "focused" : ""}`}>
-                <Icon name="sparkle" size={18}/>
-                <div className={`a-cmdbar-text ${!typed ? "placeholder" : ""}`}>
-                  {typed || "Start an investigation…"}
-                  {phase === "typing" && <span className="caret"/>}
-                </div>
-                <div className="a-cmdbar-kbd"><span className="kbd">⌘</span><span className="kbd">↵</span></div>
+          {/* App: sidebar + main */}
+          <div className="pv-app">
+            <aside className="pv-side">
+              <div className="pv-side-head">
+                <SatorusMark size={22} color="var(--s-primary)"/>
+                <span className="pv-side-word">SIDNEY</span>
               </div>
-              <div className="a-demo-modes tv-modes">
-                {inv.modes.map((m, i) => (
-                  <span key={m} className={`a-demo-mode ${i === 0 ? "on" : ""}`}>{m}</span>
+              <nav className="pv-nav">
+                {[
+                  { i: "sparkle", l: "Home" },
+                  { i: "search",  l: "Investigations", active: true },
+                  { i: "file",    l: "Projects" },
+                  { i: "globe",   l: "Research" },
+                  { i: "network", l: "Social" },
+                ].map((it) => (
+                  <div key={it.l} className={`pv-nav-item ${it.active ? "active" : ""}`}>
+                    {it.active && <span className="pv-nav-bar"/>}
+                    <Icon name={it.i} size={16}/><span>{it.l}</span>
+                  </div>
                 ))}
+              </nav>
+              <div className="pv-side-foot">
+                <span className="pv-avatar">HM</span>
+                <div className="pv-side-user"><span className="n">Harry Alderman</span><span className="o">Satorus</span></div>
               </div>
+            </aside>
 
-              {/* Dark-web sweep console */}
-              {(phase === "sweep" || showResult) && (
-                <div className="tv-sweep">
-                  <div className="tv-sweep-head">
-                    <span className="tv-sweep-title">
-                      <span className={`tv-sweep-dot ${showResult ? "done" : ""}`}/>
-                      {showResult ? "Sweep complete" : "Sweeping indexed dark-web archives"}
-                    </span>
-                    <span className="tv-sweep-meta">{swept}/{inv.sweep.length} sources · {statVal("hits")} hits</span>
-                  </div>
-                  <div className="tv-sweep-rows">
-                    {inv.sweep.map((s, i) => {
-                      const state = showResult || i < swept ? "done" : i === swept ? "curr" : "future";
-                      return (
-                        <div key={s.src} className={`tv-sweep-row ${state}`}>
-                          <span className="tv-sweep-net">{s.net}</span>
-                          <span className="tv-sweep-src">{s.src}</span>
-                          <span className="tv-sweep-region">{s.region}</span>
-                          <span className="tv-sweep-lang">{s.lang}</span>
-                          <span className="tv-sweep-hits">{state === "future" ? "—" : `+${s.hits}`}</span>
-                          <span className="tv-sweep-state">{state === "done" ? "indexed" : state === "curr" ? "scanning…" : ""}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
+            <main className="pv-main" ref={mainRef}>
+              <div className="pv-doc">
+
+                {/* Back + title + meta */}
+                <div className="pv-back"><Icon name="arrow" size={13} className="pv-back-arrow"/> Investigations</div>
+                <div className="pv-doc-head">
+                  <h1 className="pv-doc-title">{rpt.title}</h1>
                 </div>
-              )}
+                <div className="pv-doc-meta">
+                  <span className={`pv-status ${statusFinal ? "final" : "inv"}`}>
+                    <span className="pv-status-dot"/>{statusFinal ? "Finalised" : "Investigating"}
+                  </span>
+                  <span className="pv-meta-x">{rpt.type}</span>
+                  <span className="pv-meta-x">{rpt.written}</span>
+                  <span className="pv-meta-x">{rpt.stats.references} sources</span>
+                </div>
 
-              {/* BLUF finding */}
-              {showResult && (
-                <div className="a-finding reveal">
-                  <div className="a-finding-head">
-                    <span className="a-finding-pill">{f.pill}</span>
-                    <div className="a-finding-title">{f.title}</div>
-                    <span className="a-finding-conf">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <span key={i} className={`a-finding-pip ${i < f.confPips ? "on" : ""}`}/>
-                      ))}
-                      <span className="a-finding-pip-label">{f.confLabel}</span>
-                    </span>
-                  </div>
+                {/* Tabs */}
+                <div className="pv-tabs">
+                  <span className="pv-tab active">Report</span>
+                  <span className="pv-tab">Sources</span>
+                  <span className="pv-tab">Dossier</span>
+                  <span className="pv-tab">Thread</span>
+                </div>
 
-                  <div className="a-finding-meta">
-                    {f.meta.map((m, i) => (
-                      <span key={i} className="a-finding-meta-item">
-                        {m.dot && <span className={`dot ${m.dot}`}/>}
-                        {m.k && <span className="k">{m.k}</span>} {m.label || m.v}
+                {/* Command bar (visible pre-report) */}
+                {!showReport && (
+                  <div className="pv-run">
+                    <div className={`pv-cmd ${phase !== "idle" ? "focused" : ""}`}>
+                      <Icon name="sparkle" size={16}/>
+                      <span className={`pv-cmd-text ${!typed ? "ph" : ""}`}>
+                        {typed || "Ask Sidney to run an investigation…"}
+                        {phase === "typing" && <span className="pv-caret"/>}
                       </span>
-                    ))}
-                  </div>
+                      <span className="pv-cmd-kbd"><span>⌘</span><span>↵</span></span>
+                    </div>
 
-                  <div className="a-finding-body">{f.body}</div>
-
-                  <div className="a-finding-keys">
-                    <div className="a-finding-keys-label">Key findings</div>
-                    <ul>
-                      {f.keyFindings.map((text, i) => (
-                        <li key={i}>
-                          <span className="bullet">{String(i + 1).padStart(2, "0")}</span>
-                          <span>{text}<Cite id={String(i + 1).padStart(2, "0")}/></span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="a-finding-entities">
-                    {f.entities.map((group) => (
-                      <div key={group.type} className="a-finding-entity-row">
-                        <span className="a-finding-entity-k">{group.type}</span>
-                        <div className="a-finding-entity-chips">
-                          {group.items.map((item) => <span key={item} className="a-finding-chip">{item}</span>)}
+                    {phase === "running" && (
+                      <div className="pv-progress">
+                        <div className="pv-progress-top">
+                          <span className="pv-progress-label"><span className="pv-spin"/>{STAGES[stageIdx]}…</span>
+                          <span className="pv-progress-pct">{progress}%</span>
+                        </div>
+                        <div className="pv-progress-track"><span className="pv-progress-fill" style={{ width: `${progress}%` }}/></div>
+                        <div className="pv-stagelist">
+                          {STAGES.map((s, i) => (
+                            <div key={s} className={`pv-stage ${i < stageIdx ? "done" : i === stageIdx ? "curr" : ""}`}>
+                              <span className="pv-stage-dot"/>{s}
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
+                )}
 
-                  <div className="a-finding-ev">
-                    <div className="a-finding-ev-label">{f.evidenceLabel}</div>
-                    {f.evidence.map((e, i) => (
-                      <div key={i} className={`a-ev-row ${litTarget === e.target ? "highlighted" : ""}`}>
-                        <span className="num">{e.num}</span>
-                        <span className="kind">{e.kind}</span>
-                        <span className="src-text">{e.source}</span>
-                        <span className="conf">{e.conf}</span>
-                        <span className="src">{e.loc} · {e.date}</span>
+                {/* Report */}
+                {showReport && (
+                  <div className="pv-report">
+                    <span className="pv-timesaved"><Icon name="zap" size={12}/>{rpt.timeSaved}</span>
+
+                    {/* Executive summary / BLUF */}
+                    <section ref={(el) => (secRefs.current.summary = el)} className={`pv-sec ${activeSection === "summary" ? "focus" : ""}`}>
+                      <div className="pv-sec-label">Executive summary</div>
+                      <p className="pv-lead">{rpt.summary}</p>
+                    </section>
+
+                    {/* Key judgments */}
+                    <section ref={(el) => (secRefs.current.judgments = el)} className={`pv-sec pv-box ${activeSection === "judgments" ? "focus" : ""}`}>
+                      <div className="pv-box-h"><Icon name="crosshair" size={14}/> Key judgments</div>
+                      <ul className="pv-judgments">
+                        {rpt.judgments.map((j, i) => (
+                          <li key={i}>
+                            <span className="pv-j-num">{String(i + 1).padStart(2, "0")}</span>
+                            <div className="pv-j-body"><p>{j.text}</p><Confidence level={j.level}/></div>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+
+                    {/* Detailed analysis sections */}
+                    {rpt.sections.map((sec) => (
+                      <section key={sec.id} ref={(el) => (secRefs.current[sec.id] = el)} className={`pv-sec pv-box ${activeSection === sec.id ? "focus" : ""}`}>
+                        <div className="pv-box-h">{sec.h}</div>
+                        <div className="pv-prose">
+                          {sec.blocks.map((b, i) => {
+                            if (b.t === "p") return <p key={i}>{b.c}</p>;
+                            if (b.t === "conf") return <div key={i} className="pv-inline-conf"><Confidence level={b.level}/></div>;
+                            if (b.t === "quote") return <blockquote key={i}>{b.c}<cite>{b.cite}</cite></blockquote>;
+                            if (b.t === "ul") return <ul key={i}>{b.c.map((li, j) => <li key={j}>{li}</li>)}</ul>;
+                            if (b.t === "ol") return <ol key={i}>{b.c.map((li, j) => <li key={j}>{li}</li>)}</ol>;
+                            return null;
+                          })}
+                        </div>
+                      </section>
+                    ))}
+
+                    {/* Entities */}
+                    <section ref={(el) => (secRefs.current.entities = el)} className={`pv-sec pv-box ${activeSection === "entities" ? "focus" : ""}`}>
+                      <div className="pv-box-h"><Icon name="network" size={14}/> Entities</div>
+                      <div className="pv-ent-label">Primary</div>
+                      <div className="pv-ent-list">
+                        {rpt.entities.primary.map((e) => (
+                          <div key={e.name} className="pv-ent">
+                            <span className="pv-ent-name">{e.name}</span>
+                            <span className="pv-ent-role">{e.role}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                      <div className="pv-ent-label">Secondary</div>
+                      <div className="pv-ent-chips">
+                        {rpt.entities.secondary.map((s) => <span key={s} className="pv-chip">{s}</span>)}
+                      </div>
+                    </section>
+
+                    {/* Geolocations map */}
+                    <section ref={(el) => (secRefs.current.geo = el)} className={`pv-sec pv-box ${activeSection === "geo" ? "focus" : ""}`}>
+                      <div className="pv-box-h"><Icon name="globe" size={14}/> Geolocations <span className="pv-box-count">{rpt.stats.geolocations}</span></div>
+                      <div className="pv-map">
+                        <div className="pv-map-grid" aria-hidden="true"/>
+                        {rpt.geo.map((g, i) => (
+                          <div key={i} className={`pv-pin ${g.kind}`} style={{ left: `${g.x}%`, top: `${g.y}%` }}>
+                            <span className="pv-pin-ring"/><span className="pv-pin-dot"/>
+                            <span className="pv-pin-label">{g.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+
+                    {/* Graded sources */}
+                    <section ref={(el) => (secRefs.current.sources = el)} className={`pv-sec pv-box ${activeSection === "sources" ? "focus" : ""}`}>
+                      <div className="pv-box-h"><Icon name="newspaper" size={14}/> Graded sources <span className="pv-box-count">{rpt.stats.references}</span></div>
+                      <div className="pv-grade-dist">
+                        {Object.entries(rpt.grades).map(([g, n]) => (
+                          <span key={g} className="pv-grade-dist-item"><Grade g={g}/><span className="pv-grade-n">{n}</span></span>
+                        ))}
+                        <span className="pv-grade-avg">avg 67 · profile: geopolitical_crisis</span>
+                      </div>
+                      <div className="pv-src-list">
+                        {rpt.sources.map((s) => (
+                          <div key={s.i} className="pv-src">
+                            <span className="pv-src-i">{String(s.i).padStart(2, "0")}</span>
+                            <div className="pv-src-body">
+                              <div className="pv-src-top">
+                                <span className="pv-src-name">{s.name}</span>
+                                <Grade g={s.grade}/>
+                                <span className="pv-src-date">{s.date}</span>
+                              </div>
+                              <div className="pv-src-title">{s.title}</div>
+                              <div className="pv-src-insight">{s.insight}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+
+                    <div className="pv-run-out" aria-hidden="true"/>
                   </div>
-                </div>
-              )}
-
-              {/* Deep-dive cards */}
-              {showResult && inv.cards.map((card) => (
-                <div
-                  key={card.id}
-                  ref={(el) => { cardRefs.current[card.id] = el; }}
-                  className={`a-actor-card reveal ${litTarget === card.id ? "highlighted" : ""}`}
-                >
-                  <div className="a-actor-head">
-                    <span className={`a-actor-tag ${card.tag.kind}`}>{card.tag.label}</span>
-                    <div className="a-actor-h">{card.title}</div>
-                    <span className="a-actor-conf"><span className={`dot ${card.conf.dot === "warn" ? "warn" : ""}`}/>{card.conf.label}</span>
-                  </div>
-                  <div className="a-actor-meta">
-                    {card.meta.map((m, i) => (
-                      <span key={i}><span className="k">{m.k}</span> {m.v}</span>
-                    ))}
-                  </div>
-                  {card.sections.map((section, i) => <CardSection key={i} section={section}/>)}
-                </div>
-              ))}
-
-              {/* Synthesis & recommendations */}
-              {showResult && (
-                <div ref={synthRef} className={`a-synth-card reveal ${litTarget === "synth" ? "highlighted" : ""}`}>
-                  <div className="a-synth-head">
-                    <span className="a-synth-tag">{inv.synth.tag}</span>
-                    <div className="a-synth-h">{inv.synth.title}</div>
-                  </div>
-                  {inv.synth.paras.map((p, i) => <p key={i} className="a-synth-body">{p}</p>)}
-                  <div className="a-synth-recs">
-                    <div className="a-synth-recs-h">Recommended monitoring posture</div>
-                    <ol>
-                      {inv.synth.recs.map((r, i) => (
-                        <li key={i}><span className="bullet">{String(i + 1).padStart(2, "0")}</span><div>{r}</div></li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-              )}
-
-              <div className="tv-main-spacer" aria-hidden="true"/>
-            </div>
-          </main>
-
-          {/* ── Live-stats rail ── */}
-          <aside className="tv-rail">
-            <div className="tv-rail-head">
-              <span className="tv-rail-title">Live sweep</span>
-              <span className={`tv-rail-status ${showResult ? "done" : "run"}`}>
-                <span className="tv-rail-status-dot"/>{showResult ? "Resolved" : "Running"}
-              </span>
-            </div>
-
-            <div className="tv-stats">
-              {STAT_ROWS.map((s) => (
-                <div key={s.key} className="tv-stat">
-                  <span className="tv-stat-num">{statVal(s.key)}</span>
-                  <span className="tv-stat-label">{s.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="tv-rail-block">
-              <div className="tv-rail-block-h">Current stage</div>
-              <div className="tv-rail-stage">
-                <span className={`tv-rail-stage-dot ${showResult ? "done" : "run"}`}/>
-                {stageLabel}
+                )}
               </div>
-            </div>
-
-            <div className="tv-rail-block">
-              <div className="tv-rail-block-h">Language mix</div>
-              <div className="tv-langs">
-                {inv.langs.map((x) => (
-                  <div key={x.l} className="tv-lang">
-                    <span className="tv-lang-l">{x.l}</span>
-                    <span className="tv-lang-bar"><span className="tv-lang-fill" style={{ width: `${Math.min(100, progress * x.w * 3)}%` }}/></span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="tv-rail-block">
-              <div className="tv-rail-block-h">Confidence</div>
-              <div className="tv-conf">
-                <span className={`tv-conf-seg ${progress > 0.15 ? "on low" : ""}`}/>
-                <span className={`tv-conf-seg ${progress > 0.35 ? "on lowmod" : ""}`}/>
-                <span className={`tv-conf-seg ${progress > 0.55 ? "on mod" : ""}`}/>
-                <span className={`tv-conf-seg ${progress > 0.75 ? "on high" : ""}`}/>
-                <span className={`tv-conf-seg ${progress >= 1 ? "on conf" : ""}`}/>
-              </div>
-              <div className="tv-conf-label">{progress >= 1 ? "Confirmed · cross-source verified" : "Aggregating…"}</div>
-            </div>
-
-            <div className="tv-rail-foot">
-              <span>Latency</span>
-              <span className="tv-rail-latency">{showResult ? "8.2s" : "—"}</span>
-            </div>
-          </aside>
-        </div>
-
-        {/* Export flourish */}
-        <div className={`tv-export ${phase === "export" ? "show" : ""}`} aria-hidden="true">
-          <span className="tv-export-icon"><Icon name="check" size={22}/></span>
-          <span className="tv-export-text">Report exported · {inv.finding.keyFindings.length} findings · {inv.stats.hits} sources cited</span>
+            </main>
+          </div>
         </div>
       </div>
     </div>

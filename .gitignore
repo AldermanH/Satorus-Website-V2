@@ -19,3 +19,6 @@ npm-debug.log*
 .env
 .env.*
 !.env.example
+
+# Real Sidney UI — reference only, never commit or deploy
+sidney-staging/
