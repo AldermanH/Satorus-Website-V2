@@ -1,0 +1,423 @@
+{
+  "title": "Cabo Delgado Security and Political Risk: LNG Re-entry Assessment (6–12 Month Horizon)",
+  "query_understanding": "The client is a European energy-services company weighing re-entry to support LNG operations in Cabo Delgado, Mozambique, over the next 6–12 months. This assessment covers the current state and trajectory of the ISM/Ahlu Sunnah Wal Jamaah insurgency (attack patterns, geographic spread, strategic shift); government, Rwandan and regional security-force posture and its funding fragility; road and maritime logistics risk on the Pemba–Afungi corridor; kidnap and extortion threat to expatriate and local staff, treated as an integrated insurgent–criminal nexus; and online/dark-web indicators of recruitment, financing and propaganda referencing energy infrastructure, balancing trend summary with tactical detail. It closes with a trajectory-based outlook and monitored indicators, leaving trigger points to the client. Scope is the full province, not only the Afungi zone.",
+  "investigation_type": "GEOPOLITICAL_ANALYSIS",
+  "primary_entities": [
+    {
+      "name": "Islamic State Mozambique (ISM / Ahlu Sunnah Wal Jamaah / \"Al-Shabab\")",
+      "role": "Insurgent group, primary physical threat actor"
+    },
+    {
+      "name": "TotalEnergies",
+      "role": "Mozambique LNG operator; re-entry umbrella and reputational-legal focal point"
+    },
+    {
+      "name": "Government of Mozambique (Chapo administration / FADM)",
+      "role": "Host government and security-force principal"
+    },
+    {
+      "name": "Rwanda Defence Force",
+      "role": "Lead external counter-insurgency force in Cabo Delgado"
+    },
+    {
+      "name": "European energy-services client",
+      "role": "Prospective re-entrant; report subject"
+    }
+  ],
+  "secondary_entities": [
+    {
+      "name": "ExxonMobil / Eni (Area 4 / Rovuma LNG)",
+      "role": "Neighbouring LNG partners; September 2026 FID signal"
+    },
+    {
+      "name": "SAMIM / SADC",
+      "role": "Former regional mission; residual-posture uncertainty"
+    },
+    {
+      "name": "EUMAM-MOZ / European Union",
+      "role": "Training mission and withdrawn Peace Facility funder"
+    },
+    {
+      "name": "Russia (Africa Corps / MFA)",
+      "role": "Hedging channel following July 2026 assistance offer"
+    },
+    {
+      "name": "ACLED",
+      "role": "Primary incident-tempo and strategy assessor"
+    },
+    {
+      "name": "Farido Suleimani",
+      "role": "ISM operational commander based near Mocimboa da Praia"
+    },
+    {
+      "name": "ECCHR / Forbidden Stories / ReCommon",
+      "role": "Legal and investigative actors driving reputational exposure"
+    }
+  ],
+  "geolocations": [
+    {
+      "entity": "Afungi peninsula (Mozambique LNG site)",
+      "coordinates": [
+        -10.83,
+        40.55
+      ],
+      "type": "hq",
+      "context": "Location of the TotalEnergies-led LNG project the client would support; the report's protective focal point, though no direct 2026 incident data exists for its perimeter."
+    },
+    {
+      "entity": "Palma",
+      "coordinates": [
+        -10.77,
+        40.47
+      ],
+      "type": "incident",
+      "context": "Town adjacent to Afungi, site of the March 2021 assault; a key intelligence gap as no direct 2026 incident reporting is available for the district."
+    },
+    {
+      "entity": "Pemba",
+      "coordinates": [
+        -12.97,
+        40.52
+      ],
+      "type": "hq",
+      "context": "Provincial capital and logistics origin for road and maritime movement to Afungi; port security posture is a noted blind spot."
+    },
+    {
+      "entity": "Mocimboa da Praia",
+      "coordinates": [
+        -11.35,
+        40.35
+      ],
+      "type": "incident",
+      "context": "Historic insurgent stronghold, base area of commander Farido Suleimani (~60 km from Afungi); IED emplacement and coastal raiding recorded in 2026."
+    },
+    {
+      "entity": "Macomia",
+      "coordinates": [
+        -12.24,
+        40.13
+      ],
+      "type": "incident",
+      "context": "Central hub of April–June 2026 kinetic activity, including a 25 May 2026 mortar attack on a military position and coastal vessel seizures off Pangane."
+    },
+    {
+      "entity": "Ancuabe",
+      "coordinates": [
+        -12.99,
+        39.85
+      ],
+      "type": "incident",
+      "context": "Southward-spread district straddling inland routes to Pemba; ~21,658 displaced in six weeks after attacks on Meza/Nacoja and Nnaua villages."
+    },
+    {
+      "entity": "Meluco",
+      "coordinates": [
+        -12.53,
+        39.88
+      ],
+      "type": "incident",
+      "context": "Ravia gemstone mine raided on 26 April 2026, illustrating the insurgent-criminal predation model transferable to LNG-adjacent sites."
+    },
+    {
+      "entity": "Muidumbe",
+      "coordinates": [
+        -11.65,
+        39.95
+      ],
+      "type": "incident",
+      "context": "Site of the 3 July 2026 N380 cement-truck ambush and abduction between Chitunda and Awasse, demonstrating targeting of road-transport crews."
+    },
+    {
+      "entity": "Nangade",
+      "coordinates": [
+        -11.08,
+        39.68
+      ],
+      "type": "incident",
+      "context": "District near the Tanzanian border reactivated by ISM in 2026; 10 suspected Tanzanian insurgents captured near Mandimba on 14 April 2026."
+    },
+    {
+      "entity": "Chiure",
+      "coordinates": [
+        -13.48,
+        39.72
+      ],
+      "type": "incident",
+      "context": "Southernmost extent of the current attack arc; insurgent movement on the N14 between Chiure and Quissanga reported 18 June 2026."
+    },
+    {
+      "entity": "Maputo",
+      "coordinates": [
+        -25.97,
+        32.57
+      ],
+      "type": "other",
+      "context": "Capital and locus of LNG cost-dispute negotiations, IMF talks, the 9 July 2026 Russian assistance offer, and post-election unrest dynamics."
+    },
+    {
+      "entity": "Mozambique Channel",
+      "coordinates": [
+        -14,
+        41.5
+      ],
+      "type": "border",
+      "context": "Maritime access route to Afungi; free of organised piracy for over a decade but currently without a dedicated regional naval patrol."
+    },
+    {
+      "entity": "Kigali, Rwanda",
+      "coordinates": [
+        -1.95,
+        30.06
+      ],
+      "type": "other",
+      "context": "Capital of the state providing the ~6,300-troop force whose post-May 2026 bilateral financing terms are undisclosed."
+    }
+  ],
+  "report_summary": "The ISM insurgency in Cabo Delgado is active and durable, not degraded. It sustains roughly 10–12 recorded events per fortnight, has spread south and west into a Macomia–Ancuabe–Meluco–Chiure arc, and has pivoted from mass-casualty attacks toward preaching, coercion and community embedding that make it harder to dislodge militarily even as headline kinetic events soften. For a European energy-services re-entry over 6–12 months, the dominant physical risk is inland ambush, improvised explosive devices and extortion on the Pemba–Afungi road corridor, plus insurgent coastal small-boat raiding, rather than a repeat of the 2021 assault on Palma or organised piracy in the Mozambique Channel. Confidence in the current-state picture is high; confidence in the forward assessment is medium. Two compounding factors dominate the outlook: the European Union's May 2026 withdrawal of Peace Facility funding for the roughly 6,300 Rwandan troops, now bilaterally financed on undisclosed terms, and the unresolved TotalEnergies–Mozambique cost dispute over about USD 2 billion, both set against a deteriorating humanitarian and post-election baseline. Kidnap risk to expatriates concentrates in ground-movement ambush outside the Afungi perimeter and is ideologically rather than ransom-driven, which shifts insurance and proof-of-life planning. The single most consequential intelligence gap is the absence of direct 2026 incident reporting for Palma district and the Afungi perimeter itself; the LNG-corridor picture is inferred from surrounding-district activity, not directly measured.",
+  "report_methodology": "This assessment synthesises open-source reporting retrieved and graded across seven analytical branches covering insurgency trajectory, allied force posture, logistics risk, kidnap and extortion, host-government and commercial risk, online/dark-web indicators, and outlook. The protective-intelligence frame treats the environment as an active, ongoing threat rather than an acute crisis or resolved conflict.\n\nSource retrieval prioritised the highest-grade sources available. Incident tempo and strategy rest primarily on ACLED assessments relayed through RFI and Small Wars Journal, on Bloomberg and specialist energy-trade reporting for the commercial dispute, and on a Forbidden Stories/ReCommon investigative consortium for sexual-violence and abuse findings. These were supplemented with B+/B regional and Lusophone outlets (Deutsche Welle Portuguese service, Noticias ao Minuto, Observador, RTP) for breadth where higher-grade coverage was unavailable, and with humanitarian datasets from OCHA and IOM via ReliefWeb. One regional-linkage claim rests on a C/D-graded outlet paraphrasing UN reporting and is flagged as low confidence in text.\n\nThe analytical approach combined incident-pattern analysis, causal-chain mapping and confidence grading calibrated to evidence strength. Several material limitations shape the findings. No direct 2026 incident reporting exists for Palma district or the Afungi perimeter, so the LNG-corridor kinetic and road-security picture is inferred from surrounding-district activity. ISM order-of-battle estimates diverge by an order of magnitude (about 300 to about 3,000), so any single fighter count is treated as a range. The terms and duration of the Mozambique–Rwanda bilateral financing arrangement are not public. No current FCDO, US State Department or EU travel-advisory text was in the corpus. No evidence substantiates a Pemba-based commercial kidnap-for-ransom syndicate targeting foreign nationals, and no expatriate abduction appears in the 2026 window.\n\nResidual collection notes: the dark-web search for insurgent recruitment, financing and infrastructure chatter returned no relevant posts, consistent with known DarkOwl coverage gaps and with ISM propaganda routing through Islamic State central (Al-Naba) rather than group-specific infrastructure; accordingly, Al-Naba-branded material surfaced on social channels is not independent of the same media apparatus behind the clearnet propaganda findings and is not double-counted as corroboration.",
+  "report_detailed_analysis": "## Key Judgments\n\n- The insurgency is active and durable, not degraded. ISM sustains roughly 10–12 recorded events per fortnight and has spread south and west into a Macomia–Ancuabe–Meluco–Chiure arc; ACLED assesses it has shifted from mass-casualty attacks toward preaching, coercion and community embedding, a posture designed to survive continued military pressure. Confidence: **High** [1][4][5].\n- Over 6–12 months the dominant physical risk to a Pemba–Afungi movement is inland ambush, IED emplacement and extortion on the road corridor, plus insurgent coastal small-boat raiding — not a 2021-style direct assault on Palma or organised piracy in the Mozambique Channel. Confidence: **Medium** [20][21][23].\n- The security architecture underpinning any re-entry is in a fragile transitional phase. The European Union withdrew Peace Facility funding for the roughly 6,300 Rwandan troops in May 2026; Mozambique now funds them bilaterally on undisclosed terms, and this force is effectively irreplaceable on the decision horizon. Confidence: **Medium-High** [8][9][10][11].\n- Kidnap exposure to expatriate staff concentrates in ground-movement ambush outside the Afungi perimeter and is ideologically or logistically motivated rather than ransom-driven, meaning captured foreign staff are more plausibly used for propaganda or execution than financial negotiation — a material shift for insurance and proof-of-life planning. Confidence: **Medium** [26][28].\n- Energy infrastructure is an explicit, publicly stated ISM propaganda target, and the group's self-financing from mines, coastal ransom and untraced mobile money means kinetic pressure alone will not starve it within the decision window. Confidence: **Medium-High** [31][32][33].\n\n## Situation Overview\n\nThe confirmed phase is a sustained, low-to-medium-intensity insurgency in a strategic-adaptation posture. ISM has transitioned out of the 2020–2022 mass-casualty period into a governance-competition and community-embedding phase, punctuated by dry-season spikes and continued predation on mines, fishing vessels and road transport [4][5]. This is an active, ongoing threat environment rather than an acute crisis or a resolved conflict. Two ambiguities matter for planning: softening headline kinetics can be misread as de-escalation when the underlying trend is greater durability, and the security architecture is itself in a potentially fragile transition because the Rwandan force's financing basis changed in May 2026 [8][10].\n\n### Phase taxonomy\n\nThis report uses one phase framing rather than numbered escalation phases. The **mass-casualty phase (2020–2022)** — set-piece assaults on towns, the March 2021 Palma attack, the Muatide decapitations — is assessed as closed. The current **strategic-adaptation phase (2022–present)** is defined by preaching, coercion, community embedding, economic predation and selective attacks on security forces and infrastructure [4][5]. References to a \"2021-style\" event throughout denote a return to the earlier mass-casualty phase, which the analysis judges low-to-moderate in likelihood over the outlook window.\n\n## Insurgency Trajectory: Tempo, Spread and Strategic Shift\n\n### Sustained tempo and southward geographic spread\n\nThe insurgency remains operationally tempo-ed as of mid-2026. ACLED recorded 11 violent events in the first two weeks of June 2026, all involving Islamic State Mozambique, with eight dead, and 11 events in the fortnight to 27 April 2026 with nine dead, lifting the cumulative death toll since October 2017 to 6,632 [1][2]. The United Nations separately reported at least 28 deaths in Cabo Delgado during May 2026, and defence minister Cristovao Chume told parliament in May 2026 that sporadic attacks continue to condition the movement of people and goods in Macomia, Muidumbe and Mocimboa da Praia [3].\n\nAttack geography has spread well south of the historical core. Reporting through June 2026 places fighters in Ancuabe (Meza and Nacoja), along the N14 between Chiure and Quissanga on 18 June 2026, and around informal ruby and gold mining sites, with fighters returning north to Macomia bases \"a little richer\" after two-month expeditions south [1][2]. The group also reactivated in Nangade near the Tanzanian border for the first time since December 2025, with 10 suspected Tanzanian insurgents captured near Mandimba on 14 April 2026 [1]. One June 20 Ancuabe movement item on the N14 rests on single-source local testimony and is treated as unconfirmed [1].\n\n### The strategic pivot and why it raises medium-term risk\n\nACLED's July 2026 assessment concludes ISM has shifted from the mass-casualty brutality of 2020–2022 toward a less overtly violent strategy of preaching in mosques, coercion and rapprochement with communities, seeking to build a coastal enclave [4][5]. The assessment judges that \"neither in Somalia nor in the DRC are IS affiliates as close to controlling a civilian population as in Mozambique\" and attributes the shift to the 2021 Rwanda/SAMIM intervention, which dismantled bases south of Mocimboa da Praia, plus internal criticism from fighters native to Cabo Delgado, including operational commander **Farido Suleimani** [4][5]. This report assesses that the pivot makes the insurgency more durable and harder to dislodge militarily, which raises the medium-term risk to LNG operations even as headline kinetic events soften.\n\nThe group retains the ability and intent to strike security forces and infrastructure. Islamic State claimed an attack on Mozambican military personnel on 7 July 2026; ACLED's June report documents IED emplacement in Macomia and Mocimboa da Praia and an engagement with a Mozambican Navy vessel [1][6]. Documented security-force abuses against civilians compound the picture: villagers reportedly prefer encounters with insurgents to soldiers, widening the space in which the preaching-based legitimacy strategy can work and eroding, by association, trust in multinationals such as TotalEnergies [4][7].\n\nThe self-financing engine sustains this tempo. Concentrations of informal ruby (Mpene) and gold (N'naua) mining sites south and west of the core provide extractable value and mobile targets; ACLED documents expeditions passing through four informal mining sites and returning to base enriched, sustaining the campaign without holding ground [1][2].\n\n## Security-Force Posture and Its Fragility\n\n### The Rwandan force: irreplaceable but opaquely financed\n\nRwanda has committed to keeping its forces — reported by Kigali at more than 6,300 troops, roughly three times the 2021 deployment — in Cabo Delgado after the EU's three-year, EUR 40 million Peace Facility support ended in May 2026, with Mozambique now bearing the cost bilaterally; neither Maputo nor Kigali has disclosed the terms or duration [8][9][10]. This report assesses the contingent as effectively irreplaceable on a 6–12 month horizon: Maputo has conceded it is using the Rwandan umbrella to buy time to reorganise the armed forces, and the EU's parallel EUMAM-MOZ training mission — extended in May 2026 only to 31 December 2026, having trained about 1,200 troops across 11 quick-reaction companies — is a capacity-building effort, not a combat substitute [11][12][13]. This report further assesses that the EU's non-renewal is driven principally by Kigali's conduct in the DRC and US sanctions on the Rwanda Defence Force rather than by any negative view of the Cabo Delgado mission, which makes the funding gap politically sticky and unlikely to be quickly reversed even if the security situation deteriorates [10][12][17].\n\nThe commercial stakes are direct. Rwandan-led stabilisation from 2021 weakened the insurgency around Palma and Afungi, and TotalEnergies tied its early-2026 LNG relaunch to continued Rwandan presence — which raises the stakes of any funding-driven drawdown for European operators considering re-entry [8][13].\n\n### The Russian overture as a hedging channel\n\nOn 9 July 2026 Russian foreign minister Sergei Lavrov, meeting President Chapo and foreign minister Dos Santos Lucas in Maputo, publicly offered Russian military and technical assistance to \"eliminate\" the jihadist threat in the north, with security slated as a pillar of the September Mozambique–Russia Joint Commission [14][16]. Maputo has not formally accepted, and Mozambican specialists judge deployment of Russian personnel to Cabo Delgado highly unlikely given the diplomatic cost with Western partners financing the LNG projects, though lethal-equipment sales on credit are plausible [15]. This report assesses the offer as a hedging channel opened by Western funding fatigue and Maputo's weak fiscal position rather than a near-term ground deployment [12][14][15]. The shape of any package, and the September agenda, are not sourced and remain inferred.\n\n## Logistics Risk: The Pemba–Afungi Corridor\n\n### Road: the higher-likelihood attack surface\n\nThe insurgency has spread into Ancuabe and Meluco, districts that straddle or adjoin the N380 corridor and inland routes linking Pemba to Afungi. IOM recorded roughly 21,658 people displaced from Ancuabe alone in the six weeks to 10 June 2026 after Islamic State-claimed attacks destroyed a church and more than 200 houses at Nacoja and forced a mining company to evacuate staff nine kilometres away; a further attack hit the Ravia gemstone mine in Meluco on 26 April 2026 [20][21]. Displacement remains at route-disrupting scale, with more than 12,000 newly displaced across the province in June 2026 [22]. This report assesses the dominant logistics risk over the window as inland ambush and extortion pressure on the N380 and secondary roads through these districts. The Ravia raids — vehicle theft, cash extortion of miners under threat of death and forced evacuation of personnel — establish an operating pattern directly transferable to LNG-related convoys, subcontractor camps and remote work sites [20].\n\n### Maritime: low piracy likelihood, unpoliced tail risk\n\nThe maritime picture differs materially from the land picture. There has been no sustained piracy in the Mozambique Channel for over a decade; no South African Navy vessel has been on station under Operation Copper since 2022, and piracy did not return during that absence — undercutting the case that a naval deterrent is what keeps the channel open [23]. The maritime access route to Afungi is therefore not currently exposed to organised piracy. It is, however, unpoliced: with Operation Copper dormant and no announced renewal, any emergent threat — such as opportunistic insurgent small-boat raiding — would meet no naval deterrent [23]. Insurgent coastal capability is real: ACLED recorded at least 12 vessels seized off Mocimboa da Praia and Macomia in the second half of May 2026, and on 20 May 2026 fighters in seven boats surrounded five fishing vessels off Pangane, extracting a roughly 60,000-metical ransom and abducting three boats toward the Messalo river — cited by ACLED as evidence the navy cannot secure coastal waters [4][18]. This report treats coastal shipping and Pemba port as a lower-likelihood but higher-impact residual risk. Pemba port security posture is a noted blind spot with no direct coverage.\n\nThe absence of a consolidated civilian environment on the final Palma leg reinforces the road-security dependency on force posture. The withdrawal of Medecins Sans Frontieres from Palma in July 2026, five years after the 2021 attack, alongside continued mass displacement, indicates humanitarian normalisation has not consolidated, so road security on the Palma-to-Afungi leg still rests heavily on Rwandan and Mozambican forces rather than on a stabilised environment [22][24].\n\n## Kidnap, Extortion and the Insurgent–Criminal Nexus\n\n### Abduction as established tactic\n\nAbduction is an established, ongoing tactic. A UNFPA field study across seven districts — Mueda, Nangade, Muidumbe, Palma, Mocimboa da Praia, Macomia and Mecufi — records large numbers of women and girls abducted and trafficked for forced marriage and sexual slavery, and boys seized for forced recruitment, with survivors describing captives lined up for fighters to \"choose\" [25][26][27]. The risk is not confined to village raids: on 3 July 2026 insurgents ambushed a cement truck on the N380 between Chitunda and Awasse in Muidumbe and abducted two occupants, later recovered by Mozambican and Rwandan forces; the same incident triggered civilian flight from Chitunda [28]. Coverage of this incident rests on a single Lusa-sourced report and independent corroboration was not retrieved.\n\nThis report assesses that the dominant kidnap-for-ransom exposure to expatriate staff is ambush on ground movement outside the Afungi perimeter — the N380 and secondary roads in Muidumbe, Macomia, Nangade and the Palma hinterland — not targeted commercial kidnapping in Pemba. Crucially, the evidence shows insurgent abductions are ideologically and logistically motivated (forced labour, forced marriage, recruitment) rather than ransom-driven, meaning a captured expatriate would more plausibly be used for propaganda or execution than for financial negotiation. This materially shifts kidnap-for-ransom insurance and proof-of-life planning [25][26][28]. No evidence in the corpus substantiates a Pemba-based commercial kidnap syndicate targeting foreign nationals, and no expatriate abduction appears in the 2026 window; the baseline can neither be confirmed nor excluded.\n\n### The state-actor and reputational vector\n\nA parallel extortion and sexual-exploitation threat originates from state and project-adjacent actors, not from ISM. The UNFPA \"Voices of Mozambique\" draft and a leaked internal TotalEnergies document reported by Forbidden Stories and obtained by ReCommon describe Mozambican armed forces and Joint Task Force soldiers committing rape, coerced \"paid sex\", extortion and abuse around Afungi with near-total impunity, and businessmen linked to Mozambique LNG allegedly demanding sex from women in Palma in exchange for jobs that never materialise [25][27][29]. This report assesses that reputational and legal exposure now compounds physical risk: the ECCHR filed a French criminal complaint in late 2025 alleging TotalEnergies complicity in war crimes, torture and enforced disappearances linked to Joint Task Force soldiers paid to protect Afungi [29][30]. A European services contractor deploying under the TotalEnergies/ExxonMobil-Eni umbrella inherits this reputational tail and should expect enhanced due-diligence expectations from insurers, financiers and home-country regulators [25][29][30].\n\n## Political, Commercial and Reputational Risk\n\n### The LNG cost dispute and the September signal\n\nMozambique and TotalEnergies are locked in an unresolved dispute over roughly USD 2 billion of the USD 5 billion in force-majeure cost overruns the company claims: a UK-based Bayphase audit commissioned by Maputo could document only about USD 3 billion of the claimed costs, and the government has yet to approve the updated development plan needed before construction can proceed to first LNG, now slipped to 2029 [37][38][39]. A second-order investment signal is due in September 2026, when President Chapo has said ExxonMobil is expected to take its final investment decision on Rovuma LNG [47][48]. This report assesses that Exxon and its partners will read the terms of any Total settlement as a template for their own fiscal treatment; failure to close the dispute by then raises the tail risk of an Exxon FID slip, which would depress services demand across Cabo Delgado. The Exxon expectation is a Mozambican-government statement, not a company commitment, and should be treated as such [47][48].\n\n### The fiscal and political baseline\n\nMozambique's fiscal position is deteriorating in parallel. The IMF is in talks on a possible support programme, the government cut its 2026 growth forecast from 2.8% to 0.59% after January flooding and launched a EUR 1.4 billion reconstruction plan, and the central bank cites post-electoral tension and Cabo Delgado insecurity as material financial-stability risks [41][43]. The Chapo administration, in office since January 2025, frames Mozambique as stable while running an Inclusive National Dialogue that contemplates constitutional revision, after October 2024 election protests killed more than 400 people and drove four consecutive quarters of GDP contraction before a tentative 0.1% return to growth in the first quarter of 2026 [40][41][42]. This combination both raises Maputo's incentive to unlock LNG revenue quickly and sharpens its incentive to hard-bargain on cost recovery [39][41][43].\n\n### Durable local grievance and coercion of local hires\n\nUnresolved local grievances around Afungi constitute a political-legitimacy risk independent of the insurgency: nearly a decade of unpaid or under-indexed 2014-vintage compensation to 643 relocated families, a \"fortress economy\" that flies workers directly to base and bypasses local contractors, and active French legal complaints, none of which the EUR 8.5 million ADIN memorandum signed in September 2025 is visibly closing [44][45][46]. Separately, a Forbidden Stories consortium investigation published in June 2026 documented dozens of abductions and killings of journalists and opposition figures after the disputed 2024 vote, implicating state security units including Sernic and the Rapid Intervention Unit; an emblematic Cabo Delgado case is Podemos-linked journalist Arlindo Chissale, intercepted near Pemba in January 2025 by men some in police uniform and still missing [49][50][51]. The independent-reporting footprint is also shrinking: Sernic executed a May 2026 search-and-seizure warrant against MOZ24h journalist Estacio Valoi, and MISA-Mozambique recorded 15 press-freedom violations in 2025 with state-linked perpetrators identified as principal [52][53]. This report assesses the residual risk here as compliance-and-reputational rather than direct anti-foreign violence — the corpus contains no evidence of anti-European mobilisation or protests targeting LNG contractors — but the documented involvement of uniformed state actors in disappearances complicates reliance on host-nation escorts for non-Frelimo-aligned local staff, and the thinning media footprint degrades open-source early warning [49][52][53]. One legacy syndicated item on urban riot dynamics anchors to 2008-era conditions and is used only as pattern evidence of how the state polices unrest, not as current reporting [54].\n\n## Online and Dark-Web Indicators\n\n### Financing and the structural insurgent–criminal nexus\n\nISM — pledged to Islamic State in 2019 and reported through the Al-Naba bulletin as Islamic State Mozambique Province — sustains itself through a hybrid model: raids on artisanal ruby, gold and gemstone mining in Montepuez, Meluco and nearby districts; kidnap-for-ransom of individuals and coastal vessels; and extortion of miners, with ransoms frequently moved through national mobile-money platforms that prosecutors have failed to trace [20][31][32]. This report assesses the insurgent–criminal nexus as structural rather than opportunistic: the same illicit economies that Frelimo-linked elites and Chinese trading networks profit from are the ones ISM taxes at the point of extraction, so even sharply increased kinetic pressure will not by itself starve the group, and the financing threat is embedded in the wider political economy — unlikely to be resolved on the decision horizon [20][31][32]. No open-source figure quantifies monthly revenue, and no tracing report names the mobile-money intermediaries.\n\n### Propaganda targeting of energy infrastructure\n\nEnergy infrastructure is an explicit, publicly stated propaganda target. Islamic State's Al-Naba bulletin ran a July 2020 headline warning \"Crusaders, beware of your investments in Mozambique,\" and driving foreign operators — TotalEnergies and its consortium partners foremost — out of the province is a stated objective; the recurring frame is that foreign companies and the Frelimo-linked elite are \"confiscating\" Cabo Delgado's natural wealth, a grievance that doubles as a recruitment pitch to unemployed youth and displaced miners [32][33][34]. State and security-force repression of miners, against 61% illiteracy and sub-USD 1/day incomes, has channelled an aggrieved pool into the group's ranks [32][34][36]. Propaganda tempo remained active into mid-2026, with IS central claiming a 7 July 2026 attack and separate early-July claims of assaults on positions in Macomia including the Catupa base, some of which local authorities flagged as unverified insurgent propaganda [6][35].\n\nFighter-strength estimates remain an order-of-magnitude gap and a leading indicator to monitor: open-source figures span roughly 300 (US National Counterterrorism Center, 2025) to about 3,000 (International Crisis Group, 2020), so any single wire number should be read as a range, and shifts in propaganda-claimed unit sizes, martyrdom notices and Al-Naba spoils photography are more reliable trend signals than headline counts [32][33].\n\nModality markers: [Sn:v] = seen in media, [Sn:a] = heard in media, [Sn:t] = on-screen text; media-derived claims are model observations. Several social-media signals from the last 30 days support the picture of continuing propaganda production, though none is verified. Unverified posts on X by @war_noir report that Islamic State militants attacked a Mozambican Army camp at Namabo village in Macomia and photographed captured spoils — Yugoslav/Serbian 82mm mortar bombs, RPG-7 launchers, air-burst RPG projectiles, AK- and PK-pattern rifles and a handheld metal detector — with imagery bearing Al-Naba \"Exclusive\" branding [S1:v][S2:v]; if authentic, this shows specific weapon inventories being publicised as prestige and recruitment content, though the Al-Naba watermark means it is not independent of the same IS media apparatus behind the clearnet propaganda findings. Unverified Facebook posts by lilyoungtimber99 into Cabo Delgado community groups claim that Mozambican forces are sustaining operations while \"extremist groups intensify propaganda dissemination,\" citing the same early-July Macomia and Catupa claims — corroborating, from a local vantage point, that propaganda tempo remained elevated [S3][S4]. A cluster of unverified X posts framing Russia's July assistance offer around Cabo Delgado's LNG security architecture, and noting TotalEnergies, ExxonMobil and Eni collectively represent over USD 50 billion in planned investment, is the ambient narrative recruits are exposed to online, whatever its accuracy [S5][S6][S7].\n\nThe dark-web search for group-specific recruitment, financing or infrastructure chatter returned no relevant posts. There is no evidence ISM operates dedicated dark-web forums, Telegram channels or crypto wallets; distribution appears routed through IS-central Al-Naba. Critically, there is no evidence yet that ISM messaging has begun naming specific European contractors, subcontractors or personnel — the highest-value online early-warning indicator remains unobserved rather than negative.\n\n## Outlook and Key Indicators to Monitor\n\n### Trajectory\n\nThe most likely trajectory over 6–12 months (Medium confidence) is continued low-to-medium-tempo insurgency — roughly 10–12 recorded events per fortnight with single- to low-double-digit fatalities — punctuated by dry-season spikes from about June to October 2026, with episodic southward expeditions, IED and ambush activity on the Macomia–Mocimboa corridor and coastal small-boat raiding [1][4][5]. The strategic risk to LNG operations is shifting from short-term kinetic overrun toward a slower-burn contest for local legitimacy that erodes the operating environment around Afungi over time. The humanitarian baseline is deteriorating rather than stabilising: OCHA reports at least 662,000 people remain displaced in northern Mozambique, 97% displaced multiple times, 25 districts at IPC Phase 3 food insecurity, and a 2026 appeal only 27% funded (USD 145m of USD 534m) — conditions that historically correlate with recruitment opportunity and reduced state reach [55][56].\n\nA regional escalation vector deserves standing but low-confidence monitoring: ISM sits under the same Islamic State Central Africa Province command as the ADF in eastern DRC, coordinated through the Al-Karrar office in Somalia, so shifts in that network's financing, tactics or leadership are candidate leading indicators — though the specific coordination detail rests on a weak (C/D) outlet paraphrasing UN reporting [5][57].\n\n### Indicators to monitor\n\n- **Insurgency tempo and geography:** fortnightly ACLED event and fatality counts, IED incidents on the N380 and N14, monthly displacement flows, and any incident inside Palma district — the single most consequential gap [1][22].\n- **Security-architecture stability:** any signal of Rwandan troop rotation, drawdown or basing change; the September Mozambique–Russia Joint Commission outcome; and EUMAM-MOZ status after its 31 December 2026 mandate expiry [8][11][13].\n- **Commercial signalling:** development-plan approval, any arbitration escalation in the Total dispute, IMF programme terms, and Exxon/Area 4 partner FID statements around September [39][43][47].\n- **Kidnap posture:** any expatriate-specific abduction, N380 ambush frequency, and whether ISM or Al-Naba messaging begins naming specific European contractors or personnel [26][28][32].\n\n## Intelligence Gaps and Confidence Caveats\n\nThe most consequential gap is the absence of direct 2026 incident reporting for Palma district and the Afungi perimeter; the LNG-corridor kinetic and road-security picture is inferred from surrounding-district activity, not directly measured, and this affects the insurgency, logistics, kidnap and outlook assessments simultaneously [4][18][28]. ISM order-of-battle is unresolved by an order of magnitude, with no corroborated 2026 figure [32][33]. The terms, duration and sustainability of the Mozambique–Rwanda bilateral financing arrangement are not public, and 2026 troop rotations, casualties and basing are unverified beyond Kigali's own statements [8][9]. No current FCDO, US State Department or EU advisory text, insurer or embassy re-entry guidance, or dated 2026 protest-monitoring data appears in the corpus, so advisory levels, restricted-zone designations and curfew, escort or evacuation triggers cannot be established here [54]. No corpus evidence substantiates a Pemba-based commercial kidnap syndicate, and untraced mobile-money ransom flows are documented qualitatively but cannot be sized [31][57]. These caveats are why forward confidence is graded medium against high confidence in the current-state facts.",
+  "risk_factors": [
+    "Inland ambush, IED emplacement and extortion on the Pemba–Afungi road corridor (N380, N14 and feeders through Ancuabe, Meluco, Muidumbe) — the highest-likelihood physical threat to overland logistics over the window.",
+    "Insurgent coastal small-boat raiding and vessel hijack-for-ransom along the northern coastline, in a Mozambique Channel that currently has no dedicated regional naval patrol.",
+    "Fragility of the security architecture: the roughly 6,300 Rwandan troops are irreplaceable on the horizon but now bilaterally funded by Mozambique on undisclosed terms after the EU withdrew Peace Facility support in May 2026.",
+    "Kidnap of expatriate or local staff on ground movement outside the Afungi perimeter, with abductions ideologically or logistically motivated rather than ransom-driven — captives more plausibly used for propaganda or execution than financial negotiation.",
+    "Structural insurgent–criminal financing (mine raids, coastal ransom, untraced mobile money) that kinetic pressure alone will not disrupt on the decision horizon.",
+    "Explicit ISM/Al-Naba propaganda framing of foreign LNG operators as legitimate targets, with the LNG restart likely to renew infrastructure-referencing messaging.",
+    "Reputational and legal contagion: inheriting exposure from the ECCHR French criminal complaint and Forbidden Stories/UNFPA allegations against TotalEnergies-adjacent state and project actors around Afungi.",
+    "Commercial tail risk from the unresolved USD 2 billion TotalEnergies–Mozambique cost dispute intersecting an expected ExxonMobil Rovuma FID in September 2026, which could depress services demand if talks break down.",
+    "Deteriorating humanitarian and post-election baseline (662,000 displaced, appeal 27% funded, 25 districts at IPC Phase 3) feeding the insurgent recruitment and coerced-compliance pool.",
+    "Degraded early-warning environment from shrinking independent media and documented state coercion of journalists and opposition figures in Cabo Delgado, raising reliance on host-nation and paid channels.",
+    "Blind spots that constrain planning: no direct 2026 Palma/Afungi incident data, no Pemba port security assessment, unverified Rwandan troop numbers, and no current Western travel-advisory text."
+  ],
+  "sources": [
+    {
+      "index": 1,
+      "key_insight": "ACLED-relayed reporting on the early-June 2026 fortnight (11 events, eight dead) and southward spread into Ancuabe, Chiure and Nangade anchors the tempo and geographic-drift findings."
+    },
+    {
+      "index": 2,
+      "key_insight": "Documents 11 attacks in the late-April 2026 fortnight and the mine-financed southern expeditions, corroborating both tempo and self-financing."
+    },
+    {
+      "index": 3,
+      "key_insight": "RFI report carrying the defence minister's May 2026 statement that attacks still condition movement of people and goods in Macomia, Muidumbe and Mocimboa da Praia."
+    },
+    {
+      "index": 4,
+      "key_insight": "RFI account of ACLED's July 2026 assessment of ISM's shift to preaching, coercion and enclave-building, plus the May 2026 Pangane vessel seizures."
+    },
+    {
+      "index": 5,
+      "key_insight": "Small Wars Journal analysis of the strategic pivot and ISCAP command linkages, judging ISM closer to controlling a population than other IS affiliates."
+    },
+    {
+      "index": 6,
+      "key_insight": "Reports the 7 July 2026 IS claim of an attack on Mozambican military personnel, evidencing continued intent against security forces."
+    },
+    {
+      "index": 7,
+      "key_insight": "RFI field reporting that civilians prefer encounters with insurgents to soldiers, underpinning the security-force-abuse legitimacy chain."
+    },
+    {
+      "index": 8,
+      "key_insight": "Reports Rwanda's commitment to stay with over 6,300 troops after Mozambique secured bilateral funding following the EU cut."
+    },
+    {
+      "index": 9,
+      "key_insight": "RFI Portuguese confirmation of Rwanda's decision to remain in Cabo Delgado post-EU funding."
+    },
+    {
+      "index": 10,
+      "key_insight": "DW report that the EU denies receiving any Rwandan funding request, framing the withdrawal as politically sticky."
+    },
+    {
+      "index": 11,
+      "key_insight": "Reports Maputo's admission that the Rwandan umbrella buys time to reorganise the FADM."
+    },
+    {
+      "index": 12,
+      "key_insight": "DW analysis that Maputo is incapable of matching the support Rwanda needs and that no partner can substitute for it."
+    },
+    {
+      "index": 13,
+      "key_insight": "Reports Mozambique's request to extend the EU military mission two more years and links the LNG restart to continued security presence."
+    },
+    {
+      "index": 14,
+      "key_insight": "Infobae report of Lavrov's 9 July 2026 offer of Russian assistance to eliminate the jihadist threat in the north."
+    },
+    {
+      "index": 15,
+      "key_insight": "DW analysis judging Russian ground deployment unlikely but credit-based equipment sales plausible."
+    },
+    {
+      "index": 16,
+      "key_insight": "AFP dispatch confirming Maputo's characterisation of Russia's readiness to support Mozambique against the terrorist threat."
+    },
+    {
+      "index": 17,
+      "key_insight": "IntelliNews report that the EU reiterated its funding halt while aiming to boost Mozambican military capacity."
+    },
+    {
+      "index": 18,
+      "key_insight": "Documents the village displacement, mine raids and the industrialised May 2026 coastal vessel seizures cited by ACLED as naval-security failure."
+    },
+    {
+      "index": 19,
+      "key_insight": "Reports the 30 April 2026 jihadist assault on Meza village that burned the church, priests' residence and kindergarten."
+    },
+    {
+      "index": 20,
+      "key_insight": "DW report on the Ravia gemstone-mine raid and the vehicle-theft/extortion pattern transferable to LNG-adjacent sites."
+    },
+    {
+      "index": 21,
+      "key_insight": "Documents roughly 21,658 people displaced from Ancuabe in six weeks, evidencing corridor-district exposure."
+    },
+    {
+      "index": 22,
+      "key_insight": "Reports more than 12,000 newly displaced across Cabo Delgado in June 2026 and cumulative ACLED fatality/event totals."
+    },
+    {
+      "index": 23,
+      "key_insight": "News24 analysis showing no sustained Channel piracy for over a decade and no SANDF vessel on station since 2022, framing the maritime tail risk."
+    },
+    {
+      "index": 24,
+      "key_insight": "ReliefWeb report of MSF concluding activities in Palma five years after the 2021 attack, indicating incomplete humanitarian normalisation."
+    },
+    {
+      "index": 25,
+      "key_insight": "RFI/Forbidden Stories reporting on surging sexual violence and job-for-sex coercion linked to LNG-adjacent businessmen."
+    },
+    {
+      "index": 26,
+      "key_insight": "RFI account of abduction and sexual abuse as ISM modus operandi across seven districts."
+    },
+    {
+      "index": 27,
+      "key_insight": "RFI 'Mozambique Exposed' report on widespread sexual violence around the LNG footprint."
+    },
+    {
+      "index": 28,
+      "key_insight": "Reports the 3 July 2026 N380 cement-truck ambush and abduction in Muidumbe, evidencing targeting of road-transport crews."
+    },
+    {
+      "index": 29,
+      "key_insight": "Il Manifesto report on the leaked TotalEnergies document and state-soldier abuses around Afungi, central to the reputational-legal finding."
+    },
+    {
+      "index": 30,
+      "key_insight": "Courrier International report tying the LNG project to sexual-violence accusations and the French legal complaints."
+    },
+    {
+      "index": 31,
+      "key_insight": "RFI interview establishing ISM's continued self-financing via mines, ransom and untraced mobile money."
+    },
+    {
+      "index": 32,
+      "key_insight": "RFI feature on how Cabo Delgado's mineral riches fuel the insurgency, including the Al-Naba 'beware your investments' framing and fighter-strength range."
+    },
+    {
+      "index": 33,
+      "key_insight": "RFI 'Mozambique Exposed' French edition on resource confiscation feeding the insurgency and recruitment narrative."
+    },
+    {
+      "index": 34,
+      "key_insight": "RFI Portuguese edition documenting garimpeiro grievance and the confiscation recruitment narrative."
+    },
+    {
+      "index": 35,
+      "key_insight": "ReliefWeb piece on ISM's preaching-and-coercion stronghold-building, corroborating early-July propaganda claims including Catupa."
+    },
+    {
+      "index": 36,
+      "key_insight": "RFI 'Convidado' segment linking illiteracy, poverty and garimpeiro repression to recruitment."
+    },
+    {
+      "index": 37,
+      "key_insight": "Oil & Gas 360 report on Mozambique contesting the roughly USD 2 billion of TotalEnergies' delay costs."
+    },
+    {
+      "index": 38,
+      "key_insight": "DW report on the Bayphase audit exposing the discrepancy in TotalEnergies' cost claims."
+    },
+    {
+      "index": 39,
+      "key_insight": "Bloomberg confirmation of Mozambique disputing USD 2 billion of the Total LNG claim and the withheld development-plan approval."
+    },
+    {
+      "index": 40,
+      "key_insight": "Reports Chapo defending political stability while advancing the Inclusive National Dialogue."
+    },
+    {
+      "index": 41,
+      "key_insight": "Reports post-electoral tension and insecurity flagged as financial-stability risks and the cut 2026 growth forecast."
+    },
+    {
+      "index": 42,
+      "key_insight": "Records Chapo's June 2026 assertion of political and social stability."
+    },
+    {
+      "index": 43,
+      "key_insight": "IntelliNews report on IMF programme discussions amid mounting economic pressure."
+    },
+    {
+      "index": 44,
+      "key_insight": "RFI report on the LNG restart reigniting both hope and resentment, including unresolved compensation and the fortress economy."
+    },
+    {
+      "index": 45,
+      "key_insight": "EnergyNews Africa confirmation of the USD 20 billion project restart."
+    },
+    {
+      "index": 46,
+      "key_insight": "DW report on the accountability deficit around Cabo Delgado feeding arbitrary-power concerns."
+    },
+    {
+      "index": 47,
+      "key_insight": "Newsbase report that Mozambique expects an ExxonMobil FID in September 2026."
+    },
+    {
+      "index": 48,
+      "key_insight": "RTP report carrying Chapo's statement on the expected Exxon investment decision."
+    },
+    {
+      "index": 49,
+      "key_insight": "Africaninsider report on the Forbidden Stories investigation into post-election abductions and killings implicating state units."
+    },
+    {
+      "index": 50,
+      "key_insight": "RFI report on the disappearance of journalist Arlindo Chissale near Pemba, an emblematic Cabo Delgado case."
+    },
+    {
+      "index": 51,
+      "key_insight": "AFP dispatch on the Forbidden Stories campaign of abductions and killings of journalists and opposition figures."
+    },
+    {
+      "index": 52,
+      "key_insight": "Reports the human-rights network demanding justification for the Sernic search of journalist Estacio Valoi."
+    },
+    {
+      "index": 53,
+      "key_insight": "Reports MISA's warning on journalism instability, with 15 documented 2025 press-freedom violations by state-linked actors."
+    },
+    {
+      "index": 54,
+      "key_insight": "Legacy syndicated item on Mozambican urban riot policing, used only as pattern evidence given its 2008-era internal references."
+    },
+    {
+      "index": 55,
+      "key_insight": "RTP report that at least 662,000 people remain displaced in northern Mozambique."
+    },
+    {
+      "index": 56,
+      "key_insight": "OCHA humanitarian snapshot showing 25 districts at IPC Phase 3 and the 2026 appeal only 27% funded."
+    },
+    {
+      "index": 57,
+      "key_insight": "Gateway Pundit (C/D grade) piece paraphrasing UN reporting on ISCAP structure and ADF–ISM linkage, used with low confidence for the regional-escalation vector."
+    }
+  ],
+  "darkweb_sources": []
+}

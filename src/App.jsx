@@ -3,6 +3,7 @@ import { NavA, HeroA } from "./SiteA-Hero.jsx";
 import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
 import { ShowcaseA } from "./SiteA-Showcase.jsx";
+import { ReportVizA } from "./SiteA-ReportViz.jsx";
 
 /* Tiny path-based router. Two pages today (/ and /demo); if we add more we
    can swap this for React Router without touching the consumers — they all
@@ -69,11 +70,12 @@ export default function App() {
     scrollToHashOrTop();
   }, [path]);
 
-  // The /showcase route is a hidden launch-event display (a TV attract loop).
-  // Keep it out of search: set <meta name="robots" content="noindex"> while it's
-  // the active route, and remove it again when navigating away.
+  // /showcase (launch-event TV loop) and /report-viz (engineering prototype)
+  // are hidden routes. Keep them out of search: set
+  // <meta name="robots" content="noindex"> while one is active, and remove it
+  // again when navigating away.
   React.useEffect(() => {
-    const isShowcase = path === "/showcase";
+    const isShowcase = path === "/showcase" || path === "/report-viz";
     let meta = document.querySelector('meta[name="robots"][data-showcase]');
     if (isShowcase && !meta) {
       meta = document.createElement("meta");
@@ -106,6 +108,11 @@ export default function App() {
   // Hidden launch-event display — full viewport, no site nav or footer.
   if (path === "/showcase") {
     return <ShowcaseA/>;
+  }
+
+  // Hidden engineering prototype — report visualisations test piece.
+  if (path === "/report-viz") {
+    return <ReportVizA/>;
   }
 
   return (
