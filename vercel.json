@@ -4,6 +4,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
+    { "source": "/legal", "destination": "/legal/index.html" },
+    { "source": "/legal/:doc(msa|dpa|documentation)", "destination": "/legal/:doc/index.html" },
+    { "source": "/legal/:doc(msa|dpa|documentation)/:ver(v[0-9][0-9-]*)", "destination": "/legal/:doc/:ver/index.html" },
     { "source": "/((?!assets/|.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
   ],
   "headers": [

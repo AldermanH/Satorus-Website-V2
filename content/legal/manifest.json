@@ -1,0 +1,60 @@
+{
+  "_readme": [
+    "Registry of hosted legal documents. Each entry under 'versions' is immutable:",
+    "once a version has shipped, NEVER edit its content file — publish a new",
+    "version by adding a new content file (e.g. msa/v1-1.html), appending a",
+    "versions entry, and moving 'current'. scripts/legal/build.py verifies the",
+    "sha256 of every listed content file and refuses to build on any mismatch.",
+    "Regenerate pages with: npm run legal:build"
+  ],
+  "documents": {
+    "msa": {
+      "shortTitle": "Master Services Agreement",
+      "pageTitle": "Satorus Master Services Agreement",
+      "description": "The Satorus Master Services Agreement governing access to and use of the Sidney platform. Incorporated by reference into signed Order Forms.",
+      "current": "v1-0",
+      "versions": [
+        {
+          "id": "v1-0",
+          "label": "1.0",
+          "effective": "20 July 2026",
+          "effectiveISO": "2026-07-20",
+          "file": "msa/v1-0.html",
+          "sha256": "5ff2bc945a492f30c861b9d9e3927248e241d822dd9d802e2f62b22ee2d18caa"
+        }
+      ]
+    },
+    "dpa": {
+      "shortTitle": "Data Processing Agreement",
+      "pageTitle": "Satorus Data Processing Agreement",
+      "description": "The Satorus Data Processing Agreement for the Sidney platform, containing the Article 28(3) mandatory clauses, Annex A processing particulars and Annex B international transfer terms. Incorporated by reference into signed Order Forms.",
+      "current": "v1-0",
+      "versions": [
+        {
+          "id": "v1-0",
+          "label": "1.0",
+          "effective": "20 July 2026",
+          "effectiveISO": "2026-07-20",
+          "file": "dpa/v1-0.html",
+          "sha256": "0a0015c0a5b751db0e8951ecc9e1a52c1e16176db9d792bbbd6cc13b093799f5"
+        }
+      ]
+    },
+    "documentation": {
+      "shortTitle": "Sidney Documentation",
+      "pageTitle": "Satorus — Sidney Documentation",
+      "description": "The Documentation for the Sidney platform under the Satorus Master Services Agreement: platform description, user instructions and the Credit Schedule.",
+      "current": "v1-0",
+      "versions": [
+        {
+          "id": "v1-0",
+          "label": "1.0",
+          "effective": "20 July 2026",
+          "effectiveISO": "2026-07-20",
+          "file": "documentation/v1-0.html",
+          "sha256": "884b13cbec32b03ad009effd32f98c64cd1b6b46e24cfc4575d0c37814391e23"
+        }
+      ]
+    }
+  }
+}

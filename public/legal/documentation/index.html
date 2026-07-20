@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Satorus — Sidney Documentation</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="The Documentation for the Sidney platform under the Satorus Master Services Agreement: platform description, user instructions and the Credit Schedule."/>
+<link rel="canonical" href="https://satorusgroup.com/legal/documentation"/>
+<meta name="theme-color" content="#0e1014"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Satorus — Sidney Documentation"/>
+<meta property="og:description" content="The Documentation for the Sidney platform under the Satorus Master Services Agreement: platform description, user instructions and the Credit Schedule."/>
+<link rel="icon" type="image/svg+xml" href="/assets/satorus-icon-cyan.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"/>
+<style>
+:root{
+  --bg:hsl(234,8%,6%);--bg-deep:hsl(240,14%,4.5%);--surface:hsl(235,14%,9%);
+  --elevated:hsl(232,10%,12%);--fg:hsl(0,0%,92%);--fg-muted:hsl(220,10%,58%);
+  --fg-subtle:hsla(0,0%,95%,.58);--accent:hsl(187,72%,48%);
+  --accent-soft:hsl(187,55%,62%);--accent-10:hsla(187,72%,48%,.1);
+  --border:hsl(232,10%,15%);--border-strong:hsl(232,10%,20%);
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --display:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+a{color:var(--accent-soft);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.caps{text-transform:uppercase}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--border);background:var(--bg-deep)}
+.bar-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;
+  align-items:baseline;gap:14px}
+.mark{font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:.14em;color:var(--fg)}
+.mark:hover{text-decoration:none;color:var(--accent-soft)}
+.crumb{font-size:12.5px;color:var(--fg-muted)}
+.crumb a{color:var(--fg-muted)}
+
+/* layout */
+.shell{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;
+  justify-content:center}
+@media(max-width:920px){.shell{display:block;padding-top:24px}}
+
+/* toc */
+.side{font-size:13px}
+.toc{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
+  padding-right:8px}
+.toc summary{cursor:pointer;font-family:var(--display);font-weight:600;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fg-subtle);list-style:none;padding:8px 0}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▸";margin-left:6px;color:var(--fg-subtle)}
+.toc[open] summary::after{content:"▾"}
+.toc ol{list-style:none;border-left:1px solid var(--border);margin-top:4px}
+.toc ol ol{border-left:none;margin:0 0 2px 14px}
+.toc li a{display:block;padding:4px 0 4px 14px;color:var(--fg-muted);
+  line-height:1.45;border-left:2px solid transparent;margin-left:-1.5px}
+.toc ol ol li a{padding-left:10px;font-size:12.5px;color:var(--fg-subtle)}
+.toc li a:hover{color:var(--fg);text-decoration:none;
+  border-left-color:var(--accent)}
+.toc .num{color:var(--accent-soft);font-family:var(--mono);font-size:11px}
+@media(max-width:920px){
+  .toc{position:static;max-height:none;border:1px solid var(--border);
+    border-radius:8px;background:var(--surface);padding:4px 16px;
+    margin-bottom:28px}
+}
+
+/* document header */
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:14px}
+article h1{font-family:var(--display);font-weight:600;font-size:27px;
+  line-height:1.2;letter-spacing:-.015em;margin:0 0 18px}
+.version-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+  border:1px solid var(--border);border-left:2px solid var(--accent);
+  border-radius:8px;background:var(--surface);padding:12px 16px;
+  margin-bottom:8px}
+.version-line{font-family:var(--mono);font-size:13px;color:var(--fg)}
+.version-note{font-size:12.5px;color:var(--fg-muted)}
+.version-banner .dl{margin-left:auto;font-size:12.5px;white-space:nowrap}
+.intro-gap{height:26px}
+
+/* document body */
+article{min-width:0}
+article p{margin:0 0 1.05em}
+article h2{font-family:var(--display);font-weight:600;font-size:19.5px;
+  line-height:1.3;letter-spacing:-.01em;margin:2.6em 0 1em;
+  padding-top:1.6em;border-top:1px solid var(--border)}
+article h3{font-family:var(--display);font-weight:600;font-size:16px;
+  margin:2em 0 .9em}
+article h4{font-family:var(--sans);font-weight:600;font-size:15px;
+  margin:1.8em 0 .8em}
+article h2 .num,article h3 .num{color:var(--accent-soft)}
+.num{font-family:var(--mono);font-size:.85em;font-weight:500;
+  color:var(--accent-soft);letter-spacing:0}
+p.clause{margin-bottom:1.05em}
+p.lvl2{margin-left:1.5rem}
+p.lvl3{margin-left:3rem}
+p.lvl4{margin-left:4.25rem}
+p.lvl5{margin-left:5.25rem}
+@media(max-width:560px){
+  p.lvl2{margin-left:.9rem}p.lvl3{margin-left:1.8rem}
+  p.lvl4{margin-left:2.6rem}p.lvl5{margin-left:3.2rem}
+}
+p.statement{font-weight:600;margin:1.6em 0}
+article ul{margin:0 0 1.05em;padding-left:1.4em}
+article li{margin-bottom:.35em}
+article li::marker{color:var(--fg-subtle)}
+article strong{font-weight:600;color:hsl(0,0%,97%)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;
+  margin:0 0 1.4em;background:var(--surface)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;
+  line-height:1.55}
+.table-wrap td{padding:10px 14px;border-top:1px solid var(--border);
+  vertical-align:top;min-width:9rem}
+.table-wrap tr:first-child td{border-top:none}
+.table-wrap td p{margin:0 0 .5em}
+.table-wrap td p:last-child{margin-bottom:0}
+.table-headed tr:first-child td{background:var(--elevated);
+  font-family:var(--display);font-size:12px;letter-spacing:.02em;
+  white-space:nowrap}
+.dfn-table td:first-child{min-width:11rem;width:11rem}
+
+/* version history + footer */
+.vh{max-width:46rem;margin:0 auto;padding:0 24px 40px}
+@media(min-width:921px){.vh{margin-left:calc((1080px - 236px - 46rem - 56px)/2 + 236px + 56px + ((100vw - 1080px)/2));margin-left:0}}
+.vh-in{max-width:1080px;margin:0 auto;padding:28px 24px 56px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;justify-content:center}
+@media(max-width:920px){.vh-in{display:block}}
+.vh h2{font-family:var(--display);font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:12px}
+.vh table{border-collapse:collapse;font-size:13px}
+.vh td{padding:6px 22px 6px 0;color:var(--fg-muted)}
+.vh .cur{color:var(--fg)}
+footer.foot{border-top:1px solid var(--border);background:var(--bg-deep)}
+.foot-in{max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;
+  flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  font-size:12.5px;color:var(--fg-muted)}
+.foot-in a{color:var(--fg-muted)}
+
+/* index page */
+.docs{list-style:none;display:grid;gap:16px;margin-top:30px}
+.doc-card{border:1px solid var(--border);border-radius:10px;
+  background:var(--surface);padding:20px 22px}
+.doc-card h2{font-family:var(--display);font-weight:600;font-size:17px;
+  margin:0 0 4px}
+.doc-card h2 a{color:var(--fg)}
+.doc-card h2 a:hover{color:var(--accent-soft);text-decoration:none}
+.doc-meta{font-family:var(--mono);font-size:12px;color:var(--fg-muted);
+  margin-bottom:10px}
+.doc-desc{font-size:14px;color:var(--fg-muted);line-height:1.6;margin:0 0 12px}
+.doc-links{font-size:13px;display:flex;flex-wrap:wrap;gap:16px}
+.index-shell{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+.index-shell h1{font-family:var(--display);font-weight:600;font-size:26px;
+  margin-bottom:10px}
+.index-lede{color:var(--fg-muted);font-size:14.5px;max-width:56ch}
+
+/* print */
+@media print{
+  :root{--bg:#fff;--bg-deep:#fff;--surface:#fff;--elevated:#f4f4f4;
+    --fg:#000;--fg-muted:#333;--fg-subtle:#555;--accent:#000;
+    --accent-soft:#000;--border:#bbb;--border-strong:#999}
+  @page{margin:18mm 16mm}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.55}
+  .bar,.side,.version-banner .dl,.version-note,.vh-in,footer.foot{display:none!important}
+  .shell{display:block;max-width:100%;padding:0}
+  article{max-width:100%}
+  a{color:#000;text-decoration:none}
+  article strong{color:#000}
+  article h1{font-size:17pt}
+  article h2{font-size:13pt;break-after:avoid;border-top-color:#ccc}
+  article h3,article h4{break-after:avoid}
+  .version-banner{border:1px solid #999;border-left:3px solid #000;
+    background:#fff}
+  p.clause{orphans:3;widows:3}
+  .table-wrap{overflow:visible;border-color:#999;break-inside:auto}
+  .table-wrap td{border:1px solid #bbb}
+  tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in"><a class="mark" href="/">SATORUS</a><span class="crumb"><a href="/legal">Legal</a></span></div></div>
+<main class="shell">
+<div class="side">
+<details class="toc"><summary>Contents</summary><ol><li><a href="#section-1"><span class="num">1.</span> About Sidney</a></li><li><a href="#section-2"><span class="num">2.</span> Services</a></li><li><a href="#section-3"><span class="num">3.</span> Using the Platform</a></li><li><a href="#section-4"><span class="num">4.</span> Credit Schedule</a></li><li><a href="#section-5"><span class="num">5.</span> Version history</a></li></ol></details>
+</div>
+<article>
+<div class="eyebrow" data-chrome="1">Legal · Contractual document</div>
+<h1><strong>SATORUS – SIDNEY – DOCUMENTATION</strong></h1>
+<div class="version-banner">
+<span class="version-line">Version 1.0 – effective 20 July 2026</span>
+<span class="version-note" data-chrome="1">This is the version currently in force.</span>
+<a class="dl" data-chrome="1" href="/legal/pdf/satorus-documentation-v1-0.pdf">Download PDF</a>
+</div>
+<div class="intro-gap"></div>
+<p>This document is the “Documentation” for the purposes of the Satorus Master Services Agreement (the “Master Services Agreement”). It sets out a description of the Sidney platform (the “Platform”), the user instructions for the Platform, and the Credit Schedule referred to in the Master Services Agreement. Satorus may update this document from time to time in accordance with the Agreement; updates to the Credit Schedule take effect on at least 30 days’ prior written notice as set out in the Master Services Agreement. The version of this document in force at the relevant time forms part of the Agreement in the order of precedence set out in the Order Form.</p>
+<h2 id="section-1"><span class="num num-lit">1.</span> About Sidney</h2>
+<p>Sidney is a multi-agent platform for high stakes intelligence. It deploys autonomous AI agents to plan, conduct and synthesise open-source intelligence (OSINT) research on subjects and topics identified by the Customer, producing structured, source-graded intelligence reports.</p>
+<p>For each task, Sidney’s agents: plan the investigation by decomposing the Customer’s request into research variables; act by selecting, querying and retrieving data from publicly available and licensed third-party sources; distil the retrieved material through analysis, enrichment and source grading; and resolve the findings into a structured report. Sources are graded on an A+ to D scale using Sidney’s source assessment methodology, and gradings are displayed in the Output so that findings can be weighed accordingly.</p>
+<p>The Output of the Platform is AI-generated, is intended for informational purposes only, and should not be treated as definitive or as professional advice. The Customer is responsible for applying meaningful human review to any decision or action taken on the basis of the Output, as set out in the Agreement.</p>
+<h2 id="section-2"><span class="num num-lit">2.</span> Services</h2>
+<ul>
+<li data-style="ListParagraph">Research investigation (base package): a full multi-agent research task on a subject, organisation or topic, drawing on publicly available web sources, news and media sources and licensed third-party data.</li>
+<li data-style="ListParagraph">Deep and dark web add-on: extends a research investigation to specialist deep and dark web coverage.</li>
+<li data-style="ListParagraph">Social media add-on: extends a research investigation to publicly available social media sources, including posting behaviour, audience and network analysis.</li>
+<li data-style="ListParagraph">Multi-modal analysis add-on: extends a research investigation with analysis of non-text media such as images and video.</li>
+<li data-style="ListParagraph">Digital footprint check (standalone): a focused check of a subject’s publicly available digital footprint.</li>
+</ul>
+<p>The sources used by the Platform are operated by third parties and their availability may change from time to time. The categories of third-party providers engaged in the delivery of the Services are set out in the Data Processing Agreement.</p>
+<h2 id="section-3"><span class="num num-lit">3.</span> Using the Platform</h2>
+<p>Access. The Platform is accessed via a web browser using the login credentials issued to each Authorised User under the Customer’s User Subscriptions. Each set of credentials is personal to the relevant Authorised User and must be kept confidential.</p>
+<p>Running a task. An Authorised User initiates an investigation or check by entering the subject or topic and selecting the service and any add-ons. Initiating a task constitutes the Customer’s instruction for the associated processing, as set out in the Data Processing Agreement, and Credits are deducted from the Customer’s Credit Allowance when a task is initiated.</p>
+<p>Output. Completed reports are made available to the Authorised User in the Platform and may be exported in the formats supported by the Platform from time to time, including PDF and self-contained HTML.</p>
+<p>Support and maintenance. Standard customer support is available during Business Hours (9.00 am to 5.00 pm UK time on Business Days) at harry@satorusgroup.com. Planned maintenance is notified in advance in accordance with the Master Services Agreement; emergency maintenance may be performed without notice.</p>
+<h2 id="section-4"><span class="num num-lit">4.</span> Credit Schedule</h2>
+<p>Use of the Services consumes Credits at the following rates. Credit Allowances, top-up pricing and any deal-specific terms (including any agreed rollover of unused Credits) are set out in the Customer’s Order Form. Unless otherwise agreed in the Order Form, unused Credits expire at the end of the relevant Contract Year.</p>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Service</strong></p></td><td><p><strong>Credits</strong></p></td><td><p><strong>Notes</strong></p></td></tr><tr><td><p>Research investigation (base package)</p></td><td><p>4</p></td><td><p>Full multi-agent research task on a subject or topic identified by the Customer; news and media sources included</p></td></tr><tr><td><p>Deep and dark web add-on</p></td><td><p>+1</p></td><td><p>Extends a research investigation to specialist deep and dark web sources</p></td></tr><tr><td><p>Social media add-on</p></td><td><p>+1</p></td><td><p>Extends a research investigation to publicly available social media sources</p></td></tr><tr><td><p>Multi-modal analysis add-on</p></td><td><p>+1</p></td><td><p>Extends a research investigation with analysis of non-text media such as images and video</p></td></tr><tr><td><p>Digital footprint check (standalone)</p></td><td><p>2</p></td><td><p>Focused check of a subject’s publicly available digital footprint</p></td></tr></table></div>
+<p>Satorus may update the rates in this Credit Schedule on at least 30 days’ prior written notice. No update will materially reduce the value of a Credit Allowance for which the Customer has already paid Fees, as set out in the Master Services Agreement.</p>
+<h2 id="section-5"><span class="num num-lit">5.</span> Version history</h2>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Version</strong></p></td><td><p><strong>Effective date</strong></p></td><td><p><strong>Summary of changes</strong></p></td></tr><tr><td><p>1.0</p></td><td><p>20 July 2026</p></td><td><p>First published version</p></td></tr></table></div>
+</article>
+</main>
+<div class="vh-in"><div></div><div><h2 id="version-history">Version history</h2><table><tr class="cur"><td>Version 1.0</td><td>effective 20 July 2026</td><td>current</td><td><a href="/legal/documentation/v1-0">permanent link</a></td></tr></table></div></div>
+<footer class="foot"><div class="foot-in"><div>© 2026 Satorus Group Ltd · London</div><div>Questions: <a href="mailto:harry@satorusgroup.com">harry@satorusgroup.com</a></div><div><a href="/legal">Legal index</a></div></div></footer>
+<script>(function(){var t=document.querySelector('.toc');if(t&&matchMedia('(min-width:921px)').matches)t.setAttribute('open','');})();</script>
+</body>
+</html>

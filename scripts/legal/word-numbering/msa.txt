@@ -1,0 +1,276 @@
+⟦⟧SATORUS - MASTER SERVICES AGREEMENT 
+⟦⟧Version 1.0 – effective 20 July 2026
+⟦⟧This Master Services Agreement forms part of the Agreement between Satorus Group Limited and the Customer. It is incorporated into the Agreement by, and takes effect on the Effective Date set out in, an Order Form signed by the parties. The Customer agrees to this Master Services Agreement by signing the Order Form, and no separate signature of this document is required. The version of this Master Services Agreement in force on the Effective Date applies for the Term, unless varied in accordance with its terms.
+⟦⟧TERMS 
+⟦1.⟧Interpretation
+⟦1.1⟧Definitions
+⟦⟧Agreement
+⟦⟧this Master Services Agreement, Order Form and Data Processing Agreement entered into between the parties;
+⟦⟧
+⟦⟧Authorised Users
+⟦⟧means those employees of the Customer who are authorised by the Customer to use the Platform and the Documentation in accordance with this Agreement;
+⟦⟧
+⟦⟧Background IPR 
+⟦⟧means any and all Intellectual Property Rights that are owned by or licensed to a party which are or have been developed independently of the Agreement (whether prior to the Effective Date or otherwise), including without limitation for the Supplier, all Platform improvements, modifications and changes derived howsoever arising; 
+⟦⟧
+⟦⟧Business Day
+⟦⟧a day other than a Saturday, Sunday or public holiday in England, when banks in London are open for business;
+⟦⟧
+⟦⟧Business Hours
+⟦⟧means 9.00 am to 5.00 pm local UK time, each Business Day;
+⟦⟧
+⟦⟧Contract Year
+⟦⟧means each 12 month period commencing on the Effective Date and each anniversary thereof;
+⟦⟧
+⟦⟧Control
+⟦⟧has the meaning given in section 1124 of the Corporation Tax Act 2010, and the expression change of control shall be construed accordingly;
+⟦⟧
+⟦⟧Credit Allowance
+⟦⟧means the number of Credits included in the Fees for each Contract Year, as set out in the Order Form;
+⟦⟧
+⟦⟧Credits
+⟦⟧means the units used to measure the Customer’s consumption of the Services, consumed at the rates set out in the Documentation;
+⟦⟧
+⟦⟧Customer Content 
+⟦⟧means all equipment and tools, drawings, specifications, information, data and other materials uploaded to the Platform or otherwise provided by the Customer, the Authorised Users, or any other party on the Customer's or Authorised Users’ behalf to the Supplier for the purpose of using the Platform or the Documentation or facilitating the Customer's or Authorised Users’ receipt of the Services, excluding personal data and Performance Data;
+⟦⟧
+⟦⟧Data Processing Agreement
+⟦⟧means the data processing agreement entered into between the parties as part of this Agreement;
+⟦⟧
+⟦⟧Deliverables
+⟦⟧all documents, products and materials developed by the Supplier or its agents, subcontractors and personnel as part of or in relation to the Services in any form, including without limitation computer programs, data, reports and specifications (including drafts) and as set out in the Order Form;
+⟦⟧
+⟦⟧Documentation
+⟦⟧means the document made available to the Customer by the Supplier from time to time which sets out a description of the Platform and the user instructions for the Platform;
+⟦⟧
+⟦⟧Fees
+⟦⟧the fees payable by the Customer for the supply of the Services by the Supplier, as set out in the Order Form;
+⟦⟧
+⟦⟧Foreground IPR
+⟦⟧means any and all Intellectual Property Rights that are developed under or arise out of or in connection with the Agreement, including the Output and Deliverables but excluding any Background IPR and any Third Party Content;
+⟦⟧
+⟦⟧Initial Subscription Term
+⟦⟧means the initial term of the Agreement as set out in the Order Form;
+⟦⟧
+⟦⟧Intellectual Property Rights
+⟦⟧patents, utility models, rights to inventions, copyright and neighbouring and related rights, moral rights, trade marks and service marks, business names and domain names, rights in get-up and trade dress, goodwill and the right to sue for passing off or unfair competition, rights in designs, rights in computer software, database rights, rights to use, and protect the confidentiality of, confidential information (including know-how and trade secrets) and all other intellectual property rights, in each case whether registered or unregistered and including all applications and rights to apply for and be granted, renewals or extensions of, and rights to claim priority from, such rights and all similar or equivalent rights or forms of protection which subsist or will subsist now or in the future in any part of the world;
+⟦⟧
+⟦⟧Order Form
+⟦⟧means the order form as agreed between the parties;
+⟦⟧
+⟦⟧Output
+⟦⟧means the output produced using the Platform;  
+⟦⟧
+⟦⟧Performance Data
+⟦⟧means non-identifiable performance data, insights and metrics arising out of or in connection with the Customer’s use of the Services and/or Platform;
+⟦⟧
+⟦⟧Platform
+⟦⟧means the platform made available by the Supplier as part of the Services listed in the Order Form, or as more particularly described in the Documentation;
+⟦⟧
+⟦⟧Services
+⟦⟧the services, including without limitation any Deliverables, to be provided by the Supplier pursuant to the Agreement, as described in the Order Form; 
+⟦⟧
+⟦⟧Term 
+⟦⟧means the Initial Subscription Term and the subsequent Renewal Period;
+⟦⟧
+⟦⟧Third Party Content
+⟦⟧means data, information and other intellectual property accessible through or utilised by the Platform to provide Output which is owned or licensed by a third party;
+⟦⟧
+⟦⟧User Subscriptions
+⟦⟧means the user subscriptions purchased by the Customer pursuant to the Order Form which entitle Authorised Users to access and use the Platform and the Documentation in accordance with this Agreement;
+⟦⟧
+⟦⟧Virus
+⟦⟧means any thing or device (including any software, code, file or programme) which may prevent, impair or otherwise adversely affect the operation of any computer software, hardware or network, any telecommunications service, equipment or network or any other service or device; prevent, impair or otherwise adversely affect access to or the operation of any programme or data, including the reliability of any programme or data (whether by re-arranging, altering or erasing the programme or data in whole or part or otherwise); or adversely affect the user experience, including worms, trojan horses, viruses and other similar things or devices; and
+⟦⟧
+⟦⟧Vulnerability
+⟦⟧means a weakness in the computational logic (for example, code) found in software and hardware components that when exploited, results in a negative impact to the confidentiality, integrity, or availability, and the term Vulnerabilities shall be interpreted accordingly.
+⟦⟧
+⟦1.2⟧Interpretation:
+⟦1.2.1⟧A reference to legislation or a legislative provision:
+⟦(a)⟧is a reference to it as amended, extended or re-enacted from time to time; and
+⟦(b)⟧shall include all subordinate legislation made from time to time under that legislation or legislative provision.
+⟦1.2.2⟧Any words following the terms including, include, in particular, for example or any similar expression shall be construed as illustrative and shall not limit the sense of the words, description, definition, phrase or term preceding those terms.
+⟦1.2.3⟧A reference to writing or written includes email.
+⟦2.⟧Commencement and Term
+⟦⟧The Agreement shall commence on the Effective Date and continue for the Initial Subscription Term and thereafter shall be automatically renewed for successive renewal periods (“Renewal Period(s)”), unless:
+⟦(a)⟧terminated earlier in accordance with the provisions of this Agreement; or
+⟦(b)⟧either party gives to the other not less than 30 days’ written notice to terminate before the end of the Initial Subscription Term or Renewal Period (if applicable), in which case this Agreement shall terminate upon the expiry of the applicable Initial Subscription Term or the Renewal Period.
+⟦3.⟧PLATFORM USE
+⟦3.1.1⟧Subject to the Customer’s compliance with the terms of this Agreement, the Supplier grants to the Customer a non-exclusive, non-transferable, revocable licence, without the right to grant sublicences (other than to the Authorised Users), to permit the Authorised Users to use the Platform and the Documentation during the Term for the Customer’s internal business purposes, unless agreed otherwise in writing by the parties.
+⟦3.1.2⟧In relation to the Authorised Users, the Customer undertakes that:
+⟦(i)⟧the maximum number of Authorised Users that it authorises to access and use the Platform and/or Documentation shall not exceed the number of User Subscriptions it has purchased;
+⟦(ii)⟧it will not allow or suffer any User Subscription to be used by more than one individual Authorised User unless it has been reassigned in its entirety to another individual Authorised User, in which case the prior Authorised User shall no longer have any right to access or use the Platform and/or Documentation;
+⟦(iii)⟧each Authorised User shall keep a secure password for their use of the Platform and Documentation and that each Authorised User shall keep their password confidential;
+⟦(iv)⟧it shall maintain a written, up to date list of current Authorised Users and provide such list to the Supplier within 5 Business Days of the Supplier’s written request at any time or times;
+⟦(v)⟧it shall permit the Supplier or the Supplier’s designated auditor to audit its use of the Platform in order to establish the name and password of each Authorised User and the Customer’s data processing facilities to audit compliance with this Agreement. Each such audit may be conducted no more than once per quarter, at the Supplier’s expense, and this right shall be exercised with reasonable prior notice, in such a manner as not to substantially interfere with the Customer’s normal conduct of business;
+⟦(vi)⟧if any of the audits referred to in clause 3.1.2(v) reveal that any password has been provided to any individual who is not an Authorised User, then without prejudice to the Supplier's other rights, the Customer shall promptly disable such passwords and the Supplier shall not issue any new passwords to any such individual; and
+⟦(vii)⟧if any of the audits referred to in clause 3.1.2(v) reveal that the Customer has underpaid Fees to the Supplier, then without prejudice to the Supplier's other rights, the Customer shall pay to the Supplier an amount equal to such underpayment as calculated in accordance with the Fees in the Order Form within 10 Business Days of the date of the relevant audit.
+⟦3.1.3⟧The Supplier reserves the right, without liability or prejudice to its other rights to the Customer, to disable the Customer's (or its Authorised Users’) access to the Platform at any time if it reasonably suspects that the Customer (or its Authorised Users) are in breach of the provisions of this clause 3. 
+⟦3.1.4⟧The Customer shall not (and shall ensure that its Authorised Users shall not) access, store, distribute or transmit any Viruses, or any material during the course of its use of the Platform that:
+⟦(i)⟧is false, unlawful, harmful, threatening, abusive, defamatory, obscene, infringing, threatening, harassing or racially or ethnically offensive;
+⟦(ii)⟧conceals or misrepresents their identity or steals someone else's identity;
+⟦(iii)⟧is spam or is otherwise excessive in nature;
+⟦(iv)⟧facilitates illegal activity;
+⟦(v)⟧depicts or promotes sexually explicit images;
+⟦(vi)⟧promotes unlawful violence or activities which may endanger life or lead to physical harm including suicide threats or instigations, intentional physical trauma, the use of illegal drugs, or excessive drinking;
+⟦(vii)⟧is discriminatory based on race, gender, colour, religious belief, sexual orientation, disability; or
+⟦(viii)⟧is otherwise illegal or causes damage or injury to any person or property.
+⟦3.1.5⟧The Supplier reserves the right, without liability or prejudice to its other rights to the Customer, to disable the Customer's access to the Platform and/or its account if: (a) it reasonably suspects the Customer has breached clause 3.1.4; or (b) it has received a complaint from any party in respect of the Customer’s use or misuse of the Platform or content it has uploaded to the Platform.
+⟦3.1.6⟧The Customer shall not (and shall ensure that its Authorised Users shall not):  
+⟦(i)⟧except as may be allowed by any applicable law which is incapable of exclusion by agreement between the parties and except to the extent expressly permitted under this Agreement: (A) attempt to copy, modify, duplicate, create derivative works from, frame, mirror, republish, download, display, transmit, or distribute all or any portion of the Platform and/or Documentation (as applicable) in any form or media or by any means; or (B) attempt to de-compile, reverse compile, disassemble, reverse engineer or otherwise reduce to human-perceivable form all or any part of the Platform;
+⟦(ii)⟧access all or any part of the Platform or Documentation in order to build a product or service which competes with the Platform and/or the Documentation; or
+⟦(iii)⟧use the Platform and/or Documentation to provide services to third parties (other than the Authorised Users); or
+⟦(iv)⟧subject to clause 13.2.1, license, sell, rent, lease, transfer, assign, distribute, display, disclose, or otherwise commercially exploit, or otherwise make the Platform or Documentation available to any third party except the Authorised Users; 
+⟦(v)⟧manipulate identifiers to disguise or otherwise conceal the origin of messages or of the content posted;
+⟦(vi)⟧probe, scan or test the vulnerability of the Platform, including the services or any network connected to the Platform; 
+⟦(vii)⟧breach or attempt to breach the security or authentication measures on the Platform, including the services or any network connected to it;
+⟦(viii)⟧attempt to disrupt or tamper with the technical infrastructure in a manner that harms or places an undue burden on the Platform or the Services;
+⟦(ix)⟧attempt to obtain, or assist third parties in obtaining, access to the Platform or Documentation, other than as provided under this clause; 
+⟦(x)⟧adopt any automated process to extract, harvest or scrape information, data and/or content from the Platform and/or the Services except where expressly permitted by the Supplier; or
+⟦(xi)⟧introduce or permit the introduction of, any Virus or Vulnerability into the Supplier's network and information systems. 
+⟦3.1.7⟧The Customer shall use all reasonable endeavours to prevent any unauthorised access to, or use of, the Services and the Documentation and, in the event of any such unauthorised access or use, promptly notify the Supplier.
+⟦3.1.8⟧The rights provided under this clause 3 are granted to the Customer only, and shall not be considered granted to any subsidiary or holding company of the Customer.
+⟦3.1.9⟧The Customer acknowledges and agrees that it is responsible for the acts and omissions of all persons (including Authorised Users) who access the Services and/or the Documentation under or in connection with this Agreement.
+⟦3.1.10⟧Subject to clause 3.1.11, the Supplier shall not use, or permit any other third party to use, Customer Content to train, retrain or otherwise improve any machine learning, deep learning, and other artificial intelligence systems, including any foundation models, large language models and other artificial intelligence tools.
+⟦3.1.11⟧The Supplier may use Customer Content to train, retrain or otherwise improve an artificial intelligence model solely for the use or benefit of the Customer, if requested by and agreed with the Customer as set out in the Order Form. 
+⟦3.1.12⟧The Supplier may use Performance Data, in an aggregated form, in any manner to develop the Platform and its other service offerings.
+⟦3.1.13⟧Use of the Platform and the Services consumes Credits at the rates set out in the Documentation. The Supplier may update the Credit consumption rates from time to time on at least 30 days’ prior written notice to the Customer, provided that no such update shall materially reduce the value of a Credit Allowance for which the Customer has already paid Fees.
+⟦3.1.14⟧The Credit Allowance for a Contract Year is available for use during that Contract Year only. Unless otherwise agreed in the Order Form, unused Credits (including purchased top-up Credits) expire at the end of the relevant Contract Year and do not roll over.
+⟦3.1.15⟧If the Customer exhausts its Credit Allowance and any purchased top-up Credits before the end of a Contract Year, the Supplier may suspend the Customer’s ability to consume Credit-based Services until the Customer purchases additional Credits at the rates set out in the Order Form. Any such suspension shall not affect the Customer’s payment obligations under the Agreement and shall not constitute a breach of the Agreement by the Supplier.
+⟦3.1.16⟧Credits have no monetary value, are non-refundable and non-transferable, and may be used only to consume the Services. User Subscriptions determine which Authorised Users may access the Platform and the Documentation; Credits determine the volume of the Customer’s use of the Services.
+⟦4.⟧Supply of services
+⟦4.1⟧The Supplier shall supply the Services to the Customer from the Effective Date in accordance with the Agreement.
+⟦4.2⟧In supplying the Services, the Supplier shall:
+⟦4.2.1⟧perform the Services with reasonable care and skill;
+⟦4.2.2⟧use reasonable endeavours to perform the Services in accordance with the service description set out in the Order Form; 
+⟦4.2.3⟧ensure that Platform will be provided substantially in accordance with the Documentation;
+⟦4.2.4⟧ensure that the Deliverables, and all goods, materials, standards and techniques used in providing the Services are of satisfactory quality and are fit for purpose;
+⟦4.2.5⟧use commercially reasonable endeavours to make the Platform available at all times during Business Hours, except for during any maintenance periods. The Supplier shall use reasonable endeavours to give the Customer reasonable notice of maintenance in advance, which shall be at least five (5) Business Days prior notice, but the Customer acknowledges and agrees that the Supplier may perform emergency maintenance and/or bug fixes without notice to the Customer from time to time.
+⟦4.2.6⟧as part of the Services, use reasonable endeavours to provide the Customer with the Supplier's standard customer support services during Business Hours.
+⟦4.2.7⟧comply with all applicable laws, statutes, regulations from time to time in force; provided that the Supplier shall not be liable under the Agreement if, as a result of such compliance, it is in breach of any of its obligations under the Agreement.
+⟦4.3⟧The Supplier does not warrant that: (a) the Customer's use of the Services will be uninterrupted or error-free; (b) that the Services, Documentation and/or the results obtained by the Customer through the Services will meet the Customer's requirements; or (c) that the Platform will be free from Vulnerabilities or Viruses.
+⟦4.4⟧The Supplier is not responsible for any delays, delivery failures, or any other loss or damage resulting from the transfer of data over communications networks and facilities, including the internet, and the Customer acknowledges that the Platform and Documentation may be subject to limitations, delays and other problems inherent in the use of such communications facilities.
+⟦5.⟧CUSTOMER'S OBLIGATIONS
+⟦5.1⟧The Customer shall: 
+⟦5.1.1⟧comply with the instructions of the Supplier and co-operate with the Supplier in all matters relating to the Services;
+⟦5.1.2⟧where the parties have agreed that any Services are to be performed at the Customer's premises, provide, for the Supplier, its agents, subcontractors, consultants and employees, in a timely manner and at no charge, reasonable access to the Customer's premises and office accommodation, and in all cases provide access to such data and other facilities as are reasonably required by the Supplier;
+⟦5.1.3⟧provide, in a timely manner, such information as the Supplier may require, including but not limited to the Customer Content, and ensure that it is accurate and complete in all material respects; and 
+⟦5.1.4⟧ensure that the Authorised Users use the Platform and the Documentation in accordance with the terms and conditions of this Agreement and shall be responsible for any acts, omissions or breaches of this Agreement by its Authorised Users;
+⟦5.1.5⟧without affecting its other obligations under this Agreement, comply with all applicable laws and regulations with respect to its activities under this Agreement;
+⟦5.1.6⟧obtain and shall maintain all necessary licences, consents, and permissions necessary for it to perform its obligations under this Agreement;
+⟦5.1.7⟧ensure that its network and systems comply with the relevant specifications provided by the Supplier from time to time; and
+⟦5.1.8⟧be, to the extent permitted by law and except as otherwise expressly provided in this Agreement, solely responsible for procuring, maintaining and securing its network connections and telecommunications links from its systems to the Supplier’s data centres, and all problems, conditions, delays, delivery failures and all other loss or damage arising from or relating to the Customer’s network connections or telecommunications links or caused by the internet.
+⟦5.2⟧The Customer shall have sole responsibility for the legality, reliability, integrity, accuracy and quality of all Customer Content. Customer confirms to the Supplier that it has all necessary rights, licences, consents and permissions to provide the Customer Content to the Supplier under or in connection with this Agreement. 
+⟦5.3⟧If the Supplier's performance of its obligations under the Agreement is prevented or delayed by any act or omission of the Customer, its agents, subcontractors, consultants or employees, the Supplier shall: 
+⟦5.3.1⟧not be liable for any costs, charges or losses sustained or incurred by the Customer that arise directly or indirectly from such prevention or delay;
+⟦5.3.2⟧be entitled to payment of the Fees despite any such prevention or delay; and
+⟦5.3.3⟧be entitled to recover any additional costs, charges or losses the Supplier sustains or incurs that arise directly or indirectly from such prevention or delay.
+⟦6.⟧DATA PROTECTION
+⟦⟧The parties shall comply with their data protection obligations as set out in a Data Processing Agreement. 
+⟦7.⟧OUTPUT AND THIRD PARTY CONTENT 
+⟦7.1⟧The Customer acknowledges that the Platform is designed to facilitate the provision of AI-generated Output using Third Party Content. The Output is intended for informational purposes only and should not be considered definitive. The Customer acknowledges and agrees that: 
+⟦(i)⟧the Output relies on Third Party Content over which the Supplier has no control and the Supplier is not responsible for moderating or testing the accuracy of the Output or any Third Party Content which is used to create Output;
+⟦(ii)⟧the Customer assumes sole responsibility for its use of the Output and any other results obtained from the use of the Services by the Customer, and for conclusions drawn from such use; 
+⟦(iii)⟧the Services do not constitute legal, tax or any other form of professional advice and the Customer shall use its own judgement before acting or relying on the Output;
+⟦(iv)⟧the Supplier is not responsible for any business decisions or courses of action taken by the Customer on the basis of information obtained using the Platform. 
+⟦8.⟧INTELLECTUAL PROPERTY
+⟦8.1⟧Each party (or its licensors as applicable) shall own all right, title and interest (including Intellectual Property Rights) in and to its Background IPR. 
+⟦8.2⟧Unless otherwise stated and subject to Customer’s payment of the Fees, the Supplier hereby assigns (by way of present and, where appropriate, future assignment) all right, title and interest (including Intellectual Property Rights) in the Foreground IPR to the Customer, excluding any Third Party Content incorporated in the Output or the Deliverables. To the extent that any Third Party Content is incorporated in the Output or the Deliverables, the Supplier grants to the Customer, to the extent it is entitled to do so, a non-exclusive licence to use such Third Party Content as part of the Output and the Deliverables for the Customer’s internal business purposes, and the Customer acknowledges that its use of Third Party Content may be subject to the applicable third party’s terms. 
+⟦8.3⟧The Customer grants to the Supplier (or shall procure the granting to the Supplier of) a worldwide, sublicensable, fully paid up, royalty-free, non-exclusive licence to use the Foreground IPR for the duration of the Term solely to the extent necessary for the Supplier to provide the Services, Platform and otherwise perform its obligations under the Agreement.  
+⟦8.4⟧The Customer grants to the Supplier (or shall procure the granting to the Supplier of) a worldwide, sublicensable, fully paid up, royalty-free, non-exclusive licence to use, access, store, copy, modify, distribute, transmit and/or publish the Customer’s Background IPR to the extent necessary for the Supplier to provide the Platform and otherwise perform its obligations under the Agreement.
+⟦8.5⟧The Supplier grants the Customer, or shall procure the direct grant to the Customer of, a fully paid-up, worldwide, non-exclusive, royalty-free, licence to use the Supplier’s Background IPR for the purpose of receiving and using the Services and the Deliverables in the Customer's business during the Term. 
+⟦8.6⟧To the extent that any Supplier Background IPR is integrated into or forms part of the Deliverables and Outputs, the Supplier grants to the Customer a perpetual, irrevocable, worldwide, non-exclusive, royalty-free, transferable licence to use such Supplier Background IPR in the Deliverables and Outputs. For the avoidance of doubt, the licence granted in this clause 8.6 does not permit the Customer to separate, adapt or disassemble the Supplier Background IPR from the Deliverables and Outputs for further commercial use or exploitation. 
+⟦8.7⟧The Customer may submit suggestions, ideas or improvements to the Supplier (Feedback). In doing so, the Customer hereby assigns (by way of present and, where appropriate, future assignment) all right, title and interest (including Intellectual Property Rights) in the Feedback to the Supplier and agrees that the Supplier may use that Feedback without any restrictions, attribution, limitation or compensation to the Customer. 
+⟦9.⟧FEES AND PAYMENT
+⟦9.1⟧In consideration for the provision of the Services, the Customer shall pay the Supplier the Fees in accordance with this clause 9 and the Order Form. 
+⟦9.2⟧All amounts payable by the Customer exclude amounts in respect of value added tax (VAT), which the Customer shall additionally be liable to pay to the Supplier at the prevailing rate (if applicable), subject to receipt of a valid VAT invoice. 
+⟦9.3⟧The Supplier shall submit invoices for the Fees plus VAT if applicable to the Customer at the intervals specified in the Order Form. Each invoice shall include all reasonable supporting information required by the Customer.
+⟦9.4⟧The Customer shall pay each invoice due and submitted to it by the Supplier, within 30 days of receipt, to a bank account nominated in writing by the Supplier.
+⟦9.5⟧If the Customer fails to make any payment due to the Supplier under the Agreement by the due date for payment, then, without limiting the Supplier's remedies under clause 12:
+⟦9.5.1⟧the Customer shall pay interest on the overdue sum from the due date until payment of the overdue sum, whether before or after judgment. Interest under this clause will accrue each day at 4% a year above the Bank of England's base rate from time to time, but at 4% a year for any period when that base rate is below 0%.
+⟦9.5.2⟧the Supplier may suspend all Services until payment has been made in full. 
+⟦9.6⟧All amounts due under the Agreement from the Customer to the Supplier shall be paid by in full without any set-off, counterclaim, deduction or withholding (other than any deduction or withholding of tax as required by law).
+⟦9.7⟧The Supplier shall be entitled to update the Fees from time to time upon at least 30 days' prior written notice to the Customer, such update to take effect on the date specified in the notice, which shall be no earlier than 30 days after the date of the notice, and the Order Form shall be deemed to have been amended accordingly. If the Customer objects to the change, it must notify the Supplier of its objection within 30 days of receiving the notice of the increase, in which case the update shall not take effect, the then-current Fees shall continue to apply and the Agreement will terminate at the end of the Customer’s Initial Subscription Term or Renewal Period (as applicable).  
+⟦10.⟧INDEMNITY
+⟦⟧The Customer shall defend, indemnify and hold harmless the Supplier against all claims, actions, proceedings, losses, damages, expenses and costs (including without limitation court costs and reasonable legal fees) arising out of or in connection with: (a) the Customer Content; (b) the Customer’s and/or its Authorised Users’ use or misuse of the Services and/or Output; and (c) any act or omission of the Authorised Users on the Platform.
+⟦11.⟧LIMITATION OF LIABILITY
+⟦11.1⟧References to liability in this clause 11 include every kind of liability arising under or in connection with the Agreement including but not limited to liability in contract, tort (including negligence), misrepresentation, restitution or otherwise. 
+⟦11.2⟧Nothing in this clause 11 shall limit the Customer's payment obligations under the Agreement.
+⟦11.3⟧Nothing in the agreement shall limit the Customer's liability under clause 10 of the Agreement.
+⟦11.4⟧Nothing in the Agreement limits any liability which cannot legally be limited, including liability for:
+⟦11.4.1⟧death or personal injury caused by negligence;
+⟦11.4.2⟧fraud or fraudulent misrepresentation; and
+⟦11.4.3⟧breach of the terms implied by section 2 of the Supply of Goods and Services Act 1982 (title and quiet possession). 
+⟦11.5⟧Subject to clause 11.4, the Supplier's total aggregate liability in each Contract Year whether in contract, tort (including negligence or breach of statutory duty), misrepresentation, restitution or otherwise, arising under or in connection with this Agreement shall be limited to the total Fees paid to the Supplier in that Contract Year.
+⟦11.6⟧Subject to clause 11.2, neither party shall be liable for the following heads of losses:
+⟦11.6.1⟧loss of profits;
+⟦11.6.2⟧loss of sales or business;
+⟦11.6.3⟧loss of agreements or contracts;
+⟦11.6.4⟧loss of anticipated savings;
+⟦11.6.5⟧loss of use or corruption of software, data or information;
+⟦11.6.6⟧loss of or damage to goodwill; and
+⟦11.6.7⟧indirect or consequential loss.
+⟦11.7⟧Unless the Customer notifies the Supplier that it intends to make a claim in respect of an event within the notice period, the Supplier shall have no liability for that event. The notice period for an event shall start on the day on which the Customer became, or ought reasonably to have become, aware of the event having occurred and shall expire 12 months from that date. The notice must be in writing and must identify the event and the grounds for the claim in reasonable detail.
+⟦12.⟧TERMINATION
+⟦12.1⟧Without affecting any other right or remedy available to it, either party to the Agreement may terminate it with immediate effect by giving written notice to the other party if:
+⟦12.1.1⟧the other party commits a material breach of any term of the Agreement which breach is irremediable or (if such breach is remediable) fails to remedy that breach within a period of 30 days after being notified in writing to do so; 
+⟦12.1.2⟧the other party takes any step or action in connection with its entering administration, provisional liquidation or any composition or arrangement with its creditors (other than in relation to a solvent restructuring), applying to court for or obtaining a moratorium under Part A1 of the Insolvency Act 1986, being wound up (whether voluntarily or by order of the court, unless for the purpose of a solvent restructuring), having a receiver appointed to any of its assets or ceasing to carry on business; or
+⟦12.1.3⟧the other party's financial position deteriorates to such an extent that in the terminating party's reasonable opinion the other party's capability to adequately fulfil its obligations under the Agreement has been placed in jeopardy.
+⟦12.2⟧Without affecting any other right or remedy available to it, the Supplier may terminate the Agreement with immediate effect by giving written notice to the Customer if:
+⟦12.2.1⟧the Customer fails to pay any amount due under the Agreement on the due date for payment; or
+⟦12.2.2⟧there is a change of control of the Customer.
+⟦12.3⟧On termination of the Agreement for whatever reason:
+⟦12.3.1⟧except where otherwise specified, all licences granted under this Agreement shall immediately terminate and the Customer shall immediately cease all use of the Services and the Documentation; 
+⟦12.3.2⟧each party shall return and make no further use of any equipment, property, documentation and other items (and all copies of them) belonging to the other party, including Customer Content, and at the written direction of the Customer, the Supplier shall destroy and/or delete Customer Content; 
+⟦12.3.3⟧without prejudice to the Supplier’s obligations under clause 6 the Supplier may destroy or otherwise dispose of any of the Customer Content in its possession; and 
+⟦12.3.4⟧the Customer shall immediately pay to the Supplier all of the Supplier's outstanding unpaid invoices and interest and, in respect of Services supplied but for which no invoice has been submitted, the Supplier may submit an invoice, which shall be payable immediately on receipt; 
+⟦12.3.5⟧any provision of the Agreement that expressly or by implication is intended to come into or continue in force on or after termination of the Agreement shall remain in full force and effect; and
+⟦12.3.6⟧termination of the Agreement shall not affect any of the rights, remedies, obligations or liabilities of the parties that have accrued up to the date of termination, including the right to claim damages in respect of any breach of the Agreement which existed at or before the date of termination.
+⟦13.⟧GENERAL
+⟦13.1⟧Force majeure 
+⟦⟧Neither party shall be in breach of the Agreement nor liable for delay in performing, or failure to perform, any of its obligations under the Agreement if such delay or failure result from events, circumstances or causes beyond its reasonable control. 
+⟦13.2⟧Assignment and other dealings
+⟦13.2.1⟧The Customer shall not assign, transfer, charge, subcontract, declare a trust over or deal in any other manner with any or all of its rights and obligations under the Agreement without the Supplier's prior written consent. 
+⟦13.2.2⟧The Supplier may at any time assign, transfer, charge, subcontract, declare a trust over or deal in any other manner with any or all of its rights under the Agreement.
+⟦13.3⟧Confidentiality
+⟦13.3.1⟧Each party undertakes that it shall not at any time disclose to any person any confidential information including:
+⟦(a)⟧concerning the business, affairs, customers, clients or suppliers of the other party or of any member of the group to which the other party belongs, except as permitted by clause 13.3; and
+⟦(b)⟧any information developed by the parties in the course of carrying out this Agreement and the parties agree that details of the Platform, the Documentation, the Services and the results of any performance tests in relation to the Platform, shall constitute the Supplier’s Confidential Information.
+⟦13.3.2⟧For the purposes of this clause 13.3, group means, in relation to a party, that party, any subsidiary or holding company from time to time of that party, and any subsidiary from time to time of a holding company of that party.
+⟦13.3.3⟧Each party may disclose the other party's confidential information:
+⟦(a)⟧to its employees, officers, representatives, contractors, subcontractors or advisers who need to know such information for the purposes of carrying out the party's obligations under the Agreement. Each party shall ensure that its employees, officers, representatives, contractors, subcontractors or advisers to whom it discloses the other party's confidential information comply with this clause 13.3; and
+⟦(b)⟧as may be required by law, a court of competent jurisdiction or any governmental or regulatory authority.
+⟦13.3.4⟧Neither party shall use any other party's confidential information for any purpose other than to perform its obligations under the Agreement.
+⟦13.3.5⟧On termination or expiry of this Agreement, subject to clause 6, each party shall:
+⟦(a)⟧destroy or if requested to do so return to the other party all documents and materials (and any copies) containing, reflecting, incorporating or based on the other party's Confidential Information;
+⟦(b)⟧erase all the other party's Confidential Information from computer and communications systems and devices used by it, including such systems and data storage services provided by third parties (to the extent technically and legally practicable); and 
+⟦(c)⟧if requested to do so, certify in writing to the other party that it has complied with the requirements of this clause, provided that a recipient party may retain documents and materials containing, reflecting, incorporating or based on the other party's Confidential Information to the extent required by law or any applicable governmental or regulatory authority. 
+⟦13.3.6⟧The provisions of this clause 13.3 shall continue to apply after termination or expiry of this Agreement. 
+⟦13.4⟧Entire agreement 
+⟦13.4.1⟧The Agreement constitutes the entire agreement between the parties and supersedes and extinguishes all previous agreements, promises, assurances, warranties, representations and understandings between them, whether written or oral, relating to its subject matter.
+⟦13.4.2⟧Each party acknowledges that in entering into the Agreement it does not rely on and shall have no remedies in respect of any statement, representation, assurance or warranty (whether made innocently or negligently) that is not set out in the Agreement. Each party agrees that it shall have no claim for innocent or negligent misrepresentation or negligent misstatement based on any statement in the Agreement.
+⟦13.5⟧Variation 
+⟦⟧No variation of the Agreement shall be effective unless it is in writing and signed by the parties (or their authorised representatives). 
+⟦13.6⟧Waiver 
+⟦13.6.1⟧A waiver of any right or remedy under the Agreement or by law is only effective if given in writing and shall not be deemed a waiver of any subsequent right or remedy.
+⟦13.6.2⟧A failure or delay by a party to exercise any right or remedy provided under the Agreement or by law shall not constitute a waiver of that or any other right or remedy, nor shall it prevent or restrict any further exercise of that or any other right or remedy. No single or partial exercise of any right or remedy provided under the Agreement or by law shall prevent or restrict the further exercise of that or any other right or remedy.
+⟦13.7⟧Severance 
+⟦⟧If any provision or part-provision of the Agreement is or becomes invalid, illegal or unenforceable, it shall be deemed modified to the minimum extent necessary to make it valid, legal and enforceable. If such modification is not possible, the relevant provision or part-provision shall be deemed deleted. Any modification to or deletion of a provision or part-provision under this clause 13.7 shall not affect the validity and enforceability of the rest of the Agreement.
+⟦13.8⟧Notices
+⟦13.8.1⟧Any notice given to a party under or in connection with the Agreement shall be in writing and shall be:
+⟦(a)⟧delivered by hand or by pre-paid first-class post or other next working day delivery service at its registered office (if a company) or its principal place of business (in any other case); or 
+⟦(b)⟧sent by email to:
+⟦(i)⟧Supplier: beth@satorusgroup.com
+⟦(ii)⟧Customer: the email address of the Customer’s contact set out in the Order Form, or such other address as the Customer notifies to the Supplier in writing 
+⟦13.8.2⟧Any notice shall be deemed to have been received:
+⟦(a)⟧if delivered by hand, at the time the notice is left at the proper address;
+⟦(b)⟧if sent by pre-paid first-class post or other next working day delivery service, at 9.00 am on the second Business Day after posting; or
+⟦(c)⟧if sent by email, at the time of transmission, or, if this time falls outside business hours in the place of receipt, when business hours resume. In this clause 13.8.2(c), business hours means 9.00am to 5.00pm Monday to Friday on a day that is not a public holiday in the place of receipt.
+⟦13.8.3⟧This clause 13.8 does not apply to the service of any proceedings or other documents in any legal action or, where applicable, any arbitration or other method of dispute resolution. 
+⟦13.9⟧Third party rights 
+⟦⟧The Agreement does not give rise to any rights under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of the Agreement.
+⟦13.10⟧Governing law 
+⟦⟧The Agreement, and any dispute or claim (including non-contractual disputes or claims) arising out of or in connection with it or its subject matter or formation, shall be governed by, and construed in accordance with the law of England and Wales.
+⟦13.11⟧Jurisdiction 
+⟦⟧Each party irrevocably agrees that the courts of England and Wales shall have exclusive jurisdiction to settle any dispute or claim (including non-contractual disputes or claims) arising out of or in connection with the Agreement or its subject matter or formation.
+

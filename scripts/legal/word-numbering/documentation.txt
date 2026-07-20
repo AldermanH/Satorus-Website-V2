@@ -1,0 +1,57 @@
+⟦⟧SATORUS – SIDNEY – DOCUMENTATION
+⟦⟧Version 1.0 – effective 20 July 2026
+⟦⟧This document is the “Documentation” for the purposes of the Satorus Master Services Agreement (the “Master Services Agreement”). It sets out a description of the Sidney platform (the “Platform”), the user instructions for the Platform, and the Credit Schedule referred to in the Master Services Agreement. Satorus may update this document from time to time in accordance with the Agreement; updates to the Credit Schedule take effect on at least 30 days’ prior written notice as set out in the Master Services Agreement. The version of this document in force at the relevant time forms part of the Agreement in the order of precedence set out in the Order Form.
+⟦⟧1. About Sidney
+⟦⟧Sidney is a multi-agent platform for high stakes intelligence. It deploys autonomous AI agents to plan, conduct and synthesise open-source intelligence (OSINT) research on subjects and topics identified by the Customer, producing structured, source-graded intelligence reports.
+⟦⟧For each task, Sidney’s agents: plan the investigation by decomposing the Customer’s request into research variables; act by selecting, querying and retrieving data from publicly available and licensed third-party sources; distil the retrieved material through analysis, enrichment and source grading; and resolve the findings into a structured report. Sources are graded on an A+ to D scale using Sidney’s source assessment methodology, and gradings are displayed in the Output so that findings can be weighed accordingly.
+⟦⟧The Output of the Platform is AI-generated, is intended for informational purposes only, and should not be treated as definitive or as professional advice. The Customer is responsible for applying meaningful human review to any decision or action taken on the basis of the Output, as set out in the Agreement.
+⟦⟧2. Services
+⟦•⟧Research investigation (base package): a full multi-agent research task on a subject, organisation or topic, drawing on publicly available web sources, news and media sources and licensed third-party data.
+⟦•⟧Deep and dark web add-on: extends a research investigation to specialist deep and dark web coverage.
+⟦•⟧Social media add-on: extends a research investigation to publicly available social media sources, including posting behaviour, audience and network analysis.
+⟦•⟧Multi-modal analysis add-on: extends a research investigation with analysis of non-text media such as images and video.
+⟦•⟧Digital footprint check (standalone): a focused check of a subject’s publicly available digital footprint.
+⟦⟧The sources used by the Platform are operated by third parties and their availability may change from time to time. The categories of third-party providers engaged in the delivery of the Services are set out in the Data Processing Agreement.
+⟦⟧3. Using the Platform
+⟦⟧Access. The Platform is accessed via a web browser using the login credentials issued to each Authorised User under the Customer’s User Subscriptions. Each set of credentials is personal to the relevant Authorised User and must be kept confidential.
+⟦⟧Running a task. An Authorised User initiates an investigation or check by entering the subject or topic and selecting the service and any add-ons. Initiating a task constitutes the Customer’s instruction for the associated processing, as set out in the Data Processing Agreement, and Credits are deducted from the Customer’s Credit Allowance when a task is initiated.
+⟦⟧Output. Completed reports are made available to the Authorised User in the Platform and may be exported in the formats supported by the Platform from time to time, including PDF and self-contained HTML.
+⟦⟧Support and maintenance. Standard customer support is available during Business Hours (9.00 am to 5.00 pm UK time on Business Days) at harry@satorusgroup.com. Planned maintenance is notified in advance in accordance with the Master Services Agreement; emergency maintenance may be performed without notice.
+⟦⟧4. Credit Schedule
+⟦⟧Use of the Services consumes Credits at the following rates. Credit Allowances, top-up pricing and any deal-specific terms (including any agreed rollover of unused Credits) are set out in the Customer’s Order Form. Unless otherwise agreed in the Order Form, unused Credits expire at the end of the relevant Contract Year.
+⟦⟧Service
+⟦⟧Credits
+⟦⟧Notes
+⟦⟧
+⟦⟧Research investigation (base package)
+⟦⟧4
+⟦⟧Full multi-agent research task on a subject or topic identified by the Customer; news and media sources included
+⟦⟧
+⟦⟧Deep and dark web add-on
+⟦⟧+1
+⟦⟧Extends a research investigation to specialist deep and dark web sources
+⟦⟧
+⟦⟧Social media add-on
+⟦⟧+1
+⟦⟧Extends a research investigation to publicly available social media sources
+⟦⟧
+⟦⟧Multi-modal analysis add-on
+⟦⟧+1
+⟦⟧Extends a research investigation with analysis of non-text media such as images and video
+⟦⟧
+⟦⟧Digital footprint check (standalone)
+⟦⟧2
+⟦⟧Focused check of a subject’s publicly available digital footprint
+⟦⟧
+⟦⟧Satorus may update the rates in this Credit Schedule on at least 30 days’ prior written notice. No update will materially reduce the value of a Credit Allowance for which the Customer has already paid Fees, as set out in the Master Services Agreement.
+⟦⟧5. Version history
+⟦⟧Version
+⟦⟧Effective date
+⟦⟧Summary of changes
+⟦⟧
+⟦⟧1.0
+⟦⟧20 July 2026
+⟦⟧First published version
+⟦⟧
+⟦⟧
+

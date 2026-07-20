@@ -98,6 +98,9 @@ export default function App() {
       if (!link || link.target === "_blank") return;
       const href = link.getAttribute("href");
       if (!href) return;
+      // /legal/* pages are static HTML served from public/, not SPA routes —
+      // let the browser do a full navigation.
+      if (href === "/legal" || href.startsWith("/legal/")) return;
       e.preventDefault();
       navigate(href);
     };

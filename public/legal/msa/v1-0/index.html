@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Satorus Master Services Agreement</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="The Satorus Master Services Agreement governing access to and use of the Sidney platform. Incorporated by reference into signed Order Forms."/>
+<link rel="canonical" href="https://satorusgroup.com/legal/msa"/>
+<meta name="theme-color" content="#0e1014"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Satorus Master Services Agreement"/>
+<meta property="og:description" content="The Satorus Master Services Agreement governing access to and use of the Sidney platform. Incorporated by reference into signed Order Forms."/>
+<link rel="icon" type="image/svg+xml" href="/assets/satorus-icon-cyan.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"/>
+<style>
+:root{
+  --bg:hsl(234,8%,6%);--bg-deep:hsl(240,14%,4.5%);--surface:hsl(235,14%,9%);
+  --elevated:hsl(232,10%,12%);--fg:hsl(0,0%,92%);--fg-muted:hsl(220,10%,58%);
+  --fg-subtle:hsla(0,0%,95%,.58);--accent:hsl(187,72%,48%);
+  --accent-soft:hsl(187,55%,62%);--accent-10:hsla(187,72%,48%,.1);
+  --border:hsl(232,10%,15%);--border-strong:hsl(232,10%,20%);
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --display:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+a{color:var(--accent-soft);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.caps{text-transform:uppercase}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--border);background:var(--bg-deep)}
+.bar-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;
+  align-items:baseline;gap:14px}
+.mark{font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:.14em;color:var(--fg)}
+.mark:hover{text-decoration:none;color:var(--accent-soft)}
+.crumb{font-size:12.5px;color:var(--fg-muted)}
+.crumb a{color:var(--fg-muted)}
+
+/* layout */
+.shell{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;
+  justify-content:center}
+@media(max-width:920px){.shell{display:block;padding-top:24px}}
+
+/* toc */
+.side{font-size:13px}
+.toc{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
+  padding-right:8px}
+.toc summary{cursor:pointer;font-family:var(--display);font-weight:600;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fg-subtle);list-style:none;padding:8px 0}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▸";margin-left:6px;color:var(--fg-subtle)}
+.toc[open] summary::after{content:"▾"}
+.toc ol{list-style:none;border-left:1px solid var(--border);margin-top:4px}
+.toc ol ol{border-left:none;margin:0 0 2px 14px}
+.toc li a{display:block;padding:4px 0 4px 14px;color:var(--fg-muted);
+  line-height:1.45;border-left:2px solid transparent;margin-left:-1.5px}
+.toc ol ol li a{padding-left:10px;font-size:12.5px;color:var(--fg-subtle)}
+.toc li a:hover{color:var(--fg);text-decoration:none;
+  border-left-color:var(--accent)}
+.toc .num{color:var(--accent-soft);font-family:var(--mono);font-size:11px}
+@media(max-width:920px){
+  .toc{position:static;max-height:none;border:1px solid var(--border);
+    border-radius:8px;background:var(--surface);padding:4px 16px;
+    margin-bottom:28px}
+}
+
+/* document header */
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:14px}
+article h1{font-family:var(--display);font-weight:600;font-size:27px;
+  line-height:1.2;letter-spacing:-.015em;margin:0 0 18px}
+.version-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+  border:1px solid var(--border);border-left:2px solid var(--accent);
+  border-radius:8px;background:var(--surface);padding:12px 16px;
+  margin-bottom:8px}
+.version-line{font-family:var(--mono);font-size:13px;color:var(--fg)}
+.version-note{font-size:12.5px;color:var(--fg-muted)}
+.version-banner .dl{margin-left:auto;font-size:12.5px;white-space:nowrap}
+.intro-gap{height:26px}
+
+/* document body */
+article{min-width:0}
+article p{margin:0 0 1.05em}
+article h2{font-family:var(--display);font-weight:600;font-size:19.5px;
+  line-height:1.3;letter-spacing:-.01em;margin:2.6em 0 1em;
+  padding-top:1.6em;border-top:1px solid var(--border)}
+article h3{font-family:var(--display);font-weight:600;font-size:16px;
+  margin:2em 0 .9em}
+article h4{font-family:var(--sans);font-weight:600;font-size:15px;
+  margin:1.8em 0 .8em}
+article h2 .num,article h3 .num{color:var(--accent-soft)}
+.num{font-family:var(--mono);font-size:.85em;font-weight:500;
+  color:var(--accent-soft);letter-spacing:0}
+p.clause{margin-bottom:1.05em}
+p.lvl2{margin-left:1.5rem}
+p.lvl3{margin-left:3rem}
+p.lvl4{margin-left:4.25rem}
+p.lvl5{margin-left:5.25rem}
+@media(max-width:560px){
+  p.lvl2{margin-left:.9rem}p.lvl3{margin-left:1.8rem}
+  p.lvl4{margin-left:2.6rem}p.lvl5{margin-left:3.2rem}
+}
+p.statement{font-weight:600;margin:1.6em 0}
+article ul{margin:0 0 1.05em;padding-left:1.4em}
+article li{margin-bottom:.35em}
+article li::marker{color:var(--fg-subtle)}
+article strong{font-weight:600;color:hsl(0,0%,97%)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;
+  margin:0 0 1.4em;background:var(--surface)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;
+  line-height:1.55}
+.table-wrap td{padding:10px 14px;border-top:1px solid var(--border);
+  vertical-align:top;min-width:9rem}
+.table-wrap tr:first-child td{border-top:none}
+.table-wrap td p{margin:0 0 .5em}
+.table-wrap td p:last-child{margin-bottom:0}
+.table-headed tr:first-child td{background:var(--elevated);
+  font-family:var(--display);font-size:12px;letter-spacing:.02em;
+  white-space:nowrap}
+.dfn-table td:first-child{min-width:11rem;width:11rem}
+
+/* version history + footer */
+.vh{max-width:46rem;margin:0 auto;padding:0 24px 40px}
+@media(min-width:921px){.vh{margin-left:calc((1080px - 236px - 46rem - 56px)/2 + 236px + 56px + ((100vw - 1080px)/2));margin-left:0}}
+.vh-in{max-width:1080px;margin:0 auto;padding:28px 24px 56px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;justify-content:center}
+@media(max-width:920px){.vh-in{display:block}}
+.vh h2{font-family:var(--display);font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:12px}
+.vh table{border-collapse:collapse;font-size:13px}
+.vh td{padding:6px 22px 6px 0;color:var(--fg-muted)}
+.vh .cur{color:var(--fg)}
+footer.foot{border-top:1px solid var(--border);background:var(--bg-deep)}
+.foot-in{max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;
+  flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  font-size:12.5px;color:var(--fg-muted)}
+.foot-in a{color:var(--fg-muted)}
+
+/* index page */
+.docs{list-style:none;display:grid;gap:16px;margin-top:30px}
+.doc-card{border:1px solid var(--border);border-radius:10px;
+  background:var(--surface);padding:20px 22px}
+.doc-card h2{font-family:var(--display);font-weight:600;font-size:17px;
+  margin:0 0 4px}
+.doc-card h2 a{color:var(--fg)}
+.doc-card h2 a:hover{color:var(--accent-soft);text-decoration:none}
+.doc-meta{font-family:var(--mono);font-size:12px;color:var(--fg-muted);
+  margin-bottom:10px}
+.doc-desc{font-size:14px;color:var(--fg-muted);line-height:1.6;margin:0 0 12px}
+.doc-links{font-size:13px;display:flex;flex-wrap:wrap;gap:16px}
+.index-shell{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+.index-shell h1{font-family:var(--display);font-weight:600;font-size:26px;
+  margin-bottom:10px}
+.index-lede{color:var(--fg-muted);font-size:14.5px;max-width:56ch}
+
+/* print */
+@media print{
+  :root{--bg:#fff;--bg-deep:#fff;--surface:#fff;--elevated:#f4f4f4;
+    --fg:#000;--fg-muted:#333;--fg-subtle:#555;--accent:#000;
+    --accent-soft:#000;--border:#bbb;--border-strong:#999}
+  @page{margin:18mm 16mm}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.55}
+  .bar,.side,.version-banner .dl,.version-note,.vh-in,footer.foot{display:none!important}
+  .shell{display:block;max-width:100%;padding:0}
+  article{max-width:100%}
+  a{color:#000;text-decoration:none}
+  article strong{color:#000}
+  article h1{font-size:17pt}
+  article h2{font-size:13pt;break-after:avoid;border-top-color:#ccc}
+  article h3,article h4{break-after:avoid}
+  .version-banner{border:1px solid #999;border-left:3px solid #000;
+    background:#fff}
+  p.clause{orphans:3;widows:3}
+  .table-wrap{overflow:visible;border-color:#999;break-inside:auto}
+  .table-wrap td{border:1px solid #bbb}
+  tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in"><a class="mark" href="/">SATORUS</a><span class="crumb"><a href="/legal">Legal</a></span></div></div>
+<main class="shell">
+<div class="side">
+<details class="toc"><summary>Contents</summary><ol><li><a href="#clause-1"><span class="num">1.</span> Interpretation</a></li><li><a href="#clause-2"><span class="num">2.</span> Commencement and Term</a></li><li><a href="#clause-3"><span class="num">3.</span> Platform Use</a></li><li><a href="#clause-4"><span class="num">4.</span> Supply of services</a></li><li><a href="#clause-5"><span class="num">5.</span> Customer&#x27;s obligations</a></li><li><a href="#clause-6"><span class="num">6.</span> Data protection</a></li><li><a href="#clause-7"><span class="num">7.</span> OUTPUT AND THIRD PARTY CONTENT</a></li><li><a href="#clause-8"><span class="num">8.</span> Intellectual property</a></li><li><a href="#clause-9"><span class="num">9.</span> Fees and payment</a></li><li><a href="#clause-10"><span class="num">10.</span> Indemnity</a></li><li><a href="#clause-11"><span class="num">11.</span> Limitation of liability</a></li><li><a href="#clause-12"><span class="num">12.</span> Termination</a></li><li><a href="#clause-13"><span class="num">13.</span> General</a></li></ol></details>
+</div>
+<article>
+<div class="eyebrow" data-chrome="1">Legal · Contractual document</div>
+<h1><strong>SATORUS</strong> - <strong>MASTER SERVICES AGREEMENT </strong></h1>
+<div class="version-banner">
+<span class="version-line">Version 1.0 – effective 20 July 2026</span>
+<span class="version-note" data-chrome="1">This is the version currently in force.</span>
+<a class="dl" data-chrome="1" href="/legal/pdf/satorus-msa-v1-0.pdf">Download PDF</a>
+</div>
+<div class="intro-gap"></div>
+<p data-style="BodyText">This Master Services Agreement forms part of the Agreement between Satorus Group Limited and the Customer. It is incorporated into the Agreement by, and takes effect on the Effective Date set out in, an Order Form signed by the parties. The Customer agrees to this Master Services Agreement by signing the Order Form, and no separate signature of this document is required. The version of this Master Services Agreement in force on the Effective Date applies for the Term, unless varied in accordance with its terms.</p>
+<p data-style="BodyText"><strong><span class="caps">terms </span></strong></p>
+<h2 id="clause-1"><span class="num">1.</span> Interpretation</h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">1.1</span> <strong>Definitions</strong></p>
+<div class="table-wrap dfn-table"><table><tr><td><p data-style="TableText"><strong>Agreement</strong></p></td><td><p data-style="TableText">this Master Services Agreement, Order Form and Data Processing Agreement entered into between the parties;</p></td></tr><tr><td><p data-style="TableText"><strong>Authorised Users</strong></p></td><td><p data-style="TableText">means those employees of the Customer who are authorised by the Customer to use the Platform and the Documentation in accordance with this Agreement;</p></td></tr><tr><td><p data-style="TableText"><strong>Background IPR </strong></p></td><td><p data-style="TableText">means any and all Intellectual Property Rights that are owned by or licensed to a party which are or have been developed independently of the Agreement (whether prior to the Effective Date or otherwise), including without limitation for the Supplier, all Platform improvements, modifications and changes derived howsoever arising; </p></td></tr><tr><td><p data-style="TableText"><strong>Business Day</strong></p></td><td><p data-style="TableText">a day other than a Saturday, Sunday or public holiday in England, when banks in London are open for business;</p></td></tr><tr><td><p data-style="TableText"><strong>Business Hours</strong></p></td><td><p data-style="TableText">means 9.00 am to 5.00 pm local UK time, each Business Day;</p></td></tr><tr><td><p data-style="TableText"><strong>Contract Year</strong></p></td><td><p data-style="TableText">means each 12 month period commencing on the Effective Date and each anniversary thereof;</p></td></tr><tr><td><p data-style="TableText"><strong>Control</strong></p></td><td><p data-style="TableText">has the meaning given in section 1124 of the Corporation Tax Act 2010, and the expression <strong>change of control</strong> shall be construed accordingly;</p></td></tr><tr><td><p data-style="TableText"><strong>Credit Allowance</strong></p></td><td><p data-style="TableText">means the number of Credits included in the Fees for each Contract Year, as set out in the Order Form;</p></td></tr><tr><td><p data-style="TableText"><strong>Credits</strong></p></td><td><p data-style="TableText">means the units used to measure the Customer’s consumption of the Services, consumed at the rates set out in the Documentation;</p></td></tr><tr><td><p data-style="TableText"><strong>Customer Content </strong></p></td><td><p data-style="TableText">means all equipment and tools, drawings, specifications, information, data and other materials uploaded to the Platform or otherwise provided by the Customer, the Authorised Users, or any other party on the Customer&#x27;s or Authorised Users’ behalf to the Supplier for the purpose of using the Platform or the Documentation or facilitating the Customer&#x27;s or Authorised Users’ receipt of the Services, excluding personal data and Performance Data;</p></td></tr><tr><td><p data-style="TableText"><strong>Data Processing Agreement</strong></p></td><td><p data-style="TableText">means the data processing agreement entered into between the parties as part of this Agreement;</p></td></tr><tr><td><p data-style="TableText"><strong>Deliverables</strong></p></td><td><p data-style="TableText">all documents, products and materials developed by the Supplier or its agents, subcontractors and personnel as part of or in relation to the Services in any form, including without limitation computer programs, data, reports and specifications (including drafts) and as set out in the Order Form;</p></td></tr><tr><td><p data-style="TableText"><strong>Documentation</strong></p></td><td><p data-style="TableText">means the document made available to the Customer by the Supplier from time to time which sets out a description of the Platform and the user instructions for the Platform;</p></td></tr><tr><td><p data-style="TableText"><strong>Fees</strong></p></td><td><p data-style="TableText">the fees payable by the Customer for the supply of the Services by the Supplier, as set out in the Order Form;</p></td></tr><tr><td><p data-style="TableText"><strong>Foreground IPR</strong></p></td><td><p data-style="TableText">means any and all Intellectual Property Rights that are developed under or arise out of or in connection with the Agreement, including the Output and Deliverables but excluding any Background IPR and any Third Party Content;</p></td></tr><tr><td><p data-style="TableText"><strong>Initial Subscription Term</strong></p></td><td><p data-style="TableText">means the initial term of the Agreement as set out in the Order Form;</p></td></tr><tr><td><p data-style="TableText"><strong>Intellectual Property Rights</strong></p></td><td><p data-style="TableText">patents, utility models, rights to inventions, copyright and neighbouring and related rights, moral rights, trade marks and service marks, business names and domain names, rights in get-up and trade dress, goodwill and the right to sue for passing off or unfair competition, rights in designs, rights in computer software, database rights, rights to use, and protect the confidentiality of, confidential information (including know-how and trade secrets) and all other intellectual property rights, in each case whether registered or unregistered and including all applications and rights to apply for and be granted, renewals or extensions of, and rights to claim priority from, such rights and all similar or equivalent rights or forms of protection which subsist or will subsist now or in the future in any part of the world;</p></td></tr><tr><td><p data-style="TableText"><strong>Order Form</strong></p></td><td><p data-style="TableText">means the order form as agreed between the parties;</p></td></tr><tr><td><p data-style="TableText"><strong>Output</strong></p></td><td><p data-style="TableText">means the output produced using the Platform;  </p></td></tr><tr><td><p data-style="TableText"><strong>Performance Data</strong></p></td><td><p data-style="TableText">means non-identifiable performance data, insights and metrics arising out of or in connection with the Customer’s use of the Services and/or Platform;</p></td></tr><tr><td><p data-style="TableText"><strong>Platform</strong></p></td><td><p data-style="TableText">means the platform made available by the Supplier as part of the Services listed in the Order Form, or as more particularly described in the Documentation;</p></td></tr><tr><td><p data-style="TableText"><strong>Services</strong></p></td><td><p data-style="TableText">the services, including without limitation any Deliverables, to be provided by the Supplier pursuant to the Agreement, as described in the Order Form; </p></td></tr><tr><td><p data-style="TableText"><strong>Term </strong></p></td><td><p data-style="TableText">means the Initial Subscription Term and the subsequent Renewal Period;</p></td></tr><tr><td><p data-style="TableText"><strong>Third Party Content</strong></p></td><td><p data-style="TableText">means data, information and other intellectual property accessible through or utilised by the Platform to provide Output which is owned or licensed by a third party;</p></td></tr><tr><td><p data-style="TableText"><strong>User Subscriptions</strong></p></td><td><p data-style="TableText">means the user subscriptions purchased by the Customer pursuant to the Order Form which entitle Authorised Users to access and use the Platform and the Documentation in accordance with this Agreement;</p></td></tr><tr><td><p data-style="TableText"><strong>Virus</strong></p></td><td><p data-style="TableText">means any thing or device (including any software, code, file or programme) which may prevent, impair or otherwise adversely affect the operation of any computer software, hardware or network, any telecommunications service, equipment or network or any other service or device; prevent, impair or otherwise adversely affect access to or the operation of any programme or data, including the reliability of any programme or data (whether by re-arranging, altering or erasing the programme or data in whole or part or otherwise); or adversely affect the user experience, including worms, trojan horses, viruses and other similar things or devices; and</p></td></tr><tr><td><p data-style="TableText"><strong>Vulnerability</strong></p></td><td><p data-style="TableText">means a weakness in the computational logic (for example, code) found in software and hardware components that when exploited, results in a negative impact to the confidentiality, integrity, or availability, and the term Vulnerabilities shall be interpreted accordingly.</p></td></tr></table></div>
+<p class="clause lvl1" data-style="Heading2"><span class="num">1.2</span> <strong>Interpretation:</strong></p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">1.2.1</span> A reference to legislation or a legislative provision:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> is a reference to it as amended, extended or re-enacted from time to time; and</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> shall include all subordinate legislation made from time to time under that legislation or legislative provision.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">1.2.2</span> Any words following the terms <strong>including</strong>, <strong>include</strong>, <strong>in particular</strong>, <strong>for example</strong> or any similar expression shall be construed as illustrative and shall not limit the sense of the words, description, definition, phrase or term preceding those terms.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">1.2.3</span> A reference to <strong>writing</strong> or <strong>written</strong> includes email.</p>
+<h2 id="clause-2"><span class="num">2.</span> Commencement and Term</h2>
+<p data-style="BodyText2">The Agreement shall commence on the Effective Date and continue for the Initial Subscription Term and thereafter shall be automatically renewed for successive renewal periods (“<strong>Renewal Period(s)</strong>”), unless:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> terminated earlier in accordance with the provisions of this Agreement; or</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> either party gives to the other not less than 30 days’ written notice to terminate before the end of the Initial Subscription Term or Renewal Period (if applicable), in which case this Agreement shall terminate upon the expiry of the applicable Initial Subscription Term or the Renewal Period.</p>
+<h2 id="clause-3"><span class="num">3.</span> <span class="caps">Platform Use</span></h2>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.1</span> Subject to the Customer’s compliance with the terms of this Agreement, the Supplier grants to the Customer a non-exclusive, non-transferable, revocable licence, without the right to grant sublicences (other than to the Authorised Users), to permit the Authorised Users to use the Platform and the Documentation during the Term for the Customer’s internal business purposes, unless agreed otherwise in writing by the parties.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.2</span> In relation to the Authorised Users, the Customer undertakes that:</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(i)</span> the maximum number of Authorised Users that it authorises to access and use the Platform and/or Documentation shall not exceed the number of User Subscriptions it has purchased;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(ii)</span> it will not allow or suffer any User Subscription to be used by more than one individual Authorised User unless it has been reassigned in its entirety to another individual Authorised User, in which case the prior Authorised User shall no longer have any right to access or use the Platform and/or Documentation;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iii)</span> each Authorised User shall keep a secure password for their use of the Platform and Documentation and that each Authorised User shall keep their password confidential;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iv)</span> it shall maintain a written, up to date list of current Authorised Users and provide such list to the Supplier within 5 Business Days of the Supplier’s written request at any time or times;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(v)</span> it shall permit the Supplier or the Supplier’s designated auditor to audit its use of the Platform in order to establish the name and password of each Authorised User and the Customer’s data processing facilities to audit compliance with this Agreement. Each such audit may be conducted no more than once per quarter, at the Supplier’s expense, and this right shall be exercised with reasonable prior notice, in such a manner as not to substantially interfere with the Customer’s normal conduct of business;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vi)</span> if any of the audits referred to in clause 3.1.2(v) reveal that any password has been provided to any individual who is not an Authorised User, then without prejudice to the Supplier&#x27;s other rights, the Customer shall promptly disable such passwords and the Supplier shall not issue any new passwords to any such individual; and</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vii)</span> if any of the audits referred to in clause 3.1.2(v) reveal that the Customer has underpaid Fees to the Supplier, then without prejudice to the Supplier&#x27;s other rights, the Customer shall pay to the Supplier an amount equal to such underpayment as calculated in accordance with the Fees in the Order Form within 10 Business Days of the date of the relevant audit.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.3</span> The Supplier reserves the right, without liability or prejudice to its other rights to the Customer, to disable the Customer&#x27;s (or its Authorised Users’) access to the Platform at any time if it reasonably suspects that the Customer (or its Authorised Users) are in breach of the provisions of this clause 3. </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.4</span> The Customer shall not (and shall ensure that its Authorised Users shall not) access, store, distribute or transmit any Viruses, or any material during the course of its use of the Platform that:</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(i)</span> is false, unlawful, harmful, threatening, abusive, defamatory, obscene, infringing, threatening, harassing or racially or ethnically offensive;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(ii)</span> conceals or misrepresents their identity or steals someone else&#x27;s identity;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iii)</span> is spam or is otherwise excessive in nature;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iv)</span> facilitates illegal activity;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(v)</span> depicts or promotes sexually explicit images;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vi)</span> promotes unlawful violence or activities which may endanger life or lead to physical harm including suicide threats or instigations, intentional physical trauma, the use of illegal drugs, or excessive drinking;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vii)</span> is discriminatory based on race, gender, colour, religious belief, sexual orientation, disability; or</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(viii)</span> is otherwise illegal or causes damage or injury to any person or property.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.5</span> The Supplier reserves the right, without liability or prejudice to its other rights to the Customer, to disable the Customer&#x27;s access to the Platform and/or its account if: (a) it reasonably suspects the Customer has breached clause 3.1.4; or (b) it has received a complaint from any party in respect of the Customer’s use or misuse of the Platform or content it has uploaded to the Platform.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.6</span> The Customer shall not (and shall ensure that its Authorised Users shall not):  </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(i)</span> except as may be allowed by any applicable law which is incapable of exclusion by agreement between the parties and except to the extent expressly permitted under this Agreement: (A) attempt to copy, modify, duplicate, create derivative works from, frame, mirror, republish, download, display, transmit, or distribute all or any portion of the Platform and/or Documentation (as applicable) in any form or media or by any means; or (B) attempt to de-compile, reverse compile, disassemble, reverse engineer or otherwise reduce to human-perceivable form all or any part of the Platform;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(ii)</span> access all or any part of the Platform or Documentation in order to build a product or service which competes with the Platform and/or the Documentation; or</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iii)</span> use the Platform and/or Documentation to provide services to third parties (other than the Authorised Users); or</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iv)</span> subject to clause 13.2.1, license, sell, rent, lease, transfer, assign, distribute, display, disclose, or otherwise commercially exploit, or otherwise make the Platform or Documentation available to any third party except the Authorised Users; </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(v)</span> manipulate identifiers to disguise or otherwise conceal the origin of messages or of the content posted;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vi)</span> probe, scan or test the vulnerability of the Platform, including the services or any network connected to the Platform; </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(vii)</span> breach or attempt to breach the security or authentication measures on the Platform, including the services or any network connected to it;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(viii)</span> attempt to disrupt or tamper with the technical infrastructure in a manner that harms or places an undue burden on the Platform or the Services;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(ix)</span> attempt to obtain, or assist third parties in obtaining, access to the Platform or Documentation, other than as provided under this clause; </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(x)</span> adopt any automated process to extract, harvest or scrape information, data and/or content from the Platform and/or the Services except where expressly permitted by the Supplier; or</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(xi)</span> introduce or permit the introduction of, any Virus or Vulnerability into the Supplier&#x27;s network and information systems. </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.7</span> The Customer shall use all reasonable endeavours to prevent any unauthorised access to, or use of, the Services and the Documentation and, in the event of any such unauthorised access or use, promptly notify the Supplier.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.8</span> The rights provided under this clause 3 are granted to the Customer only, and shall not be considered granted to any subsidiary or holding company of the Customer.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.9</span> The Customer acknowledges and agrees that it is responsible for the acts and omissions of all persons (including Authorised Users) who access the Services and/or the Documentation under or in connection with this Agreement.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.10</span> Subject to clause 3.1.11, the Supplier shall not use, or permit any other third party to use, Customer Content to train, retrain or otherwise improve any machine learning, deep learning, and other artificial intelligence systems, including any foundation models, large language models and other artificial intelligence tools.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.11</span> The Supplier may use Customer Content to train, retrain or otherwise improve an artificial intelligence model solely for the use or benefit of the Customer, if requested by and agreed with the Customer as set out in the Order Form. </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.12</span> The Supplier may use Performance Data, in an aggregated form, in any manner to develop the Platform and its other service offerings.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.13</span> Use of the Platform and the Services consumes Credits at the rates set out in the Documentation. The Supplier may update the Credit consumption rates from time to time on at least 30 days’ prior written notice to the Customer, provided that no such update shall materially reduce the value of a Credit Allowance for which the Customer has already paid Fees.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.14</span> The Credit Allowance for a Contract Year is available for use during that Contract Year only. Unless otherwise agreed in the Order Form, unused Credits (including purchased top-up Credits) expire at the end of the relevant Contract Year and do not roll over.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.15</span> If the Customer exhausts its Credit Allowance and any purchased top-up Credits before the end of a Contract Year, the Supplier may suspend the Customer’s ability to consume Credit-based Services until the Customer purchases additional Credits at the rates set out in the Order Form. Any such suspension shall not affect the Customer’s payment obligations under the Agreement and shall not constitute a breach of the Agreement by the Supplier.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">3.1.16</span> Credits have no monetary value, are non-refundable and non-transferable, and may be used only to consume the Services. User Subscriptions determine which Authorised Users may access the Platform and the Documentation; Credits determine the volume of the Customer’s use of the Services.</p>
+<h2 id="clause-4"><span class="num">4.</span> Supply of services</h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">4.1</span> The Supplier shall supply the Services to the Customer from the Effective Date in accordance with the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">4.2</span> In supplying the Services, the Supplier shall:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.1</span> perform the Services with reasonable care and skill;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.2</span> use reasonable endeavours to perform the Services in accordance with the service description set out in the Order Form; </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.3</span> ensure that Platform will be provided substantially in accordance with the Documentation;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.4</span> ensure that the Deliverables, and all goods, materials, standards and techniques used in providing the Services are of satisfactory quality and are fit for purpose;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.5</span> use commercially reasonable endeavours to make the Platform available at all times during Business Hours, except for during any maintenance periods. The Supplier shall use reasonable endeavours to give the Customer reasonable notice of maintenance in advance, which shall be at least five (5) Business Days prior notice, but the Customer acknowledges and agrees that the Supplier may perform emergency maintenance and/or bug fixes without notice to the Customer from time to time.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.6</span> as part of the Services, use reasonable endeavours to provide the Customer with the Supplier&#x27;s standard customer support services during Business Hours.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">4.2.7</span> comply with all applicable laws, statutes, regulations from time to time in force; provided that the Supplier shall not be liable under the Agreement if, as a result of such compliance, it is in breach of any of its obligations under the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">4.3</span> The Supplier does not warrant that: (a) the Customer&#x27;s use of the Services will be uninterrupted or error-free; (b) that the Services, Documentation and/or the results obtained by the Customer through the Services will meet the Customer&#x27;s requirements; or (c) that the Platform will be free from Vulnerabilities or Viruses.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">4.4</span> The Supplier is not responsible for any delays, delivery failures, or any other loss or damage resulting from the transfer of data over communications networks and facilities, including the internet, and the Customer acknowledges that the Platform and Documentation may be subject to limitations, delays and other problems inherent in the use of such communications facilities.</p>
+<h2 id="clause-5"><span class="num">5.</span> <span class="caps">Customer&#x27;s obligations</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">5.1</span> The Customer shall: </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.1</span> comply with the instructions of the Supplier and co-operate with the Supplier in all matters relating to the Services;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.2</span> where the parties have agreed that any Services are to be performed at the Customer&#x27;s premises, provide, for the Supplier, its agents, subcontractors, consultants and employees, in a timely manner and at no charge, reasonable access to the Customer&#x27;s premises and office accommodation, and in all cases provide access to such data and other facilities as are reasonably required by the Supplier;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.3</span> provide, in a timely manner, such information as the Supplier may require, including but not limited to the Customer Content, and ensure that it is accurate and complete in all material respects; and </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.4</span> ensure that the Authorised Users use the Platform and the Documentation in accordance with the terms and conditions of this Agreement and shall be responsible for any acts, omissions or breaches of this Agreement by its Authorised Users;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.5</span> without affecting its other obligations under this Agreement, comply with all applicable laws and regulations with respect to its activities under this Agreement;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.6</span> obtain and shall maintain all necessary licences, consents, and permissions necessary for it to perform its obligations under this Agreement;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.7</span> ensure that its network and systems comply with the relevant specifications provided by the Supplier from time to time; and</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.1.8</span> be, to the extent permitted by law and except as otherwise expressly provided in this Agreement, solely responsible for procuring, maintaining and securing its network connections and telecommunications links from its systems to the Supplier’s data centres, and all problems, conditions, delays, delivery failures and all other loss or damage arising from or relating to the Customer’s network connections or telecommunications links or caused by the internet.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">5.2</span> The Customer shall have sole responsibility for the legality, reliability, integrity, accuracy and quality of all Customer Content. Customer confirms to the Supplier that it has all necessary rights, licences, consents and permissions to provide the Customer Content to the Supplier under or in connection with this Agreement. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">5.3</span> If the Supplier&#x27;s performance of its obligations under the Agreement is prevented or delayed by any act or omission of the Customer, its agents, subcontractors, consultants or employees, the Supplier shall: </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.3.1</span> not be liable for any costs, charges or losses sustained or incurred by the Customer that arise directly or indirectly from such prevention or delay;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.3.2</span> be entitled to payment of the Fees despite any such prevention or delay; and</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">5.3.3</span> be entitled to recover any additional costs, charges or losses the Supplier sustains or incurs that arise directly or indirectly from such prevention or delay.</p>
+<h2 id="clause-6"><span class="num">6.</span> <span class="caps">Data protection</span></h2>
+<p data-style="BodyText1">The parties shall comply with their data protection obligations as set out in a Data Processing Agreement. </p>
+<h2 id="clause-7"><span class="num">7.</span> <span class="caps">OUTPUT AND THIRD PARTY CONTENT </span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">7.1</span> The Customer acknowledges that the Platform is designed to facilitate the provision of AI-generated Output using Third Party Content. The Output is intended for informational purposes only and should not be considered definitive. The Customer acknowledges and agrees that: </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(i)</span> the Output relies on Third Party Content over which the Supplier has no control and the Supplier is not responsible for moderating or testing the accuracy of the Output or any Third Party Content which is used to create Output;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(ii)</span> the Customer assumes sole responsibility for its use of the Output and any other results obtained from the use of the Services by the Customer, and for conclusions drawn from such use; </p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iii)</span> the Services do not constitute legal, tax or any other form of professional advice and the Customer shall use its own judgement before acting or relying on the Output;</p>
+<p class="clause lvl4" data-style="Heading5"><span class="num">(iv)</span> the Supplier is not responsible for any business decisions or courses of action taken by the Customer on the basis of information obtained using the Platform. </p>
+<h2 id="clause-8"><span class="num">8.</span> <span class="caps">Intellectual property</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.1</span> Each party (or its licensors as applicable) shall own all right, title and interest (including Intellectual Property Rights) in and to its Background IPR. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.2</span> Unless otherwise stated and subject to Customer’s payment of the Fees, the Supplier hereby assigns (by way of present and, where appropriate, future assignment) all right, title and interest (including Intellectual Property Rights) in the Foreground IPR to the Customer, excluding any Third Party Content incorporated in the Output or the Deliverables. To the extent that any Third Party Content is incorporated in the Output or the Deliverables, the Supplier grants to the Customer, to the extent it is entitled to do so, a non-exclusive licence to use such Third Party Content as part of the Output and the Deliverables for the Customer’s internal business purposes, and the Customer acknowledges that its use of Third Party Content may be subject to the applicable third party’s terms. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.3</span> The Customer grants to the Supplier (or shall procure the granting to the Supplier of) a worldwide, sublicensable, fully paid up, royalty-free, non-exclusive licence to use the Foreground IPR for the duration of the Term solely to the extent necessary for the Supplier to provide the Services, Platform and otherwise perform its obligations under the Agreement.  </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.4</span> The Customer grants to the Supplier (or shall procure the granting to the Supplier of) a worldwide, sublicensable, fully paid up, royalty-free, non-exclusive licence to use, access, store, copy, modify, distribute, transmit and/or publish the Customer’s Background IPR to the extent necessary for the Supplier to provide the Platform and otherwise perform its obligations under the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.5</span> The Supplier grants the Customer, or shall procure the direct grant to the Customer of, a fully paid-up, worldwide, non-exclusive, royalty-free, licence to use the Supplier’s Background IPR for the purpose of receiving and using the Services and the Deliverables in the Customer&#x27;s business during the Term. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.6</span> To the extent that any Supplier Background IPR is integrated into or forms part of the Deliverables and Outputs, the Supplier grants to the Customer a perpetual, irrevocable, worldwide, non-exclusive, royalty-free, transferable licence to use such Supplier Background IPR in the Deliverables and Outputs. For the avoidance of doubt, the licence granted in this clause 8.6 does not permit the Customer to separate, adapt or disassemble the Supplier Background IPR from the Deliverables and Outputs for further commercial use or exploitation. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">8.7</span> The Customer may submit suggestions, ideas or improvements to the Supplier (<strong>Feedback</strong>). In doing so, the Customer hereby assigns (by way of present and, where appropriate, future assignment) all right, title and interest (including Intellectual Property Rights) in the Feedback to the Supplier and agrees that the Supplier may use that Feedback without any restrictions, attribution, limitation or compensation to the Customer. </p>
+<h2 id="clause-9"><span class="num">9.</span> <span class="caps">Fees and payment</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.1</span> In consideration for the provision of the Services, the Customer shall pay the Supplier the Fees in accordance with this clause 9 and the Order Form. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.2</span> All amounts payable by the Customer exclude amounts in respect of value added tax (<strong>VAT</strong>), which the Customer shall additionally be liable to pay to the Supplier at the prevailing rate (if applicable), subject to receipt of a valid VAT invoice. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.3</span> The Supplier shall submit invoices for the Fees plus VAT if applicable to the Customer at the intervals specified in the Order Form. Each invoice shall include all reasonable supporting information required by the Customer.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.4</span> The Customer shall pay each invoice due and submitted to it by the Supplier, within 30 days of receipt, to a bank account nominated in writing by the Supplier.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.5</span> If the Customer fails to make any payment due to the Supplier under the Agreement by the due date for payment, then, without limiting the Supplier&#x27;s remedies under clause 12:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">9.5.1</span> the Customer shall pay interest on the overdue sum from the due date until payment of the overdue sum, whether before or after judgment. Interest under this clause will accrue each day at 4% a year above the Bank of England&#x27;s base rate from time to time, but at 4% a year for any period when that base rate is below 0%.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">9.5.2</span> the Supplier may suspend all Services until payment has been made in full. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.6</span> All amounts due under the Agreement from the Customer to the Supplier shall be paid by in full without any set-off, counterclaim, deduction or withholding (other than any deduction or withholding of tax as required by law).</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">9.7</span> The Supplier shall be entitled to update the Fees from time to time upon at least 30 days&#x27; prior written notice to the Customer, such update to take effect on the date specified in the notice, which shall be no earlier than 30 days after the date of the notice, and the Order Form shall be deemed to have been amended accordingly. If the Customer objects to the change, it must notify the Supplier of its objection within 30 days of receiving the notice of the increase, in which case the update shall not take effect, the then-current Fees shall continue to apply and the Agreement will terminate at the end of the Customer’s Initial Subscription Term or Renewal Period (as applicable).  </p>
+<h2 id="clause-10"><span class="num">10.</span> <span class="caps">Indemnity</span></h2>
+<p data-style="Heading2">The Customer shall defend, indemnify and hold harmless the Supplier against all claims, actions, proceedings, losses, damages, expenses and costs (including without limitation court costs and reasonable legal fees) arising out of or in connection with: (a) the Customer Content; (b) the Customer’s and/or its Authorised Users’ use or misuse of the Services and/or Output; and (c) any act or omission of the Authorised Users on the Platform.</p>
+<h2 id="clause-11"><span class="num">11.</span> <span class="caps">Limitation of liability</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.1</span> References to liability in this clause 11 include every kind of liability arising under or in connection with the Agreement including but not limited to liability in contract, tort (including negligence), misrepresentation, restitution or otherwise. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.2</span> Nothing in this clause 11 shall limit the Customer&#x27;s payment obligations under the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.3</span> Nothing in the agreement shall limit the Customer&#x27;s liability under clause 10 of the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.4</span> Nothing in the Agreement limits any liability which cannot legally be limited, including liability for:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.4.1</span> death or personal injury caused by negligence;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.4.2</span> fraud or fraudulent misrepresentation; and</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.4.3</span> breach of the terms implied by section 2 of the Supply of Goods and Services Act 1982 (title and quiet possession). </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.5</span> Subject to clause 11.4, the Supplier&#x27;s total aggregate liability in each Contract Year whether in contract, tort (including negligence or breach of statutory duty), misrepresentation, restitution or otherwise, arising under or in connection with this Agreement shall be limited to the total Fees paid to the Supplier in that Contract Year.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.6</span> Subject to clause 11.2, neither party shall be liable for the following heads of losses:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.1</span> loss of profits;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.2</span> loss of sales or business;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.3</span> loss of agreements or contracts;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.4</span> loss of anticipated savings;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.5</span> loss of use or corruption of software, data or information;</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.6</span> loss of or damage to goodwill; and</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">11.6.7</span> indirect or consequential loss.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">11.7</span> Unless the Customer notifies the Supplier that it intends to make a claim in respect of an event within the notice period, the Supplier shall have no liability for that event. The notice period for an event shall start on the day on which the Customer became, or ought reasonably to have become, aware of the event having occurred and shall expire 12 months from that date. The notice must be in writing and must identify the event and the grounds for the claim in reasonable detail.</p>
+<h2 id="clause-12"><span class="num">12.</span> <span class="caps">Termination</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">12.1</span> Without affecting any other right or remedy available to it, either party to the Agreement may terminate it with immediate effect by giving written notice to the other party if:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.1.1</span> the other party commits a material breach of any term of the Agreement which breach is irremediable or (if such breach is remediable) fails to remedy that breach within a period of 30 days after being notified in writing to do so; </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.1.2</span> the other party takes any step or action in connection with its entering administration, provisional liquidation or any composition or arrangement with its creditors (other than in relation to a solvent restructuring), applying to court for or obtaining a moratorium under Part A1 of the Insolvency Act 1986, being wound up (whether voluntarily or by order of the court, unless for the purpose of a solvent restructuring), having a receiver appointed to any of its assets or ceasing to carry on business; or</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.1.3</span> the other party&#x27;s financial position deteriorates to such an extent that in the terminating party&#x27;s reasonable opinion the other party&#x27;s capability to adequately fulfil its obligations under the Agreement has been placed in jeopardy.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">12.2</span> Without affecting any other right or remedy available to it, the Supplier may terminate the Agreement with immediate effect by giving written notice to the Customer if:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.2.1</span> the Customer fails to pay any amount due under the Agreement on the due date for payment; or</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.2.2</span> there is a change of control of the Customer.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">12.3</span> On termination of the Agreement for whatever reason:</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.1</span> except where otherwise specified, all licences granted under this Agreement shall immediately terminate and the Customer shall immediately cease all use of the Services and the Documentation; </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.2</span> each party shall return and make no further use of any equipment, property, documentation and other items (and all copies of them) belonging to the other party, including Customer Content, and at the written direction of the Customer, the Supplier shall destroy and/or delete Customer Content; </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.3</span> without prejudice to the Supplier’s obligations under clause 6 the Supplier may destroy or otherwise dispose of any of the Customer Content in its possession; and </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.4</span> the Customer shall immediately pay to the Supplier all of the Supplier&#x27;s outstanding unpaid invoices and interest and, in respect of Services supplied but for which no invoice has been submitted, the Supplier may submit an invoice, which shall be payable immediately on receipt; </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.5</span> any provision of the Agreement that expressly or by implication is intended to come into or continue in force on or after termination of the Agreement shall remain in full force and effect; and</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">12.3.6</span> termination of the Agreement shall not affect any of the rights, remedies, obligations or liabilities of the parties that have accrued up to the date of termination, including the right to claim damages in respect of any breach of the Agreement which existed at or before the date of termination.</p>
+<h2 id="clause-13"><span class="num">13.</span> <span class="caps">General</span></h2>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.1</span> <strong>Force majeure</strong> </p>
+<p data-style="BodyText2">Neither party shall be in breach of the Agreement nor liable for delay in performing, or failure to perform, any of its obligations under the Agreement if such delay or failure result from events, circumstances or causes beyond its reasonable control. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.2</span> <strong>Assignment and other dealings</strong></p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.2.1</span> The Customer shall not assign, transfer, charge, subcontract, declare a trust over or deal in any other manner with any or all of its rights and obligations under the Agreement without the Supplier&#x27;s prior written consent. </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.2.2</span> The Supplier may at any time assign, transfer, charge, subcontract, declare a trust over or deal in any other manner with any or all of its rights under the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.3</span> <strong>Confidentiality</strong></p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.1</span> Each party undertakes that it shall not at any time disclose to any person any confidential information including:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> concerning the business, affairs, customers, clients or suppliers of the other party or of any member of the group to which the other party belongs, except as permitted by clause 13.3; and</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> any information developed by the parties in the course of carrying out this Agreement and the parties agree that details of the Platform, the Documentation, the Services and the results of any performance tests in relation to the Platform, shall constitute the Supplier’s Confidential Information.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.2</span> For the purposes of this clause 13.3, group means, in relation to a party, that party, any subsidiary or holding company from time to time of that party, and any subsidiary from time to time of a holding company of that party.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.3</span> Each party may disclose the other party&#x27;s confidential information:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> to its employees, officers, representatives, contractors, subcontractors or advisers who need to know such information for the purposes of carrying out the party&#x27;s obligations under the Agreement. Each party shall ensure that its employees, officers, representatives, contractors, subcontractors or advisers to whom it discloses the other party&#x27;s confidential information comply with this clause 13.3; and</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> as may be required by law, a court of competent jurisdiction or any governmental or regulatory authority.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.4</span> Neither party shall use any other party&#x27;s confidential information for any purpose other than to perform its obligations under the Agreement.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.5</span> On termination or expiry of this Agreement, subject to clause 6, each party shall:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> destroy or if requested to do so return to the other party all documents and materials (and any copies) containing, reflecting, incorporating or based on the other party&#x27;s Confidential Information;</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> erase all the other party&#x27;s Confidential Information from computer and communications systems and devices used by it, including such systems and data storage services provided by third parties (to the extent technically and legally practicable); and </p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(c)</span> if requested to do so, certify in writing to the other party that it has complied with the requirements of this clause, provided that a recipient party may retain documents and materials containing, reflecting, incorporating or based on the other party&#x27;s Confidential Information to the extent required by law or any applicable governmental or regulatory authority. </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.3.6</span> The provisions of this clause 13.3 shall continue to apply after termination or expiry of this Agreement. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.4</span> <strong>Entire agreement</strong> </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.4.1</span> The Agreement constitutes the entire agreement between the parties and supersedes and extinguishes all previous agreements, promises, assurances, warranties, representations and understandings between them, whether written or oral, relating to its subject matter.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.4.2</span> Each party acknowledges that in entering into the Agreement it does not rely on and shall have no remedies in respect of any statement, representation, assurance or warranty (whether made innocently or negligently) that is not set out in the Agreement. Each party agrees that it shall have no claim for innocent or negligent misrepresentation or negligent misstatement based on any statement in the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.5</span> <strong>Variation</strong> </p>
+<p data-style="BodyText2">No variation of the Agreement shall be effective unless it is in writing and signed by the parties (or their authorised representatives). </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.6</span> <strong>Waiver</strong> </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.6.1</span> A waiver of any right or remedy under the Agreement or by law is only effective if given in writing and shall not be deemed a waiver of any subsequent right or remedy.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.6.2</span> A failure or delay by a party to exercise any right or remedy provided under the Agreement or by law shall not constitute a waiver of that or any other right or remedy, nor shall it prevent or restrict any further exercise of that or any other right or remedy. No single or partial exercise of any right or remedy provided under the Agreement or by law shall prevent or restrict the further exercise of that or any other right or remedy.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.7</span> <strong>Severance</strong> </p>
+<p data-style="BodyText2">If any provision or part-provision of the Agreement is or becomes invalid, illegal or unenforceable, it shall be deemed modified to the minimum extent necessary to make it valid, legal and enforceable. If such modification is not possible, the relevant provision or part-provision shall be deemed deleted. Any modification to or deletion of a provision or part-provision under this clause 13.7 shall not affect the validity and enforceability of the rest of the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.8</span> <strong>Notices</strong></p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.8.1</span> Any notice given to a party under or in connection with the Agreement shall be in writing and shall be:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> delivered by hand or by pre-paid first-class post or other next working day delivery service at its registered office (if a company) or its principal place of business (in any other case); or </p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> sent by email to:</p>
+<p class="clause lvl5" data-style="Heading6"><span class="num">(i)</span> Supplier: beth@satorusgroup.com</p>
+<p class="clause lvl5" data-style="Heading6"><span class="num">(ii)</span> Customer: the email address of the Customer’s contact set out in the Order Form, or such other address as the Customer notifies to the Supplier in writing </p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.8.2</span> Any notice shall be deemed to have been received:</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(a)</span> if delivered by hand, at the time the notice is left at the proper address;</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(b)</span> if sent by pre-paid first-class post or other next working day delivery service, at 9.00 am on the second Business Day after posting; or</p>
+<p class="clause lvl3" data-style="Heading4"><span class="num">(c)</span> if sent by email, at the time of transmission, or, if this time falls outside business hours in the place of receipt, when business hours resume. In this clause 13.8.2(c), business hours means 9.00am to 5.00pm Monday to Friday on a day that is not a public holiday in the place of receipt.</p>
+<p class="clause lvl2" data-style="Heading3"><span class="num">13.8.3</span> This clause 13.8 does not apply to the service of any proceedings or other documents in any legal action or, where applicable, any arbitration or other method of dispute resolution. </p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.9</span> <strong>Third party rights </strong></p>
+<p data-style="BodyText2">The Agreement does not give rise to any rights under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of the Agreement.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.10</span> <strong>Governing law</strong> </p>
+<p data-style="BodyText2">The Agreement, and any dispute or claim (including non-contractual disputes or claims) arising out of or in connection with it or its subject matter or formation, shall be governed by, and construed in accordance with the law of England and Wales.</p>
+<p class="clause lvl1" data-style="Heading2"><span class="num">13.11</span> <strong>Jurisdiction</strong> </p>
+<p data-style="BodyText2">Each party irrevocably agrees that the courts of England and Wales shall have exclusive jurisdiction to settle any dispute or claim (including non-contractual disputes or claims) arising out of or in connection with the Agreement or its subject matter or formation.</p>
+</article>
+</main>
+<div class="vh-in"><div></div><div><h2 id="version-history">Version history</h2><table><tr class="cur"><td>Version 1.0</td><td>effective 20 July 2026</td><td>current</td><td><a href="/legal/msa/v1-0">permanent link</a></td></tr></table></div></div>
+<footer class="foot"><div class="foot-in"><div>© 2026 Satorus Group Ltd · London</div><div><a href="/legal">Legal index</a></div></div></footer>
+<script>(function(){var t=document.querySelector('.toc');if(t&&matchMedia('(min-width:921px)').matches)t.setAttribute('open','');})();</script>
+</body>
+</html>

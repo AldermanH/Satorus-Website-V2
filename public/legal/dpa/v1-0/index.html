@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Satorus Data Processing Agreement</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="The Satorus Data Processing Agreement for the Sidney platform, containing the Article 28(3) mandatory clauses, Annex A processing particulars and Annex B international transfer terms. Incorporated by reference into signed Order Forms."/>
+<link rel="canonical" href="https://satorusgroup.com/legal/dpa"/>
+<meta name="theme-color" content="#0e1014"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Satorus Data Processing Agreement"/>
+<meta property="og:description" content="The Satorus Data Processing Agreement for the Sidney platform, containing the Article 28(3) mandatory clauses, Annex A processing particulars and Annex B international transfer terms. Incorporated by reference into signed Order Forms."/>
+<link rel="icon" type="image/svg+xml" href="/assets/satorus-icon-cyan.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"/>
+<style>
+:root{
+  --bg:hsl(234,8%,6%);--bg-deep:hsl(240,14%,4.5%);--surface:hsl(235,14%,9%);
+  --elevated:hsl(232,10%,12%);--fg:hsl(0,0%,92%);--fg-muted:hsl(220,10%,58%);
+  --fg-subtle:hsla(0,0%,95%,.58);--accent:hsl(187,72%,48%);
+  --accent-soft:hsl(187,55%,62%);--accent-10:hsla(187,72%,48%,.1);
+  --border:hsl(232,10%,15%);--border-strong:hsl(232,10%,20%);
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --display:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+a{color:var(--accent-soft);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.caps{text-transform:uppercase}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--border);background:var(--bg-deep)}
+.bar-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;
+  align-items:baseline;gap:14px}
+.mark{font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:.14em;color:var(--fg)}
+.mark:hover{text-decoration:none;color:var(--accent-soft)}
+.crumb{font-size:12.5px;color:var(--fg-muted)}
+.crumb a{color:var(--fg-muted)}
+
+/* layout */
+.shell{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;
+  justify-content:center}
+@media(max-width:920px){.shell{display:block;padding-top:24px}}
+
+/* toc */
+.side{font-size:13px}
+.toc{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
+  padding-right:8px}
+.toc summary{cursor:pointer;font-family:var(--display);font-weight:600;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fg-subtle);list-style:none;padding:8px 0}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▸";margin-left:6px;color:var(--fg-subtle)}
+.toc[open] summary::after{content:"▾"}
+.toc ol{list-style:none;border-left:1px solid var(--border);margin-top:4px}
+.toc ol ol{border-left:none;margin:0 0 2px 14px}
+.toc li a{display:block;padding:4px 0 4px 14px;color:var(--fg-muted);
+  line-height:1.45;border-left:2px solid transparent;margin-left:-1.5px}
+.toc ol ol li a{padding-left:10px;font-size:12.5px;color:var(--fg-subtle)}
+.toc li a:hover{color:var(--fg);text-decoration:none;
+  border-left-color:var(--accent)}
+.toc .num{color:var(--accent-soft);font-family:var(--mono);font-size:11px}
+@media(max-width:920px){
+  .toc{position:static;max-height:none;border:1px solid var(--border);
+    border-radius:8px;background:var(--surface);padding:4px 16px;
+    margin-bottom:28px}
+}
+
+/* document header */
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:14px}
+article h1{font-family:var(--display);font-weight:600;font-size:27px;
+  line-height:1.2;letter-spacing:-.015em;margin:0 0 18px}
+.version-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+  border:1px solid var(--border);border-left:2px solid var(--accent);
+  border-radius:8px;background:var(--surface);padding:12px 16px;
+  margin-bottom:8px}
+.version-line{font-family:var(--mono);font-size:13px;color:var(--fg)}
+.version-note{font-size:12.5px;color:var(--fg-muted)}
+.version-banner .dl{margin-left:auto;font-size:12.5px;white-space:nowrap}
+.intro-gap{height:26px}
+
+/* document body */
+article{min-width:0}
+article p{margin:0 0 1.05em}
+article h2{font-family:var(--display);font-weight:600;font-size:19.5px;
+  line-height:1.3;letter-spacing:-.01em;margin:2.6em 0 1em;
+  padding-top:1.6em;border-top:1px solid var(--border)}
+article h3{font-family:var(--display);font-weight:600;font-size:16px;
+  margin:2em 0 .9em}
+article h4{font-family:var(--sans);font-weight:600;font-size:15px;
+  margin:1.8em 0 .8em}
+article h2 .num,article h3 .num{color:var(--accent-soft)}
+.num{font-family:var(--mono);font-size:.85em;font-weight:500;
+  color:var(--accent-soft);letter-spacing:0}
+p.clause{margin-bottom:1.05em}
+p.lvl2{margin-left:1.5rem}
+p.lvl3{margin-left:3rem}
+p.lvl4{margin-left:4.25rem}
+p.lvl5{margin-left:5.25rem}
+@media(max-width:560px){
+  p.lvl2{margin-left:.9rem}p.lvl3{margin-left:1.8rem}
+  p.lvl4{margin-left:2.6rem}p.lvl5{margin-left:3.2rem}
+}
+p.statement{font-weight:600;margin:1.6em 0}
+article ul{margin:0 0 1.05em;padding-left:1.4em}
+article li{margin-bottom:.35em}
+article li::marker{color:var(--fg-subtle)}
+article strong{font-weight:600;color:hsl(0,0%,97%)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;
+  margin:0 0 1.4em;background:var(--surface)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;
+  line-height:1.55}
+.table-wrap td{padding:10px 14px;border-top:1px solid var(--border);
+  vertical-align:top;min-width:9rem}
+.table-wrap tr:first-child td{border-top:none}
+.table-wrap td p{margin:0 0 .5em}
+.table-wrap td p:last-child{margin-bottom:0}
+.table-headed tr:first-child td{background:var(--elevated);
+  font-family:var(--display);font-size:12px;letter-spacing:.02em;
+  white-space:nowrap}
+.dfn-table td:first-child{min-width:11rem;width:11rem}
+
+/* version history + footer */
+.vh{max-width:46rem;margin:0 auto;padding:0 24px 40px}
+@media(min-width:921px){.vh{margin-left:calc((1080px - 236px - 46rem - 56px)/2 + 236px + 56px + ((100vw - 1080px)/2));margin-left:0}}
+.vh-in{max-width:1080px;margin:0 auto;padding:28px 24px 56px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;justify-content:center}
+@media(max-width:920px){.vh-in{display:block}}
+.vh h2{font-family:var(--display);font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:12px}
+.vh table{border-collapse:collapse;font-size:13px}
+.vh td{padding:6px 22px 6px 0;color:var(--fg-muted)}
+.vh .cur{color:var(--fg)}
+footer.foot{border-top:1px solid var(--border);background:var(--bg-deep)}
+.foot-in{max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;
+  flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  font-size:12.5px;color:var(--fg-muted)}
+.foot-in a{color:var(--fg-muted)}
+
+/* index page */
+.docs{list-style:none;display:grid;gap:16px;margin-top:30px}
+.doc-card{border:1px solid var(--border);border-radius:10px;
+  background:var(--surface);padding:20px 22px}
+.doc-card h2{font-family:var(--display);font-weight:600;font-size:17px;
+  margin:0 0 4px}
+.doc-card h2 a{color:var(--fg)}
+.doc-card h2 a:hover{color:var(--accent-soft);text-decoration:none}
+.doc-meta{font-family:var(--mono);font-size:12px;color:var(--fg-muted);
+  margin-bottom:10px}
+.doc-desc{font-size:14px;color:var(--fg-muted);line-height:1.6;margin:0 0 12px}
+.doc-links{font-size:13px;display:flex;flex-wrap:wrap;gap:16px}
+.index-shell{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+.index-shell h1{font-family:var(--display);font-weight:600;font-size:26px;
+  margin-bottom:10px}
+.index-lede{color:var(--fg-muted);font-size:14.5px;max-width:56ch}
+
+/* print */
+@media print{
+  :root{--bg:#fff;--bg-deep:#fff;--surface:#fff;--elevated:#f4f4f4;
+    --fg:#000;--fg-muted:#333;--fg-subtle:#555;--accent:#000;
+    --accent-soft:#000;--border:#bbb;--border-strong:#999}
+  @page{margin:18mm 16mm}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.55}
+  .bar,.side,.version-banner .dl,.version-note,.vh-in,footer.foot{display:none!important}
+  .shell{display:block;max-width:100%;padding:0}
+  article{max-width:100%}
+  a{color:#000;text-decoration:none}
+  article strong{color:#000}
+  article h1{font-size:17pt}
+  article h2{font-size:13pt;break-after:avoid;border-top-color:#ccc}
+  article h3,article h4{break-after:avoid}
+  .version-banner{border:1px solid #999;border-left:3px solid #000;
+    background:#fff}
+  p.clause{orphans:3;widows:3}
+  .table-wrap{overflow:visible;border-color:#999;break-inside:auto}
+  .table-wrap td{border:1px solid #bbb}
+  tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in"><a class="mark" href="/">SATORUS</a><span class="crumb"><a href="/legal">Legal</a></span></div></div>
+<main class="shell">
+<div class="side">
+<details class="toc"><summary>Contents</summary><ol><li><a href="#clause-1"><span class="num">1.</span> PARTIES</a></li><li><a href="#clause-2"><span class="num">2.</span> BACKGROUND</a></li><li><a href="#agreed-terms">AGREED TERMS</a></li><li><a href="#clause-3"><span class="num">3.</span> DEFINITIONS</a></li><li><a href="#clause-4"><span class="num">4.</span> CONTROLLERS AND PROCESSORS</a></li><li><a href="#clause-5"><span class="num">5.</span> PROCESSING TERMS</a></li><li><a href="#clause-6"><span class="num">6.</span> INTERNATIONAL DATA TRANSFERS</a></li><li><a href="#clause-7"><span class="num">7.</span> SUB-PROCESSORS</a></li><li><a href="#clause-8"><span class="num">8.</span> LIMITATIONS ON LIABILITY</a></li><li><a href="#clause-9"><span class="num">9.</span> NOTICE</a></li><li><a href="#clause-10"><span class="num">10.</span> Term and termination</a></li><li><a href="#clause-11"><span class="num">11.</span> FORCE MAJEURE</a></li><li><a href="#clause-12"><span class="num">12.</span> VARIATION</a></li><li><a href="#clause-13"><span class="num">13.</span> WAIVER</a></li><li><a href="#clause-14"><span class="num">14.</span> RIGHTS AND REMEDIES</a></li><li><a href="#clause-15"><span class="num">15.</span> SEVERANCE</a></li><li><a href="#clause-16"><span class="num">16.</span> ENTIRE AGREEMENT</a></li><li><a href="#clause-17"><span class="num">17.</span> ASSIGNMENT</a></li><li><a href="#clause-18"><span class="num">18.</span> NO PARTNERSHIP OR AGENCY</a></li><li><a href="#clause-19"><span class="num">19.</span> THIRD PARTY RIGHTS</a></li><li><a href="#clause-20"><span class="num">20.</span> COUNTERPARTS</a></li><li><a href="#clause-21"><span class="num">21.</span> GOVERNING LAW</a></li><li><a href="#clause-22"><span class="num">22.</span> JURISDICTION</a></li><li><a href="#annex-a"><span class="num">ANNEX A</span> PARTICULARS OF THE PROCESSING</a><ol><li><a href="#annex-a-part-1"><span class="num">Part 1</span> Scope, Nature and Purpose of the Processing</a></li><li><a href="#annex-a-part-2"><span class="num">Part 2</span> Duration of the Processing</a></li><li><a href="#annex-a-part-3"><span class="num">Part 3</span> Types of Shared Personal Data</a></li><li><a href="#annex-a-part-4"><span class="num">Part 4</span> Categories of Data Subjects</a></li><li><a href="#annex-a-part-5"><span class="num">Part 5</span> Sub-Processors - where applicable to the Shared Personal Data Processed for the purposes of the Services</a></li><li><a href="#annex-a-part-6"><span class="num">Part 6</span> Other organisations who assist Satorus e.g. as data controllers (“Other Organisations”)</a></li><li><a href="#annex-a-part-7"><span class="num">Part 7</span> Group Companies - where applicable to the Shared Personal Data Processed for the purposes of the Services</a></li></ol></li><li><a href="#annex-b"><span class="num">ANNEX B</span> INTERNATIONAL SHARED PERSONAL DATA TRANSFERS</a><ol><li><a href="#annex-b-part-1"><span class="num">Part 1</span> EU STANDARD CONTRACTUAL CLAUSES (EU)</a></li></ol></li><li><a href="#clause-1-2"><span class="num">1.</span> To the extent a transfer mechanism under Article 46  of the EU GDPR is required to transfer the Shared Personal Data from the Customer to Satorus, the terms of the EU Standard Contractual Clauses set out in the Annex of Commission Implementing Decision (EU) 2021/914 of 4 June 2021 (the “EU SCCs”) are incorporated by reference and deemed signed upon the parties’ execution of the Order Form.</a></li><li><a href="#clause-2-2"><span class="num">2.</span> The EU SCCs are completed as set out below:</a><ol><li><a href="#annex-b-part-2"><span class="num">Part 2</span> UK ADDENDUM TO THE EU STANDARD CONTRACTUAL CLAUSES (EU and UK together with Part 1 of ANNEX B)</a></li></ol></li><li><a href="#clause-1-3"><span class="num">1.</span> To the extent a transfer mechanism under Article 46 of the UK GDPR is required under the UK GDPR and the EU GDPR to transfer the Shared Personal Data from the Customer to Satorus, the UK Addendum to the EU Standard Contractual Clauses form part of this DPA and takes precedence over the rest of this DPA for such transfer to the extent of any conflict and it will be deemed completed as follows:</a><ol><li><a href="#annex-b-part-3"><span class="num">Part 3</span> UK INTERNATIONAL DATA TRANSFER AGREEMENT (UK ONLY – NO EU)</a></li></ol></li><li><a href="#clause-1-4"><span class="num">1.</span> To the extent only the UK GDPR applies and a transfer mechanism under Article 46 of the UK GDPR is required to transfer the Shared Personal Data from the Customer to Satorus, the UK International Data Transfer Agreement (&quot;IDTA) forms part of this DPA and takes precedence over the rest of this DPA for such transfer to the extent of any conflict and will be deemed completed as follows:</a></li></ol></details>
+</div>
+<article>
+<div class="eyebrow" data-chrome="1">Legal · Contractual document</div>
+<h1><strong>DATA PROCESSING AGREEMENT</strong></h1>
+<div class="version-banner">
+<span class="version-line">Version 1.0 – effective 20 July 2026</span>
+<span class="version-note" data-chrome="1">This is the version currently in force.</span>
+<a class="dl" data-chrome="1" href="/legal/pdf/satorus-dpa-v1-0.pdf">Download PDF</a>
+</div>
+<div class="intro-gap"></div>
+<h2 id="clause-1"><span class="num">1.</span> PARTIES</h2>
+<p class="clause lvl1" data-style="2ndclause"><span class="num">1.1</span> The customer identified in the Order Form (“<strong>Customer</strong>”)</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.2</span> <strong>SATORUS GROUP LIMITED</strong> incorporated and registered in England and Wales with company number 16479677 whose registered office is at 59 Whitelands Crescent, London, England, SW18 5QY (“<strong>Satorus</strong>”)</p>
+<h2 id="clause-2"><span class="num">2.</span> BACKGROUND</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.1</span> The Customer and Satorus have entered into an Agreement, formed by the Customer’s and Satorus’ execution of an order form (the “Order Form”) which incorporates by reference the Satorus Master Services Agreement (“<strong>Master Services Agreement</strong>”) and this DPA, and which may require Satorus to process Personal Data on behalf of the Customer. This DPA is agreed by the Customer, and is deemed executed by both parties, upon signature of the Order Form; no separate signature of this DPA is required. This DPA takes effect on the Effective Date set out in the Order Form, and the version of this DPA in force on the Effective Date applies for the Term unless varied in accordance with the Agreement.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.2</span> This Data Processing Agreement (“<strong>DPA</strong>”) sets out the additional terms, requirements and conditions on which the parties will process and share Personal Data during the Services under the Master Services Agreement. This DPA contains the mandatory clauses required by Article 28(3) of the UK General Data Protection Regulation and the General Data Protection Regulation ((EU) 2016/679) for contracts between controllers and processors.</p>
+<h2 id="agreed-terms">AGREED TERMS</h2>
+<h2 id="clause-3"><span class="num">3.</span> DEFINITIONS</h2>
+<p data-style="NoNumTitle-Clause">For the purposes of this DPA, the following definitions shall apply: </p>
+<p data-style="DefinedTermPara"><strong>Applicable Laws</strong>: means:</p>
+<p class="clause lvl1" data-style="DefinedTermNumber"><span class="num">a)</span> To the extent the UK GDPR applies, the law of the United Kingdom or of a part of the United Kingdom.</p>
+<p class="clause lvl1" data-style="DefinedTermNumber"><span class="num">b)</span> To the extent the EU GDPR applies, the law of the European Union or any member state of the European Union to which Satorus is subject.</p>
+<p data-style="DefinedTermPara"><strong>Applicable Data Protection Laws</strong>: means:</p>
+<p class="clause lvl1" data-style="DefinedTermNumber"><span class="num">a)</span> To the extent the UK GDPR applies, the law of the United Kingdom or of a part of the United Kingdom which relates to the protection of Personal Data. </p>
+<p class="clause lvl1" data-style="DefinedTermNumber"><span class="num">b)</span> To the extent the EU GDPR applies, the law of the European Union or any member state of the European Union to which Satorus is subject, which relates to the protection of Personal Data.</p>
+<p data-style="DefinedTermPara"><strong>Business Day</strong>:  a day, other than a Saturday, Sunday or public holiday in England, when banks in London are open for business.</p>
+<p data-style="DefinedTermPara"><strong>Business Hours</strong>:  the period from 9.00 am to 5.00 pm on a Business Day.</p>
+<p data-style="DefinedTermPara"><strong>Services</strong>: means the services provided by Satorus via the Sidney platform (“<strong>Platform</strong>”) under the Master Services Agreement.</p>
+<p data-style="DefinedTermPara"><strong>Shared Personal Data</strong>: any Personal Data which the Customer transfers to Satorus; any Personal Data which Satorus Processes in connection with the Master Services Agreement; and as set out in ANNEX A.</p>
+<p data-style="DefinedTermPara"><strong>Term: </strong>this DPA&#x27;s term as defined in Clause 10. </p>
+<p data-style="DefinedTermPara"><strong>EU GDPR</strong>: the General Data Protection Regulation (<em>(EU) 2016/679</em>).</p>
+<p data-style="Untitledsubclause1"><strong>UK GDPR</strong>: has the meaning given to it in section 3(10) (as supplemented by section 205(4)) of the Data Protection Act 2018. </p>
+<p data-style="Untitledsubclause1">For the purposes of this DPA, the terms<strong>, Controller</strong>, <strong>Data Subject</strong>, <strong>Personal Data</strong>, <strong>Personal Data Breach, Processor </strong>and  <strong>Processing,</strong> shall have the meaning given to them in Applicable Data Protection Laws, <strong>Commissioner</strong> shall have the meaning given to it in the UK GDPR and <strong>Supervisory Authority</strong> shall have the meaning given to it in the EU GDPR. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">3.1</span> This DPA is subject to the terms of the Master Services Agreement and is incorporated into the Master Services Agreement. Interpretations and defined terms set forth in the Master Services Agreement apply to the interpretation of this DPA.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">3.2</span> The Annexes form part of this DPA and will have effect as if set out in full in the body of this DPA. Any reference to this DPA includes the Annexes.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">3.3</span> A reference to writing or written excludes fax but not email.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">3.4</span> In the case of conflict or ambiguity between:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> any provision contained in the body of this DPA and any provision contained in the Annexes (excluding ANNEX B), the provision in the body of this DPA will prevail;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> the terms of any accompanying invoice or other documents annexed to this DPA and any provision contained in the Annexes, the provision contained in the Annexes will prevail;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> any of the provisions of this DPA and the provisions of the Master Services Agreement, the provisions of this DPA will prevail; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> any of the provisions of this DPA (or any other provision contained in the Annexes or any of the documents referred to in (b) and (c) above) and any ANNEX B, the provisions of the ANNEX B will prevail.</p>
+<h2 id="clause-4"><span class="num">4.</span> CONTROLLERS AND PROCESSORS </h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">4.1</span> Both parties will comply with all applicable requirements of Applicable Data Protection Laws. This DPA is in addition to, and does not relieve, remove or replace, a party&#x27;s obligations or rights under Applicable Data Protection Laws. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">4.2</span> The parties have determined that, for the purposes of Applicable Data Protection Laws, Satorus shall process the Shared Personal Data, as a Processor on behalf of the Customer and the Customer shall act as a Controller in respect of the Services.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">4.3</span> Should the determination in paragraph 4.2 change, then each party shall work together in good faith to make any changes which are necessary to this DPA.</p>
+<h2 id="clause-5"><span class="num">5.</span> PROCESSING TERMS </h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">5.1</span> In relation to the Shared Personal Data, ANNEX A sets out the scope, nature and purpose of Processing by Satorus, the duration of the Processing and the types of Shared Personal Data and categories of Data Subject.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">5.2</span> Without prejudice to the generality of paragraph 4.1 Satorus shall, in relation to Shared Personal Data Processed for the purposes of Services:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> process that Shared Personal Data only on the documented instructions of the Customer, set out in ANNEX A, unless Satorus is required by Applicable Laws to otherwise process that Shared Personal Data. Where Satorus is relying on Applicable Laws as the basis for processing Shared Personal Data, Satorus shall promptly notify the Customer of this unless those Applicable Laws prohibit Satorus from so notifying the Customer on important grounds of public interest. Satorus shall immediately inform the Customer if, in the opinion of Satorus, the instructions of the Customer infringe Applicable Data Protection Laws;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> implement appropriate technical and organisational measures to protect against unauthorised or unlawful processing of Shared Personal Data and against its accidental loss, damage or destruction, including inter alia as appropriate:</p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(i)</span>  the pseudonymisation and encryption of Shared Personal Data; </p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(ii)</span> the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and  Services;</p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(iii)</span> the ability to restore the availability and access to Shared Personal Data in a timely manner in the event of a physical or technical incident; and</p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(iv)</span> a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures for ensuring the security of the processing.</p>
+<p data-style="Parasubclause2">In assessing the appropriate level of security Satorus shall take into account in particular of the risks that are presented by the processing, in particular from accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to Shared Personal Data transmitted, stored or otherwise processed.</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> ensure, and procure, that any personnel engaged and authorised by Satorus to process Shared Personal Data are subject to appropriate obligations of confidentiality; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> subject to clause 5.3(f), where the Customer is unable to use the Platform, taking into account the nature of processing and the information available to Satorus, to assist the Customer, at the Customer’s own expense, in responding to requests from a Data Subject under Applicable Data Protection Laws and in ensuring compliance with the Customer&#x27;s obligations under Applicable Data Protection Laws with respect to security, Personal Data Breach notifications, data protection impact assessments and consultations with the Commissioner, Supervisory Authorities or other regulators and, in particular, Satorus shall promptly notify the Customer if it receives any complaint, notice or communication (whether from the Commissioner, any Data Subject, Supervisory Authority or other third party) which relates to processing of Shared Personal Data;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(e)</span> notify the Customer without undue delay on becoming aware of a Personal Data Breach; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(f)</span> at the written direction of the Customer, delete or return to the Customer all Shared Personal Data on termination or expiry of this DPA, and certify to the Customer in writing it has done so, unless Satorus is required by Applicable Law to continue to process that Shared Personal Data, in which case Satorus shall promptly notify the Customer, in writing, of what that Applicable Law is and shall only be permitted to process that Shared Personal Data for the specific purpose so-notified, and all other requirements set out in this DPA shall continue to apply to such Shared Personal Data notwithstanding the termination or expiry of this DPA for as long as such Shared Personal Data is processed by Satorus; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(g)</span> on the Customer&#x27;s request, makes available such information to demonstrate compliance with the obligations in this DPA as the Customer may reasonably request with 3 months’ written notice, and allow for one audit per calendar year at the Customer’s own costs, including inspections, by the Customer or the Customer&#x27;s designated auditor, to demonstrate its compliance with Applicable Data Protection Laws and this paragraph 5. The Customer and the Customer’s designated auditor shall enter into a confidentiality agreement prior to the audit commencing and shall make all of the relevant audit reports available to Satorus for review.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">5.3</span> In relation to the Shared Personal Data, the Customer shall:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> comply with all obligations and requirements to which they are subject as a Controller under the Applicable Data Protection Laws;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> ensure it has a lawful basis under the Applicable Data Protection Laws for the use of the Services and the collecting, Processing and sharing of Shared Personal Data with Satorus for the purposes of the Services and as set out in this DPA; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> ensure it has carried all required assessments including but not limited to data protection impact assessments, legitimate interests assessments and appropriate policy documents as required under Applicable Data Protection Laws for the use of the Services and the collecting, Processing and sharing of Shared Personal Data with Satorus for the purposes of the Services and as set out in this DPA; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> where the Shared Personal Data includes special categories of personal data or personal data relating to criminal convictions and offences, ensure that a condition for Processing under Article 9 and/or Article 10 of the UK GDPR (or the equivalent provisions of the EU GDPR) and, where required, Schedule 1 to the Data Protection Act 2018 is satisfied in respect of that Processing, and maintain any appropriate policy document required in connection with that condition;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(e)</span> in respect of any Personal Data which the Customer itself provides or transfers to Satorus, ensure it has all necessary and appropriate valid consents and notices, or another valid lawful basis, under Applicable Data Protection Laws to enable the lawful transfer of such Personal Data to Satorus for the duration of and purposes of the Services and as set out in this DPA; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(f)</span> provide clear and sufficient information to Data Subjects, in accordance with the Applicable Data Protection Laws, including but not limited to, the purposes for which it will process their Personal Data, the legal basis for such purposes, the sharing of Shared Personal Data with recipients and such other information as is required by Applicable Data Protection Laws, save to the extent that an exemption from such transparency obligations applies under Applicable Data Protection Laws (including where the provision of such information to the Data Subject proves impossible or would involve a disproportionate effort, or would be likely to render impossible or seriously impair the achievement of the objectives of the Processing), in which case the Customer shall document its reliance on that exemption and take appropriate measures to protect the Data Subject’s rights, freedoms and legitimate interests;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(g)</span> that taking into account the nature of processing and the information available to Satorus, the Customer shall use the Platform to assist itself in relation to responding to requests from a Data Subject under Applicable Data Protection Laws and in ensuring compliance with the Customer&#x27;s obligations under Applicable Data Protection Laws with respect to security, Personal Data Breach notifications, data protection impact assessments and consultations with the Commissioner, Supervisory Authorities or other regulators; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(h)</span>  ensure that meaningful human review and intervention is applied to any decisions or actions taken based on the outputs of the Platform; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(i)</span> maintain policies and procedures to ensure that decisions involving legal, financial, reputational, or other significant impacts on individuals or organisations are subject to meaningful human oversight and review;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(j)</span> provide such assistance as is reasonably required to enable Satorus to comply with Applicable Data Protection Laws in relation to any Shared Personal Data within the time limits imposed by the Data Protection Laws;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(k)</span> where the Customer provides Shared Personal Data to Satorus directly, only do so by using secure methods as agreed between the Parties; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(l)</span> have in place throughout the Term, appropriate technical and organisational security measures to prevent unauthorised or unlawful Processing of the Shared Personal Data or the accidental loss or destruction of, or damage to Shared Personal Data; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(m)</span> comply with its obligations to report a Personal Data Breach to the Information Commissioner or any Supervisory Authority and/or Data Subjects under Applicable Data Protection Laws and shall inform the Satorus of any Personal Data Breach; </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(n)</span> provide reasonable assistance as is requested by Satorus to facilitate the handling of any Personal Data Breach in an expeditious and compliant manner; and </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(o)</span> ensure that any Shared Personal Data which the Customer itself provides or transfers to Satorus is accurate at the time of transfer. </p>
+<h2 id="clause-6"><span class="num">6.</span> INTERNATIONAL DATA TRANSFERS </h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">6.1</span> In relation to Shared Personal Data Processed for the purposes of Services, Satorus shall not transfer any Shared Personal Data outside of the European Economic Area or the United Kingdom without ensuring appropriate safeguards in respect of such transfer in accordance with Applicable Data Protection Laws. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">6.2</span> Where applicable to the transfer of Shared Personal Data from the Customer to Satorus, in relation to Shared Personal Data Processed for the purposes of the Services, Satorus is hereby authorised by the Customer to transfer Shared Personal Data outside of the European Economic Area and/or the United Kingdom (where applicable) and the terms of the EU Standard Contractual Clauses, the UK Addendum to the EU Standard Contractual Clauses and UK International Data Transfer Agreement are completed as set out in ANNEX B to this DPA and apply as where applicable to the transfer of Shared Personal Data.</p>
+<h2 id="clause-7"><span class="num">7.</span> SUB-PROCESSORS </h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.1</span> In relation to Shared Personal Data Processed for the purposes of the Services, the Customer hereby provides its authorisation for Satorus to engage other Processors identified in Part 5 of ANNEX A (“<strong>Sub-Processors</strong>”) as well as its Group Companies to carry out Processing activities on behalf of Customer and Process the Shared Personal Data. Satorus shall inform the Customer of any intended changes concerning the addition or replacement of such Sub-Processors listed in ANNEX A and if within 7 Business Days of receipt of that notice, the Customer notifies Satorus in writing of a reasonable objection to such changes, thereby giving the Customer the opportunity to object to such changes, provided that if the Customer objects to the changes, it can demonstrate, to the Satorus’ reasonable satisfaction, that: </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> the objection is due to an actual or likely breach of Applicable Data Protection Laws; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> the Customer is acting reasonably and in good faith.  </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.2</span> Satorus shall use reasonable efforts to address the Customer’s objection or recommend a commercially reasonable change to the Customer’s use of the Services to avoid Processing of Shared Personal Data by the objected-to new processor. After this process, if a resolution has not been agreed to within 7 Business Days, Satorus will proceed with engaging the new Processor.    </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.3</span> Where Satorus engages a Sub-Processor for carrying out specific processing activities on behalf of Customer, materially equivalent data protection obligations as set out herein shall be imposed on that Sub-Processor, in particular providing sufficient guarantees to implement appropriate technical and organisational measures in such a manner that the Processing will meet the requirements of Applicable Data Protection Laws.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.4</span> Where that Sub-Processor fails to fulfil its materially equivalent data protection obligations imposed by Satorus on that Sub-Processor, subject to the limitations and exclusions of liability set out herein, Satorus shall remain fully liable to Customer for the performance of that Sub-Processor’s materially equivalent data protection obligations subject to the limitations set out in this DPA.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.5</span> The Customer acknowledges and agrees that the Other Organisations identified in Part 5 of ANNEX A act as independent Controllers in respect of their Processing of Personal Data and do not Process Shared Personal Data on behalf of the Customer. The Customer hereby instructs and authorises Satorus to disclose Shared Personal Data to such Other Organisations to the extent necessary for the provision of the Services. The obligations in this paragraph relating to Sub-Processors, including the imposition of materially equivalent data protection obligations and Satorus’ liability for the performance of Sub-Processors, shall not apply to Other Organisations acting as independent Controllers.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">7.6</span> The Customer acknowledges that the identity of the Sub-Processors and Other Organisations, and the descriptions of their processing activities, set out in Part 5 of ANNEX A constitute Confidential Information of Satorus. The Customer may use and disclose such information solely for the purposes of its compliance with Applicable Data Protection Laws and its own vendor due diligence.</p>
+<h2 id="clause-8"><span class="num">8.</span> LIMITATIONS ON LIABILITY </h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">8.1</span> This Clause sets out the entire financial liability of Satorus under this DPA<strong> </strong>(including any liability for the acts or omissions of its employees, agents and sub-contractors) to the Customer:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> arising under or in connection with this DPA;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> in respect of any use made by the Customer of the Services or any part of them; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> in respect of any representation, statement or tortious act or omission (including negligence) arising under or in connection with this DPA.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">8.2</span> Except as expressly and specifically provided in this DPA:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> the Customer assumes sole responsibility for results obtained from the use of the Services by the Customer, and for conclusions drawn from such use. Satorus shall have no liability for any damage caused by errors or omissions in any information, instructions or scripts provided to Satorus by the Customer in connection with the Services, or any actions taken by Satorus at the Customer&#x27;s direction;</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> all warranties, representations, conditions and all other terms of any kind whatsoever implied by statute or common law are, to the fullest extent permitted by applicable law, excluded from this DPA; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> the Services are provided to the Customer on an &quot;as is&quot; basis. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">8.3</span> Nothing in this DPA excludes the liability of Satorus:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> for death or personal injury caused by the Satorus’ negligence; or</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> for fraud or fraudulent misrepresentation.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">8.4</span> Subject to Clauses 8.2 and 8.3:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> Satorus shall not be liable whether in tort (including for negligence or breach of statutory duty), contract, misrepresentation, restitution or otherwise for any loss of profits, loss of business, depletion of goodwill and/or similar losses or loss or corruption of data or information, or for any special, indirect or consequential loss, costs, damages, charges or expenses however arising under this DPA; and</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> Satorus’ total aggregate liability in contract, tort (including negligence or breach of statutory duty), misrepresentation, restitution or otherwise, arising in connection with the performance or contemplated performance of this DPA shall form part of and be subject to Clause 11.5 of the Master Services Agreement.</p>
+<h2 id="clause-9"><span class="num">9.</span> NOTICE</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">9.1</span> Any notice given to a party under or in connection with this DPA shall be in writing and shall be:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> sent by email to the following addresses (or an address substituted in writing by the party to be served):</p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(i)</span> For the Customer: the Customer’s contact set out in the Order Form, or such other data privacy contact as the Customer notifies to Satorus in writing</p>
+<p class="clause lvl3" data-style="Untitledsubclause3"><span class="num">(ii)</span> For Satorus: <a href="mailto:beth@satorusgroup.com"><em>beth@satorusgroup.com</em></a>  </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">9.2</span> Any notice shall be deemed to have been received, where sent by email, at the time of transmission, or, if this time falls outside Business Hours in the place of receipt, when Business Hours resume.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">9.3</span> This clause does not apply to the service of any proceedings or other documents in any legal action or, where applicable, any arbitration or other method of dispute resolution.</p>
+<h2 id="clause-10"><span class="num">10.</span> <span class="caps">Term and termination</span></h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">10.1</span> This DPA will remain in full force and effect so long as:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> the Master Services Agreement remains in effect; or</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> Satorus retains any of the Shared Personal Data in its possession or control (“Term”).</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">10.2</span> Any provision of this DPA that expressly or by implication should come into or continue in force on or after termination of the Master Services Agreement in order to protect the Personal Data will remain in full force and effect.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">10.3</span> Any party’s failure to comply with the terms of this DPA is a material breach of the Master Services Agreement. In such event, either party may terminate any part of the Master Services Agreement involving the processing of the Shared Personal Data effective immediately on written notice to the other party without further liability or obligation of either party.</p>
+<h2 id="clause-11"><span class="num">11.</span> FORCE MAJEURE</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">11.1</span> Neither party shall be liable for any delay or failure in the performance of its obligations for so long as and to the extent that such delay or failure results from events, circumstances or causes beyond its reasonable control. </p>
+<h2 id="clause-12"><span class="num">12.</span> VARIATION</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">12.1</span>  No variation of this DPA shall be effective unless it is in writing and signed by the parties (or their authorised representatives).</p>
+<h2 id="clause-13"><span class="num">13.</span> WAIVER</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">13.1</span>  A waiver of any right or remedy is only effective if given in writing and shall not be deemed a waiver of any subsequent right or remedy.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">13.2</span> A delay or failure to exercise, or the single or partial exercise of, any right or remedy does not waive that or any other right or remedy, nor does it prevent or restrict the further exercise of that or any other right or remedy.</p>
+<h2 id="clause-14"><span class="num">14.</span> RIGHTS AND REMEDIES</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">14.1</span> Except as expressly provided in this DPA, the rights and remedies provided under this DPA are in addition to, and not exclusive of, any rights or remedies provided by law.</p>
+<h2 id="clause-15"><span class="num">15.</span> SEVERANCE</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">15.1</span>  If any provision (or part of a provision) of this DPA is found by any court or administrative body of competent jurisdiction to be invalid, unenforceable or illegal, the other provisions shall remain in force.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">15.2</span> If any invalid, unenforceable or illegal provision would be valid, enforceable or legal if some part of it were deleted, the provision shall apply with whatever modification is necessary to give effect to the commercial intention of the parties.</p>
+<h2 id="clause-16"><span class="num">16.</span> ENTIRE AGREEMENT</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">16.1</span> This DPA constitutes the entire agreement between the parties in relation to the processing of Shared Personal Data.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">16.2</span> Each party acknowledges that in entering into this DPA it does not rely on any statement, representation, assurance or warranty (whether made innocently or negligently) that is not set out in this DPA. Each party agrees that it has no claim for innocent or negligent misrepresentation or negligent misstatement based on any statement in this DPA.</p>
+<h2 id="clause-17"><span class="num">17.</span> ASSIGNMENT</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">17.1</span> The Customer shall not, without the prior written consent of Satorus, assign, transfer, mortgage, charge, subcontract, delegate, declare a trust over or deal in any other manner with any of its rights and obligations under this DPA.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">17.2</span> Satorus may at any time assign, mortgage, charge, subcontract, delegate, declare a trust over or deal in any other manner with any or all of its rights and obligations under this DPA, provided that it gives prior written notice of such dealing to the Customer.</p>
+<h2 id="clause-18"><span class="num">18.</span> NO PARTNERSHIP OR AGENCY</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">18.1</span> Nothing in this DPA is intended to or shall operate to create a partnership between the parties, or authorise either party to act as agent for the other, and neither party shall have the authority to act in the name or on behalf of or otherwise to bind the other in any way (including the making of any representation or warranty, the assumption of any obligation or liability and the exercise of any right or power).</p>
+<h2 id="clause-19"><span class="num">19.</span> THIRD PARTY RIGHTS</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">19.1</span> This DPA does not confer any rights on any person or party (other than the parties to this DPA and, where applicable, their successors and permitted assigns) pursuant to the Contracts (Rights of Third Parties) Act 1999.</p>
+<h2 id="clause-20"><span class="num">20.</span> COUNTERPARTS</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">20.1</span> This DPA may be executed in any number of counterparts, each of which constitutes a duplicate original, but all the counterparts together constitute the one agreement.</p>
+<h2 id="clause-21"><span class="num">21.</span> GOVERNING LAW</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">21.1</span> This DPA and any dispute or claim arising out of or in connection with it or its subject matter or formation (including non-contractual disputes or claims) shall be governed by and interpreted in accordance with the law of England and Wales.</p>
+<h2 id="clause-22"><span class="num">22.</span> JURISDICTION</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">22.1</span> Each party irrevocably agrees that the courts of England and Wales shall have exclusive jurisdiction to settle any dispute or claim arising out of or in connection with this DPA or its subject matter or formation (including non-contractual disputes or claims).</p>
+<p class="statement">This DPA is entered into by the parties, and takes effect, in accordance with the Order Form. No signature of this document is required.</p>
+<h2 id="annex-a"><span class="num">ANNEX A</span> PARTICULARS OF THE PROCESSING</h2>
+<h3 id="annex-a-part-1"><span class="num">Part 1</span> Scope, Nature and Purpose of the Processing </h3>
+<p data-style="ScheduleUntitledsubclause2">Where Satorus is acting as a Processor: for the Processing of Shared Personal Data in order to provide the Services under the Master Services Agreement. The Customer instructs Satorus to Process Shared Personal Data in order to provide the Services, including to: (a) collect publicly available data and licensed third-party data relating to subjects identified by the Customer, including by using automated agents which select, query and retrieve data from the sources operated by the Sub-Processors and Other Organisations identified in Part 5; (b) analyse, enrich, grade, synthesise and summarise such data, including by using the AI model providers identified in Part 5; (c) generate Output and reports for the Customer; and (d) store the foregoing for the Customer’s use. The Customer’s use of the Platform to initiate an investigation or other task constitutes its documented instruction for the Processing associated with that investigation or task. </p>
+<h3 id="annex-a-part-2"><span class="num">Part 2</span> Duration of the Processing</h3>
+<h4 id="annex-a-where-satorus-is-acting-as-a-processor-for-the-period-of-the">Where Satorus is acting as a Processor: For the period of the Term</h4>
+<h3 id="annex-a-part-3"><span class="num">Part 3</span> Types of Shared Personal Data</h3>
+<h4 id="for-individuals-whose-personal-data-is-inputted-by-the-custo">For Individuals whose personal data is inputted by the Customer into the Platform and Individuals whose personal data is generated by the Customer&#x27;s use of the Platform:</h4>
+<ul>
+<li data-style="ScheduleTitleClause">Name</li>
+<li data-style="ScheduleTitleClause">Social media handles</li>
+<li data-style="ScheduleTitleClause">Organisation affiliations</li>
+<li data-style="ScheduleTitleClause">Accounts</li>
+<li data-style="ScheduleTitleClause">Biographical data</li>
+<li data-style="ScheduleTitleClause">Professional roles, personal markers (e.g., religious beliefs, family status), and location.</li>
+<li data-style="ScheduleTitleClause">Online activity data such as posting behaviour (volume, themes, and frequency) and platform-specific activity.</li>
+<li data-style="ScheduleTitleClause">Audience data such as demographics, engagement patterns, and sentiment analysis from comments.</li>
+<li data-style="ScheduleTitleClause">Network and association data such as key collaborators, institutional partners, and affiliated organisations.</li>
+<li data-style="ScheduleTitleClause">Travel and location data such as documented international travel patterns and event locations.</li>
+<li data-style="ScheduleTitleClause">Content data such as themes of posts, messaging focus, and promotional materials.</li>
+<li data-style="ScheduleTitleClause">any other Personal Data the Customer’s use of the Platform and/or during the provision of the Services generates.</li>
+</ul>
+<h3 id="annex-a-part-4"><span class="num">Part 4</span> Categories of Data Subjects</h3>
+<ul>
+<li data-style="ScheduleTitleClause">Individuals whose personal data is inputted by the Customer into the Platform. </li>
+<li data-style="ScheduleTitleClause">Individuals whose personal data is generated as an output by the Customer&#x27;s use of the Platform. </li>
+</ul>
+<h3 id="annex-a-part-5"><span class="num">Part 5</span> Sub-Processors - where applicable to the Shared Personal Data Processed for the purposes of the Services </h3>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Vendor</strong></p></td><td><p><strong>Used for</strong></p></td><td><p><strong>Location / jurisdiction</strong></p></td><td><p><strong>International Data Transfer Mechanism</strong></p></td></tr><tr><td><p><strong>Apify </strong><strong>Technologies s.r.o</strong></p></td><td><p>Collection of publicly available web data</p></td><td><p>Czech Republic (EU/EEA). Apify Technologies s.r.o., Prague</p></td><td><p>EU SCCs and UK Addendum to the EU SCCs </p></td></tr><tr><td><p><strong>Bright Data Ltd</strong></p></td><td><p>Collection of publicly available web data</p></td><td><p>Israel. Bright Data Ltd., Netanya</p></td><td><p>Adequacy decision </p></td></tr><tr><td><p><strong>DarkOwl Vision (Dark Owl LLC)</strong></p></td><td><p>Specialist web and dataset intelligence collection</p></td><td><p>United States. DarkOwl LLC, Denver, Colorado. </p></td><td><p>EU SCCs, UK Addendum to the EU SCCs and the UK International Data Transfer Agreement. </p></td></tr><tr><td><p><strong>AskNews (Emergent Methods, LLC)</strong></p></td><td><p>News and media content provider</p></td><td><p>United States. Emergent Methods, LLC, Colorado</p></td><td><p>EU SCCs and UK Addendum to the EU SCCs</p></td></tr><tr><td><p><strong>Tavily (AlphaAI Technologies Inc)</strong></p></td><td><p>Web search provider (optional)</p></td><td><p>United States. AlphaAI Technologies Inc., New York, NY</p></td><td><p>EU SCCs and UK Addendum to the EU SCCs</p></td></tr></table></div>
+<h4 id="annex-a-tier-2-ai-llm-processors">Tier 2: AI / LLM processors </h4>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Vendor</strong></p></td><td><p><strong>Used for</strong></p></td><td><p><strong>Location / jurisdiction</strong></p></td><td><p><strong>International Data Transfer Mechanism</strong></p></td></tr><tr><td><p><strong>Anthropic (Claude)</strong></p></td><td><p>AI model provider</p></td><td><p>United States. Anthropic PBC, San Francisco, California</p></td><td><p>EU SCCs and UK Addendum </p></td></tr><tr><td><p><strong>Google Gemini / Vertex AI (Google LLC)</strong></p></td><td><p>AI model provider</p></td><td><p>United States (Google LLC, Mountain View, CA). UK/EEA contracting entity: Google Cloud EMEA Ltd, Dublin, Ireland</p></td><td><p>EU – US Data Privacy Framework + UK extension to the Framework</p></td></tr></table></div>
+<h4 id="annex-a-tier-3-cloud-infrastructure-and-storage">Tier 3: Cloud infrastructure and storage </h4>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Vendor</strong></p></td><td><p><strong>Used for</strong></p></td><td><p><strong>Location / jurisdiction</strong></p></td><td><p><strong>International Data Transfer Mechanism</strong></p></td></tr><tr><td><p><strong>Google Cloud Platform (Google LLC)</strong></p></td><td><p>Cloud hosting, database and storage infrastructure</p></td><td><p>United States (Google LLC). UK/EEA contracting via Google Cloud EMEA Ltd, Dublin, Ireland. </p></td><td><p>EU – US Data Privacy Framework + UK extension to the Framework</p></td></tr><tr><td><p><strong>Firebase (Google LLC)</strong></p></td><td><p>User authentication and session management</p></td><td><p>United States (Google LLC). UK/EEA contracting via Google Cloud EMEA Ltd, Dublin, Ireland.</p></td><td><p>EU – US Data Privacy Framework + UK extension to the Framework</p></td></tr><tr><td><p><strong>Mapbox Inc.</strong></p></td><td><p>Map / geolocation rendering</p></td><td><p>United States. Mapbox, Inc., Washington, DC. </p></td><td><p>EU – US Data Privacy Framework + UK extension to the Framework</p></td></tr></table></div>
+<h3 id="annex-a-part-6"><span class="num">Part 6</span> Other organisations who assist Satorus e.g. as data controllers (“Other Organisations”)</h3>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Organisation </strong></p></td><td><p><strong>Used for</strong></p></td><td><p><strong>Location / jurisdiction</strong></p></td><td><p><strong>International Data Transfer Mechanism</strong></p></td></tr><tr><td><p><strong>OSINT Industries Ltd</strong></p></td><td><p>Email and phone-number identifier enrichment</p></td><td><p>UK</p></td><td><p>Not applicable </p></td></tr></table></div>
+<h3 id="annex-a-part-7"><span class="num">Part 7</span> Group Companies - where applicable to the Shared Personal Data Processed for the purposes of the Services </h3>
+<div class="table-wrap table-headed"><table><tr><td><p data-style="BodyText2"><strong>Group Companies </strong></p></td><td><p data-style="BodyText2"><strong>Country(ies) where Group Companies will be Processing </strong></p></td><td><p data-style="BodyText2"><strong>Description of Processing </strong></p></td></tr><tr><td><p>Not applicable </p></td><td><p>Not applicable</p></td><td><p>Not applicable </p></td></tr></table></div>
+<p><br/></p>
+<h2 id="annex-b"><span class="num">ANNEX B</span> INTERNATIONAL SHARED PERSONAL DATA TRANSFERS </h2>
+<h3 id="annex-b-part-1"><span class="num">Part 1</span> EU STANDARD CONTRACTUAL CLAUSES (EU)</h3>
+<h2 id="clause-1-2"><span class="num">1.</span> To the extent a transfer mechanism under Article 46  of the EU GDPR is required to transfer the Shared Personal Data from the Customer to Satorus, the terms of the EU Standard Contractual Clauses set out in the Annex of Commission Implementing Decision (EU) 2021/914 of 4 June 2021 (the “EU SCCs”) are incorporated by reference and deemed signed upon the parties’ execution of the Order Form.</h2>
+<h2 id="clause-2-2"><span class="num">2.</span> The EU SCCs are completed as set out below:</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.1</span> The Modules applicable to the transfer of Shared Personal Data originating from the EU under this DPA are:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> Module 2 – “Controller to Processor” </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.2</span> The following selections are made, where Commission Implementing Decision (EU) 2021/914 permits selection of options in the Clauses of the EU SCCs:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> Clause 7 “Optional (Docking Clause)” – retained.</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> Clause 9 “Use of Subprocessors” sub section (a) – Option 2 (general authorisation) is selected and the time period is as set out in paragraph 7 of this DPA.</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> Clause 11 “Redress” – sub section (a) – the option provided in this sub-section is not selected.</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> Clause 17 “Governing Law” – Option 1 is selected and the governing law is as follows:</p>
+<p data-style="Untitledsubclause2">“These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of the Republic of Ireland.”</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(e)</span> Clause 18 “Choice of Forum and Jurisdiction” sub-section (b) is amended as follows: “The Parties agree that those shall be the courts of Dublin, Ireland.”</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.3</span> Annex I to the SCCs shall be considered filled as follows: the Data Exporter is the Customer, Data Importer is Satorus and their details shall be the same as set out in this DPA. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.4</span> Annex IB to the SCCs shall be the same as ANNEX A to this DPA and in addition the following details are included to complete Annex B: the frequency of the transfer is continuous; and the Shared Personal Data is retained for as long as necessary for the Processing of Shared Personal Data under the Services.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.5</span> Annex IC is completed as follows: The Supervisory Authority of the Republic of Ireland</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.6</span> Annex II to the SCCs shall be the same as paragraph 5.2(b) to this DPA </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">2.7</span> Annex III to the SCCs shall be the same as Part 5 of ANNEX A to this DPA.</p>
+<h3 id="annex-b-part-2"><span class="num">Part 2</span> UK ADDENDUM TO THE EU STANDARD CONTRACTUAL CLAUSES (EU and UK together with Part 1 of ANNEX B)</h3>
+<h2 id="clause-1-3"><span class="num">1.</span> To the extent a transfer mechanism under Article 46 of the UK GDPR is required under the UK GDPR and the EU GDPR to transfer the Shared Personal Data from the Customer to Satorus, the UK Addendum to the EU Standard Contractual Clauses form part of this DPA and takes precedence over the rest of this DPA for such transfer to the extent of any conflict and it will be deemed completed as follows:</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.1</span> Table 1: The “exporter” is the Customer, the “importer” is Satorus and both Parties’ contact information is set forth in this DPA. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.2</span> Table 2: The Approved EU SCCs described in Table 2 of the UK Addendum shall be the Approved EU SCCs, including the Appendix Information and with only the following modules, clauses or optional provisions of the Approved EU SCCs brought into effect for the purposes of this Addendum and as such modules, clauses and optional provisions are as completed in Part 1 of ANNEX B above.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.3</span> Table 3: Annex 1A of the UK Addendum shall be the same as set out in this DPA. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.4</span> Table 3: Annex 1B of the UK Addendum are set forth in ANNEX A to this DPA . </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.5</span> Table 3: Annex II of the UK Addendum is set forth in paragraph 5.2(b) to this DPA .</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.6</span> Table 3: Annex III of the UK Addendum is set forth in Part 5 of ANNEX A to this DPA .</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.7</span> The Supervisory Authority for the purpose of the UK Addendum is the Information Commissioner’s Office</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.8</span> Both parties may terminate the UK Addendum as set out in Section 19 to the UK Addendum.</p>
+<h3 id="annex-b-part-3"><span class="num">Part 3</span> UK INTERNATIONAL DATA TRANSFER AGREEMENT (UK ONLY – NO EU)</h3>
+<h2 id="clause-1-4"><span class="num">1.</span> To the extent only the UK GDPR applies and a transfer mechanism under Article 46 of the UK GDPR is required to transfer the Shared Personal Data from the Customer to Satorus, the UK International Data Transfer Agreement (&quot;IDTA) forms part of this DPA and takes precedence over the rest of this DPA for such transfer to the extent of any conflict and will be deemed completed as follows:</h2>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.1</span> Table 1: The “exporter” is the Customer, the “importer” is Satorus and both Parties’ details and contact information is set forth in this DPA. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.2</span> Table 2: Transfer details:</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> UK country’s law that governs the IDTA: England and Wales </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> Primary place for legal claims to be made by the Parties: England and Wales </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> The status of Exporter: In relation to the Processing of the Transferred Data: the Exporter is a Controller. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> The status of the Importer: In relation to the Processing of the Transferred Data: the Importer is Exporter’s Processor. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(e)</span> Whether UK GDPR applies to the Importer: The UK GDPR applies to the Importer’s Processing of the Transferred Data. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(f)</span> Linked Agreement: The agreements between the Parties which set out additional obligations in relation to the Transferred Data: this DPA. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(g)</span> Term: The Importer may Process the Transferred Data for the following time period: the period for which the Linked Agreement is in force. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(h)</span> Ending the IDTA before the end of the Term: The Parties can end the IDTA before the end of the Term by serving 30 days written notice in accordance with clause 13 of the Agreement and as set out in section 29 of the IDTA (How to end this IDTA without there being a breach). </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(i)</span> Ending the IDTA when the Approved IDTA changes: Which Parties may end the IDTA as set out in Section 29.2 of the IDTA: Importer and Exporter.</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(j)</span> Can the Importer make further transfers of the Transferred Data: the Importer MAY transfer on the Transferred Data to another organisation or personnel (who is a different legal entity) in accordance with section 16.1 of the IDTA (Transferring on the Transferred Data). </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(k)</span> Specific restrictions when the Importer may transfer on the Transferred Data: The Importer MAY ONLY forward the Transferred Data in accordance with section 16.1 of the IDTA: to the authorised receivers set out in Part 5 of ANNEX A to this DPA of the Linked Agreement. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(l)</span> Review Dates: The Parties must review the Security Requirements at least once each time there is a change to the Transferred Data, Purposes, Importer Information, TRA or risk assessment.</p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.3</span> Table 3: Transferred Data </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> The personal data to be sent to the Importer under this IDTA consists of: The Categories of Transferred Data will update automatically if the information is updated in the Linked Agreement referred to, as set out in ANNEX A to this DPA in the Linked Agreement. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(b)</span> Special Categories of Personal Data and criminal convictions and offences: The Transferred Data includes data as set out in ANNEX A to this DPA in the Linked Agreement and the categories of special category data will update automatically if the information is updated in the Linked Agreement referred to. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(c)</span> Relevant Data Subjects: The Data Subjects of the Transferred Data are: The Categories of Data Subjects will update automatically if the information is updated in the Linked Agreement referred to as set out in ANNEX A to this DPA in the Linked Agreement. </p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(d)</span> Purpose: The Importer may Process the Transferred Data for the purposes set out in set out in ANNEX A to this DPA in the Linked Agreement and the purposes will update automatically if the information is updated in the Linked Agreement referred to. </p>
+<p class="clause lvl1" data-style="Untitledsubclause1"><span class="num">1.4</span> Table 4: Security Requirements</p>
+<p class="clause lvl2" data-style="Untitledsubclause2"><span class="num">(a)</span> The Security Requirements will update automatically if the information is updated in the Linked Agreement referred to as set out paragraph 5.2(b) to this DPA.</p>
+</article>
+</main>
+<div class="vh-in"><div></div><div><h2 id="version-history">Version history</h2><table><tr class="cur"><td>Version 1.0</td><td>effective 20 July 2026</td><td>current</td><td><a href="/legal/dpa/v1-0">permanent link</a></td></tr></table></div></div>
+<footer class="foot"><div class="foot-in"><div>© 2026 Satorus Group Ltd · London</div><div><a href="/legal">Legal index</a></div></div></footer>
+<script>(function(){var t=document.querySelector('.toc');if(t&&matchMedia('(min-width:921px)').matches)t.setAttribute('open','');})();</script>
+</body>
+</html>
