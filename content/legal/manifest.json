@@ -52,8 +52,8 @@
         {
           "id": "v1-1",
           "label": "1.1",
-          "effective": "30 July 2026",
-          "effectiveISO": "2026-07-30",
+          "effective": "20 July 2026",
+          "effectiveISO": "2026-07-20",
           "file": "privacy/v1-1.html",
           "sha256": "2b6d573dec688ed4aa2096180929c2bc1b4c2136672d5227e2efc929b6f5bd89"
         }
