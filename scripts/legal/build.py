@@ -84,19 +84,23 @@ def heading(tag, hid, num, rest_html, lit=False):
     return f'<{tag} id="{hid}">{numspan}{rest_html}</{tag}>'
 
 
-def transform(slug, fragment):
+def transform(slug, fragment, has_version_line=True):
     """Returns (title_html, version_text, body_html, toc) where toc is a list
-    of {id, label, children:[{id,label}]}."""
+    of {id, label, children:[{id,label}]}. version_text is None when the
+    source document carries no version line (manifest supplies the banner)."""
     blocks = [b for b in fragment.split('\n') if b.strip()]
 
-    # First two paragraphs are always the document title and the version line.
+    # First paragraph is the document title; for contract documents the
+    # second is the version line.
     t_style, _, title_inner, _ = block_parts(blocks[0])
-    v_style, _, version_inner, _ = block_parts(blocks[1])
-    title_text = strip_tags(blocks[0])
-    version_text = strip_tags(blocks[1])
-    if not re.match(r'Version \d+\.\d+ – effective ', version_text):
-        raise SystemExit(f'{slug}: second paragraph is not a version line: {version_text!r}')
-    blocks = blocks[2:]
+    if has_version_line:
+        version_text = strip_tags(blocks[1])
+        if not re.match(r'Version \d+\.\d+ – effective ', version_text):
+            raise SystemExit(f'{slug}: second paragraph is not a version line: {version_text!r}')
+        blocks = blocks[2:]
+    else:
+        version_text = None
+        blocks = blocks[1:]
 
     ids = Ids()
     toc = []
@@ -176,7 +180,7 @@ def transform(slug, fragment):
                 out.append(heading('h4', ids.take(slugify(text)), None, rest))
                 continue
 
-        elif slug == 'documentation':
+        elif slug in ('documentation', 'privacy'):
             m = re.match(r'^<strong>(\d+)\.\s*(.*)</strong>\s*$', rest)
             if not num and m:
                 hid = ids.take('section-' + m.group(1))
@@ -454,12 +458,18 @@ def footer(extra=''):
 
 def doc_page(slug, doc, version, is_archive):
     frag = (CONTENT / version['file']).read_text(encoding='utf-8')
-    title_html, version_text, body, toc = transform(slug, frag)
+    has_vl = doc.get('sourceVersionLine', True)
+    title_html, version_text, body, toc = transform(slug, frag, has_vl)
 
     expected = f'Version {version["label"]} – effective {version["effective"]}'
-    if version_text != expected:
+    if has_vl and version_text != expected:
         raise SystemExit(f'{slug} {version["id"]}: version line mismatch: '
                          f'{version_text!r} != {expected!r}')
+    # source has no version line: the banner is page furniture built from the
+    # manifest, marked data-chrome so fidelity checks skip it
+    version_chrome = '' if has_vl else ' data-chrome="1"'
+    if version_text is None:
+        version_text = expected
 
     is_current = version['id'] == doc['current']
     canonical = f'{SITE}/legal/{slug}'
@@ -490,10 +500,10 @@ def doc_page(slug, doc, version, is_archive):
 {toc_html(toc)}
 </div>
 <article>
-<div class="eyebrow" data-chrome="1">Legal · Contractual document</div>
+<div class="eyebrow" data-chrome="1">{html.escape(doc.get('eyebrow', 'Legal · Contractual document'))}</div>
 <h1>{title_html}</h1>
 <div class="version-banner">
-<span class="version-line">{html.escape(version_text)}</span>
+<span class="version-line"{version_chrome}>{html.escape(version_text)}</span>
 <span class="version-note" data-chrome="1">{note}</span>
 <a class="dl" data-chrome="1" href="{pdf}">Download PDF</a>
 </div>
@@ -534,9 +544,9 @@ def index_page(manifest):
 {bar()}
 <main class="index-shell">
 <h1>Legal</h1>
-<p class="index-lede">The documents below are incorporated by reference into
-signed Order Forms. The canonical URLs always serve the version currently in
-force; each version also has a permanent archive link.</p>
+<p class="index-lede">The contractual documents below are incorporated by
+reference into signed Order Forms. The canonical URLs always serve the version
+currently in force; each version also has a permanent archive link.</p>
 <ul class="docs">
 {''.join(cards)}
 </ul>

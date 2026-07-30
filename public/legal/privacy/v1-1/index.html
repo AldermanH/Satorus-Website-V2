@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Satorus Privacy Notice</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="The Satorus Privacy Notice: how Satorus Group Limited collects and uses personal data of website visitors, authorised end-users of the Sidney platform, and individuals who contact us."/>
+<link rel="canonical" href="https://satorusgroup.com/legal/privacy"/>
+<meta name="theme-color" content="#0e1014"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Satorus Privacy Notice"/>
+<meta property="og:description" content="The Satorus Privacy Notice: how Satorus Group Limited collects and uses personal data of website visitors, authorised end-users of the Sidney platform, and individuals who contact us."/>
+<link rel="icon" type="image/svg+xml" href="/assets/satorus-icon-cyan.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"/>
+<style>
+:root{
+  --bg:hsl(234,8%,6%);--bg-deep:hsl(240,14%,4.5%);--surface:hsl(235,14%,9%);
+  --elevated:hsl(232,10%,12%);--fg:hsl(0,0%,92%);--fg-muted:hsl(220,10%,58%);
+  --fg-subtle:hsla(0,0%,95%,.58);--accent:hsl(187,72%,48%);
+  --accent-soft:hsl(187,55%,62%);--accent-10:hsla(187,72%,48%,.1);
+  --border:hsl(232,10%,15%);--border-strong:hsl(232,10%,20%);
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --display:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);
+  font-size:15.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility}
+a{color:var(--accent-soft);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+.caps{text-transform:uppercase}
+
+/* top bar */
+.bar{border-bottom:1px solid var(--border);background:var(--bg-deep)}
+.bar-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;
+  align-items:baseline;gap:14px}
+.mark{font-family:var(--display);font-weight:700;font-size:13px;
+  letter-spacing:.14em;color:var(--fg)}
+.mark:hover{text-decoration:none;color:var(--accent-soft)}
+.crumb{font-size:12.5px;color:var(--fg-muted)}
+.crumb a{color:var(--fg-muted)}
+
+/* layout */
+.shell{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;
+  justify-content:center}
+@media(max-width:920px){.shell{display:block;padding-top:24px}}
+
+/* toc */
+.side{font-size:13px}
+.toc{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;
+  padding-right:8px}
+.toc summary{cursor:pointer;font-family:var(--display);font-weight:600;
+  font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--fg-subtle);list-style:none;padding:8px 0}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"▸";margin-left:6px;color:var(--fg-subtle)}
+.toc[open] summary::after{content:"▾"}
+.toc ol{list-style:none;border-left:1px solid var(--border);margin-top:4px}
+.toc ol ol{border-left:none;margin:0 0 2px 14px}
+.toc li a{display:block;padding:4px 0 4px 14px;color:var(--fg-muted);
+  line-height:1.45;border-left:2px solid transparent;margin-left:-1.5px}
+.toc ol ol li a{padding-left:10px;font-size:12.5px;color:var(--fg-subtle)}
+.toc li a:hover{color:var(--fg);text-decoration:none;
+  border-left-color:var(--accent)}
+.toc .num{color:var(--accent-soft);font-family:var(--mono);font-size:11px}
+@media(max-width:920px){
+  .toc{position:static;max-height:none;border:1px solid var(--border);
+    border-radius:8px;background:var(--surface);padding:4px 16px;
+    margin-bottom:28px}
+}
+
+/* document header */
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:14px}
+article h1{font-family:var(--display);font-weight:600;font-size:27px;
+  line-height:1.2;letter-spacing:-.015em;margin:0 0 18px}
+.version-banner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;
+  border:1px solid var(--border);border-left:2px solid var(--accent);
+  border-radius:8px;background:var(--surface);padding:12px 16px;
+  margin-bottom:8px}
+.version-line{font-family:var(--mono);font-size:13px;color:var(--fg)}
+.version-note{font-size:12.5px;color:var(--fg-muted)}
+.version-banner .dl{margin-left:auto;font-size:12.5px;white-space:nowrap}
+.intro-gap{height:26px}
+
+/* document body */
+article{min-width:0}
+article p{margin:0 0 1.05em}
+article h2{font-family:var(--display);font-weight:600;font-size:19.5px;
+  line-height:1.3;letter-spacing:-.01em;margin:2.6em 0 1em;
+  padding-top:1.6em;border-top:1px solid var(--border)}
+article h3{font-family:var(--display);font-weight:600;font-size:16px;
+  margin:2em 0 .9em}
+article h4{font-family:var(--sans);font-weight:600;font-size:15px;
+  margin:1.8em 0 .8em}
+article h2 .num,article h3 .num{color:var(--accent-soft)}
+.num{font-family:var(--mono);font-size:.85em;font-weight:500;
+  color:var(--accent-soft);letter-spacing:0}
+p.clause{margin-bottom:1.05em}
+p.lvl2{margin-left:1.5rem}
+p.lvl3{margin-left:3rem}
+p.lvl4{margin-left:4.25rem}
+p.lvl5{margin-left:5.25rem}
+@media(max-width:560px){
+  p.lvl2{margin-left:.9rem}p.lvl3{margin-left:1.8rem}
+  p.lvl4{margin-left:2.6rem}p.lvl5{margin-left:3.2rem}
+}
+p.statement{font-weight:600;margin:1.6em 0}
+article ul{margin:0 0 1.05em;padding-left:1.4em}
+article li{margin-bottom:.35em}
+article li::marker{color:var(--fg-subtle)}
+article strong{font-weight:600;color:hsl(0,0%,97%)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;
+  margin:0 0 1.4em;background:var(--surface)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;
+  line-height:1.55}
+.table-wrap td{padding:10px 14px;border-top:1px solid var(--border);
+  vertical-align:top;min-width:9rem}
+.table-wrap tr:first-child td{border-top:none}
+.table-wrap td p{margin:0 0 .5em}
+.table-wrap td p:last-child{margin-bottom:0}
+.table-headed tr:first-child td{background:var(--elevated);
+  font-family:var(--display);font-size:12px;letter-spacing:.02em;
+  white-space:nowrap}
+.dfn-table td:first-child{min-width:11rem;width:11rem}
+
+/* version history + footer */
+.vh{max-width:46rem;margin:0 auto;padding:0 24px 40px}
+@media(min-width:921px){.vh{margin-left:calc((1080px - 236px - 46rem - 56px)/2 + 236px + 56px + ((100vw - 1080px)/2));margin-left:0}}
+.vh-in{max-width:1080px;margin:0 auto;padding:28px 24px 56px;display:grid;
+  grid-template-columns:236px minmax(0,46rem);gap:56px;justify-content:center}
+@media(max-width:920px){.vh-in{display:block}}
+.vh h2{font-family:var(--display);font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle);
+  margin-bottom:12px}
+.vh table{border-collapse:collapse;font-size:13px}
+.vh td{padding:6px 22px 6px 0;color:var(--fg-muted)}
+.vh .cur{color:var(--fg)}
+footer.foot{border-top:1px solid var(--border);background:var(--bg-deep)}
+.foot-in{max-width:1080px;margin:0 auto;padding:22px 24px;display:flex;
+  flex-wrap:wrap;gap:8px 24px;justify-content:space-between;
+  font-size:12.5px;color:var(--fg-muted)}
+.foot-in a{color:var(--fg-muted)}
+
+/* index page */
+.docs{list-style:none;display:grid;gap:16px;margin-top:30px}
+.doc-card{border:1px solid var(--border);border-radius:10px;
+  background:var(--surface);padding:20px 22px}
+.doc-card h2{font-family:var(--display);font-weight:600;font-size:17px;
+  margin:0 0 4px}
+.doc-card h2 a{color:var(--fg)}
+.doc-card h2 a:hover{color:var(--accent-soft);text-decoration:none}
+.doc-meta{font-family:var(--mono);font-size:12px;color:var(--fg-muted);
+  margin-bottom:10px}
+.doc-desc{font-size:14px;color:var(--fg-muted);line-height:1.6;margin:0 0 12px}
+.doc-links{font-size:13px;display:flex;flex-wrap:wrap;gap:16px}
+.index-shell{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+.index-shell h1{font-family:var(--display);font-weight:600;font-size:26px;
+  margin-bottom:10px}
+.index-lede{color:var(--fg-muted);font-size:14.5px;max-width:56ch}
+
+/* print */
+@media print{
+  :root{--bg:#fff;--bg-deep:#fff;--surface:#fff;--elevated:#f4f4f4;
+    --fg:#000;--fg-muted:#333;--fg-subtle:#555;--accent:#000;
+    --accent-soft:#000;--border:#bbb;--border-strong:#999}
+  @page{margin:18mm 16mm}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.55}
+  .bar,.side,.version-banner .dl,.version-note,.vh-in,footer.foot{display:none!important}
+  .shell{display:block;max-width:100%;padding:0}
+  article{max-width:100%}
+  a{color:#000;text-decoration:none}
+  article strong{color:#000}
+  article h1{font-size:17pt}
+  article h2{font-size:13pt;break-after:avoid;border-top-color:#ccc}
+  article h3,article h4{break-after:avoid}
+  .version-banner{border:1px solid #999;border-left:3px solid #000;
+    background:#fff}
+  p.clause{orphans:3;widows:3}
+  .table-wrap{overflow:visible;border-color:#999;break-inside:auto}
+  .table-wrap td{border:1px solid #bbb}
+  tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in"><a class="mark" href="/">SATORUS</a><span class="crumb"><a href="/legal">Legal</a></span></div></div>
+<main class="shell">
+<div class="side">
+<details class="toc"><summary>Contents</summary><ol><li><a href="#section-1"><span class="num">1.</span> ABOUT SATORUS</a></li><li><a href="#section-2"><span class="num">2.</span> HOW DO WE COLLECT PERSONAL DATA?</a></li><li><a href="#section-3"><span class="num">3.</span> WHAT PERSONAL DATA WILL WE COLLECT AND WHY?</a></li><li><a href="#section-4"><span class="num">4.</span> LAWFUL BASES FOR PROCESSING PERSONAL INFORMATION</a></li><li><a href="#section-5"><span class="num">5.</span> AUTOMATED DECISION MAKING</a></li><li><a href="#section-6"><span class="num">6.</span> SHARING YOUR PERSONAL DATA</a></li><li><a href="#section-7"><span class="num">7.</span> INTERNATIONAL TRANSFERS</a></li><li><a href="#section-8"><span class="num">8.</span> HOW WE RETAIN YOUR PERSONAL DATA</a></li><li><a href="#section-9"><span class="num">9.</span> YOUR RIGHTS</a></li><li><a href="#section-10"><span class="num">10.</span> COMPLAINTS</a></li></ol></details>
+</div>
+<article>
+<div class="eyebrow" data-chrome="1">Legal · Privacy notice</div>
+<h1><strong>PRIVACY NOTICE</strong></h1>
+<div class="version-banner">
+<span class="version-line" data-chrome="1">Version 1.1 – effective 30 July 2026</span>
+<span class="version-note" data-chrome="1">This is the version currently in force.</span>
+<a class="dl" data-chrome="1" href="/legal/pdf/satorus-privacy-v1-1.pdf">Download PDF</a>
+</div>
+<div class="intro-gap"></div>
+<h2 id="section-1"><span class="num num-lit">1.</span> ABOUT SATORUS</h2>
+<p>Satorus Group Limited, incorporated and registered in England and Wales with company number 16479677 whose registered office is at 59 Whitelands Crescent, London, England, SW18 5QY (<strong>“Satorus”, “we”, “us” or “our”</strong>) operates a platform called “Sidney” which provides intelligence services (“<strong>Services</strong>”) on behalf of other organisations and businesses (“<strong>Business Customers</strong>”).</p>
+<p>Satorus is the data controller of the personal data of end-users that our Business Customers authorise to use Sidney and this Privacy Notice sets out how we collect and use information during your use of Sidney including:</p>
+<p class="clause lvl1"><span class="num num-lit">1.1</span> individuals who visit <a href="https://satorusgroup.com/">https://satorusgroup.com/</a> (“<strong>Website</strong>”)</p>
+<p class="clause lvl1"><span class="num num-lit">1.2</span> individual end-users who are authorised by our Customers to use Sidney; and</p>
+<p class="clause lvl1"><span class="num num-lit">1.3</span> individuals who contact us with any queries.</p>
+<p>collectively (“<strong>You</strong>”)</p>
+<p>For individuals whose personal data is processed by our Business Customers during their use of Sidney, we are not the data controller of your personal data and we only act as a data processor on behalf of our Business Customers in providing the Services. Please contact the relevant Business Customer who uses Sidney as they are the data controller of your personal data.</p>
+<p>Please contact us if you have any questions or concerns at: <a href="mailto:beth@satorusgroup.com">beth@satorusgroup.com</a></p>
+<h2 id="section-2"><span class="num num-lit">2.</span> HOW DO WE COLLECT PERSONAL DATA?</h2>
+<p>We collect personal data from a variety of sources such as:</p>
+<ul>
+<li><strong>from you directly</strong> when you contact us with a query;</li>
+<li><strong>from information we generate about you during our relationship with you</strong> such as: technical data collected from cookies and other similar technologies which are described in our Cookies Policy when you use our Website and/or Sidney; and</li>
+<li><strong>from information we collect about you from third parties</strong> such as: the Business Customer who engages us to provide the Services and our service providers who assist us in providing our Services. This may include publicly available sources too, such as social media.</li>
+</ul>
+<h2 id="section-3"><span class="num num-lit">3.</span> WHAT PERSONAL DATA WILL WE COLLECT AND WHY?</h2>
+<p>We may process the following information about you in connection with our business activities.</p>
+<p class="clause lvl1"><span class="num num-lit">3.1</span> <strong>Business contact information</strong>: such as your name, role, and contact details such as your work email address and work telephone number.</p>
+<p class="clause lvl1"><span class="num num-lit">3.2</span> <strong>User log-in information</strong>: such as your work email address.</p>
+<p class="clause lvl1"><span class="num num-lit">3.3</span> <strong>Marketing information</strong>: such as when we promote our Services via direct marketing communications such as email.</p>
+<p class="clause lvl1"><span class="num num-lit">3.4</span> <strong>Technical information</strong> collected from your device when you are browsing on our Website, or our digital communications such as emails or using Sidney. This includes: your IP address, your location (by country, state and city), device type, browser type, operating system, interaction with, and responses to, our marketing communication and activity on our Website and Sidney. Please see our cookies policy for more information.</p>
+<p class="clause lvl1"><span class="num num-lit">3.5</span> <strong>Correspondence</strong> between you and us such as: by email, Website and social media.</p>
+<p class="clause lvl1"><span class="num num-lit">3.6</span> <strong>Other</strong>: any other information you voluntarily provide.</p>
+<h2 id="section-4"><span class="num num-lit">4.</span> LAWFUL BASES FOR PROCESSING PERSONAL INFORMATION</h2>
+<p class="clause lvl1"><span class="num num-lit">4.1</span> Your personal data may be used by us for the following purposes and lawful bases.</p>
+<p class="clause lvl1"><span class="num num-lit">4.2</span> Please note if you fail to provide certain information when requested, we may not be able to perform the contract we have entered into with you (such as our terms of use on our Website), or we may be prevented from complying with our legal obligations.</p>
+<div class="table-wrap table-headed"><table><tr><td><p><strong>Purpose</strong></p></td><td><p><strong>Types of information we may use</strong></p></td><td><p><strong>Lawful basis</strong></p></td></tr><tr><td><p>To operate and provide Sidney and related Services</p></td><td><ul><li>Business contact information (e.g., name, role, work email address, work telephone number)</li><li>User log-in information (e.g., work email address)</li></ul></td><td><p>Legitimate interests of ours and of third parties such as our Business Customers: Processing is necessary to provide the Services to our Business Customers and to enable authorised end-users to use Sidney in accordance with the Master Services Agreement entered into with the relevant Business Customer.</p></td></tr><tr><td><p>To respond to queries and correspondence</p></td><td><ul><li>Correspondence between you and us (e.g., emails, Website interactions, social media messages)</li></ul></td><td><p>Legitimate interests: To provide effective customer service and respond to queries from end-users and our Business Customers.</p></td></tr><tr><td><p>To monitor our Website, Services, and marketing communications</p></td><td><ul><li>Technical information (e.g., IP address, location by country/state/city, device type, browser type, operating system, interaction with marketing communications)</li><li>User log-in information (e.g., work email address)</li></ul></td><td><p>Legitimate interests: To monitor user behaviour to improve your experience on our Website, Sidney and digital communications, to conduct research, analytics and measure performance in relation to the running of our business. We deploy strictly necessary cookies for interests such as to protect our business, fraud prevention and to ensure our Website and Sidney operates appropriately.</p></td></tr><tr><td><p>To improve our Website, Services, and marketing communications</p></td><td><ul><li>Technical information (e.g., IP address, location by country/state/city, device type, browser type, operating system, interaction with marketing communications)</li><li>User log-in information (e.g., work email address)</li><li>Any other information you voluntarily provide.</li></ul></td><td><p>Consent: we deploy non-strictly necessary cookies such as analytics cookies to help us improve our Website, Services, and marketing communications.</p><p>You have the right to withdraw your consent for this specific processing at any time without affecting the lawfulness of any processing undertaken prior to you withdrawing such consent.</p></td></tr><tr><td><p>To send direct marketing communications via email</p></td><td><ul><li>Marketing information (e.g., engagement with direct marketing emails)</li><li>Business contact information (e.g., name, role, work email address, work telephone number)</li></ul></td><td><p>Legitimate interests: To promote our Services to organisations and business who we believe may be interested in our Services.</p><p>You may opt-out of receiving direct marketing emails at any time.</p></td></tr></table></div>
+<h2 id="section-5"><span class="num num-lit">5.</span> AUTOMATED DECISION MAKING</h2>
+<p>As part of our Services to the Business Customer, we use artificial intelligence and large language models via Sidney, to assist Business Customers. The output of Sidney is advisory only. No automated decisions with legal or similarly significant effects are made by us in this respect given the Business Customer always makes the final decision which includes meaningful human intervention.</p>
+<h2 id="section-6"><span class="num num-lit">6.</span> SHARING YOUR PERSONAL DATA</h2>
+<p>Sometimes we use third parties who are contractually engaged to provide services to us that may involve the sharing of personal data in order to provide such services. For example:</p>
+<ul>
+<li><strong>Companies that help us:</strong> such as service providers who assist us with user authentication, cloud hosting and storage, mapping services and AI model providers. This is on the basis of our legitimate interests of ours and of such third party service providers, to carry out the services we have requested.</li>
+<li><strong>Our professional advisers</strong>: including IT services, legal and accountancy services that assist us in carrying out our business activities in our legitimate interests.</li>
+<li><strong>Other companies we work closely with</strong>: for security, assistance, improving our Services, and reporting, based on our legitimate business interests.</li>
+<li><strong>In the context of a transaction</strong>: we may share your personal data with potential partners and other third parties in connection with the consideration, negotiation, or completion of a corporate transaction in which we are acquired by or merged with another company or we sell or transfer all or a portion of our assets or business. This is on the basis of our legitimate interests for our business operations and the legitimate interests of third parties such as those in connection with the transaction.</li>
+<li><strong>Government authorities, courts, law enforcement, fraud prevention agencies, the police or other regulatory bodies as required by law in connection with the investigation of crimes.</strong> This is on the basis of our legitimate interests for the establishment, exercise or defence of legal claims to protect our business or in compliance with applicable legal obligations where we believe it is necessary to comply with a legal or regulatory obligation, or otherwise to protect our rights or the rights of a third party.</li>
+</ul>
+<h2 id="section-7"><span class="num num-lit">7.</span> INTERNATIONAL TRANSFERS</h2>
+<p>Although we are based in the UK, our business is global and so we may need to transfer your personal information outside the UK.</p>
+<p>Wherever your information is transferred to organisations outside the UK, we will ensure that appropriate safeguards are in place to protect personal information as required by data protection laws. Such safeguards include: standard data protection clauses (including the UK Addendum to the EU Standard Contractual Clauses and the UK International Data Transfer Agreement), legal exceptions, adequacy decisions, recognised frameworks (e.g. the EU-US Data Privacy Framework and the UK extension to the Framework). If you are located in the UK or the EEA, you may contact us for a copy of the safeguards.</p>
+<h2 id="section-8"><span class="num num-lit">8.</span> HOW WE RETAIN YOUR PERSONAL DATA</h2>
+<p>We will only keep your personal information for as long as we need to in line with our retention criteria taking into consideration: legal obligations, best industry practice, limitation periods, our business needs and for the establishment, exercise or defence of a legal claims.</p>
+<h2 id="section-9"><span class="num num-lit">9.</span> YOUR RIGHTS</h2>
+<p>You have a number of rights in respect of your personal data, including the right to request:</p>
+<ul>
+<li>access to the personal data that we hold about you;</li>
+<li>an objection to the processing of personal data and that we do not process your personal data for direct marketing purposes;</li>
+<li>that inaccurate personal data we hold about you is corrected;</li>
+<li>that your personal data is deleted;</li>
+<li>that your personal data is provided to you in a portable format.</li>
+</ul>
+<p>Please note that most of these rights are not absolute and are limited to certain defined circumstances.</p>
+<p>If the basis of our processing of your personal information is ‘consent’ you have the right to withdraw your consent at any time without affecting the lawfulness prior to the withdrawal of your consent. However, note that your data may also be being processed subject to another lawful basis as set out above.</p>
+<h2 id="section-10"><span class="num num-lit">10.</span> COMPLAINTS</h2>
+<p>We encourage you to raise your concerns directly with us so that we can address them through our internal complaints escalation procedure. To do so, please contact us if you have any questions or concerns regarding your personal data, at <a href="mailto:beth@satorusgroup.com">beth@satorusgroup.com</a></p>
+<p>In the UK, if you are not satisfied with our response, you may escalate the matter via our complaints procedure by contacting us. During this process we will acknowledge your complaint within 30 days, make enquiries into the complaint without undue delay and make an appropriate level of enquiries.</p>
+<p>If after the complaints process, you remain dissatisfied, you have the right to lodge a complaint with the Information Commissioner's Office (ICO): <a href="https://www.ico.org.uk">www.ico.org.uk</a></p>
+<p>We may update or amend this Privacy Notice from time to time by posting this Notice on our Website, on Sidney and at the footer of our email communications.</p>
+</article>
+</main>
+<div class="vh-in"><div></div><div><h2 id="version-history">Version history</h2><table><tr class="cur"><td>Version 1.1</td><td>effective 30 July 2026</td><td>current</td><td><a href="/legal/privacy/v1-1">permanent link</a></td></tr></table></div></div>
+<footer class="foot"><div class="foot-in"><div>© 2026 Satorus Group Ltd · London</div><div><a href="/legal">Legal index</a></div></div></footer>
+<script>(function(){var t=document.querySelector('.toc');if(t&&matchMedia('(min-width:921px)').matches)t.setAttribute('open','');})();</script>
+</body>
+</html>
