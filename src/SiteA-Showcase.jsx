@@ -948,7 +948,7 @@ export const ShowcaseA = () => {
               <div className="pv-head-row">
                 <h1 className="pv-title">
                   {!isQuery && <Ic n="pencil" size={16} className="pv-title-pen"/>}
-                  {isQuery ? "New investigation" : inv.query}
+                  <span className="pv-title-text">{isQuery ? "New investigation" : inv.query}</span>
                 </h1>
                 {!isQuery && (
                   <div className="pv-actions">
