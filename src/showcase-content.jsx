@@ -104,8 +104,8 @@ const CABO = {
 
   /* Reading choreography — Report tab. */
   stops: [
-    { at: "top",                    dwell: 2800 },
-    { at: "sec:Key Judgments",      dwell: 3400 },
+    { at: "top",                    dwell: 2200 },
+    { at: "sec:Key Judgments",      dwell: 2700 },
     { at: "sec:Situation Overview", dwell: 4200, click: 4 },
     { at: "vis:timeline",           dwell: 5000 },
     { at: "vis:geo",                dwell: 7800 },
