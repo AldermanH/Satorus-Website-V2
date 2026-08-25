@@ -620,7 +620,7 @@ const DarkCard = ({ d, anchorRef, hi }) => (
       <span className="pv-pf dark">Dark web</span>
     </div>
     <div className="pv-scard-url">onion address masked · {d.retrieved}</div>
-    <div className="pv-dcard-thread"><span>Thread</span>{d.thread}<em>{d.replies} replies</em></div>
+    <div className="pv-dcard-thread"><span>Thread</span>{d.thread}{d.replies != null && <em>{d.replies} replies</em>}</div>
     <p className="pv-scard-sum">{d.excerpt}</p>
     <div className="pv-scard-sec">
       <div className="pv-scard-sech">Analysis</div>

@@ -90,7 +90,7 @@ const CABO = {
       types: [
         { type: "news",    count: 57, extends_only: false },
         { type: "social",  count: 7,  extends_only: true },
-        { type: "darkweb", count: 1,  extends_only: true },
+        { type: "darkweb", count: 8,  extends_only: true },
       ],
     },
   },
@@ -188,6 +188,48 @@ const CABO = {
       thread: "Wilayah Muzambiq — new release (Namabo)", replies: 14,
       excerpt: "Re-post of the Al-Naba #549 spoils graphic with 14 replies; no operational detail beyond the published claim.",
       analysis: ["No mention of Afungi, TotalEnergies or any named European contractor.", "Content is IS organisational output mirrored, not independent observation.", "Coverage gap: Signal and closed Telegram groups are not indexed."],
+    },
+    {
+      i: "D2", forum: "Marketplace listing · access broker", date: "2026-06-22", retrieved: "Retrieved 23 Jun 2026 · DarkOwl",
+      thread: "Mozambique LNG contractor rosters — “site access” listing",
+      excerpt: "Vendor offers purported contractor rosters and Afungi access documentation; the sample is a 2019 public tender PDF.",
+      analysis: ["Sample matches a publicly available document — no evidence of a genuine breach.", "Flagged for the client's credential-exposure watch."],
+    },
+    {
+      i: "D3", forum: "IS-supporter forum · board: Media", date: "2026-06-18", retrieved: "Retrieved 19 Jun 2026 · DarkOwl",
+      thread: "Al-Naba #548 — Portuguese translation thread", replies: 6,
+      excerpt: "Portuguese translation of the weekly with recruitment-facing framing of the Macomia operations.",
+      analysis: ["Translation activity is a weak indicator of Lusophone audience targeting; no operational content."],
+    },
+    {
+      i: "D4", forum: "Ransomware leak-site mirror", date: "2026-06-11", retrieved: "Retrieved 12 Jun 2026 · DarkOwl",
+      thread: "Claimed exfiltration — Pemba-based transport contractor",
+      excerpt: "Leak-site listing naming a Pemba logistics contractor; 2.1 GB sample, unverified.",
+      analysis: ["Contractor sits in the N380 corridor supply chain; monitoring for credential spill affecting convoy scheduling."],
+    },
+    {
+      i: "D5", forum: "IS-supporter forum · board: Africa", date: "2026-06-04", retrieved: "Retrieved 05 Jun 2026 · DarkOwl",
+      thread: "Wilayah Muzambiq — Nangade claim (repost)", replies: 11,
+      excerpt: "Repost of the 4 June claim with commentary; no new imagery or targeting language.",
+      analysis: ["Consistent with the recorded 4 June event [4]; adds nothing beyond the published claim."],
+    },
+    {
+      i: "D6", forum: "Credentials forum · combo lists", date: "2026-05-28", retrieved: "Retrieved 29 May 2026 · DarkOwl",
+      thread: "Combo list — .co.mz domains (340 entries)",
+      excerpt: "Credential combo list containing 340 .co.mz addresses; 0 matches against the client watchlist.",
+      analysis: ["Negative result — retained for the exposure baseline only."],
+    },
+    {
+      i: "D7", forum: "IS-supporter forum · board: Africa", date: "2026-05-20", retrieved: "Retrieved 21 May 2026 · DarkOwl",
+      thread: "Quiterajo navy engagement — video re-upload", replies: 9,
+      excerpt: "Re-upload of the RoaaGroup video with mirrored links; 9 replies, none adding detail.",
+      analysis: ["Duplicate of [S2]; not counted as independent corroboration."],
+    },
+    {
+      i: "D8", forum: "Paste site · onion mirror", date: "2026-05-14", retrieved: "Retrieved 15 May 2026 · DarkOwl",
+      thread: "FADM unit rotations — alleged internal memo",
+      excerpt: "Alleged FADM rotation memo in Portuguese; formatting inconsistent with genuine FADM documents.",
+      analysis: ["Assessed likely fabricated; excluded from the force-posture assessment."],
     },
   ],
 };
