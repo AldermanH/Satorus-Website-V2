@@ -1018,27 +1018,27 @@ export const ShowcaseA = () => {
                 {s.scene === "query" && <div className="pv-stage"><QueryScene typed={s.typed} focused={s.focused}/></div>}
 
                 {s.scene === "run" && (
-                  <div className="pv-stage run">
+                  <div className="pv-stage run" key="run">
                     <ProgressPanel inv={inv} step={step} runStart={s.runStart || Date.now()} runDur={runDur}/>
                     <div className="pv-graph-wrap"><ReasoningGraph inv={inv} n={s.gN} edges scale={0.74} showCtl={false}/></div>
                   </div>
                 )}
 
                 {s.scene === "graph" && (
-                  <div className="pv-stage">
+                  <div className="pv-stage" key="graph">
                     <div className="pv-graph-wrap full"><ReasoningGraph inv={inv} n={N} edges scale={0.92}/></div>
                   </div>
                 )}
 
                 {s.scene === "report" && (
-                  <div className="pv-scroll" ref={scrollerRef}>
+                  <div className="pv-scroll" key="report" ref={scrollerRef}>
                     <ReportDoc inv={inv} st={s} refs={anchors} pinRef={pinRef} pop={s.pop} docRef={docRef}/>
                     <Scrubber scrollerRef={scrollerRef} dep="report"/>
                   </div>
                 )}
 
                 {s.scene === "sources" && (
-                  <div className="pv-scroll" ref={scrollerRef}>
+                  <div className="pv-scroll" key="sources" ref={scrollerRef}>
                     <SourcesDoc inv={inv} st={s} refs={anchors} srcRefs={srcRefs} expRefs={expRefs} docRef={docRef}/>
                     <Scrubber scrollerRef={scrollerRef} dep="sources"/>
                   </div>
