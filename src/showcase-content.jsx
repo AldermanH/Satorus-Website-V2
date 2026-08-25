@@ -115,10 +115,9 @@ const CABO = {
   ],
   /* Reading choreography — Sources tab. */
   sourceStops: [
-    { at: "src:news", dwell: 4400, hover: 22 },
-    { at: "src:S1",   dwell: 4600, expand: "S1" },
-    { at: "src:S2",   dwell: 3400, expand: "S2" },
-    { at: "src:dark", dwell: 5400, hi: "D1" },
+    { at: "top",      dwell: 1600 },
+    { at: "src:S1",   dwell: 4200, expand: "S1" },
+    { at: "src:dark", dwell: 4800, hi: "D1" },
   ],
 
   /* ── News sources (graded) ── */
