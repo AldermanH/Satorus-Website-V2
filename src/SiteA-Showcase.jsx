@@ -758,7 +758,7 @@ function buildScript(inv) {
     at(t, { scrollTo: stop.at });
     if (stop.at === "vis:timeline") {
       const rows = buildRows(inv.blocks.timeline, inv.today).length;
-      for (let i = 1; i <= rows; i++) at(t + 500 + i * 70, { tl: i });
+      for (let i = 1; i <= rows; i++) at(t + 200 + i * 62, { tl: i });
     }
     if (stop.at === "vis:geo") {
       const pts = inv.geolocations.length;
