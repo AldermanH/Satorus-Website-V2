@@ -99,9 +99,23 @@ const NEXT_COPY = {
   research: "Retrieve, de-duplicate and triage sources", grade: "Score each source — reliability · authority · bias · attribution",
   analyse: "Link evidence to findings; sequence and score risks", write: "Draft key judgments and sections",
 };
-const fmtEta = (ms) => { const s = Math.max(0, Math.round(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
-const ProgressPanel = ({ inv, step, progress, eta }) => {
+const fmtEta = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+/* The bar is driven continuously by the clock (rAF), not by node cues, so it
+   fills smoothly instead of re-targeting a transition every few hundred ms. */
+const ProgressPanel = ({ inv, step, runStart, runDur }) => {
   const cur = inv.steps[Math.max(0, step)];
+  const [t, setT] = React.useState(0);
+  React.useEffect(() => {
+    let id;
+    const tick = () => { setT(Date.now() - runStart); id = requestAnimationFrame(tick); };
+    id = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(id);
+  }, [runStart]);
+  const frac = Math.min(1, Math.max(0, t / runDur));
+  const eased = 1 - Math.pow(1 - frac, 1.6);
+  const pct = Math.min(99, 2 + eased * 97);
+  const progress = Math.round(pct);
+  const eta = Math.max(0, runDur - t);
   return (
     <div className="pv-progress-panel">
       <div className="pv-pp-head">
@@ -119,7 +133,7 @@ const ProgressPanel = ({ inv, step, progress, eta }) => {
           </div>
         ))}
       </div>
-      <div className="pv-bar"><span className={`pv-bar-fill ${progress > 85 ? "hot" : ""}`} style={{ width: `${progress}%` }}/></div>
+      <div className="pv-bar"><span className={`pv-bar-fill ${progress > 85 ? "hot" : ""}`} style={{ width: `${pct.toFixed(2)}%` }}/></div>
       <div className="pv-next">
         <span className="pv-next-k">Next step</span>
         <span className="pv-next-t">{cur ? NEXT_COPY[cur.key] : "Starting…"}</span>
@@ -706,7 +720,7 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
 /* ═══ Engine ═══════════════════════════════════════════════════════════════ */
 const INIT = {
   scene: "query", typed: "", focused: false,
-  gN: 0, gEdges: true,
+  gN: 0, gEdges: true, runStart: null,
   tl: 0, geo: { zoom: false, pts: 0, area: false, routes: false, move: false, popup: false }, outlook: false, pp: false, pop: null,
   srcBar: false, srcOpen: null, srcExp: {}, srcHi: null,
   done: false, cursor: { x: 0, y: 0, show: false, down: false },
@@ -730,10 +744,10 @@ function buildScript(inv) {
 
   // — run: the reasoning graph builds on the Graph tab
   starts.run = t;
-  const N = inv.graph.nodes.length, gap = 300;
-  at(t, { scene: "run", gN: 0 });
-  for (let i = 1; i <= N; i++) at(t + 500 + i * gap, { gN: i });
-  t = t + 500 + N * gap + 1500;
+  const N = inv.graph.nodes.length, gap = 270;
+  at(t, (s) => ({ ...s, scene: "run", gN: 0, runStart: Date.now() }));
+  for (let i = 1; i <= N; i++) at(t + 400 + i * gap, { gN: i });
+  t = t + 400 + N * gap + 1300;
 
   // — report: read the document stop by stop
   starts.report = t;
@@ -927,8 +941,7 @@ export const ShowcaseA = () => {
   const running = s.scene === "run";
   const revealed = inv.graph.nodes.slice(0, s.gN);
   const step = running ? (revealed.length ? Math.max(...revealed.map((n) => n.step)) : 0) : inv.steps.length;
-  const progress = running ? Math.min(99, Math.round((s.gN / N) * 100)) : 100;
-  const eta = Math.max(0, (N - s.gN) * 300 + 1500);
+  const runDur = 400 + N * 270 + 1300;
 
   const tab = s.scene === "run" || s.scene === "graph" ? "Graph" : s.scene === "sources" ? "Sources" : "Report";
   const status = s.scene === "query" ? null : running ? "running" : s.done ? "done" : "review";
@@ -1006,7 +1019,7 @@ export const ShowcaseA = () => {
 
                 {s.scene === "run" && (
                   <div className="pv-stage run">
-                    <ProgressPanel inv={inv} step={step} progress={progress} eta={eta}/>
+                    <ProgressPanel inv={inv} step={step} runStart={s.runStart || Date.now()} runDur={runDur}/>
                     <div className="pv-graph-wrap"><ReasoningGraph inv={inv} n={s.gN} edges scale={0.74} showCtl={false}/></div>
                   </div>
                 )}
