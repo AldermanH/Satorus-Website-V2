@@ -596,8 +596,8 @@ const SocialCard = ({ s, expanded, expRef, anchorRef }) => {
   );
 };
 
-const DarkCard = ({ d, anchorRef }) => (
-  <div className="pv-dcard" ref={anchorRef}>
+const DarkCard = ({ d, anchorRef, hi }) => (
+  <div className={`pv-dcard ${hi ? "hi" : ""}`} ref={anchorRef}>
     <div className="pv-scard-head">
       <span className="pv-scard-i">[{d.i}]</span>
       <Ic n="shieldoff" size={13} className="pv-scard-ext"/>
@@ -694,9 +694,9 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
         ))}
       </SectionBox>
 
-      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark">
+      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
-        {inv.dark_sources.map((d) => <DarkCard key={d.i} d={d} anchorRef={(el) => (refs.current[`src:${d.i}`] = el)}/>)}
+        {inv.dark_sources.map((d) => <DarkCard key={d.i} d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/>)}
       </SectionBox>
       <div className="pv-doc-end"/>
     </div>
@@ -708,7 +708,7 @@ const INIT = {
   scene: "query", typed: "", focused: false,
   gN: 0, gEdges: true,
   tl: 0, geo: { zoom: false, pts: 0, area: false, routes: false, move: false, popup: false }, outlook: false, pp: false, pop: null,
-  srcBar: false, srcOpen: null, srcExp: {},
+  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null,
   done: false, cursor: { x: 0, y: 0, show: false, down: false },
 };
 const reducer = (s, a) => (typeof a === "function" ? a(s) : { ...s, ...a });
@@ -730,10 +730,10 @@ function buildScript(inv) {
 
   // — run: the reasoning graph builds on the Graph tab
   starts.run = t;
-  const N = inv.graph.nodes.length, gap = 270;
+  const N = inv.graph.nodes.length, gap = 300;
   at(t, { scene: "run", gN: 0 });
-  for (let i = 1; i <= N; i++) at(t + 400 + i * gap, { gN: i });
-  t = t + 400 + N * gap + 1300;
+  for (let i = 1; i <= N; i++) at(t + 500 + i * gap, { gN: i });
+  t = t + 500 + N * gap + 1500;
 
   // — report: read the document stop by stop
   starts.report = t;
@@ -769,7 +769,7 @@ function buildScript(inv) {
 
   // — sources: read the source list
   starts.sources = t;
-  at(t, { scene: "sources", srcBar: false, srcOpen: null, srcExp: {} });
+  at(t, { scene: "sources", srcBar: false, srcOpen: null, srcExp: {}, srcHi: null });
   at(t + 250, { srcBar: true });
   t += 200;
   inv.sourceStops.forEach((stop) => {
@@ -784,6 +784,11 @@ function buildScript(inv) {
       at(t + 700, { cursorTo: `exp:${stop.expand}` });
       at(t + 1150, { expand: stop.expand });
       at(t + stop.dwell - 250, (s) => ({ ...s, cursor: { ...s.cursor, show: false } }));
+    }
+    if (stop.hi) {
+      at(t + 900, { cursorTo: `card:${stop.hi}` });
+      at(t + 1350, { srcHi: stop.hi });
+      at(t + stop.dwell - 250, (s) => ({ ...s, srcHi: null, cursor: { ...s.cursor, show: false } }));
     }
     t += stop.dwell;
   });
@@ -865,11 +870,12 @@ export const ShowcaseA = () => {
     else if (key === "finish") { node = finishRef.current; }
     else if (key.startsWith("src:")) { node = srcRefs.current[key.slice(4)]; mode = "row"; }
     else if (key.startsWith("exp:")) { node = expRefs.current[key.slice(4)]; mode = "row"; dx = 40; }
+    else if (key.startsWith("card:")) { node = srcRefs.current[key.slice(5)]; mode = "row"; dx = 120; dy = -26; }
     else if (key.startsWith("cite:")) { node = citeEl(key.slice(5)); }
     if (!node) return;
     const r = node.getBoundingClientRect();
     const x = mode === "row" ? r.left + 60 + dx : r.left + r.width / 2 + dx;
-    const y = mode === "row" ? r.top + r.height / 2 + 4 : r.top + r.height / 2 + dy;
+    const y = mode === "row" ? (dy ? r.top + 40 : r.top + r.height / 2 + 4) : r.top + r.height / 2 + dy;
     dispatch((st) => ({ ...st, cursor: { x, y, show: true, down: false } }));
   };
   const press = () => {
@@ -922,7 +928,7 @@ export const ShowcaseA = () => {
   const revealed = inv.graph.nodes.slice(0, s.gN);
   const step = running ? (revealed.length ? Math.max(...revealed.map((n) => n.step)) : 0) : inv.steps.length;
   const progress = running ? Math.min(99, Math.round((s.gN / N) * 100)) : 100;
-  const eta = Math.max(0, (N - s.gN) * 270 + 1300);
+  const eta = Math.max(0, (N - s.gN) * 300 + 1500);
 
   const tab = s.scene === "run" || s.scene === "graph" ? "Graph" : s.scene === "sources" ? "Sources" : "Report";
   const status = s.scene === "query" ? null : running ? "running" : s.done ? "done" : "review";
