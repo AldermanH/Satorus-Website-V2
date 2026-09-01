@@ -1,8 +1,8 @@
 /* Careers (/careers) and role pages (/careers/<slug>)
    Copy lives in careers-content.jsx. This file is layout only.
 
-   /careers        — pitch, how-we-work manifest, open-roles list, process,
-                     no-role-fits fallback.
+   /careers        — pitch, open-roles list (the point of the page, so it
+                     sits directly under the header), how-we-work manifest.
    /careers/<slug> — the job description as a document: header with meta
                      chips, body sections, sticky apply rail on desktop.
 
@@ -11,7 +11,7 @@
    avoids standing up an ATS for a single role. */
 import React from "react";
 import { Icon } from "./Components.jsx";
-import { ROLES, PRINCIPLES, PROCESS, APPLY_EMAIL, roleBySlug } from "./careers-content.jsx";
+import { ROLES, PRINCIPLES, APPLY_EMAIL, roleBySlug } from "./careers-content.jsx";
 
 const SITE_TITLE = "Satorus Group — AI Agents for High Stakes Intelligence";
 
@@ -52,7 +52,6 @@ const RoleRow = ({ role }) => (
     <a className="cr-role-link" href={`/careers/${role.slug}`}>
       <div className="cr-role-main">
         <span className="cr-role-title">{role.title}</span>
-        <span className="cr-role-team">{role.team}</span>
       </div>
       <div className="cr-role-meta">
         <span>{role.location}</span>
@@ -62,21 +61,6 @@ const RoleRow = ({ role }) => (
       <span className="cr-role-arrow" aria-hidden="true"><Icon name="arrow" size={16}/></span>
     </a>
   </li>
-);
-
-/* ───── Shared: hiring process ───── */
-const ProcessSteps = () => (
-  <ol className="cr-process">
-    {PROCESS.map((s, i) => (
-      <li key={s.h} className="cr-step">
-        <span className="cr-step-n">{String(i + 1).padStart(2, "0")}</span>
-        <div>
-          <div className="cr-step-h">{s.h}</div>
-          <p className="cr-step-p">{s.body}</p>
-        </div>
-      </li>
-    ))}
-  </ol>
 );
 
 /* ═══════════════════════════ /careers ═══════════════════════════ */
@@ -99,10 +83,30 @@ export const CareersPage = () => {
               a handful of people who want to own a system end to end, not a seat on
               a large team.
             </p>
-            <a className="cr-head-jump" href="#open-roles">
-              {ROLES.length} open {ROLES.length === 1 ? "role" : "roles"} <Icon name="arrow" size={13}/>
-            </a>
           </div>
+        </div>
+      </section>
+
+      {/* Open roles — directly under the header, full width. This is what
+          the page is for; everything else is supporting copy. */}
+      <section className="cr-section cr-roles-section" id="open-roles">
+        <div className="container">
+          {teams.map((team) => (
+            <div key={team} className="cr-roles-group">
+              <div className="cr-roles-group-h">
+                <span>Open roles · {team}</span>
+                <span className="cr-roles-count">{ROLES.filter((r) => r.team === team).length}</span>
+              </div>
+              <ul className="cr-roles-list">
+                {ROLES.filter((r) => r.team === team).map((r) => <RoleRow key={r.slug} role={r}/>)}
+              </ul>
+            </div>
+          ))}
+          <p className="cr-roles-note">
+            Nothing that fits? We still want to hear from people who've taken a system
+            past the prototype. <a href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Open application")}`}>Write to us</a> and
+            tell us what you'd build.
+          </p>
         </div>
       </section>
 
@@ -123,51 +127,6 @@ export const CareersPage = () => {
                 </li>
               ))}
             </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* Open roles — a list, not cards. Rows grouped by team; each row is
-          one link so the whole width is a target. */}
-      <section className="a-section cr-section" id="open-roles">
-        <div className="container">
-          <div className="cr-split">
-            <div className="cr-split-aside">
-              <div className="a-section-label">Open roles</div>
-              <h2 className="cr-h2">{ROLES.length} {ROLES.length === 1 ? "position" : "positions"}, all in London.</h2>
-              <p className="cr-aside-p">
-                Nothing that fits? We still want to hear from people who've taken a
-                system past the prototype. <a href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Open application")}`}>Write to us</a> and
-                tell us what you'd build.
-              </p>
-            </div>
-            <div className="cr-roles">
-              {teams.map((team) => (
-                <div key={team} className="cr-roles-group">
-                  <div className="cr-roles-group-h">{team}</div>
-                  <ul className="cr-roles-list">
-                    {ROLES.filter((r) => r.team === team).map((r) => <RoleRow key={r.slug} role={r}/>)}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How we hire */}
-      <section className="a-section cr-section" id="process">
-        <div className="container">
-          <div className="cr-split">
-            <div className="cr-split-aside">
-              <div className="a-section-label">How we hire</div>
-              <h2 className="cr-h2">Four conversations. No take-home puzzles.</h2>
-              <p className="cr-aside-p">
-                We reply to every application, and we'll tell you where you stand
-                at each step.
-              </p>
-            </div>
-            <ProcessSteps/>
           </div>
         </div>
       </section>
@@ -335,8 +294,6 @@ export const JobPage = ({ slug }) => {
               </ul>
               <p className="cr-job-p">
                 No cover letter. A founder reads every application, and we reply to all of them.
-                From there it's four conversations and no take-home puzzles; the steps are
-                on the <a className="cr-inline-link" href="/careers#process">careers page</a>.
               </p>
               <div className="cr-job-foot">
                 <a className="btn btn-primary cr-btn" href={href}>

@@ -21,7 +21,7 @@
 
 // Where applications land. Prefilled as a mailto with the role title in the
 // subject so nothing gets lost in a shared inbox.
-export const APPLY_EMAIL = "harry@satorusgroup.com";
+export const APPLY_EMAIL = "info@satorusgroup.com";
 
 export const ROLES = [
   {
@@ -150,24 +150,3 @@ export const PRINCIPLES = [
   },
 ];
 
-/* Hiring process — shown on both pages so a candidate knows what they're
-   signing up for before they write to us. Keep to the truth: four steps,
-   founders in the room, decision within days of the last conversation. */
-export const PROCESS = [
-  {
-    h: "Write to us",
-    body: "An email with a few lines on what you've built and why this problem interests you. A CV or a link to your work is enough; no cover letter required.",
-  },
-  {
-    h: "A conversation with the CTO",
-    body: "Forty-five minutes on your background, how you think about systems, and what you'd want to know about ours.",
-  },
-  {
-    h: "A technical deep-dive",
-    body: "We go into something you've shipped: the bottleneck you found, the failure mode you designed around, how you'd do it differently now. Then we work a real Satorus problem together.",
-  },
-  {
-    h: "Meet the founders",
-    body: "The final conversation is about the company, not the code. Ask us anything. We'll give you a decision within a few days.",
-  },
-];
