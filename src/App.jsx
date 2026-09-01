@@ -4,8 +4,10 @@ import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
 import { ShowcaseA } from "./SiteA-Showcase.jsx";
 import { ReportVizA } from "./SiteA-ReportViz.jsx";
+import { CareersPage, JobPage } from "./SiteA-Careers.jsx";
 
-/* Tiny path-based router. Two pages today (/ and /demo); if we add more we
+/* Tiny path-based router. Public pages: /, /demo, /careers, /careers/<slug>;
+   hidden: /showcase, /report-viz. If we add many more we
    can swap this for React Router without touching the consumers — they all
    navigate via <a href="/..."> anchors which the global click interceptor
    below catches and turns into client-side pushState navigation.
@@ -124,6 +126,10 @@ export default function App() {
       <main id="main">
         {path === "/demo" ? (
           <DemoPage/>
+        ) : path === "/careers" || path === "/careers/" ? (
+          <CareersPage/>
+        ) : path.startsWith("/careers/") ? (
+          <JobPage slug={path.slice("/careers/".length).replace(/\/+$/, "")}/>
         ) : (
           <>
             <HeroA/>

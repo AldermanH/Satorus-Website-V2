@@ -171,6 +171,9 @@ export const TeamA = () => (
             <a href="/demo" className="btn btn-primary a-finale-cta">
               See the platform in action <Icon name="arrow" size={14}/>
             </a>
+            <a href="/careers" className="a-finale-hiring">
+              <span className="dot"/> We're hiring <Icon name="arrow" size={13}/>
+            </a>
           </div>
           <ol className="a-finale-list">
             {CREDENTIALS.map((c, i) => <li key={i}>{c}</li>)}
@@ -195,6 +198,7 @@ export const FooterA = () => (
         <a className="a-foot-l" href="/#product">Sidney</a>
         <a className="a-foot-l" href="/#use-cases">Use cases</a>
         <a className="a-foot-l" href="/#company">Company</a>
+        <a className="a-foot-l" href="/careers">Careers</a>
         <a className="a-foot-l" href="/demo">Request a demo</a>
       </div>
       <div className="a-foot-col">
