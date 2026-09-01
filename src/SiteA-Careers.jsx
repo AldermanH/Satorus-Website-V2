@@ -79,9 +79,8 @@ export const CareersPage = () => {
             <p className="cr-lede">
               Satorus builds AI agents for intelligence investigations. We're a founding
               team in London, backed by the University of Cambridge, with a platform
-              already carrying real customer workloads. We hire slowly and deliberately:
-              a handful of people who want to own a system end to end, not a seat on
-              a large team.
+              already carrying real customer workloads. We're looking for people who
+              want to own a system end to end, not a seat on a large team.
             </p>
           </div>
         </div>
