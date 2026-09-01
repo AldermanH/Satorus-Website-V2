@@ -182,19 +182,6 @@
 .cr-rail-note a { color: var(--sidney-fg-muted); text-decoration: underline; text-decoration-color: var(--sidney-border-strong); text-underline-offset: 2px; }
 .cr-rail-note a:hover { color: var(--sidney-fg); text-decoration-color: var(--sidney-primary-40); }
 
-/* Team finale hook on the homepage */
-.a-finale-hiring {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin-top: 20px;
-  font: 500 13px var(--sidney-font-sans); color: var(--sidney-fg-muted);
-  transition: color 150ms;
-}
-.a-finale-hiring:hover { color: var(--sidney-fg); }
-.a-finale-hiring .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sidney-primary); box-shadow: 0 0 8px var(--sidney-primary); }
-.a-finale-hiring svg { color: var(--sidney-primary); }
-@media (max-width: 980px) {
-  .a-finale-hiring { order: 4; justify-self: center; margin-top: 0; }
-}
 
 /* ═══════════ Responsive ═══════════ */
 @media (max-width: 1024px) {

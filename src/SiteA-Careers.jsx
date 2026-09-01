@@ -6,6 +6,9 @@
    /careers/<slug> — the job description as a document: header with meta
                      chips, body sections, sticky apply rail on desktop.
 
+   Unlisted: not linked from nav/footer/homepage and marked noindex (App.jsx,
+   robots.txt). Reachable only by direct link.
+
    Applications go to a prefilled mailto (subject = role title) rather than
    a form — at founding-team size the founder reads every one, and it
    avoids standing up an ATS for a single role. */

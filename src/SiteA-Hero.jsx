@@ -15,7 +15,6 @@ const MENU = [
   { label: "Sidney",     href: "/#product"   },
   { label: "Use cases",  href: "/#use-cases" },
   { label: "Company",    href: "/#company"   },
-  { label: "Careers",    href: "/careers"    },
 ];
 
 /* Hero H1 rotor — the typing phrase that follows the static "No"

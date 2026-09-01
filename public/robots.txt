@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /showcase
 Disallow: /report-viz
+Disallow: /careers

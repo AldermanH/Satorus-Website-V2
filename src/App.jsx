@@ -72,12 +72,13 @@ export default function App() {
     scrollToHashOrTop();
   }, [path]);
 
-  // /showcase (launch-event TV loop) and /report-viz (engineering prototype)
-  // are hidden routes. Keep them out of search: set
+  // /showcase (launch-event TV loop), /report-viz (engineering prototype) and
+  // /careers (direct-link only, not linked from the site) are hidden routes.
+  // Keep them out of search: set
   // <meta name="robots" content="noindex"> while one is active, and remove it
   // again when navigating away.
   React.useEffect(() => {
-    const isShowcase = path === "/showcase" || path === "/report-viz";
+    const isShowcase = path === "/showcase" || path === "/report-viz" || path === "/careers" || path.startsWith("/careers/");
     let meta = document.querySelector('meta[name="robots"][data-showcase]');
     if (isShowcase && !meta) {
       meta = document.createElement("meta");
