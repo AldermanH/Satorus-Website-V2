@@ -22,3 +22,6 @@ npm-debug.log*
 
 # Real Sidney UI — reference only, never commit or deploy
 sidney-staging/
+
+# Raw product screenshots Harry drops in for /guide (shipped as resized webp in public/assets/guide/)
+Screenshots for Guide/

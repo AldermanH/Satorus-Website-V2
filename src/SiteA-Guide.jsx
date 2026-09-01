@@ -6,13 +6,13 @@
    Screenshots live in public/assets/guide/. A <Figure> hides itself if its
    image 404s, so the page never renders a broken frame while a screenshot
    is missing. Filenames:
-     deep-research.png      Research page with the brief box + source pills
-     home.png               Home dashboard (four investigation cards)
-     key-judgments.png      Report: Key Judgments with a source-grading popover
-     sources.png            Sources tab with a social post's media analysis
-     digital-footprints.png Digital Footprints intake
-     due-diligence.png      Due Diligence intake with scope presets
-     video-analysis.png     Video Analysis intake */
+     deep-research.webp     Research page with the brief box + source pills
+     home.webp              Home dashboard (four investigation cards)
+     key-judgments.webp     Report: Key Judgments with a source-grading popover
+     sources.webp           Sources tab with a social post's media analysis
+     digital-footprints.webp Digital Footprints intake
+     due-diligence.webp     Due Diligence intake with scope presets
+     video-analysis.webp    Video Analysis intake */
 import React from "react";
 import { Icon } from "./Components.jsx";
 
@@ -167,7 +167,7 @@ export const GuidePage = () => {
                 start an investigation, and counters showing how many investigations
                 are <span className="gd-ok">active</span>, <span className="gd-warn">in review</span>, and <span className="gd-ok">finished</span>.
               </p>
-              <Figure src="home.png" alt="Sidney home dashboard showing the four investigation types"/>
+              <Figure src="home.webp" alt="Sidney home dashboard showing the four investigation types"/>
               <div className="gd-mini-h">The sidebar</div>
               <div className="gd-defs">
                 {[
@@ -223,7 +223,7 @@ export const GuidePage = () => {
                 <>Write your brief. Choose <strong>Deep report</strong> for a sourced, versioned report, or <strong>Quick answer</strong> for a fast read.</>,
                 <>Tick the source pills you want before sending, then <strong>Run the report</strong>.</>,
               ]}/>
-              <Figure src="deep-research.png" alt="Deep Research page with the brief box and source pills"/>
+              <Figure src="deep-research.webp" alt="Deep Research page with the brief box and source pills"/>
               <Callout label="Before the report appears" tone="primary">
                 <p>
                   You approve the plan, then answer a few clarifying questions, before Sidney
@@ -279,14 +279,14 @@ export const GuidePage = () => {
               <Rows wide items={[
                 ["Key judgments", "Bottom line up front. The claims that matter most, each with a confidence level and direct source references. Hovering a source reference opens its grading breakdown."],
               ]}/>
-              <Figure src="key-judgments.png" alt="Key Judgments section of a report with a source-grading popover open"/>
+              <Figure src="key-judgments.webp" alt="Key Judgments section of a report with a source-grading popover open"/>
               <Rows wide items={[
                 ["Intelligence gaps and critical assumptions", "Sidney cannot assert anything beyond the evidence it retrieved, which makes it good at telling you what it could not find. Read this section. It flags sources it could not reach, the assumptions holding the assessment together, and where to dig next."],
                 ["Key indicators to monitor", "What would shift the picture, and in which direction."],
                 ["Source grading", <>News sources are graded against the specific claim they support, across <code>11</code> layers and around <code>80</code> factors: attribution quality, cross-corroboration, outlet funding and political leaning, press freedom in the country of origin. Grading is dynamic, so the same article can score differently in two reports. Dark web and social sources are not graded yet.</>],
                 ["The sources tab", "Every source in full, broken down by type. For social posts you also get the media analysis: transcript, on-screen text, visual description and audio."],
               ]}/>
-              <Figure src="sources.png" alt="Sources tab showing a social-media post with its media analysis"/>
+              <Figure src="sources.webp" alt="Sources tab showing a social-media post with its media analysis"/>
               <Rows wide items={[
                 ["The reasoning trace", "Every branch Sidney investigated, what it found, its confidence, and the evidence behind it."],
                 ["Map", "Anything that can be accurately geolocated is plotted. Anything Sidney cannot place precisely is left off rather than guessed."],
@@ -306,7 +306,7 @@ export const GuidePage = () => {
               <div className="gd-sub">
                 <div className="gd-sub-eyebrow">Social intelligence</div>
                 <h3 className="gd-h3">Digital Footprints <span className="gd-credits">from 6 credits</span></h3>
-                <Figure src="digital-footprints.png" alt="Digital Footprints intake form"/>
+                <Figure src="digital-footprints.webp" alt="Digital Footprints intake form"/>
                 <Rows wide items={[
                   ["You provide", "Name, aliases, email, phone, employer, location, known associates, with an optional natural-language focus."],
                   ["You get back", "Discovered and rejected accounts with confidence and matching evidence, content analysis, network associations, audience analysis, breach and info-stealer hits."],
@@ -317,7 +317,7 @@ export const GuidePage = () => {
               <div className="gd-sub">
                 <div className="gd-sub-eyebrow">Corporate intelligence</div>
                 <h3 className="gd-h3">Due Diligence <span className="gd-credits">from 8 credits</span></h3>
-                <Figure src="due-diligence.png" alt="Due Diligence intake form with scope presets"/>
+                <Figure src="due-diligence.webp" alt="Due Diligence intake form with scope presets"/>
                 <Rows wide items={[
                   ["You provide", "Company name, registration number, jurisdiction, scope, with an optional natural-language focus."],
                   ["You get back", "Entity resolution, ownership and control, ultimate beneficial ownership, directors and key individuals, subsidiaries and affiliates, adverse media and litigation timeline, risk assessment, gap ledger."],
@@ -328,7 +328,7 @@ export const GuidePage = () => {
               <div className="gd-sub">
                 <div className="gd-sub-eyebrow">Media intelligence</div>
                 <h3 className="gd-h3">Video Analysis <span className="gd-credits">from 3 credits</span></h3>
-                <Figure src="video-analysis.png" alt="Video Analysis intake form"/>
+                <Figure src="video-analysis.webp" alt="Video Analysis intake form"/>
                 <Rows wide items={[
                   ["You provide", "A link Sidney can reach, or a file from your machine, with an optional focus instruction."],
                   ["You get back", "Source attribution and framing, speaker separation, key entities, timestamped phrases grouped by category, assessment and key findings, notable quotes in the original language, full English transcript."],
