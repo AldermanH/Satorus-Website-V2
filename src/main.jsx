@@ -6,6 +6,7 @@ import "./styles/site-a.css";
 import "./styles/showcase.css";
 import "./styles/report-viz.css";
 import "./styles/careers.css";
+import "./styles/guide.css";
 import "./styles/a11y.css";
 import App from "./App.jsx";
 

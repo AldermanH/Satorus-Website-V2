@@ -5,6 +5,7 @@ import { DemoPage } from "./SiteA-DemoPage.jsx";
 import { ShowcaseA } from "./SiteA-Showcase.jsx";
 import { ReportVizA } from "./SiteA-ReportViz.jsx";
 import { CareersPage, JobPage } from "./SiteA-Careers.jsx";
+import { GuidePage } from "./SiteA-Guide.jsx";
 
 /* Tiny path-based router. Public pages: /, /demo, /careers, /careers/<slug>;
    hidden: /showcase, /report-viz. If we add many more we
@@ -73,12 +74,13 @@ export default function App() {
   }, [path]);
 
   // /showcase (launch-event TV loop), /report-viz (engineering prototype) and
-  // /careers (direct-link only, not linked from the site) are hidden routes.
+  // /careers and /guide (direct-link only, not linked from the site) are
+  // hidden routes.
   // Keep them out of search: set
   // <meta name="robots" content="noindex"> while one is active, and remove it
   // again when navigating away.
   React.useEffect(() => {
-    const isShowcase = path === "/showcase" || path === "/report-viz" || path === "/careers" || path.startsWith("/careers/");
+    const isShowcase = path === "/showcase" || path === "/report-viz" || path === "/careers" || path.startsWith("/careers/") || path === "/guide";
     let meta = document.querySelector('meta[name="robots"][data-showcase]');
     if (isShowcase && !meta) {
       meta = document.createElement("meta");
@@ -131,6 +133,8 @@ export default function App() {
           <CareersPage/>
         ) : path.startsWith("/careers/") ? (
           <JobPage slug={path.slice("/careers/".length).replace(/\/+$/, "")}/>
+        ) : path === "/guide" || path === "/guide/" ? (
+          <GuidePage/>
         ) : (
           <>
             <HeroA/>
