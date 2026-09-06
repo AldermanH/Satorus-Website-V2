@@ -629,6 +629,80 @@ const DarkCard = ({ d, anchorRef, hi }) => (
   </div>
 );
 
+/* Corporate-registry record (NECIPS-style) resolving field by field. */
+const RegistryCard = ({ reg, on }) => (
+  <div className={`pv-regcard ${on ? "on" : ""}`}>
+    <div className="pv-reg-head">
+      <span className="pv-scard-i">[R1]</span>
+      <Ic n="ext" size={13} className="pv-scard-ext"/>
+      <span className="pv-reg-source">{reg.source}</span>
+      <span className="pv-scard-date">{reg.retrieved}</span>
+      <span className="pv-pf reg">Registry</span>
+    </div>
+    <Reveal on={on} delay={80} className="pv-reg-names">
+      <div className="pv-reg-zh">{reg.name_zh}</div>
+      <div className="pv-reg-en">{reg.name_en}</div>
+    </Reveal>
+    <div className="pv-reg-grid">
+      {reg.fields.map((f, i) => (
+        <Reveal key={f.k} on={on} delay={200 + i * 110} className="pv-reg-field">
+          <span className="pv-reg-k">{f.k}</span>
+          <span className={`pv-reg-v ${f.mono ? "mono" : ""} ${f.ok ? "ok" : ""}`}>{f.ok && <i/>}{f.v}</span>
+        </Reveal>
+      ))}
+    </div>
+    <Reveal on={on} delay={1050} className="pv-reg-sub">
+      <div className="pv-scard-sech">股东 · Shareholders</div>
+      {reg.shareholders.map((sh) => <div key={sh.n} className="pv-reg-sh"><span>{sh.n}</span><b>{sh.p}</b></div>)}
+    </Reveal>
+    <Reveal on={on} delay={1250} className="pv-reg-sub">
+      <div className="pv-scard-sech">Cross-registry matches</div>
+      {reg.links.map((l) => (
+        <div key={l.registry} className={`pv-reg-link ${l.ok ? "ok" : ""}`}>
+          <span className="pv-reg-link-r">{l.registry}</span>
+          <span className="pv-reg-link-e">{l.ok && <Icon name="check" size={11} stroke={3}/>}{l.entity}</span>
+          <span className="pv-reg-link-d">{l.detail}</span>
+        </div>
+      ))}
+    </Reveal>
+  </div>
+);
+
+/* DarkOwl retrieval log. */
+const CrawlLog = ({ lines, on }) => (
+  <div className="pv-crawl">
+    <div className="pv-crawl-h"><span className="pv-crawl-dot"/>DarkOwl retrieval<em>tor · 3 hops</em></div>
+    {lines.map((l, i) => (
+      <Reveal key={i} on={on} delay={i * 170} className={`pv-crawl-line ${l.k}`}>
+        <span className="pv-crawl-t">{l.t}</span>
+        <span className="pv-crawl-l">{l.l}</span>
+        {l.r && <span className="pv-crawl-r">{l.r}</span>}
+      </Reveal>
+    ))}
+  </div>
+);
+
+/* Breach-data exposure table. */
+const BreachTable = ({ b, on }) => (
+  <div className="pv-breach">
+    <div className="pv-breach-top">
+      <span className="pv-breach-sum"><span className="pv-pf breach">Exposed</span>{b.summary}</span>
+      <span className="pv-breach-sets">{b.sets.map((s) => <em key={s}>{s}</em>)}</span>
+    </div>
+    <div className="pv-breach-row head"><span>Identity</span><span>Credential</span><span>Data set</span><span>Address</span></div>
+    {b.rows.map((r, i) => (
+      <Reveal key={r.email} on={on} delay={120 + i * 130} className={`pv-breach-row ${r.risk}`}>
+        <span className="pv-breach-email">{r.email}</span>
+        <span className="pv-breach-pw"><code>{r.pw}</code><i className={r.pwtype}>{r.pwtype}</i></span>
+        <span className="pv-breach-set">{r.set}</span>
+        <span className="pv-breach-addr">{r.addr}</span>
+      </Reveal>
+    ))}
+  </div>
+);
+
+const gcTone = (v) => (v >= 75 ? "hi" : v >= 50 ? "mid" : "lo");
+
 const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
   const sc = inv.blocks.source_composition;
   const graded = Object.values(sc.grade_distribution).reduce((a, b) => a + b, 0);
@@ -659,8 +733,8 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
 
       <SectionBox title="News Sources" count={sc.types[0].count} icon={<Icon name="newspaper" size={15}/>} ref={(el) => (refs.current["src:news"] = el)}>
         <div className="pv-src-list">
-          {inv.sources.map((s) => (
-            <div key={s.i} ref={(el) => (srcRefs.current[s.i] = el)} className={`pv-src ${st.srcOpen === s.i ? "hover" : ""}`}>
+          {inv.sources.map((s, idx) => (
+            <div key={s.i} ref={(el) => (srcRefs.current[s.i] = el)} className={`pv-src ${st.srcOpen === s.i ? "hover" : ""} ${idx < st.srcN ? "" : "off"}`}>
               <span className="pv-src-i">{s.i}</span>
               <div className="pv-src-body">
                 <div className="pv-src-top">
@@ -682,7 +756,7 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
                     {Object.entries(s.factors).map(([k, val], j) => (
                       <div key={k} className="pv-gc-factor">
                         <span className="pv-gc-fk">{k}</span>
-                        <span className="pv-gc-bar"><span className="pv-gc-fill" style={{ width: `${val}%`, animationDelay: `${j * 60}ms` }}/></span>
+                        <span className="pv-gc-bar"><span className={`pv-gc-fill ${gcTone(val)}`} style={{ width: `${val}%`, animationDelay: `${j * 60}ms` }}/></span>
                         <span className="pv-gc-fv">{val}</span>
                       </div>
                     ))}
@@ -699,6 +773,25 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
         </div>
       </SectionBox>
 
+      {inv.registry && (
+        <SectionBox title="Corporate Registries" count={sc.types.find((t) => t.type === "registry")?.count} icon={<Icon name="file" size={15}/>} className="reg" ref={(el) => (refs.current["src:registry"] = el)}>
+          <RegistryCard reg={inv.registry} on={st.reg}/>
+        </SectionBox>
+      )}
+
+      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
+        <p className="pv-src-note dark">{inv.dark_note}</p>
+        {inv.crawl && <CrawlLog lines={inv.crawl} on={st.crawl}/>}
+        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 160 + 700} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+      </SectionBox>
+
+      {inv.breach && (
+        <SectionBox title="Breach Data" count={sc.types.find((t) => t.type === "breach")?.count} icon={<Icon name="alert" size={15}/>} className="breach" ref={(el) => (refs.current["src:breach"] = el)}>
+          <p className="pv-src-note breach">Credential and identity exposure across indexed breach corpora. Plaintext credentials are masked in the workspace; never stored.</p>
+          <BreachTable b={inv.breach} on={st.breach}/>
+        </SectionBox>
+      )}
+
       <SectionBox title="Social-Media Sources" count={sc.types[1].count} icon={<Ic n="chat" size={15}/>} className="social">
         <p className="pv-src-note social">{inv.social_note}</p>
         {inv.social_sources.map((s) => (
@@ -706,11 +799,6 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
                       anchorRef={(el) => (refs.current[`src:${s.i}`] = el)}
                       expRef={(el) => (expRefs.current[s.i] = el)}/>
         ))}
-      </SectionBox>
-
-      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
-        <p className="pv-src-note dark">{inv.dark_note}</p>
-        {inv.dark_sources.map((d) => <DarkCard key={d.i} d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/>)}
       </SectionBox>
       <div className="pv-doc-end"/>
     </div>
@@ -722,7 +810,7 @@ const INIT = {
   scene: "query", typed: "", focused: false,
   gN: 0, gEdges: true, runStart: null,
   tl: 0, geo: { zoom: false, pts: 0, area: false, routes: false, move: false, popup: false }, outlook: false, pp: false, pop: null,
-  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null,
+  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null, srcN: 99, reg: true, crawl: true, breach: true, runDur: 0,
   done: false, cursor: { x: 0, y: 0, show: false, down: false },
 };
 const reducer = (s, a) => (typeof a === "function" ? a(s) : { ...s, ...a });
@@ -817,6 +905,74 @@ function buildScript(inv) {
   t += 4600;
 
   return { cues, starts, total: t };
+}
+
+/* ── The 25-second pitch cut, timed to the narration ──────────────────────
+   0–6   "We built Sidney… Given a brief, Sidney plans the investigation"
+   6–14  "collects from the open web and places general models can't reach:
+          global corporate registries, the dark web, breach data sets"
+   14–25 "Grades every source, then analyses with real intelligence
+          tradecraft. The result isn't a feed. It's the intelligence to make
+          the call. Fast and deep, for the first time."                      */
+function buildPitchScript(inv) {
+  const cues = [];
+  const at = (t, patch) => cues.push({ t, patch });
+  const starts = {};
+  const N = inv.graph.nodes.length;
+  const hide = (s) => ({ ...s, cursor: { ...s.cursor, show: false } });
+
+  // 0–6 · brief → plan (graph builds)
+  starts.query = 0;
+  at(0, { ...INIT, focused: true, srcN: 0, reg: false, crawl: false, breach: false });
+  for (let i = 1; i <= inv.query.length; i++) at(120 + 7 * i, { typed: inv.query.slice(0, i) });
+  starts.run = 1900;
+  at(1900, (s) => ({ ...s, scene: "run", gN: 0, runStart: Date.now(), runDur: 4100 }));
+  for (let i = 1; i <= N; i++) at(2050 + i * 215, { gN: i });
+
+  // 6–14 · collection
+  starts.sources = 6000;
+  at(6000, { scene: "sources", srcBar: true });
+  at(6050, { scrollTo: "src:news" });
+  for (let i = 1; i <= inv.sources.length; i++) at(6200 + i * 160, { srcN: i });
+  starts["src:registry"] = 8000;
+  at(8000, { scrollTo: "src:registry" });
+  at(8150, { reg: true });
+  starts["src:dark"] = 10000;
+  at(10000, { scrollTo: "src:dark" });
+  at(10100, { crawl: true });
+  starts["src:breach"] = 12000;
+  at(12000, { scrollTo: "src:breach" });
+  at(12100, { breach: true });
+
+  // 14–17 · grades every source
+  starts.grade = 14000;
+  at(14000, { scrollTo: "src:news" });
+  const ru = inv.pitchGrade != null ? inv.pitchGrade : inv.sources[inv.sources.length - 1].i;
+  at(14500, { cursorTo: `src:${ru}` });
+  at(14850, { srcOpen: ru });
+  at(16850, (s) => hide({ ...s, srcOpen: null }));
+
+  // 17–20 · tradecraft
+  starts.report = 17000;
+  at(17000, { scene: "report" });
+  at(17100, { scrollTo: "sec:Key Judgments" });
+  starts["vis:risk_matrix"] = 18600;
+  at(18600, { scrollTo: "vis:risk_matrix" });
+  at(18700, { outlook: true });
+
+  // 20–23 · the intelligence to make the call
+  starts.call = 20000;
+  at(20000, { scrollTo: "top" });
+  at(21400, { cursorTo: "finish" });
+  at(21900, { clickFinish: true });
+  at(22060, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
+  at(22800, hide);
+
+  // 23–25 · fast and deep
+  starts.graph = 23000;
+  at(23000, { scene: "graph", gN: N });
+
+  return { cues, starts, total: 25000 };
 }
 
 export const ShowcaseA = () => {
@@ -919,10 +1075,11 @@ export const ShowcaseA = () => {
 
   const run = React.useCallback((skipTo) => {
     clear();
-    const { cues, starts, total } = buildScript(inv);
+    const { cues, starts, total } = (params.get("cut") === "full" ? buildScript : buildPitchScript)(inv);
     const offset = skipTo && starts[skipTo] != null ? starts[skipTo] : 0;
+    if (typeof window !== "undefined") window.__pvLoop = { total, offset, startedAt: Date.now() }; // read by the recording script
     cues.forEach(({ t, patch }) => {
-      if (t < offset) { if (!isAction(patch)) dispatch(patch); else if (patch.expand) dispatch((st) => ({ ...st, srcExp: { ...st.srcExp, [patch.expand]: true } })); }
+      if (t < offset) { if (!isAction(patch)) dispatch(patch); else if (patch.expand) dispatch((st) => ({ ...st, srcExp: { ...st.srcExp, [patch.expand]: true } })); else if (patch.clickFinish) dispatch({ done: true }); }
       else timers.current.push(setTimeout(() => apply(patch), t - offset));
     });
     if (offset > 0 && (skipTo.startsWith("sec:") || skipTo.startsWith("vis:") || skipTo.startsWith("src:") || skipTo === "top")) timers.current.push(setTimeout(() => scrollTo(skipTo), 60));
@@ -931,6 +1088,11 @@ export const ShowcaseA = () => {
   }, []);
 
   React.useEffect(() => {
+    // ?hold=1 — don't auto-start; the recording script calls window.__pvStart() once the page has painted.
+    if (params.get("hold")) {
+      window.__pvStart = () => run(params.get("scene"));
+      return () => { delete window.__pvStart; clear(); };
+    }
     const id = setTimeout(() => run(params.get("scene")), 400);
     return () => { clearTimeout(id); clear(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -941,7 +1103,7 @@ export const ShowcaseA = () => {
   const running = s.scene === "run";
   const revealed = inv.graph.nodes.slice(0, s.gN);
   const step = running ? (revealed.length ? Math.max(...revealed.map((n) => n.step)) : 0) : inv.steps.length;
-  const runDur = 400 + N * 270 + 1300;
+  const runDur = s.runDur || 400 + N * 270 + 1300;
 
   const tab = s.scene === "run" || s.scene === "graph" ? "Graph" : s.scene === "sources" ? "Sources" : "Report";
   const status = s.scene === "query" ? null : running ? "running" : s.done ? "done" : "review";

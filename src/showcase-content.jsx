@@ -91,6 +91,8 @@ const CABO = {
         { type: "news",    count: 57, extends_only: false },
         { type: "social",  count: 7,  extends_only: true },
         { type: "darkweb", count: 8,  extends_only: true },
+        { type: "registry", count: 2, extends_only: false },
+        { type: "breach", count: 12, extends_only: true },
       ],
     },
   },
@@ -128,6 +130,9 @@ const CABO = {
     { i: 22, name: "Institute for Security Studies", title: "Mozambique relies on Rwanda's troops to fight terrorism: what happens if they leave?", date: "14 Apr 2026", grade: "A", composite: 89, domain: "issafrica.org",
       factors: { "Factual reliability": 90, "Source authority": 92, "Bias & objectivity": 86, "Attribution quality": 88 }, bias: "CENTER", voice: "Analytical",
       insight: "Scenario analysis on Rwandan withdrawal options, including the limits of a Tanzanian backstop." },
+    { i: 47, name: "RIA Novosti", title: "Западные энергокомпании бегут из Мозамбика на фоне провала миссии ЕС", date: "02 Jun 2026", grade: "C", composite: 41, domain: "ria.ru",
+      factors: { "Factual reliability": 58, "Source authority": 44, "Bias & objectivity": 22, "Attribution quality": 39 }, bias: "STATE-ALIGNED", voice: "Narrative",
+      insight: "State-aligned framing of the EPF withdrawal; used only to characterise the Russian-offer narrative, never as evidence." },
     { i: 28, name: "Reuters", title: "Rwandan Troops in Mozambique for Solidarity, Not Money — Makolo", date: "03 Apr 2026", grade: "A", composite: 83, domain: "reuters.com",
       factors: { "Factual reliability": 85, "Source authority": 82, "Bias & objectivity": 80, "Attribution quality": 84 }, bias: "CENTER", voice: "Reporting",
       insight: "Kigali's public refusal to seek further EPF funds and the implicit invitation to LNG operators." },
@@ -141,6 +146,57 @@ const CABO = {
       factors: { "Factual reliability": 72, "Source authority": 70, "Bias & objectivity": 74, "Attribution quality": 58 }, bias: "CENTER", voice: "Reporting",
       insight: "Wire establishing the March 2026 fishermen-killing at the core of the friendly-force misidentification risk." },
   ],
+
+  pitchGrade: 47,
+
+  /* ── Corporate registries (places general models can't reach) ── */
+  registry: {
+    source: "国家企业信用信息公示系统 · NECIPS",
+    retrieved: "Retrieved 12 Jul 2026",
+    name_zh: "海源建设（青岛）有限公司",
+    name_en: "Haiyuan Construction (Qingdao) Co., Ltd.",
+    fields: [
+      { k: "统一社会信用代码 · USCC", v: "91370211MA3XK5L92Q", mono: true },
+      { k: "登记状态 · Status", v: "存续 · Active", ok: true },
+      { k: "法定代表人 · Legal representative", v: "王立群 · Wang Liqun" },
+      { k: "注册资本 · Registered capital", v: "RMB 50,000,000" },
+      { k: "成立日期 · Incorporated", v: "2016-03-18" },
+      { k: "注册地址 · Address", v: "山东省青岛市黄岛区长江中路 218 号" },
+    ],
+    shareholders: [
+      { n: "青岛海源控股集团有限公司 · Qingdao Haiyuan Holding Group", p: "70%" },
+      { n: "王立群 · Wang Liqun", p: "30%" },
+    ],
+    links: [
+      { registry: "Mozambique · Boletim da República (BRAT)", entity: "Haiyuan Moçambique, Lda", detail: "Registered Pemba · 2023 · 100% owned · N380 corridor subcontractor" },
+      { registry: "Sanctions / PEP screening", entity: "0 matches", detail: "OFAC · EU · UK · UN consolidated lists", ok: true },
+    ],
+  },
+
+  /* ── Dark-web collection log (DarkOwl) ── */
+  crawl: [
+    { t: "00:00.4", l: "tor circuit established · 3 hops · exit ◼◼", k: "sys" },
+    { t: "00:01.1", l: "crawl  xj7…q3d.onion/board/africa", r: "hit · 2 threads", k: "hit" },
+    { t: "00:01.9", l: "crawl  bk2…v9e.onion/market/listings", r: "hit · 1 listing", k: "hit" },
+    { t: "00:02.6", l: "crawl  ru4…m1a.onion/paste", r: "hit · 1 paste", k: "hit" },
+    { t: "00:03.2", l: "crawl  qq9…t7f.onion/forum/ops", r: "no match", k: "miss" },
+    { t: "00:03.8", l: "crawl  lk0…c2h.onion/leaks", r: "hit · 1 listing", k: "hit" },
+    { t: "00:04.5", l: "8 sources retained · 3 discarded (duplicate / off-topic)", k: "sys" },
+  ],
+
+  /* ── Breach data sets ── */
+  breach: {
+    summary: "12 records · 3 domains · 2 plaintext passwords",
+    sets: ["Combolist 2024-Q1", "Professional-network 2021", "Tender-portal dump 2023"],
+    rows: [
+      { email: "l.wang@haiyuan-qd.cn",           pw: "Qd2016!••••",   pwtype: "plaintext", set: "Combolist 2024-Q1",        addr: "长江中路 218 号 · 青岛",         risk: "high" },
+      { email: "ops@haiyuan-mz.co.mz",           pw: "$2b$10$Rz…",    pwtype: "bcrypt",    set: "Tender-portal dump 2023",  addr: "Av. 25 de Setembro · Pemba",   risk: "med" },
+      { email: "j.p.n•••@pembalogistics.co.mz",  pw: "Pemba@••••",    pwtype: "plaintext", set: "Combolist 2024-Q1",        addr: "Bairro Cariacó · Pemba",       risk: "high" },
+      { email: "admin@haiyuan-qd.cn",            pw: "sha1 · e3b0c4…", pwtype: "hash",      set: "Professional-network 2021", addr: "—",                            risk: "low" },
+      { email: "hr@haiyuan-mz.co.mz",            pw: "—",             pwtype: "none",      set: "Tender-portal dump 2023",  addr: "Av. 25 de Setembro · Pemba",   risk: "low" },
+      { email: "fleet@pembalogistics.co.mz",     pw: "$2a$12$Kw…",    pwtype: "bcrypt",    set: "Tender-portal dump 2023",  addr: "Porto de Pemba · Cais 2",      risk: "med" },
+    ],
+  },
 
   /* ── Social-media sources (multimodal media analysis) ── */
   social_note: "Public social-media posts; unverified and not independently corroborated. Engagement is not credibility.",
