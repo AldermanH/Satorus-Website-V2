@@ -249,7 +249,9 @@
 .pv-scrub-thumb { position: absolute; left: 0; width: 100%; height: 56px; border-radius: 2px; background: hsl(220 15% 40%); }
 
 /* CitationPopover.tsx */
-.pv-citepop { position: absolute; z-index: 40; width: 360px; background: #1c1f2e; border: 1px solid #2d3244; border-radius: 10px; padding: 12px 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.55); animation: pvGcIn 160ms var(--s-ease); }
+.pv-cp-factors { margin: 10px 0 8px; }
+.pv-cp-tags { margin-bottom: 10px; }
+.pv-citepop { position: absolute; z-index: 40; width: 400px; background: #1c1f2e; border: 1px solid #2d3244; border-radius: 10px; padding: 12px 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.55); animation: pvGcIn 160ms var(--s-ease); }
 .pv-cp-head { display: flex; align-items: center; gap: 9px; padding-bottom: 9px; margin-bottom: 9px; border-bottom: 1px solid hsl(0 0% 100% / 0.08); }
 .pv-cp-name { font: 600 12.5px 'Inter', sans-serif; flex: 1; }
 .pv-cp-title { font: 500 12.5px/1.45 'Inter', sans-serif; color: hsl(0 0% 95% / 0.92); }

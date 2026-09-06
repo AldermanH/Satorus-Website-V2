@@ -535,7 +535,7 @@ const ReportDoc = ({ inv, st, refs, pinRef, pop, docRef }) => {
       ))}
       <div className="pv-doc-end"/>
       {pop && (
-        <div className="pv-citepop" style={{ left: pop.x, top: pop.y }}>
+        <div className="pv-citepop" style={pop.bottom != null ? { left: pop.x, bottom: pop.bottom } : { left: pop.x, top: pop.y }}>
           <div className="pv-cp-head">
             <span className="pv-cite lg">{pop.n}</span>
             <span className="pv-cp-name">{popSrc ? popSrc.name : `Source ${pop.n}`}</span>
@@ -543,6 +543,23 @@ const ReportDoc = ({ inv, st, refs, pinRef, pop, docRef }) => {
           </div>
           {popSrc && <div className="pv-cp-title">{popSrc.title}</div>}
           {popSrc && <div className="pv-cp-meta">{popSrc.date}{popSrc.composite != null && <> · score <b>{popSrc.composite}</b>/100</>} · {popSrc.voice}</div>}
+          {popSrc && popSrc.factors && (
+            <div className="pv-gc-factors pv-cp-factors">
+              {Object.entries(popSrc.factors).map(([k, val], j) => (
+                <div key={k} className="pv-gc-factor">
+                  <span className="pv-gc-fk">{k}</span>
+                  <span className="pv-gc-bar"><span className={`pv-gc-fill ${gcTone(val)}`} style={{ width: `${val}%`, animationDelay: `${j * 60}ms` }}/></span>
+                  <span className="pv-gc-fv">{val}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {popSrc && popSrc.bias && (
+            <div className="pv-gc-tags pv-cp-tags">
+              <span className="pv-gc-tag"><em>Bias</em>{popSrc.bias}</span>
+              <span className="pv-gc-tag"><em>Voice</em>{popSrc.voice}</span>
+            </div>
+          )}
           {popSrc && <div className="pv-cp-insight">{popSrc.insight}</div>}
           <div className="pv-cp-foot">Open source <Ic n="ext" size={11}/></div>
         </div>
@@ -924,12 +941,13 @@ function buildPitchScript(inv) {
   // 0–6 · brief → plan (graph builds)
   starts.query = 0;
   at(0, { ...INIT, focused: true, srcN: 0, reg: false, crawl: false, breach: false });
-  for (let i = 1; i <= inv.query.length; i++) at(120 + 7 * i, { typed: inv.query.slice(0, i) });
-  starts.run = 1900;
-  at(1900, (s) => ({ ...s, scene: "run", gN: 0, runStart: Date.now(), runDur: 4100 }));
-  for (let i = 1; i <= N; i++) at(2050 + i * 215, { gN: i });
+  for (let i = 1; i <= inv.query.length; i++) at(150 + 13 * i, { typed: inv.query.slice(0, i) });
+  starts.run = 150 + 13 * inv.query.length + 350;
+  at(starts.run, (s) => ({ ...s, scene: "run", gN: 0, runStart: Date.now(), runDur: 6000 - starts.run }));
+  const gapN = Math.floor((6000 - starts.run - 350) / N);
+  for (let i = 1; i <= N; i++) at(starts.run + 150 + i * gapN, { gN: i });
 
-  // 6–14 · collection
+  // 6–14.6 · collection — four beats, each given room to resolve
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
   at(6050, { scrollTo: "src:news" });
@@ -937,33 +955,36 @@ function buildPitchScript(inv) {
   starts["src:registry"] = 8000;
   at(8000, { scrollTo: "src:registry" });
   at(8150, { reg: true });
-  starts["src:dark"] = 10000;
-  at(10000, { scrollTo: "src:dark" });
-  at(10100, { crawl: true });
-  starts["src:breach"] = 12000;
-  at(12000, { scrollTo: "src:breach" });
-  at(12100, { breach: true });
+  starts["src:dark"] = 10300;
+  at(10300, { scrollTo: "src:dark" });
+  at(10400, { crawl: true });
+  starts["src:breach"] = 12500;
+  at(12500, { scrollTo: "src:breach" });
+  at(12600, { breach: true });
 
-  // 14–17 · grades every source
-  starts.grade = 14000;
-  at(14000, { scrollTo: "src:news" });
-  const ru = inv.pitchGrade != null ? inv.pitchGrade : inv.sources[inv.sources.length - 1].i;
-  at(14500, { cursorTo: `src:${ru}` });
-  at(14850, { srcOpen: ru });
-  at(16850, (s) => hide({ ...s, srcOpen: null }));
+  // 14.6–20 · grades every source → tradecraft: Report opens on the key
+  // judgments; the cursor opens the grading popover on the state-aligned citation
+  starts.report = 14600;
+  at(14600, { scene: "report" });
+  at(14640, { scrollTo: "sec:Key Judgments", jump: true });
+  const ru = inv.pitchGrade != null ? inv.pitchGrade : 4;
+  starts.grade = 15200;
+  at(15200, { cursorTo: `cite:${ru}` });
+  at(15750, { clickCite: ru });
+  at(18700, (s) => hide({ ...s, pop: null }));
 
-  // 17–20 · tradecraft — key judgments with confidence pills (one gentle move)
-  starts.report = 17000;
-  at(17000, { scene: "report", outlook: true });
-  at(17150, { scrollTo: "sec:Key Judgments" });
-
-  // 20–23 · the intelligence to make the call — glide back to the summary, Finish
-  starts.call = 20000;
-  at(20000, { scrollTo: "top" });
-  at(21300, { cursorTo: "finish" });
-  at(21900, { clickFinish: true });
-  at(22060, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
-  at(22800, hide);
+  // 20–23 · the intelligence to make the call — glide down to the map, Finish
+  starts["vis:geo"] = 20000;
+  at(20000, { scrollTo: "vis:geo" });
+  at(20350, (s) => ({ ...s, geo: { ...s.geo, zoom: true } }));
+  inv.geolocations.forEach((_, i) => at(20500 + i * 60, (s) => ({ ...s, geo: { ...s.geo, pts: i + 1 } })));
+  at(21300, (s) => ({ ...s, geo: { ...s.geo, area: true } }));
+  at(21500, (s) => ({ ...s, geo: { ...s.geo, routes: true } }));
+  at(22000, (s) => ({ ...s, geo: { ...s.geo, move: true } }));
+  at(21700, { cursorTo: "finish" });
+  at(22250, { clickFinish: true });
+  at(22410, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
+  at(22850, hide);
 
   // 23–25 · fast and deep
   starts.graph = 23000;
@@ -1017,10 +1038,10 @@ export const ShowcaseA = () => {
   /* Eased scroll (ease-in-out, 650–1150ms by distance) — the browser's native
      smooth scroll is too brisk for a filmed loop. ?instant=1 jumps. */
   const scrollAnim = React.useRef(0);
-  const glide = (sc, target) => {
+  const glide = (sc, target, jump = false) => {
     cancelAnimationFrame(scrollAnim.current);
     const from = sc.scrollTop, d = target - from;
-    if (behavior === "auto" || Math.abs(d) < 2) { sc.scrollTop = target; return; }
+    if (jump || behavior === "auto" || Math.abs(d) < 2) { sc.scrollTop = target; return; }
     const dur = Math.min(1150, Math.max(650, Math.abs(d) * 0.55));
     const t0 = performance.now();
     const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
@@ -1031,15 +1052,15 @@ export const ShowcaseA = () => {
     };
     scrollAnim.current = requestAnimationFrame(step);
   };
-  const scrollTo = (key) => {
+  const scrollTo = (key, jump = false) => {
     const sc = scrollerRef.current;
     if (!sc) return;
     stopRef.current = key;
-    if (key === "top") { glide(sc, 0); return; }
+    if (key === "top") { glide(sc, 0, jump); return; }
     const el = anchorEl(key);
     if (!el) return;
     const top = (el.getBoundingClientRect().top - sc.getBoundingClientRect().top) / scaleRef.current + sc.scrollTop - 14;
-    glide(sc, Math.max(0, top));
+    glide(sc, Math.max(0, top), jump);
   };
   const citeEl = (n) => {
     const sc = scrollerRef.current;
@@ -1069,15 +1090,18 @@ export const ShowcaseA = () => {
   const clickCite = (n) => {
     const el = citeEl(n), doc = docRef.current;
     if (!el || !doc) return;
-    const r = el.getBoundingClientRect(), d = doc.getBoundingClientRect();
-    const x = Math.min((r.left - d.left) / scaleRef.current - 20, doc.clientWidth - 372);
-    const y = (r.bottom - d.top) / scaleRef.current + 10;
-    dispatch((st) => ({ ...st, pop: { n, x: Math.max(0, x), y } }));
+    const r = el.getBoundingClientRect(), d = doc.getBoundingClientRect(), v = scrollerRef.current.getBoundingClientRect();
+    const x = Math.min((r.left - d.left) / scaleRef.current - 20, doc.clientWidth - 412);
+    // Flip above the citation when it sits in the lower half of the viewport (CitationPopover flip logic).
+    const up = (r.top - v.top) / v.height > 0.5;
+    const y = up ? null : (r.bottom - d.top) / scaleRef.current + 10;
+    const bottom = up ? doc.scrollHeight - (r.top - d.top) / scaleRef.current + 10 : null;
+    dispatch((st) => ({ ...st, pop: { n, x: Math.max(0, x), y, bottom } }));
     press();
   };
   const apply = (patch) => {
     if (patch && typeof patch === "object") {
-      if (patch.scrollTo) { scrollTo(patch.scrollTo); return; }
+      if (patch.scrollTo) { scrollTo(patch.scrollTo, !!patch.jump); return; }
       if (patch.cursorTo) { cursorTo(patch.cursorTo); return; }
       if (patch.clickCite != null) { clickCite(patch.clickCite); return; }
       if (patch.expand) { dispatch((st) => ({ ...st, srcExp: { ...st.srcExp, [patch.expand]: true } })); press(); return; }

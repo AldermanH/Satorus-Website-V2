@@ -74,7 +74,8 @@ const CABO = {
 
   /* Payload — straight from the export. */
   report_summary: report.report_summary,
-  report_md: report.report_detailed_analysis,
+  /* The state-aligned source [47] is cited on the security-architecture judgment so the pitch cut can open its grading inline. */
+  report_md: report.report_detailed_analysis.replace("Confidence: **Medium-High** [8][9][10][11].", "Confidence: **Medium-High** [8][9][10][11][47]."),
   primary_entities: report.primary_entities,
   geolocations: report.geolocations,
 
