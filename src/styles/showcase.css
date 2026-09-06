@@ -36,6 +36,7 @@
   --s-radius:     8px;
   --s-ease:       cubic-bezier(0.4, 0, 0.2, 1);
   --s-rise:       cubic-bezier(0.16, 1, 0.3, 1);
+  --s-film:       cubic-bezier(0.22, 1, 0.36, 1);   /* the one easing every reveal, glide and tab change uses */
   --s-mono:       ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --s-social:     hsl(265 80% 66%);
   --s-tg:         #229ed9;
@@ -55,7 +56,7 @@
 @keyframes pvSpin  { to { transform: rotate(360deg); } }
 @keyframes scIn    { from { opacity: 0; } to { opacity: 1; } }
 /* Tab views enter with a soft fade + settle; shared by the graph/query stage and the scrolled documents. */
-@keyframes tabIn   { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes tabIn   { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 /* ── Window chrome ── */
 .pv-chrome { height: 40px; flex-shrink: 0; display: flex; align-items: center; gap: 14px; padding: 0 14px; background: hsl(220 25% 8%); border-bottom: 1px solid var(--s-border); }
@@ -104,19 +105,19 @@
 
 .pv-content { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
 .pv-tabs { display: flex; gap: 26px; border-bottom: 1px solid var(--s-border); flex-shrink: 0; align-items: flex-end; }
-.pv-tab { font: 500 14px 'Inter', sans-serif; color: var(--s-muted-fg); padding: 6px 2px 12px; border-bottom: 2px solid transparent; transition: color 320ms var(--s-ease), border-color 320ms var(--s-ease); }
+.pv-tab { font: 500 14px 'Inter', sans-serif; color: var(--s-muted-fg); padding: 6px 2px 12px; border-bottom: 2px solid transparent; transition: color 420ms var(--s-film), border-color 420ms var(--s-film); }
 .pv-tab.active { color: var(--s-fg); border-bottom-color: var(--s-primary); }
 .pv-tab-right { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font: 500 13px 'Inter', sans-serif; color: var(--s-muted-fg); padding-bottom: 12px; }
 
 /* Tab stage */
-.pv-stage { flex: 1; min-height: 0; position: relative; padding: 16px 0 0; display: flex; flex-direction: column; gap: 12px; overflow: hidden; animation: tabIn 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.pv-stage { flex: 1; min-height: 0; position: relative; padding: 16px 0 0; display: flex; flex-direction: column; gap: 12px; overflow: hidden; animation: tabIn 560ms var(--s-film) both; }
 .sc { position: absolute; inset: 16px 0 0; display: flex; gap: 16px; }
 .sc-query { flex-direction: column; gap: 22px; }
 
 /* Reveal helper */
-/* Reveal helper — a soft fade only (no lift): items wash in rather than pop. */
-.pv-rv { opacity: 0; transition: opacity 650ms var(--s-ease); will-change: opacity; }
-.pv-rv.on { opacity: 1; }
+/* Reveal helper — rise + fade with a long ease-out; sections unfold top-to-bottom. */
+.pv-rv { opacity: 0; transform: translateY(12px); transition: opacity 560ms var(--s-film), transform 720ms var(--s-film); will-change: opacity, transform; }
+.pv-rv.on { opacity: 1; transform: none; }
 
 /* Shared: citations, confidence, grades, chips, spinner */
 .pv-cite { display: inline-flex; align-items: center; justify-content: center; min-width: 1.65em; height: 1.65em; padding: 0 0.35em; margin: 0 2px; border-radius: 999px; background: var(--s-primary); color: #041014; font: 700 0.62em 'Inter', sans-serif; line-height: 1; vertical-align: super; letter-spacing: 0; }
@@ -209,7 +210,7 @@
 .pv-flow-attr { position: absolute; right: 8px; bottom: 2px; font: 400 9px 'Inter', sans-serif; color: hsl(220 10% 45%); z-index: 3; }
 
 /* ════ Report / Sources documents ════ */
-.pv-scroll { flex: 1; min-height: 0; position: relative; overflow: hidden; animation: scIn 480ms var(--s-ease) both; }
+.pv-scroll { flex: 1; min-height: 0; position: relative; overflow: hidden; animation: tabIn 560ms var(--s-film) both; }
 .pv-doc { position: relative; max-width: 920px; margin: 0 auto; padding: 16px 40px 0; }
 .pv-doc.wide { max-width: 1040px; padding: 16px 28px 0; }
 .pv-doc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
@@ -483,8 +484,8 @@
 .pv-gc-tag em { font-style: normal; color: var(--s-muted-fg); font-weight: 500; }
 
 /* Streaming news rows (pitch cut) */
-.pv-src { transition: background 200ms var(--s-ease), box-shadow 200ms var(--s-ease), opacity 700ms var(--s-ease); }
-.pv-src.off { opacity: 0; }
+.pv-src { transition: background 200ms var(--s-ease), box-shadow 200ms var(--s-ease), opacity 560ms var(--s-film), transform 720ms var(--s-film); will-change: opacity, transform; }
+.pv-src.off { opacity: 0; transform: translateY(12px); }
 .pv-src-note.reg { color: var(--s-primary); }
 .pv-src-note.breach { color: #f87171; }
 .pv-secbox.reg .pv-sec-ic { color: var(--s-primary); }
