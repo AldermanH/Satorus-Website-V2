@@ -952,18 +952,15 @@ function buildPitchScript(inv) {
   at(14850, { srcOpen: ru });
   at(16850, (s) => hide({ ...s, srcOpen: null }));
 
-  // 17–20 · tradecraft
+  // 17–20 · tradecraft — key judgments with confidence pills (one gentle move)
   starts.report = 17000;
-  at(17000, { scene: "report" });
-  at(17100, { scrollTo: "sec:Key Judgments" });
-  starts["vis:risk_matrix"] = 18600;
-  at(18600, { scrollTo: "vis:risk_matrix" });
-  at(18700, { outlook: true });
+  at(17000, { scene: "report", outlook: true });
+  at(17150, { scrollTo: "sec:Key Judgments" });
 
-  // 20–23 · the intelligence to make the call
+  // 20–23 · the intelligence to make the call — glide back to the summary, Finish
   starts.call = 20000;
   at(20000, { scrollTo: "top" });
-  at(21400, { cursorTo: "finish" });
+  at(21300, { cursorTo: "finish" });
   at(21900, { clickFinish: true });
   at(22060, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
   at(22800, hide);
@@ -1017,15 +1014,32 @@ export const ShowcaseA = () => {
     }
     return anchors.current[key] || null;
   };
+  /* Eased scroll (ease-in-out, 650–1150ms by distance) — the browser's native
+     smooth scroll is too brisk for a filmed loop. ?instant=1 jumps. */
+  const scrollAnim = React.useRef(0);
+  const glide = (sc, target) => {
+    cancelAnimationFrame(scrollAnim.current);
+    const from = sc.scrollTop, d = target - from;
+    if (behavior === "auto" || Math.abs(d) < 2) { sc.scrollTop = target; return; }
+    const dur = Math.min(1150, Math.max(650, Math.abs(d) * 0.55));
+    const t0 = performance.now();
+    const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      sc.scrollTop = from + d * ease(p);
+      if (p < 1) scrollAnim.current = requestAnimationFrame(step);
+    };
+    scrollAnim.current = requestAnimationFrame(step);
+  };
   const scrollTo = (key) => {
     const sc = scrollerRef.current;
     if (!sc) return;
     stopRef.current = key;
-    if (key === "top") { sc.scrollTo({ top: 0, behavior }); return; }
+    if (key === "top") { glide(sc, 0); return; }
     const el = anchorEl(key);
     if (!el) return;
     const top = (el.getBoundingClientRect().top - sc.getBoundingClientRect().top) / scaleRef.current + sc.scrollTop - 14;
-    sc.scrollTo({ top: Math.max(0, top), behavior });
+    glide(sc, Math.max(0, top));
   };
   const citeEl = (n) => {
     const sc = scrollerRef.current;
