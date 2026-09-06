@@ -115,7 +115,7 @@
 
 /* Reveal helper */
 /* Reveal helper — a soft fade only (no lift): items wash in rather than pop. */
-.pv-rv { opacity: 0; transition: opacity 650ms var(--s-ease); }
+.pv-rv { opacity: 0; transition: opacity 650ms var(--s-ease); will-change: opacity; }
 .pv-rv.on { opacity: 1; }
 
 /* Shared: citations, confidence, grades, chips, spinner */
@@ -209,7 +209,7 @@
 .pv-flow-attr { position: absolute; right: 8px; bottom: 2px; font: 400 9px 'Inter', sans-serif; color: hsl(220 10% 45%); z-index: 3; }
 
 /* ════ Report / Sources documents ════ */
-.pv-scroll { flex: 1; min-height: 0; position: relative; overflow: hidden; animation: tabIn 480ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.pv-scroll { flex: 1; min-height: 0; position: relative; overflow: hidden; animation: scIn 480ms var(--s-ease) both; }
 .pv-doc { position: relative; max-width: 920px; margin: 0 auto; padding: 16px 40px 0; }
 .pv-doc.wide { max-width: 1040px; padding: 16px 28px 0; }
 .pv-doc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }

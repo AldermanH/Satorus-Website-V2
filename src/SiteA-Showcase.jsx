@@ -492,7 +492,7 @@ const KeyJudgments = ({ items }) => (
   <ul className="pv-kj">{items.map((li, i) => <li key={i}>{inline(li, `kj${i}`)}</li>)}</ul>
 );
 
-const ReportDoc = ({ inv, st, refs, pinRef, pop, docRef }) => {
+const ReportDoc = React.memo(({ inv, st, refs, pinRef, pop, docRef }) => {
   const sections = React.useMemo(() => mdSections(inv.report_md), [inv.report_md]);
   const norm = (s) => s.toLowerCase();
   const visualsFor = (title) => inv.visuals.filter((v) => norm(title).startsWith(norm(v.heading)));
@@ -566,7 +566,7 @@ const ReportDoc = ({ inv, st, refs, pinRef, pop, docRef }) => {
       )}
     </div>
   );
-};
+});
 
 /* ScrollScrubber — the product's custom 56px-thumb rail. */
 const Scrubber = ({ scrollerRef, dep }) => {
@@ -590,7 +590,7 @@ const PLATFORM = {
 const MEDIA_ICON = { image: "image", video: "video", audio: "mic" };
 const MEDIA_LABEL = { image: "Media analysis", video: "Video analysis", audio: "Audio analysis" };
 
-const SocialCard = ({ s, expanded, expRef, anchorRef }) => {
+const SocialCard = React.memo(({ s, expanded, expRef, anchorRef }) => {
   const pf = PLATFORM[s.platform];
   return (
     <div className={`pv-scard ${s.platform}`} ref={anchorRef}>
@@ -625,9 +625,9 @@ const SocialCard = ({ s, expanded, expRef, anchorRef }) => {
       )}
     </div>
   );
-};
+});
 
-const DarkCard = ({ d, anchorRef, hi }) => (
+const DarkCard = React.memo(({ d, anchorRef, hi }) => (
   <div className={`pv-dcard ${hi ? "hi" : ""}`} ref={anchorRef}>
     <div className="pv-scard-head">
       <span className="pv-scard-i">[{d.i}]</span>
@@ -644,10 +644,10 @@ const DarkCard = ({ d, anchorRef, hi }) => (
       <ul>{d.analysis.map((a, i) => <li key={i}>{a}</li>)}</ul>
     </div>
   </div>
-);
+));
 
 /* Corporate-registry record (NECIPS-style) resolving field by field. */
-const RegistryCard = ({ reg, on }) => (
+const RegistryCard = React.memo(({ reg, on }) => (
   <div className={`pv-regcard ${on ? "on" : ""}`}>
     <div className="pv-reg-head">
       <span className="pv-scard-i">[R1]</span>
@@ -683,10 +683,10 @@ const RegistryCard = ({ reg, on }) => (
       ))}
     </Reveal>
   </div>
-);
+));
 
 /* DarkOwl retrieval log. */
-const CrawlLog = ({ lines, on }) => (
+const CrawlLog = React.memo(({ lines, on }) => (
   <div className="pv-crawl">
     <div className="pv-crawl-h"><span className="pv-crawl-dot"/>DarkOwl retrieval<em>tor · 3 hops</em></div>
     {lines.map((l, i) => (
@@ -697,10 +697,10 @@ const CrawlLog = ({ lines, on }) => (
       </Reveal>
     ))}
   </div>
-);
+));
 
 /* Breach-data exposure table. */
-const BreachTable = ({ b, on }) => (
+const BreachTable = React.memo(({ b, on }) => (
   <div className="pv-breach">
     <div className="pv-breach-top">
       <span className="pv-breach-sum"><span className="pv-pf breach">Exposed</span>{b.summary}</span>
@@ -716,11 +716,11 @@ const BreachTable = ({ b, on }) => (
       </Reveal>
     ))}
   </div>
-);
+));
 
 const gcTone = (v) => (v >= 75 ? "hi" : v >= 50 ? "mid" : "lo");
 
-const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
+const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef }) => {
   const sc = inv.blocks.source_composition;
   const graded = Object.values(sc.grade_distribution).reduce((a, b) => a + b, 0);
   const total = sc.types.reduce((a, t) => a + t.count, 0);
@@ -751,7 +751,7 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
       <SectionBox title="News Sources" count={sc.types[0].count} icon={<Icon name="newspaper" size={15}/>} ref={(el) => (refs.current["src:news"] = el)}>
         <div className="pv-src-list">
           {inv.sources.map((s, idx) => (
-            <div key={s.i} ref={(el) => (srcRefs.current[s.i] = el)} className={`pv-src ${st.srcOpen === s.i ? "hover" : ""} ${idx < st.srcN ? "" : "off"}`}>
+            <div key={s.i} ref={(el) => (srcRefs.current[s.i] = el)} className={`pv-src ${st.srcOpen === s.i ? "hover" : ""} ${st.srcOn ? "" : "off"}`} style={{ transitionDelay: st.srcOn ? `${idx * 80}ms` : "0ms" }}>
               <span className="pv-src-i">{s.i}</span>
               <div className="pv-src-body">
                 <div className="pv-src-top">
@@ -820,14 +820,14 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
       <div className="pv-doc-end"/>
     </div>
   );
-};
+});
 
 /* ═══ Engine ═══════════════════════════════════════════════════════════════ */
 const INIT = {
   scene: "query", typed: "", focused: false,
   gN: 0, gEdges: true, runStart: null,
   tl: 0, geo: { zoom: false, pts: 0, area: false, routes: false, move: false, popup: false }, outlook: false, pp: false, pop: null,
-  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null, srcN: 99, reg: true, crawl: true, breach: true, runDur: 0,
+  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null, srcOn: true, reg: true, crawl: true, breach: true, runDur: 0,
   done: false, cursor: { x: 0, y: 0, show: false, down: false },
 };
 const reducer = (s, a) => (typeof a === "function" ? a(s) : { ...s, ...a });
@@ -940,7 +940,7 @@ function buildPitchScript(inv) {
 
   // 0–6 · brief → plan (graph builds)
   starts.query = 0;
-  at(0, { ...INIT, focused: true, srcN: 0, reg: false, crawl: false, breach: false });
+  at(0, { ...INIT, focused: true, srcOn: false, reg: false, crawl: false, breach: false });
   for (let i = 1; i <= inv.query.length; i++) at(150 + 13 * i, { typed: inv.query.slice(0, i) });
   starts.run = 150 + 13 * inv.query.length + 350;
   at(starts.run, (s) => ({ ...s, scene: "run", gN: 0, runStart: Date.now(), runDur: 6000 - starts.run }));
@@ -951,7 +951,7 @@ function buildPitchScript(inv) {
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
   at(6050, { scrollTo: "src:news" });
-  for (let i = 1; i <= inv.sources.length; i++) at(6400 + i * 80, { srcN: i });
+  at(6400, { srcOn: true });
   // each section reveals only once its glide has settled
   starts["src:registry"] = 8000;
   at(8000, { scrollTo: "src:registry" });
@@ -1144,6 +1144,10 @@ export const ShowcaseA = () => {
   const step = running ? (revealed.length ? Math.max(...revealed.map((n) => n.step)) : 0) : inv.steps.length;
   const runDur = s.runDur || 400 + N * 270 + 1300;
 
+  /* Memo-friendly slices: cursor / scroll state must not re-render the documents mid-fade. */
+  const repSt = React.useMemo(() => ({ tl: s.tl, geo: s.geo, outlook: s.outlook, pp: s.pp }), [s.tl, s.geo, s.outlook, s.pp]);
+  const srcSt = React.useMemo(() => ({ srcBar: s.srcBar, srcOpen: s.srcOpen, srcExp: s.srcExp, srcHi: s.srcHi, srcOn: s.srcOn, reg: s.reg, crawl: s.crawl, breach: s.breach }),
+    [s.srcBar, s.srcOpen, s.srcExp, s.srcHi, s.srcOn, s.reg, s.crawl, s.breach]);
   const tab = s.scene === "run" || s.scene === "graph" ? "Graph" : s.scene === "sources" ? "Sources" : "Report";
   const status = s.scene === "query" ? null : running ? "running" : s.done ? "done" : "review";
   const isQuery = s.scene === "query";
@@ -1233,14 +1237,14 @@ export const ShowcaseA = () => {
 
                 {s.scene === "report" && (
                   <div className="pv-scroll" key="report" ref={scrollerRef}>
-                    <ReportDoc inv={inv} st={s} refs={anchors} pinRef={pinRef} pop={s.pop} docRef={docRef}/>
+                    <ReportDoc inv={inv} st={repSt} refs={anchors} pinRef={pinRef} pop={s.pop} docRef={docRef}/>
                     <Scrubber scrollerRef={scrollerRef} dep="report"/>
                   </div>
                 )}
 
                 {s.scene === "sources" && (
                   <div className="pv-scroll" key="sources" ref={scrollerRef}>
-                    <SourcesDoc inv={inv} st={s} refs={anchors} srcRefs={srcRefs} expRefs={expRefs} docRef={docRef}/>
+                    <SourcesDoc inv={inv} st={srcSt} refs={anchors} srcRefs={srcRefs} expRefs={expRefs} docRef={docRef}/>
                     <Scrubber scrollerRef={scrollerRef} dep="sources"/>
                   </div>
                 )}
