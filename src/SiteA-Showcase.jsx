@@ -656,23 +656,23 @@ const RegistryCard = ({ reg, on }) => (
       <span className="pv-scard-date">{reg.retrieved}</span>
       <span className="pv-pf reg">Registry</span>
     </div>
-    <Reveal on={on} delay={80} className="pv-reg-names">
+    <Reveal on={on} delay={0} className="pv-reg-names">
       <div className="pv-reg-zh">{reg.name_zh}</div>
       <div className="pv-reg-en">{reg.name_en}</div>
     </Reveal>
     <div className="pv-reg-grid">
       {reg.fields.map((f, i) => (
-        <Reveal key={f.k} on={on} delay={200 + i * 110} className="pv-reg-field">
+        <Reveal key={f.k} on={on} delay={120 + i * 45} className="pv-reg-field">
           <span className="pv-reg-k">{f.k}</span>
           <span className={`pv-reg-v ${f.mono ? "mono" : ""} ${f.ok ? "ok" : ""}`}>{f.ok && <i/>}{f.v}</span>
         </Reveal>
       ))}
     </div>
-    <Reveal on={on} delay={1050} className="pv-reg-sub">
+    <Reveal on={on} delay={420} className="pv-reg-sub">
       <div className="pv-scard-sech">股东 · Shareholders</div>
       {reg.shareholders.map((sh) => <div key={sh.n} className="pv-reg-sh"><span>{sh.n}</span><b>{sh.p}</b></div>)}
     </Reveal>
-    <Reveal on={on} delay={1250} className="pv-reg-sub">
+    <Reveal on={on} delay={560} className="pv-reg-sub">
       <div className="pv-scard-sech">Cross-registry matches</div>
       {reg.links.map((l) => (
         <div key={l.registry} className={`pv-reg-link ${l.ok ? "ok" : ""}`}>
@@ -690,7 +690,7 @@ const CrawlLog = ({ lines, on }) => (
   <div className="pv-crawl">
     <div className="pv-crawl-h"><span className="pv-crawl-dot"/>DarkOwl retrieval<em>tor · 3 hops</em></div>
     {lines.map((l, i) => (
-      <Reveal key={i} on={on} delay={i * 170} className={`pv-crawl-line ${l.k}`}>
+      <Reveal key={i} on={on} delay={i * 90} className={`pv-crawl-line ${l.k}`}>
         <span className="pv-crawl-t">{l.t}</span>
         <span className="pv-crawl-l">{l.l}</span>
         {l.r && <span className="pv-crawl-r">{l.r}</span>}
@@ -708,7 +708,7 @@ const BreachTable = ({ b, on }) => (
     </div>
     <div className="pv-breach-row head"><span>Identity</span><span>Credential</span><span>Data set</span><span>Address</span></div>
     {b.rows.map((r, i) => (
-      <Reveal key={r.email} on={on} delay={120 + i * 130} className={`pv-breach-row ${r.risk}`}>
+      <Reveal key={r.email} on={on} delay={80 + i * 55} className={`pv-breach-row ${r.risk}`}>
         <span className="pv-breach-email">{r.email}</span>
         <span className="pv-breach-pw"><code>{r.pw}</code><i className={r.pwtype}>{r.pwtype}</i></span>
         <span className="pv-breach-set">{r.set}</span>
@@ -799,7 +799,7 @@ const SourcesDoc = ({ inv, st, refs, srcRefs, expRefs, docRef }) => {
       <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
         {inv.crawl && <CrawlLog lines={inv.crawl} on={st.crawl}/>}
-        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 160 + 700} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 90 + 520} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
       </SectionBox>
 
       {inv.breach && (
@@ -951,16 +951,17 @@ function buildPitchScript(inv) {
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
   at(6050, { scrollTo: "src:news" });
-  for (let i = 1; i <= inv.sources.length; i++) at(6200 + i * 160, { srcN: i });
+  for (let i = 1; i <= inv.sources.length; i++) at(6400 + i * 80, { srcN: i });
+  // each section reveals only once its glide has settled
   starts["src:registry"] = 8000;
   at(8000, { scrollTo: "src:registry" });
-  at(8150, { reg: true });
+  at(8650, { reg: true });
   starts["src:dark"] = 10300;
   at(10300, { scrollTo: "src:dark" });
-  at(10400, { crawl: true });
+  at(10950, { crawl: true });
   starts["src:breach"] = 12500;
   at(12500, { scrollTo: "src:breach" });
-  at(12600, { breach: true });
+  at(13150, { breach: true });
 
   // 14.6–20 · grades every source → tradecraft: Report opens on the key
   // judgments; the cursor opens the grading popover on the state-aligned citation
