@@ -721,7 +721,9 @@ const BreachTable = React.memo(({ b, on }) => (
 
 const gcTone = (v) => (v >= 75 ? "hi" : v >= 50 ? "mid" : "lo");
 
-const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef }) => {
+const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch }) => {
+  /* Pitch cut: only the cards that fit the viewport — the rest would just be scroll distance. */
+  const darkCards = pitch ? inv.dark_sources.slice(0, 2) : inv.dark_sources;
   const sc = inv.blocks.source_composition;
   const graded = Object.values(sc.grade_distribution).reduce((a, b) => a + b, 0);
   const total = sc.types.reduce((a, t) => a + t.count, 0);
@@ -800,7 +802,8 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef }) => {
       <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
         {inv.crawl && <CrawlLog lines={inv.crawl} on={st.crawl}/>}
-        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+        {darkCards.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+        {pitch && inv.dark_sources.length > darkCards.length && <div className="pv-src-more">+ {inv.dark_sources.length - darkCards.length} more dark-web sources</div>}
       </SectionBox>
 
       {inv.breach && (
@@ -1253,7 +1256,7 @@ export const ShowcaseA = () => {
 
                 {s.scene === "sources" && (
                   <div className="pv-scroll" key="sources" ref={scrollerRef}>
-                    <SourcesDoc inv={inv} st={srcSt} refs={anchors} srcRefs={srcRefs} expRefs={expRefs} docRef={docRef}/>
+                    <SourcesDoc inv={inv} st={srcSt} refs={anchors} srcRefs={srcRefs} expRefs={expRefs} docRef={docRef} pitch={params.get("cut") !== "full"}/>
                     <Scrubber scrollerRef={scrollerRef} dep="sources"/>
                   </div>
                 )}
