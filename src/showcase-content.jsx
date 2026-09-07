@@ -97,6 +97,13 @@ const CABO = {
       ],
     },
   },
+  /* Pitch cut: the visuals sit directly under the key judgments so each glide
+     moves one visual to the next instead of crossing sections of prose. */
+  visualsPitch: [
+    { heading: "Key Judgments", block: "geo",         label: "Operational picture" },
+    { heading: "Key Judgments", block: "risk_matrix", label: "Risk matrix" },
+    { heading: "Key Judgments", block: "phased_plan", label: "Phased roadmap" },
+  ],
   visuals: [
     { heading: "Insurgency Trajectory", block: "timeline",    label: "Timeline" },
     { heading: "Logistics Risk",        block: "geo",         label: "Operational picture" },

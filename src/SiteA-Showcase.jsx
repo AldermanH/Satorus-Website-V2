@@ -492,10 +492,11 @@ const KeyJudgments = ({ items }) => (
   <ul className="pv-kj">{items.map((li, i) => <li key={i}>{inline(li, `kj${i}`)}</li>)}</ul>
 );
 
-const ReportDoc = React.memo(({ inv, st, refs, pinRef, pop, docRef }) => {
+const ReportDoc = React.memo(({ inv, st, refs, pinRef, pop, docRef, pitch }) => {
   const sections = React.useMemo(() => mdSections(inv.report_md), [inv.report_md]);
   const norm = (s) => s.toLowerCase();
-  const visualsFor = (title) => inv.visuals.filter((v) => norm(title).startsWith(norm(v.heading)));
+  const visuals = pitch && inv.visualsPitch ? inv.visualsPitch : inv.visuals;
+  const visualsFor = (title) => visuals.filter((v) => norm(title).startsWith(norm(v.heading)));
   const placed = new Set();
   const renderVis = (v) => {
     placed.add(v.block);
@@ -1047,7 +1048,7 @@ export const ShowcaseA = () => {
     cancelAnimationFrame(scrollAnim.current);
     const from = sc.scrollTop, d = target - from;
     if (jump || behavior === "auto" || Math.abs(d) < 2) { sc.scrollTop = target; return; }
-    const dur = Math.min(1300, Math.max(700, Math.abs(d) * 0.6));
+    const dur = Math.min(1300, Math.max(560, Math.abs(d) * 0.6));
     const t0 = performance.now();
     const ease = (x) => 1 - Math.pow(1 - x, 4); // ease-out quart: leaves quickly, settles gently
     const step = (now) => {
@@ -1241,7 +1242,7 @@ export const ShowcaseA = () => {
 
                 {s.scene === "report" && (
                   <div className="pv-scroll" key="report" ref={scrollerRef}>
-                    <ReportDoc inv={inv} st={repSt} refs={anchors} pinRef={pinRef} pop={s.pop} docRef={docRef}/>
+                    <ReportDoc inv={inv} st={repSt} refs={anchors} pinRef={pinRef} pop={s.pop} docRef={docRef} pitch={params.get("cut") !== "full"}/>
                     <Scrubber scrollerRef={scrollerRef} dep="report"/>
                   </div>
                 )}
