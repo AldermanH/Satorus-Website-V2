@@ -826,6 +826,19 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
   );
 });
 
+/* ═══ Backdrop — the site-hero mesh, with a static fallback when WebGL is unavailable ═══ */
+const hasWebGL = () => {
+  try { const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch { return false; }
+};
+class Backdrop extends React.Component {
+  constructor(p) { super(p); this.state = { failed: false }; }
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() {
+    if (this.state.failed || !this.props.gl) return <div className="pv-mesh-fallback" aria-hidden="true"/>;
+    return this.props.children;
+  }
+}
+
 /* ═══ Engine ═══════════════════════════════════════════════════════════════ */
 const INIT = {
   scene: "query", typed: "", focused: false,
@@ -1011,6 +1024,7 @@ export const ShowcaseA = () => {
   const [s, dispatch] = React.useReducer(reducer, INIT);
   const [scale, setScale] = React.useState(1);
   const [meshOn, setMeshOn] = React.useState(true);
+  const [gl] = React.useState(() => (typeof window !== "undefined" ? hasWebGL() : false));
   const timers = React.useRef([]);
   const scaleRef = React.useRef(1);
   const scrollerRef = React.useRef(null);
@@ -1166,7 +1180,9 @@ export const ShowcaseA = () => {
   return (
     <div className="pv-viewport">
       <div className="pv-mesh-wrap" aria-hidden="true">
-        <MeshGradient className="pv-mesh" colors={["#05070d", "#0a1420", "#1ebee6", "#05070d"]} speed={meshOn ? 0.32 : 0} backgroundColor="#05070d" minPixelRatio={1} maxPixelCount={500_000}/>
+        <Backdrop gl={gl}>
+          <MeshGradient className="pv-mesh" colors={["#05070d", "#0a1420", "#1ebee6", "#05070d"]} speed={meshOn ? 0.32 : 0} backgroundColor="#05070d" minPixelRatio={1} maxPixelCount={500_000}/>
+        </Backdrop>
       </div>
       <div className="pv-vignette" aria-hidden="true"/>
 
