@@ -974,19 +974,21 @@ function buildPitchScript(inv) {
   at(15750, { clickCite: ru });
   at(19100, (s) => hide({ ...s, pop: null }));
 
-  // 19.6–21.6 · the intelligence to make the call — glide to the map
+  // Pre-build the visuals below the fold while the judgments are on screen, so
+  // each arrives mostly complete and only its final flourish plays in view.
+  at(18800, (s) => ({ ...s, geo: { ...s.geo, zoom: true, pts: inv.geolocations.length, area: true }, outlook: true }));
+
+  // 19.6–21.6 · the intelligence to make the call — glide to the map; routes draw on
   starts["vis:geo"] = 19600;
   at(19600, { scrollTo: "vis:geo" });
-  at(19950, (s) => ({ ...s, geo: { ...s.geo, zoom: true } }));
-  inv.geolocations.forEach((_, i) => at(20050 + i * 55, (s) => ({ ...s, geo: { ...s.geo, pts: i + 1 } })));
-  at(20750, (s) => ({ ...s, geo: { ...s.geo, area: true } }));
-  at(20950, (s) => ({ ...s, geo: { ...s.geo, routes: true } }));
-  at(21300, (s) => ({ ...s, geo: { ...s.geo, move: true } }));
+  at(19900, (s) => ({ ...s, geo: { ...s.geo, routes: true } }));
+  at(20050, (s) => ({ ...s, geo: { ...s.geo, move: true } }));
+  // routes finish ≈21.1s → the map rests ~0.5s before the next move
 
-  // 21.6–23.5 · risk matrix, then Finish
+  // 21.6–23.5 · risk matrix (already populated) + roadmap bars draw, then Finish
   starts["vis:risk_matrix"] = 21600;
   at(21600, { scrollTo: "vis:risk_matrix" });
-  at(21950, { outlook: true, pp: true });
+  at(21900, { pp: true });
   at(22500, { cursorTo: "finish" });
   at(23000, { clickFinish: true });
   at(23160, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
