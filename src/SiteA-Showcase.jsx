@@ -729,7 +729,7 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
   const total = sc.types.reduce((a, t) => a + t.count, 0);
   return (
     <div className="pv-doc wide" ref={docRef}>
-      <div className="pv-panel pv-comp">
+      {!pitch && <div className="pv-panel pv-comp">
         <div className="pv-panel-h"><Icon name="newspaper" size={14}/><span className="pv-panel-t">Source composition</span><span className="pv-panel-count">{total} cited</span></div>
         <div className="pv-comp-row">
           <div className="pv-comp-stats">
@@ -749,7 +749,7 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
             </div>
           </div>
         </div>
-      </div>
+      </div>}
 
       <SectionBox title="News Sources" count={sc.types[0].count} icon={<Icon name="newspaper" size={15}/>} ref={(el) => (refs.current["src:news"] = el)}>
         <div className="pv-src-list">
@@ -954,7 +954,6 @@ function buildPitchScript(inv) {
   // 6–14.6 · collection — news 3.0s · registry 2.2s · dark web 1.4s · breach 2.0s
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
-  at(6050, { scrollTo: "src:news" });
   at(6300, { srcOn: true });
   starts["src:registry"] = 9000;
   at(9000, { scrollTo: "src:registry" });
@@ -992,14 +991,14 @@ function buildPitchScript(inv) {
   starts["vis:risk_matrix"] = 21600;
   at(21600, { scrollTo: "vis:risk_matrix" });
   at(21900, { pp: true });
-  at(22500, { cursorTo: "finish" });
-  at(23000, { clickFinish: true });
-  at(23160, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
-  at(23450, hide);
+  at(22900, { cursorTo: "finish" });
+  at(23400, { clickFinish: true });
+  at(23560, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
+  at(23950, hide);
 
   // 23–25 · fast and deep
-  starts.graph = 23500;
-  at(23500, { scene: "graph", gN: N });
+  starts.graph = 24300;
+  at(24300, { scene: "graph", gN: N });
 
   // Hold the finished graph for an extra 5s so the presenter can advance the
   // slide before the loop restarts.
