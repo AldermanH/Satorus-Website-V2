@@ -690,7 +690,7 @@ const CrawlLog = React.memo(({ lines, on }) => (
   <div className="pv-crawl">
     <div className="pv-crawl-h"><span className="pv-crawl-dot"/>DarkOwl retrieval<em>tor · 3 hops</em></div>
     {lines.map((l, i) => (
-      <Reveal key={i} on={on} delay={i * 110} className={`pv-crawl-line ${l.k}`}>
+      <Reveal key={i} on={on} delay={i * 85} className={`pv-crawl-line ${l.k}`}>
         <span className="pv-crawl-t">{l.t}</span>
         <span className="pv-crawl-l">{l.l}</span>
         {l.r && <span className="pv-crawl-r">{l.r}</span>}
@@ -799,7 +799,7 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef }) => {
       <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
         {inv.crawl && <CrawlLog lines={inv.crawl} on={st.crawl}/>}
-        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 140 + 640} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+        {inv.dark_sources.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
       </SectionBox>
 
       {inv.breach && (
@@ -947,23 +947,22 @@ function buildPitchScript(inv) {
   const gapN = Math.floor((6000 - starts.run - 350) / N);
   for (let i = 1; i <= N; i++) at(starts.run + 150 + i * gapN, { gN: i });
 
-  // 6–14.6 · collection — four beats, each given room to resolve
+  // 6–14.6 · collection — news 3.0s · registry 2.2s · dark web 1.4s · breach 2.0s
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
   at(6050, { scrollTo: "src:news" });
   at(6300, { srcOn: true });
-  // each section reveals only once its glide has settled
-  starts["src:registry"] = 8000;
-  at(8000, { scrollTo: "src:registry" });
-  at(8450, { reg: true });
-  starts["src:dark"] = 10300;
-  at(10300, { scrollTo: "src:dark" });
-  at(10750, { crawl: true });
-  starts["src:breach"] = 12500;
-  at(12500, { scrollTo: "src:breach" });
-  at(12950, { breach: true });
+  starts["src:registry"] = 9000;
+  at(9000, { scrollTo: "src:registry" });
+  at(9450, { reg: true });
+  starts["src:dark"] = 11200;
+  at(11200, { scrollTo: "src:dark" });
+  at(11550, { crawl: true });
+  starts["src:breach"] = 12600;
+  at(12600, { scrollTo: "src:breach" });
+  at(13050, { breach: true });
 
-  // 14.6–20 · grades every source → tradecraft: Report opens on the key
+  // 14.6–19.6 · grades every source → tradecraft: Report opens on the key
   // judgments; the cursor opens the grading popover on the state-aligned citation
   starts.report = 14600;
   at(14600, { scene: "report" });
@@ -972,24 +971,29 @@ function buildPitchScript(inv) {
   starts.grade = 15200;
   at(15200, { cursorTo: `cite:${ru}` });
   at(15750, { clickCite: ru });
-  at(18700, (s) => hide({ ...s, pop: null }));
+  at(19100, (s) => hide({ ...s, pop: null }));
 
-  // 20–23 · the intelligence to make the call — glide down to the map, Finish
-  starts["vis:geo"] = 20000;
-  at(20000, { scrollTo: "vis:geo" });
-  at(20350, (s) => ({ ...s, geo: { ...s.geo, zoom: true } }));
-  inv.geolocations.forEach((_, i) => at(20500 + i * 60, (s) => ({ ...s, geo: { ...s.geo, pts: i + 1 } })));
-  at(21300, (s) => ({ ...s, geo: { ...s.geo, area: true } }));
-  at(21500, (s) => ({ ...s, geo: { ...s.geo, routes: true } }));
-  at(22000, (s) => ({ ...s, geo: { ...s.geo, move: true } }));
-  at(21700, { cursorTo: "finish" });
-  at(22250, { clickFinish: true });
-  at(22410, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
-  at(22850, hide);
+  // 19.6–21.6 · the intelligence to make the call — glide to the map
+  starts["vis:geo"] = 19600;
+  at(19600, { scrollTo: "vis:geo" });
+  at(19950, (s) => ({ ...s, geo: { ...s.geo, zoom: true } }));
+  inv.geolocations.forEach((_, i) => at(20050 + i * 55, (s) => ({ ...s, geo: { ...s.geo, pts: i + 1 } })));
+  at(20750, (s) => ({ ...s, geo: { ...s.geo, area: true } }));
+  at(20950, (s) => ({ ...s, geo: { ...s.geo, routes: true } }));
+  at(21300, (s) => ({ ...s, geo: { ...s.geo, move: true } }));
+
+  // 21.6–23.5 · risk matrix, then Finish
+  starts["vis:risk_matrix"] = 21600;
+  at(21600, { scrollTo: "vis:risk_matrix" });
+  at(21950, { outlook: true, pp: true });
+  at(22500, { cursorTo: "finish" });
+  at(23000, { clickFinish: true });
+  at(23160, (s) => ({ ...s, cursor: { ...s.cursor, down: false } }));
+  at(23450, hide);
 
   // 23–25 · fast and deep
-  starts.graph = 23000;
-  at(23000, { scene: "graph", gN: N });
+  starts.graph = 23500;
+  at(23500, { scene: "graph", gN: N });
 
   return { cues, starts, total: 25000 };
 }
