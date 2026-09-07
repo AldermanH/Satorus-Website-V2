@@ -998,7 +998,9 @@ function buildPitchScript(inv) {
   starts.graph = 23500;
   at(23500, { scene: "graph", gN: N });
 
-  return { cues, starts, total: 25000 };
+  // Hold the finished graph for an extra 5s so the presenter can advance the
+  // slide before the loop restarts.
+  return { cues, starts, total: 30000 };
 }
 
 export const ShowcaseA = () => {
