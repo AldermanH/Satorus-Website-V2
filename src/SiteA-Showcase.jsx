@@ -723,12 +723,13 @@ const gcTone = (v) => (v >= 75 ? "hi" : v >= 50 ? "mid" : "lo");
 
 const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch }) => {
   /* Pitch cut: only the cards that fit the viewport — the rest would just be scroll distance. */
-  const darkCards = pitch ? inv.dark_sources.slice(0, 2) : inv.dark_sources;
+  const darkCards = pitch ? inv.dark_sources.slice(0, 1) : inv.dark_sources;
+  const crawlLines = pitch && inv.crawl ? [inv.crawl[0], inv.crawl[1], inv.crawl[2], inv.crawl[3], inv.crawl[inv.crawl.length - 1]] : inv.crawl;
   const sc = inv.blocks.source_composition;
   const graded = Object.values(sc.grade_distribution).reduce((a, b) => a + b, 0);
   const total = sc.types.reduce((a, t) => a + t.count, 0);
   return (
-    <div className="pv-doc wide" ref={docRef}>
+    <div className={`pv-doc wide ${pitch ? "pitch" : ""}`} ref={docRef}>
       {!pitch && <div className="pv-panel pv-comp">
         <div className="pv-panel-h"><Icon name="newspaper" size={14}/><span className="pv-panel-t">Source composition</span><span className="pv-panel-count">{total} cited</span></div>
         <div className="pv-comp-row">
@@ -801,15 +802,15 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
 
       <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
-        {inv.crawl && <CrawlLog lines={inv.crawl} on={st.crawl}/>}
-        {darkCards.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
+        {inv.crawl && <CrawlLog lines={crawlLines} on={st.crawl}/>}
+        {darkCards.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={pitch ? { ...d, analysis: d.analysis.slice(0, 2) } : d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
         {pitch && inv.dark_sources.length > darkCards.length && <div className="pv-src-more">+ {inv.dark_sources.length - darkCards.length} more dark-web sources</div>}
       </SectionBox>
 
       {inv.breach && (
         <SectionBox title="Breach Data" count={sc.types.find((t) => t.type === "breach")?.count} icon={<Icon name="alert" size={15}/>} className="breach" ref={(el) => (refs.current["src:breach"] = el)}>
           <p className="pv-src-note breach">Credential and identity exposure across indexed breach corpora. Plaintext credentials are masked in the workspace; never stored.</p>
-          <BreachTable b={inv.breach} on={st.breach}/>
+          <BreachTable b={pitch ? { ...inv.breach, rows: inv.breach.rows.slice(0, 4) } : inv.breach} on={st.breach}/>
         </SectionBox>
       )}
 

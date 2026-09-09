@@ -555,6 +555,33 @@
 .pv-breach-set { font: 500 11px var(--s-mono); color: var(--s-muted-fg); }
 .pv-breach-addr { font-size: 11.5px; color: hsl(0 0% 90% / 0.8); }
 
+/* Pitch cut: dark-web and breach sections sized to read from the back of a room */
+.pv-doc.pitch .pv-src-note.dark, .pv-doc.pitch .pv-src-note.breach { font-size: 13.5px; margin-bottom: 14px; }
+.pv-doc.pitch .pv-crawl { padding: 12px 18px 14px; }
+.pv-doc.pitch .pv-crawl-h { font-size: 12px; margin-bottom: 10px; }
+.pv-doc.pitch .pv-crawl-line { font-size: 13.5px; padding: 5px 0; grid-template-columns: 80px 1fr auto; }
+.pv-doc.pitch .pv-dcard { padding: 18px 20px; }
+.pv-doc.pitch .pv-dcard .pv-scard-handle { font-size: 17px; }
+.pv-doc.pitch .pv-dcard .pv-scard-date { font-size: 14px; }
+.pv-doc.pitch .pv-dcard .pv-scard-url { font-size: 13px; margin-top: 8px; }
+.pv-doc.pitch .pv-dcard-thread { font-size: 16px; margin-top: 14px; }
+.pv-doc.pitch .pv-dcard-thread span { font-size: 10.5px; }
+.pv-doc.pitch .pv-dcard .pv-scard-sum { font-size: 15px; line-height: 1.55; margin: 10px 0 10px 42px; }
+.pv-doc.pitch .pv-dcard .pv-scard-sech { font-size: 11.5px; }
+.pv-doc.pitch .pv-dcard .pv-scard-sec li { font-size: 14.5px; line-height: 1.55; }
+.pv-doc.pitch .pv-dcard .pv-pf { font-size: 11px; padding: 4px 10px; }
+.pv-doc.pitch .pv-breach { padding: 16px 18px 10px; }
+.pv-doc.pitch .pv-breach-sum { font-size: 16px; }
+.pv-doc.pitch .pv-breach-sum .pv-pf { font-size: 11px; padding: 4px 10px; }
+.pv-doc.pitch .pv-breach-sets { display: none; }
+.pv-doc.pitch .pv-breach-row { grid-template-columns: 1.35fr 1.25fr 1.1fr; padding: 11px 10px; font-size: 14.5px; }
+.pv-doc.pitch .pv-breach-row.head { font-size: 10.5px; }
+.pv-doc.pitch .pv-breach-set, .pv-doc.pitch .pv-breach-row.head span:nth-child(3) { display: none; }
+.pv-doc.pitch .pv-breach-email { font-size: 14px; }
+.pv-doc.pitch .pv-breach-pw code { font-size: 14.5px; padding: 3px 9px; }
+.pv-doc.pitch .pv-breach-pw i { font-size: 10px; padding: 3px 6px; }
+.pv-doc.pitch .pv-breach-addr { font-size: 14px; }
+
 /* Grading tooltip factor tones (red / amber / green) */
 .pv-gc-fill.hi { background: linear-gradient(90deg, #059669, #34d399); }
 .pv-gc-fill.mid { background: linear-gradient(90deg, #b45309, #fbbf24); }
