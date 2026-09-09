@@ -567,6 +567,18 @@
 .pv-doc.pitch .pv-sec-chev { width: 20px; height: 20px; }
 .pv-doc.pitch .pv-sec-body { padding: 0 22px 20px; }
 
+/* Glow sweep — a soft light passes across the section title as its beat lands */
+.pv-sec-h { position: relative; overflow: hidden; --glow: hsl(195 90% 70%); }
+.pv-secbox.social .pv-sec-h { --glow: hsl(265 85% 78%); }
+.pv-secbox.dark .pv-sec-h { --glow: hsl(45 100% 65%); }
+.pv-secbox.breach .pv-sec-h { --glow: hsl(0 85% 72%); }
+.pv-sec-glow { position: absolute; top: 50%; left: 0; width: 300px; height: 160px; border-radius: 50%; pointer-events: none; mix-blend-mode: screen; filter: blur(16px);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--glow) 55%, transparent), color-mix(in srgb, var(--glow) 18%, transparent) 55%, transparent 75%);
+  animation: secGlow 1600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes secGlow { 0% { transform: translate(-80%, -50%); opacity: 0; } 12% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(560px, -50%); opacity: 0; } }
+.pv-sec-h.lit h2 { animation: secLit 1600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes secLit { 0% { text-shadow: 0 0 0 transparent; } 30% { text-shadow: 0 0 22px color-mix(in srgb, var(--glow) 75%, transparent), 0 0 4px color-mix(in srgb, var(--glow) 40%, transparent); } 100% { text-shadow: 0 0 0 transparent; } }
+
 /* Pitch cut: dark-web and breach sections sized to read from the back of a room */
 .pv-doc.pitch .pv-src-note.dark, .pv-doc.pitch .pv-src-note.breach { font-size: 13.5px; margin-bottom: 14px; }
 .pv-doc.pitch .pv-crawl { padding: 12px 18px 14px; }

@@ -478,9 +478,10 @@ const RoadmapBlock = ({ inv, on }) => {
 };
 
 /* ═══ Report tab — the document (ReportContent.tsx) ════════════════════════ */
-const SectionBox = React.forwardRef(({ title, count, icon, children, className = "" }, ref) => (
+const SectionBox = React.forwardRef(({ title, count, icon, children, className = "", glow }, ref) => (
   <section className={`pv-secbox ${className}`} ref={ref}>
-    <div className="pv-sec-h">
+    <div className={`pv-sec-h ${glow ? "lit" : ""}`}>
+      {glow && <span key={glow} className="pv-sec-glow" aria-hidden="true"/>}
       <h2>{icon && <span className="pv-sec-ic">{icon}</span>}{title}{count != null && <em>({count})</em>}</h2>
       <Icon name="chevdown" size={16} className="pv-sec-chev"/>
     </div>
@@ -752,7 +753,7 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
         </div>
       </div>}
 
-      <SectionBox title="News Sources" count={sc.types[0].count} icon={<Icon name="newspaper" size={15}/>} ref={(el) => (refs.current["src:news"] = el)}>
+      <SectionBox title="News Sources" count={sc.types[0].count} icon={<Icon name="newspaper" size={15}/>} glow={st.secGlow === "news" ? "news" : null} ref={(el) => (refs.current["src:news"] = el)}>
         <div className="pv-src-list">
           {inv.sources.map((s, idx) => (
             <div key={s.i} ref={(el) => (srcRefs.current[s.i] = el)} className={`pv-src ${st.srcOpen === s.i ? "hover" : ""} ${st.srcOn ? "" : "off"}`} style={{ transitionDelay: st.srcOn ? `${idx * 95}ms` : "0ms" }}>
@@ -795,12 +796,12 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
       </SectionBox>
 
       {inv.registry && (
-        <SectionBox title="Corporate Registries" count={sc.types.find((t) => t.type === "registry")?.count} icon={<Icon name="file" size={15}/>} className="reg" ref={(el) => (refs.current["src:registry"] = el)}>
+        <SectionBox title="Corporate Registries" count={sc.types.find((t) => t.type === "registry")?.count} icon={<Icon name="file" size={15}/>} className="reg" glow={st.secGlow === "registry" ? "registry" : null} ref={(el) => (refs.current["src:registry"] = el)}>
           <RegistryCard reg={inv.registry} on={st.reg}/>
         </SectionBox>
       )}
 
-      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" ref={(el) => (refs.current["src:dark"] = el)}>
+      <SectionBox title="Dark-Web Sources" count={sc.types[2].count} icon={<Ic n="shieldoff" size={15}/>} className="dark" glow={st.secGlow === "dark" ? "dark" : null} ref={(el) => (refs.current["src:dark"] = el)}>
         <p className="pv-src-note dark">{inv.dark_note}</p>
         {inv.crawl && <CrawlLog lines={crawlLines} on={st.crawl}/>}
         {darkCards.map((d, i) => <Reveal key={d.i} on={st.crawl} delay={Math.min(i, 3) * 120 + 520} as="div"><DarkCard d={pitch ? { ...d, analysis: d.analysis.slice(0, 2) } : d} hi={st.srcHi === d.i} anchorRef={(el) => { refs.current[`src:${d.i}`] = el; srcRefs.current[d.i] = el; }}/></Reveal>)}
@@ -808,7 +809,7 @@ const SourcesDoc = React.memo(({ inv, st, refs, srcRefs, expRefs, docRef, pitch 
       </SectionBox>
 
       {inv.breach && (
-        <SectionBox title="Breach Data" count={sc.types.find((t) => t.type === "breach")?.count} icon={<Icon name="alert" size={15}/>} className="breach" ref={(el) => (refs.current["src:breach"] = el)}>
+        <SectionBox title="Breach Data" count={sc.types.find((t) => t.type === "breach")?.count} icon={<Icon name="alert" size={15}/>} className="breach" glow={st.secGlow === "breach" ? "breach" : null} ref={(el) => (refs.current["src:breach"] = el)}>
           <p className="pv-src-note breach">Credential and identity exposure across indexed breach corpora. Plaintext credentials are masked in the workspace; never stored.</p>
           <BreachTable b={pitch ? { ...inv.breach, rows: inv.breach.rows.slice(0, 4) } : inv.breach} on={st.breach}/>
         </SectionBox>
@@ -845,7 +846,7 @@ const INIT = {
   scene: "query", typed: "", focused: false,
   gN: 0, gEdges: true, runStart: null,
   tl: 0, geo: { zoom: false, pts: 0, area: false, routes: false, move: false, popup: false }, outlook: false, pp: false, pop: null,
-  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null, srcOn: true, reg: true, crawl: true, breach: true, runDur: 0,
+  srcBar: false, srcOpen: null, srcExp: {}, srcHi: null, srcOn: true, reg: true, crawl: true, breach: true, secGlow: null, runDur: 0,
   done: false, cursor: { x: 0, y: 0, show: false, down: false },
 };
 const reducer = (s, a) => (typeof a === "function" ? a(s) : { ...s, ...a });
@@ -967,17 +968,17 @@ function buildPitchScript(inv) {
 
   // 6–14.6 · collection — four beats of ~2.15s each
   starts.sources = 6000;
-  at(6000, { scene: "sources", srcBar: true });
-  at(6300, { srcOn: true });
+  at(6000, { scene: "sources", srcBar: true, secGlow: null });
+  at(6300, { srcOn: true, secGlow: "news" });
   starts["src:registry"] = 8150;
   at(8150, { scrollTo: "src:registry" });
-  at(8600, { reg: true });
+  at(8600, { reg: true, secGlow: "registry" });
   starts["src:dark"] = 10300;
   at(10300, { scrollTo: "src:dark" });
-  at(10700, { crawl: true });
+  at(10700, { crawl: true, secGlow: "dark" });
   starts["src:breach"] = 12450;
   at(12450, { scrollTo: "src:breach" });
-  at(12900, { breach: true });
+  at(12900, { breach: true, secGlow: "breach" });
 
   // 14.6–19.6 · grades every source → tradecraft: Report opens on the key
   // judgments; the cursor opens the grading popover on the state-aligned citation
@@ -1172,8 +1173,8 @@ export const ShowcaseA = () => {
 
   /* Memo-friendly slices: cursor / scroll state must not re-render the documents mid-fade. */
   const repSt = React.useMemo(() => ({ tl: s.tl, geo: s.geo, outlook: s.outlook, pp: s.pp }), [s.tl, s.geo, s.outlook, s.pp]);
-  const srcSt = React.useMemo(() => ({ srcBar: s.srcBar, srcOpen: s.srcOpen, srcExp: s.srcExp, srcHi: s.srcHi, srcOn: s.srcOn, reg: s.reg, crawl: s.crawl, breach: s.breach }),
-    [s.srcBar, s.srcOpen, s.srcExp, s.srcHi, s.srcOn, s.reg, s.crawl, s.breach]);
+  const srcSt = React.useMemo(() => ({ srcBar: s.srcBar, srcOpen: s.srcOpen, srcExp: s.srcExp, srcHi: s.srcHi, srcOn: s.srcOn, reg: s.reg, crawl: s.crawl, breach: s.breach, secGlow: s.secGlow }),
+    [s.srcBar, s.srcOpen, s.srcExp, s.srcHi, s.srcOn, s.reg, s.crawl, s.breach, s.secGlow]);
   const tab = s.scene === "run" || s.scene === "graph" ? "Graph" : s.scene === "sources" ? "Sources" : "Report";
   const status = s.scene === "query" ? null : running ? "running" : s.done ? "done" : "review";
   const isQuery = s.scene === "query";
