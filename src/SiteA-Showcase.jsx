@@ -965,19 +965,19 @@ function buildPitchScript(inv) {
   const gapN = Math.floor((6000 - starts.run - 350) / N);
   for (let i = 1; i <= N; i++) at(starts.run + 150 + i * gapN, { gN: i });
 
-  // 6–14.6 · collection — news 3.0s · registry 2.2s · dark web 1.4s · breach 2.0s
+  // 6–14.6 · collection — four beats of ~2.15s each
   starts.sources = 6000;
   at(6000, { scene: "sources", srcBar: true });
   at(6300, { srcOn: true });
-  starts["src:registry"] = 9000;
-  at(9000, { scrollTo: "src:registry" });
-  at(9450, { reg: true });
-  starts["src:dark"] = 11200;
-  at(11200, { scrollTo: "src:dark" });
-  at(11550, { crawl: true });
-  starts["src:breach"] = 12600;
-  at(12600, { scrollTo: "src:breach" });
-  at(13050, { breach: true });
+  starts["src:registry"] = 8150;
+  at(8150, { scrollTo: "src:registry" });
+  at(8600, { reg: true });
+  starts["src:dark"] = 10300;
+  at(10300, { scrollTo: "src:dark" });
+  at(10700, { crawl: true });
+  starts["src:breach"] = 12450;
+  at(12450, { scrollTo: "src:breach" });
+  at(12900, { breach: true });
 
   // 14.6–19.6 · grades every source → tradecraft: Report opens on the key
   // judgments; the cursor opens the grading popover on the state-aligned citation
