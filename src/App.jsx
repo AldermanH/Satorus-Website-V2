@@ -1,4 +1,6 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { withUtm } from "./utm.js";
 import { NavA, HeroA } from "./SiteA-Hero.jsx";
 import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
@@ -39,7 +41,10 @@ function useRoute() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
   const navigate = React.useCallback((to) => {
-    const currentFull = window.location.pathname + window.location.hash;
+    // Carry any utm_* params from the landing URL across client-side
+    // navigations so they reach /demo (see utm.js).
+    to = withUtm(to);
+    const currentFull = window.location.pathname + window.location.search + window.location.hash;
     if (to === currentFull) {
       // Same exact URL. If it's a no-hash link (e.g. Home), still scroll
       // to top — that matches what the user expects when clicking Home
@@ -62,8 +67,24 @@ function useRoute() {
   return { path, navigate };
 }
 
+/* Route pattern for Vercel Web Analytics (groups /careers/<slug> pages). */
+function routeFor(path) {
+  if (path.startsWith("/careers/") && path.length > "/careers/".length) return "/careers/[slug]";
+  return path;
+}
+
 export default function App() {
   const { path, navigate } = useRoute();
+  // Vercel Web Analytics. Cookieless. Passing route/path turns off the
+  // script's own auto-tracking and fires one pageview per client-side route
+  // change instead — the custom router below is the source of truth.
+  const analytics = (
+    <Analytics
+      route={routeFor(path)}
+      path={path}
+      mode={import.meta.env.PROD ? "production" : "development"}
+    />
+  );
 
   // After every path change, scroll to the URL hash if there is one (so a
   // click on /#company from /demo lands at the team section, not at the top
@@ -115,16 +136,17 @@ export default function App() {
 
   // Hidden launch-event display — full viewport, no site nav or footer.
   if (path === "/showcase") {
-    return <ShowcaseA/>;
+    return <>{analytics}<ShowcaseA/></>;
   }
 
   // Hidden engineering prototype — report visualisations test piece.
   if (path === "/report-viz") {
-    return <ReportVizA/>;
+    return <>{analytics}<ReportVizA/></>;
   }
 
   return (
     <div style={{ minHeight: "100%", background: "var(--sidney-bg)" }}>
+      {analytics}
       <NavA/>
       <main id="main">
         {path === "/demo" ? (

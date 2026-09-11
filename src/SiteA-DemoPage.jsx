@@ -5,7 +5,9 @@
    (demo_request_details). Submission goes to the Forms API — see
    HUBSPOT_ENDPOINT below. */
 import React from "react";
+import { track } from "@vercel/analytics/react";
 import { Icon } from "./Components.jsx";
+import { UTM_KEYS, getUtm } from "./utm.js";
 
 // HubSpot submission target. Both IDs are public — they ship in the bundle and
 // are visible in the network tab; HubSpot designed them to be exposed on the
@@ -57,6 +59,18 @@ export const DemoPage = () => {
   const [status, setStatus] = React.useState("idle"); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = React.useState("");
   const [bookingParams, setBookingParams] = React.useState(null); // { firstName, lastName, email } captured from the form so the calendar can prefill
+
+  // Landing event for the Vercel dashboard: which source/campaign/creative
+  // brought this visitor to the demo page. Fires once per mount. Missing
+  // params are sent as null so the event still shows up for direct traffic.
+  React.useEffect(() => {
+    const utm = getUtm();
+    track("demo_page_viewed", {
+      utm_source:   utm.utm_source   ?? null,
+      utm_campaign: utm.utm_campaign ?? null,
+      utm_content:  utm.utm_content  ?? null,
+    });
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -121,6 +135,10 @@ export const DemoPage = () => {
     if (bookingParams?.firstName) params.set("firstName", bookingParams.firstName);
     if (bookingParams?.lastName)  params.set("lastName",  bookingParams.lastName);
     if (bookingParams?.email)     params.set("email",     bookingParams.email);
+    // Forward utm_* from the page URL onto the meetings widget URL — HubSpot
+    // records them on the contact when they're present on the widget.
+    const utm = getUtm();
+    for (const key of UTM_KEYS) if (utm[key]) params.set(key, utm[key]);
     const meetingsUrl = `${MEETINGS_BASE}?${params.toString()}`;
 
     return (
@@ -144,7 +162,7 @@ export const DemoPage = () => {
             />
           </div>
           <p className="dr-meetings-fallback">
-            Trouble loading the calendar? <a href={meetingsUrl} target="_blank" rel="noopener noreferrer">Open it in a new tab →</a>
+            Trouble loading the calendar? <a href={meetingsUrl} target="_blank" rel="noopener noreferrer" onClick={() => track("demo_cta_clicked")}>Open it in a new tab →</a>
           </p>
         </div>
       </section>
