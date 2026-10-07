@@ -12,30 +12,7 @@
    names or logos anywhere on the site. */
 import React from "react";
 import { Icon, BrandLockup } from "./Components.jsx";
-
-/* Product screenshot. `crop` frames one rectangle of the image, given in
-   source pixels ({ x, y, w, h }) on the 1600×890 guide screenshots, so the
-   relevant detail stays legible at small sizes. `crop.m` is an optional
-   separate rectangle for phones. */
-const SHOT_W = 1600, SHOT_H = 890;
-const cropVars = ({ x, y, w, h }, prefix) => ({
-  [`--${prefix}-ar`]: `${w} / ${h}`,
-  [`--${prefix}-w`]: `${(SHOT_W / w) * 100}%`,
-  [`--${prefix}-l`]: `${(-x / w) * 100}%`,
-  [`--${prefix}-t`]: `${(-y / h) * 100}%`,
-});
-
-const Shot = ({ src, alt, caption, crop }) => {
-  const style = crop ? { ...cropVars(crop, "c"), ...cropVars(crop.m ?? crop, "m") } : undefined;
-  return (
-    <figure className="a-shot">
-      <div className={crop ? "a-shot-frame a-shot-crop" : "a-shot-frame"} style={style}>
-        <img src={src} alt={alt} width={SHOT_W} height={SHOT_H} loading="lazy" decoding="async"/>
-      </div>
-      {caption && <figcaption className="a-shot-cap">{caption}</figcaption>}
-    </figure>
-  );
-};
+import { GfxPlan, GfxResearch, GfxDraft, GfxGrading, GfxVideo } from "./SiteA-Graphics.jsx";
 
 /* ───── a) Proof band ───── */
 
@@ -86,17 +63,17 @@ const STEPS = [
   {
     h: "Sidney plans the investigation",
     p: "Describe what you need in plain language. Sidney turns it into a research plan and asks clarifying questions before it starts, so the scope is right first time.",
-    shot: { src: "/assets/guide/home.webp", alt: "Sidney home screen with workflows for Deep Research, Due Diligence, Digital Footprints and Video Analysis", crop: { x: 300, y: 388, w: 610, h: 458 } },
+    Gfx: GfxPlan,
   },
   {
     h: "It researches and grades every source",
     p: "Surface, deep and dark web, social media and video. Sources are collected fresh and every one is graded for reliability.",
-    shot: { src: "/assets/guide/sources.webp", alt: "Sources tab listing news and social media sources, with media analysis of an image", crop: { x: 555, y: 300, w: 680, h: 510 } },
+    Gfx: GfxResearch,
   },
   {
     h: "You get a sourced first draft",
     p: "Key judgments with confidence levels and citations you can open. Build on it, re-run it, or schedule it as a recurring report.",
-    shot: { src: "/assets/guide/key-judgments.webp", alt: "Report key judgments with numbered citations and confidence levels", crop: { x: 580, y: 20, w: 720, h: 540 } },
+    Gfx: GfxDraft,
   },
 ];
 
@@ -113,7 +90,7 @@ export const HowItWorksA = () => (
       <ol className="a-steps">
         {STEPS.map((s, i) => (
           <li key={s.h} className="a-step">
-            <Shot {...s.shot}/>
+            <s.Gfx/>
             <div className="a-step-n">0{i + 1}</div>
             <h3 className="a-step-h">{s.h}</h3>
             <p className="a-step-p">{s.p}</p>
@@ -165,12 +142,7 @@ export const GradingA = () => (
           </ul>
         </div>
         <div className="a-split-media">
-          <Shot
-            src="/assets/guide/key-judgments.webp"
-            alt="A source grading popover rating a news outlet B+, generally reliable, with the reasons listed"
-            caption="Open any citation to see the source's grade and the reasoning behind it."
-            crop={{ x: 600, y: 230, w: 800, h: 600, m: { x: 846, y: 296, w: 360, h: 528 } }}
-          />
+          <GfxGrading/>
         </div>
       </div>
     </div>
@@ -196,20 +168,7 @@ export const VideoA = () => (
         </div>
         <p className="a-section-p">Paste a link or upload a file. Sidney works through what is said, what is shown and what is written on screen, then writes a sourced report.</p>
       </div>
-      <div className="a-video-shots">
-        <Shot
-          src="/assets/guide/video-analysis.webp"
-          alt="Video Analysis set-up screen with options for speech, visual scenes and on-screen text"
-          caption="Choose what to analyse: speech, visual scenes and on-screen text."
-          crop={{ x: 320, y: 250, w: 900, h: 562, m: { x: 370, y: 420, w: 620, h: 465 } }}
-        />
-        <Shot
-          src="/assets/guide/sources.webp"
-          alt="Media analysis of a social media image, with on-screen Arabic text and a list of visible weapons"
-          caption="Images and clips in social media sources are analysed too, and checked against their captions."
-          crop={{ x: 555, y: 360, w: 720, h: 450, m: { x: 560, y: 360, w: 600, h: 450 } }}
-        />
-      </div>
+      <GfxVideo/>
       <ul className="a-caps">
         {VIDEO_CAPS.map(c => (
           <li key={c.h} className="a-cap">
