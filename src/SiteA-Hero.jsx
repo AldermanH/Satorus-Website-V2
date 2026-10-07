@@ -279,25 +279,6 @@ export const HeroA = () => {
       </div>
     </section>
 
-    {/* Live demo — the first scroll target after the hero */}
-    <section className="a-section a-hero-demo" id="live-demo">
-      <div className="container">
-        <div className="a-section-head">
-          <div>
-            <div className="a-section-label">The product · live</div>
-            <h2 className="a-section-h">Watch an investigation <em>assemble itself.</em></h2>
-          </div>
-          <p className="a-section-p">Real query. Real subject. Watch Sidney turn raw information into finished intelligence.</p>
-        </div>
-        <div className="a-hero-mockup-wrap">
-          <div className="a-hero-mockup-fade" aria-hidden="true"/>
-          <div className="a-hero-mockup a-hero-mockup-live">
-            <DemoA/>
-          </div>
-        </div>
-      </div>
-    </section>
-
     {/* Trusted-by marquee — disabled until we have real customer logos to show.
         Un-comment the block below to restore it. JSX, CSS (.a-marquee* rules
         in site-a.css), customer SVGs in public/assets/, and the CUSTOMERS /
@@ -327,3 +308,25 @@ export const HeroA = () => {
   </>
   );
 };
+
+// ───────── Live demo — the "Watch Sidney run" target. Rendered by App after
+// the proof band (it used to live inside HeroA's fragment). ─────────
+export const LiveDemoA = () => (
+  <section className="a-section a-hero-demo" id="live-demo">
+    <div className="container">
+      <div className="a-section-head">
+        <div>
+          <div className="a-section-label">The product · live</div>
+          <h2 className="a-section-h">Watch an investigation <em>assemble itself.</em></h2>
+        </div>
+        <p className="a-section-p">Real query. Real subject. Watch Sidney plan, research and grade its way to a sourced first draft.</p>
+      </div>
+      <div className="a-hero-mockup-wrap">
+        <div className="a-hero-mockup-fade" aria-hidden="true"/>
+        <div className="a-hero-mockup a-hero-mockup-live">
+          <DemoA/>
+        </div>
+      </div>
+    </div>
+  </section>
+);

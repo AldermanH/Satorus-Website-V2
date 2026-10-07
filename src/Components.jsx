@@ -35,6 +35,9 @@ export const Icon = ({ name, size = 16, stroke = 1.6, className = "" }) => {
     chevright: <path d="m9 18 6-6-6-6"/>,
     menu: <><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></>,
     x: <><path d="M18 6 6 18"/><path d="m6 6 12 12"/></>,
+    film: <><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 12h4M3 16h4M17 8h4M17 12h4M17 16h4"/></>,
+    refresh: <><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></>,
+    clock: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>,
   };
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
