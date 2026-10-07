@@ -58,8 +58,8 @@ button:focus-visible {
   .a-section { padding: 96px 0; }
   .a-section-head { flex-direction: column; align-items: center; gap: 20px; text-align: center; }
   .a-section-h { font-size: 38px; }
-  .a-product-grid { grid-template-columns: repeat(2, 1fr); }
   .a-foot-row { grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .a-foot-brand { grid-column: 1 / -1; }
 
   /* Header: hide centred desktop menu, surface hamburger */
   .a-hh-mobile-toggle { display: inline-flex; }
@@ -159,7 +159,6 @@ button:focus-visible {
   .a-section { padding: 72px 0; }
   .a-section-h { font-size: 32px; }
   .a-section-head { margin-bottom: 36px; }
-  .a-product-grid { grid-template-columns: 1fr; }
 
   /* Live demo — drop the browser-style chrome (traffic-light dots,
      URL path, "Live" pill) on phone widths so the demo reads as an
@@ -167,7 +166,7 @@ button:focus-visible {
      drop the workspace sidebar and give the body more height so the
      auto-scroll has actual room to reveal the analytical sections. */
   .a-demo-chrome { display: none; }
-  .a-hero-mockup-live .a-demo-body { height: 640px; grid-template-columns: 1fr; }
+  .a-hero-mockup-live .a-demo-body { height: 500px; grid-template-columns: 1fr; }
   .a-demo-side { display: none; }
   /* overflow-y: hidden is set in the default rule (site-a.css) so it
      applies on all viewports; just override the padding here. */
@@ -194,6 +193,12 @@ button:focus-visible {
   .a-actor-section:has(.a-actor-timeline),
   .a-actor-section:has(.a-actor-ops),
   .a-actor-section:has(.a-actor-arms) { display: none; }
+  /* Lighter still on phones: drop the quote blocks, the greeting line and
+     the run-stats footer so the demo is a short, legible loop rather than
+     a long scroll of dense cards. */
+  .a-actor-section:has(.a-actor-quote),
+  .a-demo-greeting,
+  .a-demo-runs { display: none; }
 
   /* Demo finding card — let the head wrap so the title doesn't squeeze */
   .a-finding-head { flex-wrap: wrap; }
@@ -257,7 +262,7 @@ button:focus-visible {
 
   /* Demo — taller body so auto-scroll has room to reveal cards;
      internal padding eased a touch for breathing room. */
-  .a-hero-mockup-live .a-demo-body { height: 580px; }
+  .a-hero-mockup-live .a-demo-body { height: 440px; }
   .a-demo-main { padding: 18px 16px; }
   .a-demo-greeting { font-size: 12px; }
   .a-demo-h { font-size: 15px; margin-bottom: 14px; }

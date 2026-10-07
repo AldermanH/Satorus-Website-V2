@@ -1,8 +1,11 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { withUtm } from "./utm.js";
-import { NavA, HeroA } from "./SiteA-Hero.jsx";
-import { ProductA, UseCasesA, TeamA, FooterA } from "./SiteA-Sections.jsx";
+import { NavA, HeroA, LiveDemoA } from "./SiteA-Hero.jsx";
+import {
+  ProofA, HowItWorksA, GradingA, VideoA, UseCasesA, SecurityA, TeamA,
+  FinalCtaA, FooterA,
+} from "./SiteA-Sections.jsx";
 import { DemoPage } from "./SiteA-DemoPage.jsx";
 import { ShowcaseA } from "./SiteA-Showcase.jsx";
 import { ReportVizA } from "./SiteA-ReportViz.jsx";
@@ -86,6 +89,18 @@ export default function App() {
     />
   );
 
+  // HubSpot tracking (loaded in index.html) records the first page view on
+  // its own. Later client-side route changes are reported here so HubSpot
+  // sees the visitor reach /demo. _hsq is a plain queue array, so pushes made
+  // before the script has loaded are replayed when it arrives.
+  const hsFirstView = React.useRef(true);
+  React.useEffect(() => {
+    if (hsFirstView.current) { hsFirstView.current = false; return; }
+    const hsq = (window._hsq = window._hsq || []);
+    hsq.push(["setPath", window.location.pathname + window.location.search]);
+    hsq.push(["trackPageView"]);
+  }, [path]);
+
   // After every path change, scroll to the URL hash if there is one (so a
   // click on /#company from /demo lands at the team section, not at the top
   // of the homepage). useLayoutEffect runs after DOM mutations but before
@@ -160,9 +175,15 @@ export default function App() {
         ) : (
           <>
             <HeroA/>
-            <ProductA/>
+            <ProofA/>
+            <LiveDemoA/>
+            <HowItWorksA/>
+            <GradingA/>
+            <VideoA/>
             <UseCasesA/>
+            <SecurityA/>
             <TeamA/>
+            <FinalCtaA/>
           </>
         )}
       </main>
